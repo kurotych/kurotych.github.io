@@ -1,4 +1,4 @@
-baseURL = "http://kurotych.com/"
+baseURL = "https://kurotych.github.io"
 languageCode = "en-us"
 theme = "PaperMod"
 defaultContentLanguage = "en"

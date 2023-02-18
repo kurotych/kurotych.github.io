@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Куротич</title>
-    <link>http://kurotych.com/uk/</link>
+    <link>https://kurotych.github.io/uk/</link>
     <description>Recent content on Куротич</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Feb 2023 18:29:46 +0200</lastBuildDate><atom:link href="http://kurotych.com/uk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Feb 2023 18:29:46 +0200</lastBuildDate><atom:link href="https://kurotych.github.io/uk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Як я створив цей сайт</title>
-      <link>http://kurotych.com/uk/posts/how-i-built-this-site/</link>
+      <link>https://kurotych.github.io/uk/posts/how-i-built-this-site/</link>
       <pubDate>Thu, 16 Feb 2023 18:29:46 +0200</pubDate>
       
-      <guid>http://kurotych.com/uk/posts/how-i-built-this-site/</guid>
+      <guid>https://kurotych.github.io/uk/posts/how-i-built-this-site/</guid>
       <description>TODO Українською&amp;hellip;</description>
     </item>
     

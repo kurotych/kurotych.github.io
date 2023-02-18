@@ -2,93 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://kurotych.com/posts/</loc>
+    <loc>https://kurotych.github.io/posts/</loc>
     <lastmod>2023-02-16T18:29:46+02:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
-                href="http://kurotych.com/uk/posts/"
+                href="https://kurotych.github.io/uk/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kurotych.com/posts/"
+                href="https://kurotych.github.io/posts/"
                 />
   </url><url>
-    <loc>http://kurotych.com/posts/how-i-built-this-site1/</loc>
+    <loc>https://kurotych.github.io/posts/how-i-built-this-site1/</loc>
     <lastmod>2023-02-16T18:29:46+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
-                href="http://kurotych.com/uk/posts/how-i-built-this-site/"
+                href="https://kurotych.github.io/uk/posts/how-i-built-this-site/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kurotych.com/posts/how-i-built-this-site1/"
+                href="https://kurotych.github.io/posts/how-i-built-this-site1/"
                 />
   </url><url>
-    <loc>http://kurotych.com/</loc>
+    <loc>https://kurotych.github.io/</loc>
     <lastmod>2023-02-16T18:29:46+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
-                href="http://kurotych.com/uk/"
+                href="https://kurotych.github.io/uk/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kurotych.com/"
+                href="https://kurotych.github.io/"
                 />
   </url><url>
-    <loc>http://kurotych.com/about/</loc>
+    <loc>https://kurotych.github.io/about/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
-                href="http://kurotych.com/uk/about/"
+                href="https://kurotych.github.io/uk/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kurotych.com/about/"
+                href="https://kurotych.github.io/about/"
                 />
   </url><url>
-    <loc>http://kurotych.com/categories/</loc>
+    <loc>https://kurotych.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
-                href="http://kurotych.com/uk/categories/"
+                href="https://kurotych.github.io/uk/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kurotych.com/categories/"
+                href="https://kurotych.github.io/categories/"
                 />
   </url><url>
-    <loc>http://kurotych.com/search/</loc>
+    <loc>https://kurotych.github.io/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
-                href="http://kurotych.com/uk/search/"
+                href="https://kurotych.github.io/uk/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kurotych.com/search/"
+                href="https://kurotych.github.io/search/"
                 />
   </url><url>
-    <loc>http://kurotych.com/tags/</loc>
+    <loc>https://kurotych.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
-                href="http://kurotych.com/uk/tags/"
+                href="https://kurotych.github.io/uk/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kurotych.com/tags/"
+                href="https://kurotych.github.io/tags/"
                 />
   </url>
 </urlset>
