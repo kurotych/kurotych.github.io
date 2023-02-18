@@ -1,0 +1,69 @@
+baseURL = "http://kurotych.com/"
+languageCode = "en-us"
+theme = "PaperMod"
+defaultContentLanguage = "en"
+
+[params]
+displayFullLangName = true
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/kurotych/"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/anatolii-kurotych/"
+
+
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[languages]
+# Ukrainian settings
+[languages.uk]
+    title = "Куротич"
+    contentDir = "content/ukraine"
+    languageName = "UA 🇺🇦"
+[[languages.uk.menu.main]]
+    name = "Про мене"
+    url = "/about/"
+    weight = 1
+[[languages.uk.menu.main]]
+    name = "Пошук"
+    identifier = "search"
+    url = "/search/"
+
+
+[languages.uk.params]
+[languages.uk.params.homeInfoMode]
+enabled = true
+[languages.uk.params.homeInfoParams]
+Title = "Вітаю"
+Content = "На цьому сайті ви маєте змогу найти інформацію про мене та про інженерію програмного забезпечення."
+
+# English settings
+[languages.en]
+    title  = "Kurotych"
+    contentDir = "content/english"
+    languageName = "EN 🇬🇧"
+[[languages.en.menu.main]]
+    name = "About Me"
+    identifier = "about"
+    url = "/about/"
+    weight = 1
+[[languages.en.menu.main]]
+    name = "Search"
+    identifier = "search"
+    url = "/search/"
+
+
+[languages.en.params]
+[languages.en.params.homeInfoMode]
+enabled = true
+[languages.en.params.homeInfoParams]
+Title = "Welcome"
+Content = "Here you can find information about me and Software Engineering."
+
+
+

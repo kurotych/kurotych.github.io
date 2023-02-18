@@ -1,0 +1,23 @@
+{{- if .IsTranslated -}}
+{{- if (ne .Layout "search") }}
+{{- if or .Params.author site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) }}&nbsp;|&nbsp;{{- end -}}
+{{- end }}
+
+{{ if and (ne .File.Path "about/index.md") (ne .File.Path "search.md") }}
+
+{{- i18n "translations" | default "Translations" }}:
+<ul class="i18n_list">
+    {{- range .Translations }}
+    <li>
+        <a href="{{ .Permalink }}">
+            {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
+            {{- .Language.LanguageName | emojify -}}
+            {{- else }}
+            {{- .Lang | title -}}
+            {{- end -}}
+        </a>
+    </li>
+    {{- end }}
+</ul>
+{{- end -}}
+{{ end }}
