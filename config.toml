@@ -14,8 +14,6 @@ url = "https://github.com/kurotych/"
 name = "linkedin"
 url = "https://www.linkedin.com/in/anatolii-kurotych/"
 
-
-
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
