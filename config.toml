@@ -1,7 +1,9 @@
-baseURL = "https://kurotych.github.io"
+baseURL = "https://kurotych.com"
 languageCode = "en-us"
 theme = "PaperMod"
 defaultContentLanguage = "en"
+
+googleAnalytics = "G-HKDH744EMY"
 
 [params]
 displayFullLangName = true
@@ -13,6 +15,14 @@ url = "https://github.com/kurotych/"
 [[params.socialIcons]]
 name = "linkedin"
 url = "https://www.linkedin.com/in/anatolii-kurotych/"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:akurotych@gmail.com"
+
+[[params.socialIcons]]
+name = "telegram"
+url = "https://t.me/armatusmiles"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
@@ -38,7 +48,7 @@ home = ["HTML", "RSS", "JSON"]
 enabled = true
 [languages.uk.params.homeInfoParams]
 Title = "Вітаю"
-Content = "На цьому сайті ви маєте змогу найти інформацію про мене та про інженерію програмного забезпечення."
+Content = "На моєму персональному сайті. Тут ви найдете інформацію про мене та мою професійну діяльність у сфері інженерії ПЗ"
 
 # English settings
 [languages.en]
@@ -61,7 +71,5 @@ Content = "На цьому сайті ви маєте змогу найти ін
 enabled = true
 [languages.en.params.homeInfoParams]
 Title = "Welcome"
-Content = "Here you can find information about me and Software Engineering."
-
-
+Content = "To my personal site. Here you can find information about me and my professional activity in software engineering."
 
