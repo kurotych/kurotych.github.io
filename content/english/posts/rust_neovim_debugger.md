@@ -1,6 +1,7 @@
 ---
 title: "Minimal Setup: Configuring Rust Debugger in Neovim"
 date: 2023-02-20T22:56:10+02:00
+tags: [nvim, rust]
 ---
 ### Prerequirements
 - You know how to setup and configure neovim plugins.
@@ -26,18 +27,13 @@ use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 3. Configure nvim-dap in your `init.lua`
 
 ```lua
--- Update this path to yours!
-local extension_path = '~/Sources/lldb/extension/'
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-
 local dap = require("dap")
 
 dap.adapters.codelldb = {
   type = 'server',
   port = "${port}",
   executable = {
-    -- Change this to yours!
+    -- Change this to your path!
     command = '/home/kurotych/Sources/lldb/extension/adapter/codelldb',
     args = {"--port", "${port}"},
   }
