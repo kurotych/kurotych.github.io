@@ -64,9 +64,19 @@ require("dapui").setup({})
 You can navigate through debug windows by mouse.  
 Execte `:lua require("dapui").close()` - to close all debug windows
 
+### Keybindings
+```lua
+local dap = require('dap')
+vim.keymap.set('n', '<F5>', function() dap.continue() end)
+vim.keymap.set('n', '<F10>', function() dap.step_over() end)
+vim.keymap.set('n', '<F11>', function() dap.step_into() end)
+vim.keymap.set('n', '<F12>', function() dap.step_out() end)
+vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
+vim.keymap.set('n', '<Leader>df', function() require("dapui").float_element('scopes', { enter = true }) end)
+```
+
 ### Additional info
 You can find at plugins repositories [nvim-dap](https://github.com/mfussenegger/nvim-dap) and [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 
-P.S. I like the idea of float elements  
-Example: `:lua require("dapui").float_element('scopes', { enter = true })`  
-{{<details  "Screenshot">}}![img](/images/rust_neovim_debug5.png){{</details>}}
+{{<details  "dapui float_element Screenshot">}}![img](/images/rust_neovim_debug5.png){{</details>}}
