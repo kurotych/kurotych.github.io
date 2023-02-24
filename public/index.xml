@@ -14,7 +14,7 @@
       
       <guid>https://kurotych.com/posts/rust_neovim_debugger/</guid>
       <description>Prerequirements You know how to setup and configure neovim plugins. You use UNIX-like OS Step-by-Step guide Install the next neovim plugins nvim-dap nvim-dap-ui -- Example with packer.nvim use(&amp;#34;mfussenegger/nvim-dap&amp;#34;) use { &amp;#34;rcarriga/nvim-dap-ui&amp;#34;, requires = {&amp;#34;mfussenegger/nvim-dap&amp;#34;} } Install vscode-lldb
-Download file specific to your system https://github.com/vadimcn/vscode-lldb/releases Unpuck it by unzip utility. In my case I unpacked it to ~/Sources/lldb The result of execution unzip codelldb-x86_64-linux.vsix in ~/Sources/lldb: codelldb execution file is available by path: ~/Sources/lldb/extension/adapter Configure nvim-dap in your init.</description>
+Download file specific to your system https://github.com/vadimcn/vscode-lldb/releases Unpack it by unzip utility. In my case I unpacked it to ~/Sources/lldb The result of execution unzip codelldb-x86_64-linux.vsix in ~/Sources/lldb: codelldb execution file is available by path: ~/Sources/lldb/extension/adapter Configure nvim-dap in your init.</description>
     </item>
     
     <item>

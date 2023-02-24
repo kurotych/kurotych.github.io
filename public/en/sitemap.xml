@@ -2,20 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://kurotych.com/posts/</loc>
-    <lastmod>2023-02-20T22:56:10+02:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="uk"
-                href="https://kurotych.com/uk/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://kurotych.com/posts/"
-                />
-  </url><url>
     <loc>https://kurotych.com/</loc>
     <lastmod>2023-02-20T22:56:10+02:00</lastmod>
     <xhtml:link
@@ -32,6 +18,38 @@
     <loc>https://kurotych.com/posts/rust_neovim_debugger/</loc>
     <lastmod>2023-02-20T22:56:10+02:00</lastmod>
   </url><url>
+    <loc>https://kurotych.com/tags/nvim/</loc>
+    <lastmod>2023-02-20T22:56:10+02:00</lastmod>
+  </url><url>
+    <loc>https://kurotych.com/posts/</loc>
+    <lastmod>2023-02-20T22:56:10+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="https://kurotych.com/uk/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kurotych.com/posts/"
+                />
+  </url><url>
+    <loc>https://kurotych.com/tags/rust/</loc>
+    <lastmod>2023-02-20T22:56:10+02:00</lastmod>
+  </url><url>
+    <loc>https://kurotych.com/tags/</loc>
+    <lastmod>2023-02-20T22:56:10+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="https://kurotych.com/uk/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kurotych.com/tags/"
+                />
+  </url><url>
     <loc>https://kurotych.com/posts/how-i-built-this-site1/</loc>
     <lastmod>2023-02-16T18:29:46+02:00</lastmod>
     <xhtml:link
@@ -46,7 +64,6 @@
                 />
   </url><url>
     <loc>https://kurotych.com/about/</loc>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="uk"
@@ -80,18 +97,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://kurotych.com/search/"
-                />
-  </url><url>
-    <loc>https://kurotych.com/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="uk"
-                href="https://kurotych.com/uk/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://kurotych.com/tags/"
                 />
   </url>
 </urlset>

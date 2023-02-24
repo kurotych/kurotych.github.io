@@ -4,7 +4,6 @@
   <url>
     <loc>https://kurotych.com/uk/posts/</loc>
     <lastmod>2023-02-16T18:29:46+02:00</lastmod>
-    <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,19 +41,6 @@
                 href="https://kurotych.com/uk/posts/how-i-built-this-site/"
                 />
   </url><url>
-    <loc>https://kurotych.com/uk/about/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://kurotych.com/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="uk"
-                href="https://kurotych.com/uk/about/"
-                />
-  </url><url>
     <loc>https://kurotych.com/uk/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -89,6 +75,18 @@
                 rel="alternate"
                 hreflang="uk"
                 href="https://kurotych.com/uk/search/"
+                />
+  </url><url>
+    <loc>https://kurotych.com/uk/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kurotych.com/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="uk"
+                href="https://kurotych.com/uk/about/"
                 />
   </url>
 </urlset>
