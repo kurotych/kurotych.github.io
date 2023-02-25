@@ -3,6 +3,7 @@ languageCode = "en-us"
 theme = "PaperMod"
 defaultContentLanguage = "en"
 googleAnalytics = "G-HKDH744EMY"
+enableRobotsTXT = false
 
 [params]
 displayFullLangName = true
