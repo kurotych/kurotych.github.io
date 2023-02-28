@@ -61,9 +61,15 @@ Content = "На моєму персональному сайті. Тут ви н
     url = "/about/"
     weight = 1
 [[languages.en.menu.main]]
+    name = "Tags"
+    identifier = "tags"
+    url = "/tags/"
+    weight = 3
+[[languages.en.menu.main]]
     name = "Search"
     identifier = "search"
     url = "/search/"
+    weight = 2
 
 
 [languages.en.params]
