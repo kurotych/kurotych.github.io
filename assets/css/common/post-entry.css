@@ -102,3 +102,23 @@
     color: var(--secondary);
     box-shadow: 0 1px 0 var(--primary);
 }
+
+@media screen and (max-width: 468px) {
+  .about-me-img {
+    float: right;
+    height: auto;
+    width:468px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 469px) {
+  .about-me-img {
+    float: right;
+    height: auto;
+    width: 300px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}

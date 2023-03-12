@@ -1,8 +1,7 @@
 ---
 title: "Anatolii Kurotych"
 ---
-<img src="/images/ava.jpg" height="auto" width="300" style="float: right; margin: 2rem;"></a>
-<br>
+<img src="/images/ava.jpg" class="about-me-img" style="margin-top: 5px;"></a>
 I’m a Software Engineer from Ukraine with leadership qualities, ambitions, and a background.
 [Open source contributor.](https://github.com/kurotych)    
 I have around 6 years of professional experience in startups and companies with legacy codebases 
