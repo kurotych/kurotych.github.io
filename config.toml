@@ -5,6 +5,9 @@ defaultContentLanguage = "en"
 googleAnalytics = "G-HKDH744EMY"
 enableRobotsTXT = false
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [params]
 displayFullLangName = true
 
