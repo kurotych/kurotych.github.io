@@ -4,12 +4,29 @@ theme = "PaperMod"
 defaultContentLanguage = "en"
 googleAnalytics = "G-HKDH744EMY"
 enableRobotsTXT = false
+displayFullLangName = true
+title  = "Kurotych 🇺🇦"
 
 [markup.goldmark.renderer]
-  unsafe = true
+unsafe = true
 
-[params]
-displayFullLangName = true
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+    name = "About Me"
+    identifier = "about"
+    url = "/about/"
+    weight = 1
+[[menu.main]]
+    name = "CV"
+    identifier = "cv"
+    url = "/cv.pdf"
+    weight = 2
+
+[[params.socialIcons]]
+name = "rss"
+url = "/index.xml"
 
 [[params.socialIcons]]
 name = "github"
@@ -27,58 +44,10 @@ url = "mailto:akurotych@gmail.com"
 name = "telegram"
 url = "https://t.me/armatusmiles"
 
-[outputs]
-home = ["HTML", "RSS", "JSON"]
-
-[languages]
-# Ukrainian settings
-[languages.uk]
-    title = "Куротич"
-    contentDir = "content/ukraine"
-    languageName = "UA 🇺🇦"
-[[languages.uk.menu.main]]
-    name = "Про мене"
-    url = "/about/"
-    weight = 1
-[[languages.uk.menu.main]]
-    name = "Пошук"
-    identifier = "search"
-    url = "/search/"
-
-
-[languages.uk.params]
-[languages.uk.params.homeInfoMode]
+[params.homeInfoMode]
 enabled = true
-[languages.uk.params.homeInfoParams]
-Title = "Вітаю"
-Content = "На моєму персональному сайті. Тут ви найдете інформацію про мене та мою професійну діяльність у сфері інженерії ПЗ"
-
-# English settings
-[languages.en]
-    title  = "Kurotych"
-    contentDir = "content/english"
-    languageName = "EN 🇬🇧"
-[[languages.en.menu.main]]
-    name = "About Me"
-    identifier = "about"
-    url = "/about/"
-    weight = 1
-[[languages.en.menu.main]]
-    name = "Tags"
-    identifier = "tags"
-    url = "/tags/"
-    weight = 3
-[[languages.en.menu.main]]
-    name = "Search"
-    identifier = "search"
-    url = "/search/"
-    weight = 2
-
-
-[languages.en.params]
-[languages.en.params.homeInfoMode]
-enabled = true
-[languages.en.params.homeInfoParams]
+[params.homeInfoParams]
 Title = "Welcome"
 Content = "To my personal site. Here you can find information about me and my professional activity in software engineering."
+
 

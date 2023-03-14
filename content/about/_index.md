@@ -7,7 +7,7 @@ I’m a Software Engineer from Ukraine with leadership qualities, ambitions, and
 I have around 6 years of professional experience in startups and companies with legacy codebases 
 where used many different programming languages and technologies.
 
-More information about my skills in (TODO CV)
+More information about my skills in [CV](/cv.pdf)
 
 {{<details   "I'm open for new opportunities 💼">}}
 Please write me about your project and responsibilities/expectations for a candidate at my email (akurotych@gmail.com).  
@@ -35,7 +35,7 @@ Since I use **Neovim** as IDE I started to use **Lua** to build plugins for it.
 {{</details>}}
 
 
-{{<details  "My life">}}
+{{<details  "My life 🇺🇦">}}
 I'm a confident person and usually, know what I want.  
 My photos can tell better about my versatility not only in the tech sphere but also in my personal life.  
 Check [my Instagram](https://www.instagram.com/kurotych/), also this is my [chess skill](https://lichess.org/@/ArmatusMiles/perf/rapid) and [books I read](https://www.goodreads.com/review/list/120072199-anatolii?shelf=read)
