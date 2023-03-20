@@ -91,4 +91,4 @@ Parse and validate SIP Messages according to RFC3261 with Rust.
 Can be seen on my [Linkedin page](https://www.linkedin.com/in/anatolii-kurotych/)  
 
 ## Languages 
-Ukrainian(Native), English(B1-B2), Russian(Native)
+Ukrainian(Native), English(B1), Russian(Native)
