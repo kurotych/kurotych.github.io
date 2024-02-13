@@ -1,5 +1,6 @@
 ---
 title: "Minimal Setup: Configuring Rust Debugger in Neovim"
+description: "Configuring rust debugger in neovim"
 date: 2023-02-20T22:56:10+02:00
 tags: [nvim, rust]
 ---
