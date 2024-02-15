@@ -2,7 +2,6 @@
 title: "Building and Deploying Rust Binaries Across Linux Distributions."
 date: 2024-02-11T13:09:33+02:00
 tags: [rust, docker]
-description: "Building and Deploying Rust Binaries Across Linux Distributions"
 ---
 
 The Rust ecosystem has numerous platforms and extensive documentation to support cross-compilation features.

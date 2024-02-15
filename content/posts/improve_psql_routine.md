@@ -2,9 +2,6 @@
 title: "Improve software development routine. Local database setup."
 date: 2023-11-17T11:11:08+03:00
 tags: [psql, sqlant, adminer, plantuml, mermaid]
-description: "Improve software development routine with adminer and sqlant"
-header:
-  image: "/images/sqlant.png"
 ---
 
 Almost all software developers use databases in their daily routines.
