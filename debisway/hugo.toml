@@ -135,7 +135,7 @@ github_project_repo = "https://github.com/google/docsy"
 github_branch= "main"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "d72aa9b2712488cc3"
+gcs_engine_id = "a2b19c552e55a45e4"
 
 # Enable Lunr.js offline search
 offlineSearch = false
