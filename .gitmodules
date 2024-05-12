@@ -1,3 +1,3 @@
 [submodule "themes/PaperMod"]
-	path = themes/PaperMod
+	path = kurotych.com/themes/PaperMod
 	url = git@github.com:adityatelange/hugo-PaperMod.git
