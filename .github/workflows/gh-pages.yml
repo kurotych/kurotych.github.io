@@ -21,8 +21,13 @@ jobs:
           hugo-version: 'latest'
           # extended: true
 
-      - name: Build
+      - name: Build kurotych.com
+        working-directory: ./kurotych.com
         run: hugo --minify
+      
+      - name: Build kurotych.com/debisway
+        working-directory: ./debisway
+        run: hugo --minify -d ../kurotych.com/public/debisway
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
