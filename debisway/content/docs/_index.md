@@ -1,29 +1,25 @@
 ---
-title: Documentation
+title: Debisway
 linkTitle: Docs
 menu: {main: {weight: 20}}
 weight: 20
 ---
 
 {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
+Instructions and list of applications after Debian (Stable) Standard System Utilities installed.  
 {{% /pageinfo %}}
 
-This section is where the user documentation for your project lives - all the
-information your users need to understand and successfully use your project.
+This documentation developed primarily to have structured wiki to my operation system because things are forgotten over time.  
+But hope people will find something useful here.
 
-For large documentation sets we recommend adding content under the headings in
-this section, though if some or all of them don’t apply to your project feel
-free to remove them or add your own. You can see an example of a smaller Docsy
-documentation site in the [Docsy User Guide](https://docsy.dev/docs/), which
-lives in the [Docsy theme
-repo](https://github.com/google/docsy/tree/master/userguide) if you'd like to
-copy its docs section.
+# Who might find this useful
+A person who wants a stable, fast, simple, and minimalistic working environment. Someone who is comfortable working in Linux, terminals, and ready to work with a Tiling Window Manager (Sway).
 
-Other content such as marketing material, case studies, and community updates
-should live in the [About](/about/) and [Community](/community/) pages.
 
-Find out how to use the Docsy theme in the [Docsy User
-Guide](https://docsy.dev/docs/). You can learn more about how to organize your
-documentation (and how we organized this site) in [Organizing Your
-Content](https://docsy.dev/docs/best-practices/organizing-content/).
+# Motivation 
+The OS must be configurable and well-documented as much as possible to make professionals comfortable to work with.
+
+# Links
+- [Debisway Github repository](https://github.com/kurotych/kurotych.github.io/tree/main/debisway)
+- [My neovim config](https://github.com/kurotych/nvim)
+- [About me](https://kurotych.com/about)
