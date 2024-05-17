@@ -13,7 +13,7 @@ This documentation developed primarily to have structured wiki to my operation s
 But hope people will find something useful here.
 
 # Who might find this useful
-A person who wants a stable, fast, simple, and minimalistic working environment. Someone who is comfortable working in Linux, terminals, and ready to work with a Tiling Window Manager (Sway).
+A person who wants a stable, fast, simple, and minimalistic working environment. Someone who is comfortable working in Linux, terminals, and ready to work with a Tiling Window Manager ([Sway](https://swaywm.org/)).
 
 
 # Motivation 
