@@ -100,6 +100,7 @@ anchor = "smart"
 # section = ["HTML", "print", "RSS"]
 
 [params]
+debisway_scripts_url = "kurotych.com/debisway/scripts"
 privacy_policy = "https://policies.google.com/privacy"
 
 disable_click2copy_chroma = true
@@ -144,7 +145,7 @@ github_branch= "main"
 offlineSearch = true
 
 # Enable syntax highlighting and copy buttons on code blocks with Prism
-prism_syntax_highlighting = false
+prism_syntax_highlighting = true
 
 [params.copyright]
   authors = "Docsy Authors | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | "

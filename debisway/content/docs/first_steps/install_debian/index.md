@@ -1,5 +1,5 @@
 ---
-title: Install debian
+title: Install debian (bookworm)
 weight: 1
 sidebar_position: 20
 resources:
@@ -31,7 +31,7 @@ nvme0n1     259:1    0 931.5G  0 disk
 {{% alert title="Warning" color="warning" %}}
 Be aware, that the methods described here will destroy anything already on the device! Make very sure that you use the correct device name for your USB stick.
 {{% /alert %}}
-```
+```bash
 ❯ sudo cp debian-12.5.0-amd64-netinst.iso /dev/sda
 ❯ sudo sync
 ```
@@ -40,7 +40,7 @@ Be aware, that the methods described here will destroy anything already on the d
 
 ## Install minimal deps at the beginning
 {{< imgproc deb-inst Fill "786x484" >}}
-During installation of image choose "standard system utilities" only
+During the installation of the image, choose only "standard system utilities".
 {{< /imgproc >}}
 
 ### Links
