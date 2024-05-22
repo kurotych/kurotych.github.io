@@ -1,12 +1,11 @@
 ---
-title: Install curl
-description: You need it to download files and scripts from the ethernet
+title: 3. Install git & curl
+description: You need it to download (source) files and scripts from the ethernet
 weight: 3
-sidebar_position: 20
 ---
 
 ```bash
-sudo apt install curl
+sudo apt install git curl
 ```
 
 # Links

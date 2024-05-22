@@ -1,8 +1,7 @@
 ---
-title: Install neovim
+title: 4. Install text editor (Neovim)
 description: Downloading and installing Neovim on your PC, excluding the configuration part, **which greatly enhances its usability**.
 weight: 4
-sidebar_position: 20
 ---
 
 {{< card code=true header="Check the latest stable neovim release (optional)" lang="bash">}}

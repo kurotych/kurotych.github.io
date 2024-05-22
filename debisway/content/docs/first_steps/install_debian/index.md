@@ -1,5 +1,5 @@
 ---
-title: Install debian (bookworm)
+title: 1.Install debian (bookworm)
 weight: 1
 sidebar_position: 20
 resources:

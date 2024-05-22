@@ -1,7 +1,6 @@
 ---
-title: Add user to sudoers
+title: 2. Add user to sudoers
 weight: 2
-sidebar_position: 20
 ---
 
 1. `su --login`
