@@ -119,11 +119,9 @@
 </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  if (typeof window.TelegramWebview !== 'undefined') {
-        document.body.innerHTML = "<h1>Access Denied</h1><p>This page is not accessible via Telegram Web.</p>";
-        document.body.style.textAlign = "center";
-        throw new Error("Blocked for Telegram Web Client");
-    }
-}
+  if("TelegramWebview" in window ||  "TelegramWebviewProxy" in window ||  "TelegramWebviewProxyProto" in window) {
+    document.body.innerHTML = "<h1>Access Denied</h1><p>This page is not accessible via Telegram Web.</p>";
+    document.body.style.textAlign = "center";
+  }
 </script>
 {{- end }}
