@@ -1,0 +1,122 @@
+
+{{- define "main" }}
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  {{- partial "head.html" . }}
+</head>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">My Certificates</h2>
+  <div class="row g-4">
+    {{ range $index, $cert := .Params.certificates }}
+    <div class="col-md-4">
+      <div class="card">
+        <img src="../certificates/{{ $cert.preview }}" class="card-img-top" alt="Certificate 1" data-bs-toggle="modal" data-bs-target="#certificateModal{{ $index }}">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ $cert.text }}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade custom-modal" id="certificateModal{{ $index }}" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ $cert.text }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <iframe src="../certificates/{{ $cert.pdf }}#toolbar=0&view=fit" class="pdf-iframe"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+<style>
+  .main {
+    position: relative;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    max-width: calc(var(--main-width) + var(--gap) * 8);
+    margin: auto;
+    padding: var(--gap);
+}
+
+  .modal-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+  }
+
+  /* Ensure modal-body takes full height */
+  .modal-body {
+    height: 100vh;
+  }
+
+  /* Ensure iframe fills the entire modal */
+  .pdf-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Adjust for smaller screens */
+  @media (max-width: 768px) {
+    .modal-content {
+      height: 100vh;
+      border-radius: 0; /* Removes border-radius for fullscreen effect */
+    }
+  }
+
+  .custom-modal .modal-dialog {
+  max-width: calc(100vw - 2rem); /* Full width minus 2rem (1rem each side) */
+  max-height: calc(100vh - 2rem); /* Full height minus 2rem (1rem each side) */
+  margin: 1rem auto; /* Centers modal with 1rem margin */
+  width: 95vw;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-modal .modal-content {
+  width: 95vw;
+  height: 95%;
+}
+
+.custom-modal .modal-body {
+  height: 100%; /* Ensure the iframe fills the modal */
+  padding: 0;
+}
+
+.custom-modal .pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Ensure all cards have the same height */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Makes all cards equal height */
+}
+
+/* Make the image fit within the card */
+.card-img-top {
+  object-fit: cover; /* Ensures images keep aspect ratio */
+  width: 100%;
+  height: 200px; /* Set a fixed height for uniformity */
+}
+
+/* Ensure card-body fills the remaining space */
+.card-body {
+  flex: 1; /* Makes text container take remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers text inside */
+  text-align: center;
+}
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{{- end }}

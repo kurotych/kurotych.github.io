@@ -18,6 +18,12 @@ home = ["HTML", "RSS", "JSON"]
     identifier = "about"
     url = "/about/"
     weight = 1
+[[menu.main]]
+    name = "Certificates"
+    identifier = "certificates"
+    url = "/certificates/"
+    weight = 2
+
 # [[menu.main]]
 #     name = "CV"
 #     identifier = "cv"
@@ -50,5 +56,3 @@ enabled = true
 [params.homeInfoParams]
 Title = "Welcome"
 Content = "To my personal site. Here you can find information about me and my professional activity in software engineering."
-
-
