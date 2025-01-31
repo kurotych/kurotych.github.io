@@ -1,12 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Kurotych 🇺🇦</title><link>https://kurotych.com/</link><description>Recent content on Kurotych 🇺🇦</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 11 Feb 2024 13:09:33 +0200</lastBuildDate><atom:link href="https://kurotych.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Building and Deploying Rust Binaries Across Linux Distributions.</title><link>https://kurotych.com/posts/distributing-rust-binaries/</link><pubDate>Sun, 11 Feb 2024 13:09:33 +0200</pubDate><guid>https://kurotych.com/posts/distributing-rust-binaries/</guid><description>The Rust ecosystem has numerous platforms and extensive documentation to support cross-compilation features.
-But does it work as expected?
-Well, if your binary has few shared library dependencies, then it likely will. Compiling for x86_64-unknown-linux-musl significantly increases the likelihood that your binary will operate across different Linux distributions.
-However, the reality in production can be quite different. We still encounter dependency hell, and many Rust crates rely on shared libraries that may have varying names and paths.</description></item><item><title>Improve software development routine. Local database setup.</title><link>https://kurotych.com/posts/improve_psql_routine/</link><pubDate>Fri, 17 Nov 2023 11:11:08 +0300</pubDate><guid>https://kurotych.com/posts/improve_psql_routine/</guid><description>Almost all software developers use databases in their daily routines.
-The inconveniences can come when you need to work with different types of databases or different versions. Fortunately, there is a common way to work with all popular databases.
-Prerequirements: Linux, Docker.
-1. Start database server and DB management tool With docker, you can run whatever database you want without installation hassle.
-Let&amp;rsquo;s take the PostgreSQL db as an example.</description></item><item><title>Minimal Setup: Configuring Rust Debugger in Neovim</title><link>https://kurotych.com/posts/rust_neovim_debugger/</link><pubDate>Mon, 20 Feb 2023 22:56:10 +0200</pubDate><guid>https://kurotych.com/posts/rust_neovim_debugger/</guid><description>Prerequirements You know how to setup and configure neovim plugins. You use UNIX-like OS Step-by-Step guide Install the next neovim plugins nvim-dap nvim-dap-ui -- Example with packer.nvim use(&amp;#34;mfussenegger/nvim-dap&amp;#34;) use { &amp;#34;rcarriga/nvim-dap-ui&amp;#34;, requires = {&amp;#34;mfussenegger/nvim-dap&amp;#34;} } Install vscode-lldb
-Download file specific to your system https://github.com/vadimcn/vscode-lldb/releases Unpack it by unzip utility. In my case I unpacked it to ~/Sources/lldb The result of execution unzip codelldb-x86_64-linux.vsix in ~/Sources/lldb: codelldb execution file is available by path: ~/Sources/lldb/extension/adapter Configure nvim-dap in your init.</description></item><item><title>Tech description of this site</title><link>https://kurotych.com/posts/how-i-built-this-site1/</link><pubDate>Thu, 16 Feb 2023 18:29:46 +0200</pubDate><guid>https://kurotych.com/posts/how-i-built-this-site1/</guid><description>Technologies This site hosted by github pages and built by hugo plus hugo-PaperMod theme.
-Hugo I choose Hugo because it&amp;rsquo;s fast, and I like the simplicity of filling the site content with Markdown. Having i18n out-of-box also a big advantage of this tool.
-Github pages Provides ready to use CI/CD process. Which means my site automatically updates after commit pushed to repository.1
-Costs It costs my only price of domain kurotych.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Kurotych 🇺🇦</title><link>https://kurotych.com/</link><description>Recent content on Kurotych 🇺🇦</description><generator>Hugo -- 0.142.0</generator><language>en-us</language><lastBuildDate>Sun, 11 Feb 2024 13:09:33 +0200</lastBuildDate><atom:link href="https://kurotych.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Building and Deploying Rust Binaries Across Linux Distributions.</title><link>https://kurotych.com/posts/distributing-rust-binaries/</link><pubDate>Sun, 11 Feb 2024 13:09:33 +0200</pubDate><guid>https://kurotych.com/posts/distributing-rust-binaries/</guid><description>&lt;p>The Rust ecosystem has numerous platforms and extensive documentation to support cross-compilation features.&lt;/p>
+&lt;p>But does it work as expected?&lt;/p>
+&lt;p>Well, if your binary has few shared library dependencies,
+then it likely will. Compiling for &lt;code>x86_64-unknown-linux-musl&lt;/code> significantly increases the likelihood that your binary will operate across different
+Linux distributions.&lt;/p>
+&lt;p>&lt;strong>However&lt;/strong>, the reality in production can be quite different.
+We still encounter dependency hell, and many Rust crates rely on shared libraries that may have varying names and paths.&lt;/p></description></item><item><title>Improve software development routine. Local database setup.</title><link>https://kurotych.com/posts/improve_psql_routine/</link><pubDate>Fri, 17 Nov 2023 11:11:08 +0300</pubDate><guid>https://kurotych.com/posts/improve_psql_routine/</guid><description>&lt;p>Almost all software developers use databases in their daily routines.&lt;/p>
+&lt;p>The inconveniences can come when you need to work with different types of databases
+or different versions. Fortunately, there is a common way to work with all popular databases.&lt;/p>
+&lt;p>&lt;strong>Prerequirements&lt;/strong>: Linux, Docker.&lt;/p>
+&lt;h3 id="1-start-database-server-and-db-management-tool">1. Start database server and DB management tool&lt;/h3>
+&lt;p>With docker, you can run whatever database you want without installation hassle.&lt;/p>
+&lt;p>Let&amp;rsquo;s take the &lt;em>PostgreSQL&lt;/em> db as an example.&lt;/p></description></item><item><title>Minimal Setup: Configuring Rust Debugger in Neovim</title><link>https://kurotych.com/posts/rust_neovim_debugger/</link><pubDate>Mon, 20 Feb 2023 22:56:10 +0200</pubDate><guid>https://kurotych.com/posts/rust_neovim_debugger/</guid><description>&lt;h3 id="prerequirements">Prerequirements&lt;/h3>
+&lt;ul>
+&lt;li>You know how to setup and configure neovim plugins.&lt;/li>
+&lt;li>You use UNIX-like OS&lt;/li>
+&lt;/ul>
+&lt;h3 id="step-by-step-guide">Step-by-Step guide&lt;/h3>
+&lt;ol>
+&lt;li>Install the next neovim plugins&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/mfussenegger/nvim-dap">nvim-dap&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rcarriga/nvim-dap-ui">nvim-dap-ui&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-lua" data-lang="lua">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Example with packer.nvim &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>use(&lt;span style="color:#e6db74">&amp;#34;mfussenegger/nvim-dap&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>use { &lt;span style="color:#e6db74">&amp;#34;rcarriga/nvim-dap-ui&amp;#34;&lt;/span>, requires &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;mfussenegger/nvim-dap&amp;#34;&lt;/span>} }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>
+&lt;p>Install vscode-lldb&lt;/p>
+&lt;ol>
+&lt;li>Download file specific to your system &lt;a href="https://github.com/vadimcn/vscode-lldb/releases">https://github.com/vadimcn/vscode-lldb/releases&lt;/a>&lt;/li>
+&lt;li>Unpack it by &lt;code>unzip&lt;/code> utility. In my case I unpacked it to &lt;code>~/Sources/lldb&lt;/code>
+The result of execution &lt;code>unzip codelldb-x86_64-linux.vsix&lt;/code> in &lt;code>~/Sources/lldb&lt;/code>:
+&lt;img alt="img" loading="lazy" src="https://kurotych.com/images/rust_neovim_debug1.png">&lt;/li>
+&lt;li>codelldb execution file is available by path: &lt;code>~/Sources/lldb/extension/adapter&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>Configure nvim-dap in your &lt;code>init.lua&lt;/code>&lt;/p></description></item><item><title>Tech description of this site</title><link>https://kurotych.com/posts/how-i-built-this-site1/</link><pubDate>Thu, 16 Feb 2023 18:29:46 +0200</pubDate><guid>https://kurotych.com/posts/how-i-built-this-site1/</guid><description>&lt;h3 id="technologies">Technologies&lt;/h3>
+&lt;p>This site hosted by &lt;a href="https://pages.github.com/">github pages&lt;/a> and built by &lt;a href="https://gohugo.io/">hugo&lt;/a> plus &lt;a href="https://github.com/adityatelange/hugo-PaperMod">hugo-PaperMod&lt;/a> theme.&lt;/p>
+&lt;h4 id="hugo">Hugo&lt;/h4>
+&lt;p>I choose Hugo because it&amp;rsquo;s fast, and I like the simplicity of filling the site content with Markdown.
+Having i18n out-of-box also a big advantage of this tool.&lt;/p>
+&lt;h4 id="github-pages">Github pages&lt;/h4>
+&lt;p>Provides ready to use CI/CD process. Which means my site automatically updates after commit pushed to repository.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p>
+&lt;h3 id="costs">Costs&lt;/h3>
+&lt;p>It costs my only price of domain kurotych.com&lt;/p>
+&lt;h3 id="helpful-links">Helpful links&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hosting Hugo on Github&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/plembo/84f80c920bb5ac6f19e53fe6f8db1ff7">GitHub Pages with Namecheap custom domain &lt;/a>&lt;/li>
+&lt;/ul>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>You need to have configured workflow in your repository. Check the &lt;a href="https://github.com/kurotych/kurotych.github.io/blob/main/.github/workflows/gh-pages.yml">gh-pages.yml&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p></description></item></channel></rss>

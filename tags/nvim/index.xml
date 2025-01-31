@@ -1,2 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Nvim on Kurotych 🇺🇦</title><link>https://kurotych.com/tags/nvim/</link><description>Recent content in Nvim on Kurotych 🇺🇦</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 20 Feb 2023 22:56:10 +0200</lastBuildDate><atom:link href="https://kurotych.com/tags/nvim/index.xml" rel="self" type="application/rss+xml"/><item><title>Minimal Setup: Configuring Rust Debugger in Neovim</title><link>https://kurotych.com/posts/rust_neovim_debugger/</link><pubDate>Mon, 20 Feb 2023 22:56:10 +0200</pubDate><guid>https://kurotych.com/posts/rust_neovim_debugger/</guid><description>Prerequirements You know how to setup and configure neovim plugins. You use UNIX-like OS Step-by-Step guide Install the next neovim plugins nvim-dap nvim-dap-ui -- Example with packer.nvim use(&amp;#34;mfussenegger/nvim-dap&amp;#34;) use { &amp;#34;rcarriga/nvim-dap-ui&amp;#34;, requires = {&amp;#34;mfussenegger/nvim-dap&amp;#34;} } Install vscode-lldb
-Download file specific to your system https://github.com/vadimcn/vscode-lldb/releases Unpack it by unzip utility. In my case I unpacked it to ~/Sources/lldb The result of execution unzip codelldb-x86_64-linux.vsix in ~/Sources/lldb: codelldb execution file is available by path: ~/Sources/lldb/extension/adapter Configure nvim-dap in your init.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Nvim on Kurotych 🇺🇦</title><link>https://kurotych.com/tags/nvim/</link><description>Recent content in Nvim on Kurotych 🇺🇦</description><generator>Hugo -- 0.142.0</generator><language>en-us</language><lastBuildDate>Mon, 20 Feb 2023 22:56:10 +0200</lastBuildDate><atom:link href="https://kurotych.com/tags/nvim/index.xml" rel="self" type="application/rss+xml"/><item><title>Minimal Setup: Configuring Rust Debugger in Neovim</title><link>https://kurotych.com/posts/rust_neovim_debugger/</link><pubDate>Mon, 20 Feb 2023 22:56:10 +0200</pubDate><guid>https://kurotych.com/posts/rust_neovim_debugger/</guid><description>&lt;h3 id="prerequirements">Prerequirements&lt;/h3>
+&lt;ul>
+&lt;li>You know how to setup and configure neovim plugins.&lt;/li>
+&lt;li>You use UNIX-like OS&lt;/li>
+&lt;/ul>
+&lt;h3 id="step-by-step-guide">Step-by-Step guide&lt;/h3>
+&lt;ol>
+&lt;li>Install the next neovim plugins&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/mfussenegger/nvim-dap">nvim-dap&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rcarriga/nvim-dap-ui">nvim-dap-ui&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-lua" data-lang="lua">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">-- Example with packer.nvim &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>use(&lt;span style="color:#e6db74">&amp;#34;mfussenegger/nvim-dap&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>use { &lt;span style="color:#e6db74">&amp;#34;rcarriga/nvim-dap-ui&amp;#34;&lt;/span>, requires &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;mfussenegger/nvim-dap&amp;#34;&lt;/span>} }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>
+&lt;p>Install vscode-lldb&lt;/p>
+&lt;ol>
+&lt;li>Download file specific to your system &lt;a href="https://github.com/vadimcn/vscode-lldb/releases">https://github.com/vadimcn/vscode-lldb/releases&lt;/a>&lt;/li>
+&lt;li>Unpack it by &lt;code>unzip&lt;/code> utility. In my case I unpacked it to &lt;code>~/Sources/lldb&lt;/code>
+The result of execution &lt;code>unzip codelldb-x86_64-linux.vsix&lt;/code> in &lt;code>~/Sources/lldb&lt;/code>:
+&lt;img alt="img" loading="lazy" src="https://kurotych.com/images/rust_neovim_debug1.png">&lt;/li>
+&lt;li>codelldb execution file is available by path: &lt;code>~/Sources/lldb/extension/adapter&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;p>Configure nvim-dap in your &lt;code>init.lua&lt;/code>&lt;/p></description></item></channel></rss>
