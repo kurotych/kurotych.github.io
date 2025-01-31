@@ -116,19 +116,13 @@
   justify-content: center; /* Centers text inside */
   text-align: center;
 }
-
 </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Function to detect Telegram in-app browser
-  function isTelegramInAppBrowser() {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    return /Telegram/i.test(userAgent);
-  }
-
-  // Redirect to default browser if accessed from Telegram in-app browser
-  if (isTelegramInAppBrowser()) {
-    window.location.href = window.location.href; // This will prompt the user to open in default browser
-  }
+  if (/TelegramWeb/i.test(navigator.userAgent)) {
+    document.body.innerHTML = "<h1>Access Denied</h1><p>This page is not accessible via Telegram Web.</p>";
+    document.body.style.textAlign = "center";
+    throw new Error("Blocked for Telegram Web Client");
+}
 </script>
 {{- end }}
