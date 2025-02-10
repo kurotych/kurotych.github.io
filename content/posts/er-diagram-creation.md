@@ -10,6 +10,6 @@ Article: https://lnkd.in/dCi2xPr5
 
 Video presentation
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
-  <iframe src="http://www.youtube.com/embed/y1LlT5Z3RYQ?start=3346"
+  <iframe src="https://www.youtube.com/embed/y1LlT5Z3RYQ?start=3346"
   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video"></iframe>
 </div>
