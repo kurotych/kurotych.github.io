@@ -2,7 +2,7 @@
 &lt;p>Article: &lt;a href="https://lnkd.in/dCi2xPr5">https://lnkd.in/dCi2xPr5&lt;/a>&lt;/p>
 &lt;p>Video presentation&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
-&lt;iframe src="http://www.youtube.com/embed/y1LlT5Z3RYQ?start=3346"
+&lt;iframe src="https://www.youtube.com/embed/y1LlT5Z3RYQ?start=3346"
 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0" title="YouTube Video">&lt;/iframe>
 &lt;/div></description></item><item><title>Building and Deploying Rust Binaries Across Linux Distributions.</title><link>https://kurotych.com/posts/distributing-rust-binaries/</link><pubDate>Sun, 11 Feb 2024 13:09:33 +0200</pubDate><guid>https://kurotych.com/posts/distributing-rust-binaries/</guid><description>&lt;p>The Rust ecosystem has numerous platforms and extensive documentation to support cross-compilation features.&lt;/p>
 &lt;p>But does it work as expected?&lt;/p>
