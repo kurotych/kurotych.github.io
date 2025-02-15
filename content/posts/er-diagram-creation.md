@@ -1,6 +1,7 @@
 ---
 title: "Optimizing the Process of ER Diagram Creation with PlantUML"
 date: 2025-02-10T10:54:30+02:00
+tags: [psql, sqlant, plantuml]
 ---
 
 My article, "Optimizing the Process of ER Diagram Creation with PlantUML", has been published in the Proceedings of the 7th Workshop for Young Scientists in Computer Science & Software Engineering (CS&SE@SW 2024), where I describe usage of PlantUML and [sqlant](https://github.com/kurotych/sqlant)
