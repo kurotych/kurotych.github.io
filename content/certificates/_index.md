@@ -2,6 +2,10 @@
 title: "Certificates"
 layout: "single"
 certificates:
+    - pdf: des-2025-cert.pdf
+      preview: des-2025.jpg
+      text: Data engineering and security 2025. Winter school.
+
     - pdf: csse_presentation.pdf 
       preview: csse_presentation.jpg 
       text: Certificate of participation and presentation. 7th Workshop for Young Scientistsin Computer Science & Software Engineering. (12.2024)
