@@ -4,7 +4,7 @@ layout: "single"
 certificates:
     - pdf: des-2025-cert.pdf
       preview: des-2025.jpg
-      text: Data engineering and security 2025. Winter school.
+      text: Data engineering and security 2025. Winter school (02.2025)
 
     - pdf: csse_presentation.pdf 
       preview: csse_presentation.jpg 
