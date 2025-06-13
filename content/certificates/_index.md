@@ -2,6 +2,10 @@
 title: "Certificates"
 layout: "single"
 certificates:
+    - pdf: cyber-fund.pdf
+      preview: cyber-fund.jpg
+      text: Cybersecurity Fundamentals (06.2025)
+
     - pdf: des-2025-cert.pdf
       preview: des-2025.jpg
       text: Data engineering and security 2025. Winter school (02.2025)
