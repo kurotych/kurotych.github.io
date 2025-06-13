@@ -36,7 +36,7 @@ certificates:
 
     - pdf: math_think.pdf 
       preview: math_think.jpg
-      text: Mathematical Thinking in Compu ter Science (10.2021)
+      text: Mathematical Thinking in Computer Science (10.2021)
 
     - pdf: daps.pdf 
       preview: daps.jpg
