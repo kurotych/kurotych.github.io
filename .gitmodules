@@ -1,3 +1,6 @@
 [submodule "themes/PaperMod"]
 	path = themes/PaperMod
 	url = git@github.com:adityatelange/hugo-PaperMod.git
+[submodule "programming-python-2sem"]
+	path = programming-python-2sem
+	url = git@github.com:kurotych/programming-python-2sem.git

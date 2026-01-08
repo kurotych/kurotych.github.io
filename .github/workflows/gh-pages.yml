@@ -15,14 +15,33 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs dependencies
+        run: |
+          pip install -r programming-python-2sem/requirements.txt
+
+      - name: Build MkDocs site
+        run: |
+          cd programming-python-2sem
+          mkdocs build
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.142.0'
           # extended: true
 
-      - name: Build
+      - name: Build Hugo site
         run: hugo --minify
+
+      - name: Copy MkDocs site to Hugo public directory
+        run: |
+          mkdir -p ./public/programming-2sem
+          cp -r programming-python-2sem/site/* ./public/programming-2sem/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
