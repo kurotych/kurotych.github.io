@@ -65,9 +65,15 @@ enabled = true
       name = "Про мене"
       identifier = "about"
       url = "/ua/about/"
-      weight = 1
+      weight = 2
     [[languages.ua.menu.main]]
       name = "Сертифікати"
       identifier = "certificates"
       url = "/ua/certificates/"
-      weight = 2
+      weight = 3
+    [[languages.ua.menu.main]]
+      name = "Курси"
+      identifier = "courses"
+      url = "/ua/courses/"
+      weight = 1
+
