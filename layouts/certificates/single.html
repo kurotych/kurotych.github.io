@@ -11,12 +11,12 @@
   </script>
 </head>
 <div class="container mt-5">
-  <h2 class="text-center mb-4">My Certificates</h2>
+  <h2 class="text-center mb-4">{{ i18n "my_certificates" | default "My Certificates" }}</h2>
   <div class="row g-4">
     {{ range $index, $cert := .Params.certificates }}
     <div class="col-md-4">
       <div class="card">
-        <img src="../certificates/{{ $cert.preview }}" class="card-img-top" alt="Certificate 1" data-bs-toggle="modal" data-bs-target="#certificateModal{{ $index }}">
+        <img src="/certificates/{{ $cert.preview }}" class="card-img-top" alt="Certificate 1" data-bs-toggle="modal" data-bs-target="#certificateModal{{ $index }}">
         <div class="card-body">
           <h5 class="card-title text-center">{{ $cert.text }}</h5>
         </div>
@@ -30,7 +30,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <iframe src="../certificates/{{ $cert.pdf }}#toolbar=0&view=fit" class="pdf-iframe"></iframe>
+            <iframe src="/certificates/{{ $cert.pdf }}#toolbar=0&view=fit" class="pdf-iframe"></iframe>
           </div>
         </div>
       </div>

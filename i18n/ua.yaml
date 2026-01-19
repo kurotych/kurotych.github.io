@@ -1,0 +1,10 @@
+- id: recent_posts
+  translation: "Останні публікації"
+- id: my_certificates
+  translation: "Мої сертифікати"
+- id: words
+  translation:
+    one: "слово"
+    other: "{{ .Count }} слів"
+- id: edit_post
+  translation: "Редагувати"

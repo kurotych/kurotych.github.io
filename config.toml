@@ -1,5 +1,4 @@
 baseURL = "https://kurotych.com"
-languageCode = "en-us"
 theme = "PaperMod"
 defaultContentLanguage = "en"
 googleAnalytics = "G-HKDH744EMY"
@@ -12,24 +11,6 @@ unsafe = true
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
-
-[[menu.main]]
-    name = "About Me"
-    identifier = "about"
-    url = "/about/"
-    weight = 1
-[[menu.main]]
-    name = "Certificates"
-    identifier = "certificates"
-    url = "/certificates/"
-    weight = 2
-
-# [[menu.main]]
-#     name = "CV"
-#     identifier = "cv"
-#     url = "/cv.pdf"
-#     weight = 2
-
 
 [[params.socialIcons]]
 name = "github"
@@ -53,6 +34,40 @@ url = "/index.xml"
 
 [params.homeInfoMode]
 enabled = true
-[params.homeInfoParams]
-Title = "Welcome"
-Content = "To my personal site. Here you can find information about me and my professional activity in software engineering."
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    languageCode = "en-us"
+    weight = 1
+    [languages.en.params.homeInfoParams]
+      Title = "Welcome"
+      Content = "To my personal site. Here you can find information about me and my professional activity in software engineering."
+    [[languages.en.menu.main]]
+      name = "About Me"
+      identifier = "about"
+      url = "/about/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Certificates"
+      identifier = "certificates"
+      url = "/certificates/"
+      weight = 2
+
+  [languages.ua]
+    languageName = "Українська"
+    languageCode = "uk"
+    weight = 2
+    [languages.ua.params.homeInfoParams]
+      Title = "Ласкаво просимо"
+      Content = "На мій персональний сайт. Тут ви можете знайти інформацію про мене та мою професійну діяльність у сфері програмної інженерії."
+    [[languages.ua.menu.main]]
+      name = "Про мене"
+      identifier = "about"
+      url = "/ua/about/"
+      weight = 1
+    [[languages.ua.menu.main]]
+      name = "Сертифікати"
+      identifier = "certificates"
+      url = "/ua/certificates/"
+      weight = 2
