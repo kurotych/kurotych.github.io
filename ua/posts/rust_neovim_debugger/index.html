@@ -1,0 +1,246 @@
+<!doctype html><html lang=ua dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Мінімальне налаштування: конфігурація Rust дебагера в Neovim | Kurotych 🇺🇦</title><meta name=keywords content="nvim,rust"><meta name=description content="Передумови
+
+Ви знаєте, як налаштовувати та конфігурувати плагіни neovim.
+Ви використовуєте UNIX-подібну ОС
+
+Покрокова інструкція
+
+Встановіть наступні плагіни neovim
+
+
+nvim-dap
+nvim-dap-ui
+
+-- Приклад з packer.nvim
+use(&#34;mfussenegger/nvim-dap&#34;)
+use { &#34;rcarriga/nvim-dap-ui&#34;, requires = {&#34;mfussenegger/nvim-dap&#34;} }
+
+
+Встановіть vscode-lldb
+
+Завантажте файл, специфічний для вашої системи https://github.com/vadimcn/vscode-lldb/releases
+Розпакуйте його утилітою unzip. У моєму випадку я розпакував у ~/Sources/lldb
+Результат виконання unzip codelldb-x86_64-linux.vsix у ~/Sources/lldb:
+
+Виконуваний файл codelldb доступний за шляхом: ~/Sources/lldb/extension/adapter
+
+
+
+Налаштуйте nvim-dap у вашому init.lua
+
+
+local dap = require(&#34;dap&#34;)
+
+dap.adapters.codelldb = {
+  type = 'server',
+  port = &#34;${port}&#34;,
+  executable = {
+    -- Змініть це на ваш шлях!
+    command = '/home/kurotych/Sources/lldb/extension/adapter/codelldb',
+    args = {&#34;--port&#34;, &#34;${port}&#34;},
+  }
+}
+
+dap.configurations.rust= {
+  {
+    name = &#34;Launch file&#34;,
+    type = &#34;codelldb&#34;,
+    request = &#34;launch&#34;,
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+  },
+}
+
+require(&#34;dapui&#34;).setup({})
+
+Відкрийте будь-яку rust програму та виконайте в командному рядку neovim :lua require(&#34;dap&#34;).toggle_breakpoint() там, де хочете зупинити програму
+
+
+    
+        Скріншот
+    
+    
+
+
+Запустіть :lua require(&#34;dap&#34;).continue() у командному рядку neovim для початку відладки
+
+
+    
+        Скріншот
+    
+    
+
+
+Запустіть :lua require(&#34;dapui&#34;).open()
+
+
+    
+        Скріншот
+    
+    
+
+
+Ви можете переміщатися по вікнах відладки за допомогою миші.
+Виконайте :lua require(&#34;dapui&#34;).close() - щоб закрити всі вікна відладки
+
+Гарячі клавіші
+local dap = require('dap')
+vim.keymap.set('n', '<F5>', function() dap.continue() end)
+vim.keymap.set('n', '<F10>', function() dap.step_over() end)
+vim.keymap.set('n', '<F11>', function() dap.step_into() end)
+vim.keymap.set('n', '<F12>', function() dap.step_out() end)
+vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
+vim.keymap.set('n', '<Leader>df', function() require(&#34;dapui&#34;).float_element('scopes', { enter = true }) end)
+Додаткова інформація
+Ви можете знайти у репозиторіях плагінів nvim-dap та nvim-dap-ui"><meta name=author content><link rel=canonical href=https://kurotych.com/ua/posts/rust_neovim_debugger/><link crossorigin=anonymous href=/assets/css/stylesheet.d21b447d77e1bcda394401e0aa65dca989bcafb1ac81db9ce2c70e5a6fb13f9b.css integrity="sha256-0htEfXfhvNo5RAHgqmXcqYm8r7Gsgduc4scOWm+xP5s=" rel="preload stylesheet" as=style><link rel=icon href=https://kurotych.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://kurotych.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://kurotych.com/favicon-32x32.png><link rel=apple-touch-icon href=https://kurotych.com/apple-touch-icon.png><link rel=mask-icon href=https://kurotych.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://kurotych.com/posts/rust_neovim_debugger/><link rel=alternate hreflang=ua href=https://kurotych.com/ua/posts/rust_neovim_debugger/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY"></script><script>var doNotTrack=!1,dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes";if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-HKDH744EMY")}</script><meta property="og:url" content="https://kurotych.com/ua/posts/rust_neovim_debugger/"><meta property="og:site_name" content="Kurotych 🇺🇦"><meta property="og:title" content="Мінімальне налаштування: конфігурація Rust дебагера в Neovim"><meta property="og:description" content="Передумови Ви знаєте, як налаштовувати та конфігурувати плагіни neovim. Ви використовуєте UNIX-подібну ОС Покрокова інструкція Встановіть наступні плагіни neovim nvim-dap nvim-dap-ui -- Приклад з packer.nvim use(&#34;mfussenegger/nvim-dap&#34;) use { &#34;rcarriga/nvim-dap-ui&#34;, requires = {&#34;mfussenegger/nvim-dap&#34;} } Встановіть vscode-lldb
+Завантажте файл, специфічний для вашої системи https://github.com/vadimcn/vscode-lldb/releases Розпакуйте його утилітою unzip. У моєму випадку я розпакував у ~/Sources/lldb Результат виконання unzip codelldb-x86_64-linux.vsix у ~/Sources/lldb: Виконуваний файл codelldb доступний за шляхом: ~/Sources/lldb/extension/adapter Налаштуйте nvim-dap у вашому init.lua
+local dap = require(&#34;dap&#34;) dap.adapters.codelldb = { type = 'server', port = &#34;${port}&#34;, executable = { -- Змініть це на ваш шлях! command = '/home/kurotych/Sources/lldb/extension/adapter/codelldb', args = {&#34;--port&#34;, &#34;${port}&#34;}, } } dap.configurations.rust= { { name = &#34;Launch file&#34;, type = &#34;codelldb&#34;, request = &#34;launch&#34;, program = function() return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file') end, cwd = '${workspaceFolder}', stopOnEntry = false, }, } require(&#34;dapui&#34;).setup({}) Відкрийте будь-яку rust програму та виконайте в командному рядку neovim :lua require(&#34;dap&#34;).toggle_breakpoint() там, де хочете зупинити програму Скріншот Запустіть :lua require(&#34;dap&#34;).continue() у командному рядку neovim для початку відладки Скріншот Запустіть :lua require(&#34;dapui&#34;).open() Скріншот Ви можете переміщатися по вікнах відладки за допомогою миші. Виконайте :lua require(&#34;dapui&#34;).close() - щоб закрити всі вікна відладки Гарячі клавіші local dap = require('dap') vim.keymap.set('n', '<F5>', function() dap.continue() end) vim.keymap.set('n', '<F10>', function() dap.step_over() end) vim.keymap.set('n', '<F11>', function() dap.step_into() end) vim.keymap.set('n', '<F12>', function() dap.step_out() end) vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end) vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end) vim.keymap.set('n', '<Leader>df', function() require(&#34;dapui&#34;).float_element('scopes', { enter = true }) end) Додаткова інформація Ви можете знайти у репозиторіях плагінів nvim-dap та nvim-dap-ui"><meta property="og:locale" content="uk"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-02-20T22:56:10+02:00"><meta property="article:modified_time" content="2023-02-20T22:56:10+02:00"><meta property="article:tag" content="Nvim"><meta property="article:tag" content="Rust"><meta name=twitter:card content="summary"><meta name=twitter:title content="Мінімальне налаштування: конфігурація Rust дебагера в Neovim"><meta name=twitter:description content="Передумови
+
+Ви знаєте, як налаштовувати та конфігурувати плагіни neovim.
+Ви використовуєте UNIX-подібну ОС
+
+Покрокова інструкція
+
+Встановіть наступні плагіни neovim
+
+
+nvim-dap
+nvim-dap-ui
+
+-- Приклад з packer.nvim
+use(&#34;mfussenegger/nvim-dap&#34;)
+use { &#34;rcarriga/nvim-dap-ui&#34;, requires = {&#34;mfussenegger/nvim-dap&#34;} }
+
+
+Встановіть vscode-lldb
+
+Завантажте файл, специфічний для вашої системи https://github.com/vadimcn/vscode-lldb/releases
+Розпакуйте його утилітою unzip. У моєму випадку я розпакував у ~/Sources/lldb
+Результат виконання unzip codelldb-x86_64-linux.vsix у ~/Sources/lldb:
+
+Виконуваний файл codelldb доступний за шляхом: ~/Sources/lldb/extension/adapter
+
+
+
+Налаштуйте nvim-dap у вашому init.lua
+
+
+local dap = require(&#34;dap&#34;)
+
+dap.adapters.codelldb = {
+  type = 'server',
+  port = &#34;${port}&#34;,
+  executable = {
+    -- Змініть це на ваш шлях!
+    command = '/home/kurotych/Sources/lldb/extension/adapter/codelldb',
+    args = {&#34;--port&#34;, &#34;${port}&#34;},
+  }
+}
+
+dap.configurations.rust= {
+  {
+    name = &#34;Launch file&#34;,
+    type = &#34;codelldb&#34;,
+    request = &#34;launch&#34;,
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+  },
+}
+
+require(&#34;dapui&#34;).setup({})
+
+Відкрийте будь-яку rust програму та виконайте в командному рядку neovim :lua require(&#34;dap&#34;).toggle_breakpoint() там, де хочете зупинити програму
+
+
+    
+        Скріншот
+    
+    
+
+
+Запустіть :lua require(&#34;dap&#34;).continue() у командному рядку neovim для початку відладки
+
+
+    
+        Скріншот
+    
+    
+
+
+Запустіть :lua require(&#34;dapui&#34;).open()
+
+
+    
+        Скріншот
+    
+    
+
+
+Ви можете переміщатися по вікнах відладки за допомогою миші.
+Виконайте :lua require(&#34;dapui&#34;).close() - щоб закрити всі вікна відладки
+
+Гарячі клавіші
+local dap = require('dap')
+vim.keymap.set('n', '<F5>', function() dap.continue() end)
+vim.keymap.set('n', '<F10>', function() dap.step_over() end)
+vim.keymap.set('n', '<F11>', function() dap.step_into() end)
+vim.keymap.set('n', '<F12>', function() dap.step_out() end)
+vim.keymap.set('n', '<Leader>b', function() dap.toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>dl', function() dap.run_last() end)
+vim.keymap.set('n', '<Leader>df', function() require(&#34;dapui&#34;).float_element('scopes', { enter = true }) end)
+Додаткова інформація
+Ви можете знайти у репозиторіях плагінів nvim-dap та nvim-dap-ui"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Публікації","item":"https://kurotych.com/ua/posts/"},{"@type":"ListItem","position":2,"name":"Мінімальне налаштування: конфігурація Rust дебагера в Neovim","item":"https://kurotych.com/ua/posts/rust_neovim_debugger/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Мінімальне налаштування: конфігурація Rust дебагера в Neovim","name":"Мінімальне налаштування: конфігурація Rust дебагера в Neovim","description":"Передумови Ви знаєте, як налаштовувати та конфігурувати плагіни neovim. Ви використовуєте UNIX-подібну ОС Покрокова інструкція Встановіть наступні плагіни neovim nvim-dap nvim-dap-ui -- Приклад з packer.nvim use(\u0026#34;mfussenegger/nvim-dap\u0026#34;) use { \u0026#34;rcarriga/nvim-dap-ui\u0026#34;, requires = {\u0026#34;mfussenegger/nvim-dap\u0026#34;} } Встановіть vscode-lldb\nЗавантажте файл, специфічний для вашої системи https://github.com/vadimcn/vscode-lldb/releases Розпакуйте його утилітою unzip. У моєму випадку я розпакував у ~/Sources/lldb Результат виконання unzip codelldb-x86_64-linux.vsix у ~/Sources/lldb: Виконуваний файл codelldb доступний за шляхом: ~/Sources/lldb/extension/adapter Налаштуйте nvim-dap у вашому init.lua\nlocal dap = require(\u0026#34;dap\u0026#34;) dap.adapters.codelldb = { type = \u0026#39;server\u0026#39;, port = \u0026#34;${port}\u0026#34;, executable = { -- Змініть це на ваш шлях! command = \u0026#39;/home/kurotych/Sources/lldb/extension/adapter/codelldb\u0026#39;, args = {\u0026#34;--port\u0026#34;, \u0026#34;${port}\u0026#34;}, } } dap.configurations.rust= { { name = \u0026#34;Launch file\u0026#34;, type = \u0026#34;codelldb\u0026#34;, request = \u0026#34;launch\u0026#34;, program = function() return vim.fn.input(\u0026#39;Path to executable: \u0026#39;, vim.fn.getcwd() .. \u0026#39;/\u0026#39;, \u0026#39;file\u0026#39;) end, cwd = \u0026#39;${workspaceFolder}\u0026#39;, stopOnEntry = false, }, } require(\u0026#34;dapui\u0026#34;).setup({}) Відкрийте будь-яку rust програму та виконайте в командному рядку neovim :lua require(\u0026quot;dap\u0026quot;).toggle_breakpoint() там, де хочете зупинити програму Скріншот Запустіть :lua require(\u0026quot;dap\u0026quot;).continue() у командному рядку neovim для початку відладки Скріншот Запустіть :lua require(\u0026quot;dapui\u0026quot;).open() Скріншот Ви можете переміщатися по вікнах відладки за допомогою миші. Виконайте :lua require(\u0026quot;dapui\u0026quot;).close() - щоб закрити всі вікна відладки Гарячі клавіші local dap = require(\u0026#39;dap\u0026#39;) vim.keymap.set(\u0026#39;n\u0026#39;, \u0026#39;\u0026lt;F5\u0026gt;\u0026#39;, function() dap.continue() end) vim.keymap.set(\u0026#39;n\u0026#39;, \u0026#39;\u0026lt;F10\u0026gt;\u0026#39;, function() dap.step_over() end) vim.keymap.set(\u0026#39;n\u0026#39;, \u0026#39;\u0026lt;F11\u0026gt;\u0026#39;, function() dap.step_into() end) vim.keymap.set(\u0026#39;n\u0026#39;, \u0026#39;\u0026lt;F12\u0026gt;\u0026#39;, function() dap.step_out() end) vim.keymap.set(\u0026#39;n\u0026#39;, \u0026#39;\u0026lt;Leader\u0026gt;b\u0026#39;, function() dap.toggle_breakpoint() end) vim.keymap.set(\u0026#39;n\u0026#39;, \u0026#39;\u0026lt;Leader\u0026gt;dl\u0026#39;, function() dap.run_last() end) vim.keymap.set(\u0026#39;n\u0026#39;, \u0026#39;\u0026lt;Leader\u0026gt;df\u0026#39;, function() require(\u0026#34;dapui\u0026#34;).float_element(\u0026#39;scopes\u0026#39;, { enter = true }) end) Додаткова інформація Ви можете знайти у репозиторіях плагінів nvim-dap та nvim-dap-ui\n","keywords":["nvim","rust"],"articleBody":"Передумови Ви знаєте, як налаштовувати та конфігурувати плагіни neovim. Ви використовуєте UNIX-подібну ОС Покрокова інструкція Встановіть наступні плагіни neovim nvim-dap nvim-dap-ui -- Приклад з packer.nvim use(\"mfussenegger/nvim-dap\") use { \"rcarriga/nvim-dap-ui\", requires = {\"mfussenegger/nvim-dap\"} } Встановіть vscode-lldb\nЗавантажте файл, специфічний для вашої системи https://github.com/vadimcn/vscode-lldb/releases Розпакуйте його утилітою unzip. У моєму випадку я розпакував у ~/Sources/lldb Результат виконання unzip codelldb-x86_64-linux.vsix у ~/Sources/lldb: Виконуваний файл codelldb доступний за шляхом: ~/Sources/lldb/extension/adapter Налаштуйте nvim-dap у вашому init.lua\nlocal dap = require(\"dap\") dap.adapters.codelldb = { type = 'server', port = \"${port}\", executable = { -- Змініть це на ваш шлях! command = '/home/kurotych/Sources/lldb/extension/adapter/codelldb', args = {\"--port\", \"${port}\"}, } } dap.configurations.rust= { { name = \"Launch file\", type = \"codelldb\", request = \"launch\", program = function() return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file') end, cwd = '${workspaceFolder}', stopOnEntry = false, }, } require(\"dapui\").setup({}) Відкрийте будь-яку rust програму та виконайте в командному рядку neovim :lua require(\"dap\").toggle_breakpoint() там, де хочете зупинити програму Скріншот Запустіть :lua require(\"dap\").continue() у командному рядку neovim для початку відладки Скріншот Запустіть :lua require(\"dapui\").open() Скріншот Ви можете переміщатися по вікнах відладки за допомогою миші. Виконайте :lua require(\"dapui\").close() - щоб закрити всі вікна відладки Гарячі клавіші local dap = require('dap') vim.keymap.set('n', '', function() dap.continue() end) vim.keymap.set('n', '', function() dap.step_over() end) vim.keymap.set('n', '', function() dap.step_into() end) vim.keymap.set('n', '', function() dap.step_out() end) vim.keymap.set('n', 'b', function() dap.toggle_breakpoint() end) vim.keymap.set('n', 'dl', function() dap.run_last() end) vim.keymap.set('n', 'df', function() require(\"dapui\").float_element('scopes', { enter = true }) end) Додаткова інформація Ви можете знайти у репозиторіях плагінів nvim-dap та nvim-dap-ui\nСкріншот dapui float_element ","wordCount":"248","inLanguage":"ua","datePublished":"2023-02-20T22:56:10+02:00","dateModified":"2023-02-20T22:56:10+02:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kurotych.com/ua/posts/rust_neovim_debugger/"},"publisher":{"@type":"Organization","name":"Kurotych 🇺🇦","logo":{"@type":"ImageObject","url":"https://kurotych.com/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://kurotych.com/ua/ accesskey=h title="Kurotych 🇺🇦 (Alt + H)">Kurotych 🇺🇦</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li><li><a href=https://kurotych.com/ title=English aria-label=English>En</a></li></ul></div></div><ul id=menu><li><a href=https://kurotych.com/ua/courses/ title=Курси><span>Курси</span></a></li><li><a href=https://kurotych.com/ua/about/ title="Про мене"><span>Про мене</span></a></li><li><a href=https://kurotych.com/ua/certificates/ title=Сертифікати><span>Сертифікати</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">Мінімальне налаштування: конфігурація Rust дебагера в Neovim</h1><div class=post-meta><span title='2023-02-20 22:56:10 +0200 +0200'>February 20, 2023</span>&nbsp;|&nbsp;
+Переклади:<ul class=i18n_list><li><a href=https://kurotych.com/posts/rust_neovim_debugger/>En</a></li></ul></div></header><div class=post-content><h3 id=передумови>Передумови<a hidden class=anchor aria-hidden=true href=#передумови>#</a></h3><ul><li>Ви знаєте, як налаштовувати та конфігурувати плагіни neovim.</li><li>Ви використовуєте UNIX-подібну ОС</li></ul><h3 id=покрокова-інструкція>Покрокова інструкція<a hidden class=anchor aria-hidden=true href=#покрокова-інструкція>#</a></h3><ol><li>Встановіть наступні плагіни neovim</li></ol><ul><li><a href=https://github.com/mfussenegger/nvim-dap>nvim-dap</a></li><li><a href=https://github.com/rcarriga/nvim-dap-ui>nvim-dap-ui</a></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#75715e>-- Приклад з packer.nvim</span>
+</span></span><span style=display:flex><span>use(<span style=color:#e6db74>&#34;mfussenegger/nvim-dap&#34;</span>)
+</span></span><span style=display:flex><span>use { <span style=color:#e6db74>&#34;rcarriga/nvim-dap-ui&#34;</span>, requires <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;mfussenegger/nvim-dap&#34;</span>} }
+</span></span></code></pre></div><ol start=2><li><p>Встановіть vscode-lldb</p><ol><li>Завантажте файл, специфічний для вашої системи <a href=https://github.com/vadimcn/vscode-lldb/releases>https://github.com/vadimcn/vscode-lldb/releases</a></li><li>Розпакуйте його утилітою <code>unzip</code>. У моєму випадку я розпакував у <code>~/Sources/lldb</code>
+Результат виконання <code>unzip codelldb-x86_64-linux.vsix</code> у <code>~/Sources/lldb</code>:
+<img alt=img loading=lazy src=/images/rust_neovim_debug1.png></li><li>Виконуваний файл codelldb доступний за шляхом: <code>~/Sources/lldb/extension/adapter</code></li></ol></li><li><p>Налаштуйте nvim-dap у вашому <code>init.lua</code></p></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#66d9ef>local</span> dap <span style=color:#f92672>=</span> require(<span style=color:#e6db74>&#34;dap&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>dap.adapters.codelldb <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  type <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;server&#39;</span>,
+</span></span><span style=display:flex><span>  port <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;${port}&#34;</span>,
+</span></span><span style=display:flex><span>  executable <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>-- Змініть це на ваш шлях!</span>
+</span></span><span style=display:flex><span>    command <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;/home/kurotych/Sources/lldb/extension/adapter/codelldb&#39;</span>,
+</span></span><span style=display:flex><span>    args <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;--port&#34;</span>, <span style=color:#e6db74>&#34;${port}&#34;</span>},
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>dap.configurations.rust<span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  {
+</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Launch file&#34;</span>,
+</span></span><span style=display:flex><span>    type <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;codelldb&#34;</span>,
+</span></span><span style=display:flex><span>    request <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;launch&#34;</span>,
+</span></span><span style=display:flex><span>    program <span style=color:#f92672>=</span> <span style=color:#66d9ef>function</span>()
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>return</span> vim.fn.input(<span style=color:#e6db74>&#39;Path to executable: &#39;</span>, vim.fn.getcwd() <span style=color:#f92672>..</span> <span style=color:#e6db74>&#39;/&#39;</span>, <span style=color:#e6db74>&#39;file&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>end</span>,
+</span></span><span style=display:flex><span>    cwd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;${workspaceFolder}&#39;</span>,
+</span></span><span style=display:flex><span>    stopOnEntry <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>  },
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>require(<span style=color:#e6db74>&#34;dapui&#34;</span>).setup({})
+</span></span></code></pre></div><ol start=4><li>Відкрийте будь-яку rust програму та виконайте в командному рядку neovim <code>:lua require("dap").toggle_breakpoint()</code> там, де хочете зупинити програму<details><summary>Скріншот</summary><img alt=img loading=lazy src=/images/rust_neovim_debug2.png></details></li><li>Запустіть <code>:lua require("dap").continue()</code> у командному рядку neovim для початку відладки<details><summary>Скріншот</summary><img alt=img loading=lazy src=/images/rust_neovim_debug3.png></details></li><li>Запустіть <code>:lua require("dapui").open()</code><details><summary>Скріншот</summary><img alt=img loading=lazy src=/images/rust_neovim_debug4.png></details>Ви можете переміщатися по вікнах відладки за допомогою миші.
+Виконайте <code>:lua require("dapui").close()</code> - щоб закрити всі вікна відладки</li></ol><h3 id=гарячі-клавіші>Гарячі клавіші<a hidden class=anchor aria-hidden=true href=#гарячі-клавіші>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#66d9ef>local</span> dap <span style=color:#f92672>=</span> require(<span style=color:#e6db74>&#39;dap&#39;</span>)
+</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;F5&gt;&#39;</span>, <span style=color:#66d9ef>function</span>() dap.continue() <span style=color:#66d9ef>end</span>)
+</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;F10&gt;&#39;</span>, <span style=color:#66d9ef>function</span>() dap.step_over() <span style=color:#66d9ef>end</span>)
+</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;F11&gt;&#39;</span>, <span style=color:#66d9ef>function</span>() dap.step_into() <span style=color:#66d9ef>end</span>)
+</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;F12&gt;&#39;</span>, <span style=color:#66d9ef>function</span>() dap.step_out() <span style=color:#66d9ef>end</span>)
+</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;Leader&gt;b&#39;</span>, <span style=color:#66d9ef>function</span>() dap.toggle_breakpoint() <span style=color:#66d9ef>end</span>)
+</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;Leader&gt;dl&#39;</span>, <span style=color:#66d9ef>function</span>() dap.run_last() <span style=color:#66d9ef>end</span>)
+</span></span><span style=display:flex><span>vim.keymap.set(<span style=color:#e6db74>&#39;n&#39;</span>, <span style=color:#e6db74>&#39;&lt;Leader&gt;df&#39;</span>, <span style=color:#66d9ef>function</span>() require(<span style=color:#e6db74>&#34;dapui&#34;</span>).float_element(<span style=color:#e6db74>&#39;scopes&#39;</span>, { enter <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span> }) <span style=color:#66d9ef>end</span>)
+</span></span></code></pre></div><h3 id=додаткова-інформація>Додаткова інформація<a hidden class=anchor aria-hidden=true href=#додаткова-інформація>#</a></h3><p>Ви можете знайти у репозиторіях плагінів <a href=https://github.com/mfussenegger/nvim-dap>nvim-dap</a> та <a href=https://github.com/rcarriga/nvim-dap-ui>nvim-dap-ui</a></p><details><summary>Скріншот dapui float_element</summary><img alt=img loading=lazy src=/images/rust_neovim_debug5.png></details></div><footer class=post-footer><ul class=post-tags><li><a href=https://kurotych.com/ua/tags/nvim/>Nvim</a></li><li><a href=https://kurotych.com/ua/tags/rust/>Rust</a></li></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://kurotych.com/ua/>Kurotych 🇺🇦</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
