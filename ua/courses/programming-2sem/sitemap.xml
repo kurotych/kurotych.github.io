@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://kurotych.com/programming-2sem/</loc>
+         <loc>https://kurotych.com/ua/courses/programming-2sem/</loc>
          <lastmod>2026-01-20</lastmod>
     </url>
     <url>
-         <loc>https://kurotych.com/programming-2sem/module1/01-sqlite-lecture/</loc>
+         <loc>https://kurotych.com/ua/courses/programming-2sem/module1/01-sqlite-lecture/</loc>
          <lastmod>2026-01-20</lastmod>
     </url>
     <url>
-         <loc>https://kurotych.com/programming-2sem/module1/02-sqlite-practice/</loc>
+         <loc>https://kurotych.com/ua/courses/programming-2sem/module1/02-sqlite-practice/</loc>
          <lastmod>2026-01-20</lastmod>
     </url>
     <url>
-         <loc>https://kurotych.com/programming-2sem/module1/03-psycopg2-lecture/</loc>
+         <loc>https://kurotych.com/ua/courses/programming-2sem/module1/03-psycopg2-lecture/</loc>
          <lastmod>2026-01-20</lastmod>
     </url>
     <url>
-         <loc>https://kurotych.com/programming-2sem/module1/04-psycopg2-practice/</loc>
+         <loc>https://kurotych.com/ua/courses/programming-2sem/module1/04-psycopg2-practice/</loc>
          <lastmod>2026-01-20</lastmod>
     </url>
 </urlset>
