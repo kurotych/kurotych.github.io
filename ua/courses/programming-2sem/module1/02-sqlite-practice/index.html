@@ -14,6 +14,8 @@
         <link rel="prev" href="../01-sqlite-lecture/">
       
       
+        <link rel="next" href="../03-psycopg2-lecture/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
@@ -148,6 +150,18 @@
 </div>
     
     
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-2sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-2sem
+  </div>
+</a>
+      </div>
+    
   </nav>
   
 </header>
@@ -183,6 +197,18 @@
     </a>
     Python (2 семестр)
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-2sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-2sem
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -300,6 +326,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-psycopg2-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (Л) Python та PostgreSQL. Робота з бібліотекою psycopg2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-psycopg2-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. (П2) Виконання завдань з Python та PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -319,15 +387,20 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+  
                   
+
+  
+  
 
 
 <h1 id="2-1-python-sqlite3">2. (П1) Виконання завдань з Python та sqlite3<a class="headerlink" href="#2-1-python-sqlite3" title="Permanent link">&para;</a></h1>
 <p>Виконувати лише за допомогою Python коду (без прямого втручання в БД)</p>
-<p>Розробити сервіс який зберігає інформацію про погоду в місті Луцьк (Lutsk) в sqlite бд. <br />
+<p>Розробити сервіс, який зберігає інформацію про погоду в місті Луцьк (Lutsk) в sqlite бд
+використовуючи <a href="https://github.com/chubin/wttr.in">wttr.in</a> API.
 Сервіс повинен підтримувати два command line аргументи:</p>
 <ul>
-<li>service - запускає процес який кожну хвилину зберігає інформацію про температуру в бд</li>
+<li>service - запускає процес, який кожну хвилину зберігає інформацію про температуру в бд</li>
 <li>history - виводить в термінал збережену інформацію (історію) в форматі:<br />
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Weather history from: &lt;ВАШІ ім&#39;я та прізвище&gt;:  
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&lt;Час&gt; &lt;температура&gt;  
@@ -336,8 +409,7 @@
 </span></code></pre></div>
 Час має бути відсортований у спадному порядку.</li>
 </ul>
-<p>Підказка.<br />
-Запит для отримання актуальної температури:
+<p>Приклад запиту для отримання актуальної температури:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://wttr.in/Lutsk?format=%t&quot;</span>
 </span></code></pre></div></p>
 
@@ -353,6 +425,9 @@
 
 
                 
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-2sem/issues">Створіть issue на GitHub</a></em></p>
+
               </article>
             </div>
           
