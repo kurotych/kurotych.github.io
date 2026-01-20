@@ -285,17 +285,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    2. (П1) Виконання завдань з Python та sqlite3
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -305,85 +294,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Мета практичного заняття
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Завдання">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання 1: Створення бази даних
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання 2: Заповнення даними
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання 3: Запити
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання 4: Оновлення та видалення
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -413,34 +323,23 @@
 
 
 <h1 id="2-1-python-sqlite3">2. (П1) Виконання завдань з Python та sqlite3<a class="headerlink" href="#2-1-python-sqlite3" title="Permanent link">&para;</a></h1>
-<h2 id="_1">Мета практичного заняття<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Закріпити навички роботи з SQLite за допомогою бібліотеки sqlite3.</p>
-<h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Завдання виконувати лише за допомогою Python коду (без прямого втручання в БД)</p>
-<h3 id="1">Завдання 1: Створення бази даних<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>Створіть базу даних для системи управління бібліотекою з такими таблицями:</p>
+<p>Виконувати лише за допомогою Python коду (без прямого втручання в БД)</p>
+<p>Розробити сервіс який зберігає інформацію про погоду в місті Луцьк (Lutsk) в sqlite бд. <br />
+Сервіс повинен підтримувати два command line аргументи:</p>
 <ul>
-<li><code>books</code> (id, title, author, year, isbn)</li>
-<li><code>readers</code> (id, name, email, phone)</li>
-<li><code>loans</code> (id, book_id, reader_id, loan_date, return_date)</li>
+<li>service - запускає процес який кожну хвилину зберігає інформацію про температуру в бд</li>
+<li>history - виводить в термінал збережену інформацію (історію) в форматі:<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Weather history from: &lt;ВАШІ ім&#39;я та прізвище&gt;:  
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&lt;Час&gt; &lt;температура&gt;  
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>...  
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>&lt;Час&gt; &lt;температура&gt;  
+</span></code></pre></div>
+Час має бути відсортований у спадному порядку.</li>
 </ul>
-<h3 id="2">Завдання 2: Заповнення даними<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>Додайте тестові дані до всіх таблиць (мінімум 5 записів у кожну).<br />
-<strong>Один з записів readers повинен мати ваше ім'я</strong></p>
-<h3 id="3">Завдання 3: Запити<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>Напишіть запити та оформіть їх у вигляді функцій для:</p>
-<ol>
-<li>Отримання всіх книг певного автора  </li>
-<li>Пошук читачів, які мають незавершені позички (return_date is None) (Запис з вашим іменем повинен мати незавершену позичку)</li>
-<li>Підрахунок кількості книг за роками видання  </li>
-</ol>
-<h3 id="4">Завдання 4: Оновлення та видалення<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>Реалізуйте функції для:</p>
-<ul>
-<li>Оновлення інформації про книгу</li>
-<li>Видалення читача</li>
-<li>Повернення книги (оновлення дати повернення)</li>
-</ul>
+<p>Підказка.<br />
+Запит для отримання актуальної температури:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://wttr.in/Lutsk?format=%t&quot;</span>
+</span></code></pre></div></p>
 
 
 
