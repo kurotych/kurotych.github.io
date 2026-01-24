@@ -26,14 +26,23 @@ hugo --minify
 ## Architecture
 
 - **Hugo site** with PaperMod theme (git submodule at `themes/PaperMod`)
-- **MkDocs submodule** at `programming-python-2sem/` - builds separately and deploys to `/programming-2sem/` path
+- **MkDocs submodule** at `programming-python-2sem/` - builds separately and deploys to `/ua/courses/programming-2sem/` path
 - **GitHub Actions** deploys to GitHub Pages on push to main (`.github/workflows/gh-pages.yml`)
+
+### Multilingual Setup
+
+Site supports English (default) and Ukrainian (`ua`):
+- English content: `content/posts/example.md`, `content/about/_index.md`
+- Ukrainian content: `content/posts/example.ua.md`, `content/about/_index.ua.md`
+- Ukrainian URLs use `/ua/` prefix (e.g., `/ua/about/`)
+- Translations configured in `i18n/en.yaml` and `i18n/ua.yaml`
 
 ### Directory Structure
 
-- `content/posts/` - Blog posts in Markdown
+- `content/posts/` - Blog posts in Markdown (`.md` for English, `.ua.md` for Ukrainian)
 - `content/about/` - About page
 - `content/certificates/` - Certificates page
+- `content/courses/` - Courses page (Ukrainian only)
 - `layouts/partials/` - Custom Hugo partials overriding PaperMod theme
 - `layouts/shortcodes/` - Custom shortcodes (e.g., `details.html` for collapsible sections)
 - `static/` - Static assets (images, PDF, CNAME)
