@@ -8,3 +8,6 @@ hugo serve
 ```bash
 hugo new posts/my-first-post.md
 ```
+
+# Update submodule
+git submodule update --init --remote programming-python-2sem/
