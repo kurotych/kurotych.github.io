@@ -791,24 +791,6 @@
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Context<span class="w"> </span>impl<span class="w"> </span>PostgresqlImpl.
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Will<span class="w"> </span>assume<span class="w"> </span>transactional<span class="w"> </span>DDL.
 </span></code></pre></div>
-<p><strong>Що автогенерація вміє виявляти:</strong></p>
-<ul>
-<li>Нові таблиці</li>
-<li>Видалені таблиці</li>
-<li>Нові колонки</li>
-<li>Видалені колонки</li>
-<li>Зміни типів колонок</li>
-<li>Зміни nullable</li>
-<li>Зміни індексів та унікальних обмежень</li>
-<li>Зміни зовнішніх ключів</li>
-</ul>
-<p><strong>Що автогенерація НЕ вміє виявляти:</strong></p>
-<ul>
-<li>Перейменування таблиць (сприймає як видалення + створення)</li>
-<li>Перейменування колонок</li>
-<li>Зміни в назвах constraint</li>
-</ul>
-<p><strong>Важливо:</strong> Завжди перевіряйте згенеровану міграцію перед застосуванням!</p>
 <h3 id="_6">Приклад повного робочого процесу<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># 1. Ініціалізація Alembic</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>alembic<span class="w"> </span>init<span class="w"> </span>alembic
