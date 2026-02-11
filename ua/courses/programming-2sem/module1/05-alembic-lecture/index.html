@@ -14,6 +14,8 @@
         <link rel="prev" href="../04-psycopg2-practice/">
       
       
+        <link rel="next" href="../06-alembic-practice/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
@@ -540,6 +542,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-alembic-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (П3) Еволюція погодного сервісу з Alembic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -570,13 +593,15 @@
 <h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Що таке міграції бази даних?</li>
-<li>Встановлення Alembic та SQLAlchemy</li>
+<li>Що таке Alembic?</li>
+<li>Встановлення</li>
 <li>Ініціалізація Alembic у проєкті</li>
 <li>Конфігурація Alembic</li>
 <li>Створення міграцій</li>
 <li>Застосування та відкат міграцій</li>
-<li>Автогенерація міграцій на основі моделей</li>
+<li>Приклад повного робочого процесу</li>
 <li>Найкращі практики</li>
+<li>Таблиця alembic_version</li>
 </ol>
 <h3 id="_2">Що таке міграції бази даних?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><strong>Міграція бази даних</strong> — це контрольований спосіб внесення змін до структури бази даних (схеми). Замість ручного виконання SQL-команд <code>ALTER TABLE</code>, <code>CREATE TABLE</code> тощо, міграції дозволяють:</p>
