@@ -14,6 +14,8 @@
         <link rel="prev" href="../03-psycopg2-lecture/">
       
       
+        <link rel="next" href="../05-alembic-lecture/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
@@ -351,6 +353,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4. (П2) Виконання завдань з Python та PostgreSQL
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -361,6 +374,64 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#postgresql-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Команда запуску PostgreSQL за допомогою docker
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-alembic-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (Л) Міграції у PostgreSQL з використанням Python та бібліотеки Alembic
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -393,6 +464,7 @@
 
 
 <h1 id="4-2-python-postgresql">4. (П2) Виконання завдань з Python та PostgreSQL<a class="headerlink" href="#4-2-python-postgresql" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Завдання<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Завдання аналогічне до першої практичної, але на цей раз використати PostgreSQL.</p>
 <p>Виконувати лише за допомогою Python коду (без прямого втручання в БД)</p>
 <p>Розробити сервіс, який зберігає інформацію про погоду в місті Луцьк (Lutsk) в PostgreSQL бд
@@ -411,8 +483,9 @@
 <p>Приклад запиту для отримання актуальної температури:
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://wttr.in/Lutsk?format=%t&quot;</span>
 </span></code></pre></div></p>
-<p>Для запуску PostgreSQL використовуйте Docker:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>my-postgres<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>mydb<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-d<span class="w"> </span>postgres
+<h2 id="postgresql-docker">Команда запуску PostgreSQL за допомогою docker<a class="headerlink" href="#postgresql-docker" title="Permanent link">&para;</a></h2>
+<p>Для запуску PostgreSQL ви можете використати Docker:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>mydb<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-d<span class="w"> </span>postgres
 </span></code></pre></div></p>
 
 
