@@ -48,6 +48,16 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -410,6 +420,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-error-handling-transactions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (Л) Обробка помилок і транзакцій у Python при роботі з PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -440,9 +471,9 @@
 <p>Виконувати лише за допомогою Python коду (без прямого втручання в БД)</p>
 <p>Розробити сервіс, який зберігає інформацію про погоду в місті Луцьк (Lutsk) в sqlite бд
 використовуючи <a href="https://github.com/chubin/wttr.in">wttr.in</a> API.
-Якщо wttr.in не працює, можна використати любий інший сервіс наприклад:
-https://api.open-meteo.com/v1/forecast?latitude=50.7472&amp;longitude=25.3254&amp;current_weather=true
-Сервіс повинен підтримувати два command line аргументи:</p>
+Якщо wttr.in не працює, можна використати любий інший сервіс наприклад:<br />
+<code>https://api.open-meteo.com/v1/forecast?latitude=50.7472&amp;longitude=25.3254&amp;current_weather=true</code>.  </p>
+<p>Ваш сервіс повинен підтримувати два command line аргументи:</p>
 <ul>
 <li>service - запускає процес, який кожну хвилину зберігає інформацію про температуру в бд</li>
 <li>history - виводить в термінал збережену інформацію (історію) в форматі:<br />
@@ -453,8 +484,11 @@ https://api.open-meteo.com/v1/forecast?latitude=50.7472&amp;longitude=25.3254&am
 </span></code></pre></div>
 Час має бути відсортований у спадному порядку.</li>
 </ul>
-<p>Приклад запиту для отримання актуальної температури:
+<p>Приклад запиту для отримання актуальної температури (wttr.in):
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://wttr.in/Lutsk?format=%t&quot;</span>
+</span></code></pre></div></p>
+<p>Приклад запиту для отримання актуальної температури (open-meteo):
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://api.open-meteo.com/v1/forecast?latitude=50.7472&amp;longitude=25.3254&amp;current_weather=true&quot;</span>
 </span></code></pre></div></p>
 
 
@@ -464,6 +498,8 @@ https://api.open-meteo.com/v1/forecast?latitude=50.7472&amp;longitude=25.3254&am
 
 
 
+
+  
 
 
 
