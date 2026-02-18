@@ -611,11 +611,11 @@
 <h1 id="6-3-alembic">6. (П3) Еволюція погодного сервісу з Alembic<a class="headerlink" href="#6-3-alembic" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Виконана практична 04 (погодний сервіс з PostgreSQL)</li>
+<li>Виконана практична 3 (погодний сервіс з PostgreSQL)</li>
 <li>Запущений PostgreSQL (<a href="/ua/courses/programming-2sem/module1/04-psycopg2-practice/#postgresql-docker">інструкція запуску через Docker</a>)</li>
 </ul>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Взяти за основу свій проєкт з практичної 04 та додати до нього Alembic для управління міграціями.
+<p>Взяти за основу свій проєкт з практичної 3 та додати до нього Alembic для управління міграціями.
 Таблицю, яку ви створювали вручну (через Python-код), тепер потрібно створювати через міграції Alembic.</p>
 <h3 id="1-alembic">Крок 1. Ініціалізація Alembic<a class="headerlink" href="#1-alembic" title="Permanent link">&para;</a></h3>
 <ol>
@@ -625,7 +625,7 @@
 <li>Налаштувати підключення до БД в <code>alembic/env.py</code> (див. <a href="/ua/courses/programming-2sem/module1/05-alembic-lecture/">лекцію 05</a>)</li>
 </ol>
 <h3 id="2-weather">Крок 2. Міграція — створення таблиці weather<a class="headerlink" href="#2-weather" title="Permanent link">&para;</a></h3>
-<p>Створити міграцію, яка створює таблицю <code>weather</code> (ту саму, що була в практичній 04):</p>
+<p>Створити міграцію, яка створює таблицю <code>weather</code> (ту саму, що була в практичній 3):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;create weather table&quot;</span>
 </span></code></pre></div>
 <p>Заповнити функції <code>upgrade()</code> та <code>downgrade()</code> у створеному файлі міграції.
