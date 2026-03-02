@@ -14,6 +14,8 @@
         <link rel="prev" href="../10-testing-practice/">
       
       
+        <link rel="next" href="../12-dockerfile-lecture/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
@@ -850,6 +852,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-dockerfile-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Dockerfile. Інструкції (FROM, COPY, RUN, CMD), шари, збірка образів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1248,15 +1271,14 @@
 </span></code></pre></div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1">### Зупинка та видалення</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="sb">```</span>bash
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Зупинити контейнер (дані зберігаються)</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>docker<span class="w"> </span>stop<span class="w"> </span>postgres-dev
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># Запустити знову (дані на місці)</span>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>docker<span class="w"> </span>start<span class="w"> </span>postgres-dev
-</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
-</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="c1"># Видалити контейнер повністю (дані втрачаються!)</span>
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>postgres-dev
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1"># Зупинити контейнер (дані зберігаються)</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>docker<span class="w"> </span>stop<span class="w"> </span>postgres-dev
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># Запустити знову (дані на місці)</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>docker<span class="w"> </span>start<span class="w"> </span>postgres-dev
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="c1"># Видалити контейнер повністю (дані втрачаються!)</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>postgres-dev
 </span></code></pre></div></p>
 <p><strong>Важливо:</strong> за замовчуванням дані в контейнері зберігаються лише до його видалення. Для постійного зберігання даних використовують <strong>томи (volumes)</strong> — ми розглянемо їх у занятті: 14</p>
 <h2 id="_15">Корисні посилання<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
