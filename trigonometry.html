@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Тригонометрія — візуально</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0f0f14;
+    --circle-stroke: #4a4a6a;
+    --sin: #ff6b6b;
+    --cos: #4ecdc4;
+    --tan: #ffd93d;
+    --radius: #e0e0e0;
+    --point: #ffffff;
+    --text: #c8c8d8;
+    --text-bright: #ffffff;
+    --grid: #1a1a24;
+    --accent: #7c5cfc;
+    --card-bg: #16161f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 12px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text-bright);
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: var(--text);
+    font-size: 13px;
+    margin-bottom: 20px;
+    opacity: 0.6;
+    text-align: center;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  .tab-btn {
+    background: #1e1e2a;
+    color: var(--text);
+    border: 1px solid var(--circle-stroke);
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: center;
+  }
+
+  .tab-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  .tab-btn:hover:not(.active) { border-color: var(--accent); }
+
+  .tab-desc {
+    display: block;
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--circle-stroke);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .panel { display: none; width: 100%; }
+  .panel.active { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+
+  svg { width: 100%; max-width: 400px; cursor: grab; touch-action: none; user-select: none; }
+  svg.dragging { cursor: grabbing; }
+
+  .values {
+    display: flex;
+    gap: 24px;
+    font-size: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hint {
+    color: var(--text);
+    font-size: 13px;
+    text-align: center;
+    max-width: 420px;
+    line-height: 1.6;
+  }
+  .hint b { color: var(--text-bright); }
+
+  .bar-wrap { width: 80%; max-width: 340px; }
+  .bar-track {
+    display: flex;
+    height: 28px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--circle-stroke);
+  }
+  .bar-cos { background: var(--cos); transition: width 0.05s; }
+  .bar-sin { background: var(--sin); transition: width 0.05s; }
+  .bar-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .wave-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .wave-btn.paused { background: #333; }
+  .wave-svg { max-width: 480px; }
+</style>
+</head>
+<body>
+
+<h1>Тригонометрія — візуально</h1>
+<p class="subtitle">Інтерактивні ілюстрації · тягни точку, щоб зрозуміти</p>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="circle">🔵 Коло<span class="tab-desc">sin і cos</span></button>
+  <button class="tab-btn" data-tab="tan">📐 Тангенс<span class="tab-desc">нахил</span></button>
+  <button class="tab-btn" data-tab="wave">🌊 Хвиля<span class="tab-desc">синусоїда</span></button>
+  <button class="tab-btn" data-tab="pyth">📏 Піфагор<span class="tab-desc">sin²+cos²=1</span></button>
+</div>
+
+<div class="card">
+
+  <!-- UNIT CIRCLE -->
+  <div class="panel active" id="panel-circle">
+    <svg id="svg-circle" viewBox="0 0 400 400">
+      <line x1="0" y1="200" x2="400" y2="200" stroke="#1a1a24" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="400" stroke="#1a1a24" stroke-width="1"/>
+      <circle cx="200" cy="200" r="140" fill="none" stroke="#4a4a6a" stroke-width="2"/>
+      <text x="200" y="356" fill="#c8c8d8" font-size="12" font-family="monospace" opacity="0.5" text-anchor="middle">r = 1</text>
+      <path id="c-arc" fill="none" stroke="#7c5cfc" stroke-width="2" opacity="0.6"/>
+      <line id="c-cos-line" stroke="#4ecdc4" stroke-width="3" stroke-linecap="round"/>
+      <line id="c-sin-line" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>
+      <line id="c-radius" stroke="#e0e0e0" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4"/>
+      <line id="c-proj-v" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+      <line id="c-proj-h" stroke="#4ecdc4" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+      <circle id="c-point" r="8" fill="#ffffff" stroke="#7c5cfc" stroke-width="2"/>
+      <text id="c-lbl-cos" fill="#4ecdc4" font-size="14" font-weight="700" text-anchor="middle" font-family="monospace">cos</text>
+      <text id="c-lbl-sin" fill="#ff6b6b" font-size="14" font-weight="700" font-family="monospace">sin</text>
+      <text x="390" y="192" fill="#c8c8d8" font-size="12" text-anchor="end" font-family="monospace">x</text>
+      <text x="210" y="14" fill="#c8c8d8" font-size="12" font-family="monospace">y</text>
+      <text id="c-lbl-angle" fill="#7c5cfc" font-size="13" font-family="monospace" font-weight="600"/>
+    </svg>
+    <div class="values">
+      <span id="c-val-cos" style="color:var(--cos)"></span>
+      <span id="c-val-sin" style="color:var(--sin)"></span>
+      <span id="c-val-angle" style="color:var(--accent)"></span>
+      <span id="c-val-rad" style="color:var(--accent);opacity:0.7"></span>
+    </div>
+    <p class="hint">
+      🖱️ Тягни точку по колу. <span style="color:var(--cos)">cos</span> — наскільки вправо,
+      <span style="color:var(--sin)">sin</span> — наскільки вгору.
+    </p>
+  </div>
+
+  <!-- TANGENT -->
+  <div class="panel" id="panel-tan">
+    <svg id="svg-tan" viewBox="0 0 400 400">
+      <line x1="0" y1="200" x2="400" y2="200" stroke="#1a1a24" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="400" stroke="#1a1a24" stroke-width="1"/>
+      <circle cx="200" cy="200" r="120" fill="none" stroke="#4a4a6a" stroke-width="2"/>
+      <text x="200" y="336" fill="#c8c8d8" font-size="12" font-family="monospace" opacity="0.5" text-anchor="middle">r = 1</text>
+      <line x1="320" y1="20" x2="320" y2="380" stroke="#ffd93d" stroke-width="1" stroke-dasharray="6 4" opacity="0.3"/>
+      <text x="326" y="30" fill="#ffd93d" font-size="11" font-family="monospace" opacity="0.5">дотична</text>
+      <line id="t-ext-line" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <line id="t-tan-seg" stroke="#ffd93d" stroke-width="4" stroke-linecap="round"/>
+      <circle id="t-tan-dot" r="5" fill="#ffd93d" style="display:none"/>
+      <line id="t-radius" stroke="#e0e0e0" stroke-width="2" stroke-linecap="round"/>
+      <circle id="t-point" r="7" fill="#ffffff" stroke="#7c5cfc" stroke-width="2"/>
+      <text id="t-lbl-tan" fill="#ffd93d" font-size="14" font-weight="700" font-family="monospace">tan</text>
+      <path id="t-arc" fill="none" stroke="#7c5cfc" stroke-width="2" opacity="0.6"/>
+      <text id="t-lbl-angle" fill="#7c5cfc" font-size="13" font-family="monospace" font-weight="600"/>
+    </svg>
+    <div class="values">
+      <span id="t-val" style="font-size:15px;color:var(--tan)"></span>
+      <span id="t-val-angle" style="font-size:15px;color:var(--accent)"></span>
+      <span id="t-val-rad" style="font-size:15px;color:var(--accent);opacity:0.7"></span>
+    </div>
+    <p class="hint">
+      <span style="color:var(--tan)">tan</span> — це відрізок на дотичній лінії (звідси назва «tangent»).
+      Він показує <b>нахил</b> радіуса. Біля 90° — летить у нескінченність.
+    </p>
+  </div>
+
+  <!-- WAVE -->
+  <div class="panel" id="panel-wave">
+    <svg id="svg-wave" class="wave-svg" viewBox="0 0 460 300">
+      <circle cx="80" cy="150" r="60" fill="none" stroke="#4a4a6a" stroke-width="2"/>
+      <line id="w-radius" stroke="#e0e0e0" stroke-width="1.5"/>
+      <circle id="w-circ-point" r="5" fill="#ffffff" stroke="#7c5cfc" stroke-width="2"/>
+      <line id="w-connect" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+      <line x1="160" y1="150" x2="440" y2="150" stroke="#1a1a24" stroke-width="1"/>
+      <polyline id="w-wave" fill="none" stroke="#ff6b6b" stroke-width="2.5"/>
+      <circle id="w-wave-dot" r="5" fill="#ff6b6b"/>
+      <line id="w-sin-line" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
+      <text x="80" y="234" fill="#c8c8d8" font-size="12" text-anchor="middle" font-family="monospace">обертання</text>
+      <text x="300" y="234" fill="#ff6b6b" font-size="12" text-anchor="middle" font-family="monospace">синусоїда — вигляд «збоку»</text>
+    </svg>
+    <button class="wave-btn" id="wave-toggle">⏸ Пауза</button>
+    <p class="hint">
+      Точка крутиться по колу. Якщо дивитись тільки на її <span style="color:var(--sin)">висоту</span> — отримуємо хвилю-синусоїду.
+      Тому синус з'являється скрізь, де є обертання чи коливання.
+    </p>
+  </div>
+
+  <!-- PYTHAGORAS -->
+  <div class="panel" id="panel-pyth">
+    <svg id="svg-pyth" viewBox="0 0 400 400">
+      <line x1="0" y1="200" x2="400" y2="200" stroke="#1a1a24" stroke-width="1"/>
+      <line x1="200" y1="0" x2="200" y2="400" stroke="#1a1a24" stroke-width="1"/>
+      <circle cx="200" cy="200" r="130" fill="none" stroke="#4a4a6a" stroke-width="2"/>
+      <polygon id="p-tri" fill="#7c5cfc" opacity="0.08"/>
+      <line id="p-cos-side" stroke="#4ecdc4" stroke-width="3" stroke-linecap="round"/>
+      <line id="p-sin-side" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>
+      <line id="p-hyp" stroke="#e0e0e0" stroke-width="2.5" stroke-linecap="round"/>
+      <rect id="p-right-angle" width="12" height="12" fill="none" stroke="#c8c8d8" stroke-width="1" opacity="0.4"/>
+      <circle id="p-point" r="7" fill="#ffffff" stroke="#7c5cfc" stroke-width="2"/>
+      <text id="p-lbl-cos" fill="#4ecdc4" font-size="13" font-weight="700" text-anchor="middle" font-family="monospace"/>
+      <text id="p-lbl-sin" fill="#ff6b6b" font-size="13" font-weight="700" font-family="monospace"/>
+      <text id="p-lbl-r" fill="#ffffff" font-size="13" font-weight="700" font-family="monospace">r=1</text>
+    </svg>
+    <div class="bar-wrap">
+      <div class="bar-track">
+        <div class="bar-cos" id="p-bar-cos"></div>
+        <div class="bar-sin" id="p-bar-sin"></div>
+      </div>
+      <div class="bar-labels">
+        <span id="p-bval-cos" style="color:var(--cos)"></span>
+        <span style="color:var(--text-bright);font-weight:700">= 1.000</span>
+        <span id="p-bval-sin" style="color:var(--sin)"></span>
+      </div>
+    </div>
+    <p class="hint">
+      sin² + cos² = 1 — це просто <b>теорема Піфагора</b> для трикутника в одиничному колі.
+      Як не крути точку, сума квадратів катетів завжди дорівнює 1².
+    </p>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  "use strict";
+
+  var TAU = 2 * Math.PI;
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+  // Tab switching
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.panel');
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Pointer → angle helper
+  function ptrAngle(svg, e, cx, cy, svgW) {
+    var rect = svg.getBoundingClientRect();
+    var scale = svgW / rect.width;
+    var x = (e.clientX - rect.left) * scale - cx;
+    var y = -((e.clientY - rect.top) * scale - cy);
+    return Math.atan2(y, x);
+  }
+
+  // Make SVG draggable
+  function makeDraggable(svg, onMove) {
+    var dragging = false;
+    svg.addEventListener('pointerdown', function(e) {
+      dragging = true;
+      svg.classList.add('dragging');
+      svg.setPointerCapture(e.pointerId);
+      onMove(e);
+    });
+    svg.addEventListener('pointermove', function(e) { if (dragging) onMove(e); });
+    svg.addEventListener('pointerup', function() { dragging = false; svg.classList.remove('dragging'); });
+  }
+
+  function setA(id, attrs) {
+    var el = document.getElementById(id);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+  }
+  function setT(id, txt) { document.getElementById(id).textContent = txt; }
+
+  // Pretty-print radians as fractions of π
+  var RAD_TABLE = [
+    [0, '0'], [1/6, '\u03C0/6'], [1/4, '\u03C0/4'], [1/3, '\u03C0/3'],
+    [1/2, '\u03C0/2'], [2/3, '2\u03C0/3'], [3/4, '3\u03C0/4'], [5/6, '5\u03C0/6'],
+    [1, '\u03C0'], [7/6, '7\u03C0/6'], [5/4, '5\u03C0/4'], [4/3, '4\u03C0/3'],
+    [3/2, '3\u03C0/2'], [5/3, '5\u03C0/3'], [7/4, '7\u03C0/4'], [11/6, '11\u03C0/6'],
+    [2, '2\u03C0']
+  ];
+  function prettyRad(angle) {
+    var norm = ((angle / Math.PI) % 2 + 2) % 2; // 0..2
+    for (var i = 0; i < RAD_TABLE.length; i++) {
+      if (Math.abs(norm - RAD_TABLE[i][0]) < 0.03) return RAD_TABLE[i][1] + ' рад';
+    }
+    return (norm * Math.PI).toFixed(2) + ' рад';
+  }
+
+  // Add radian tick labels around a circle SVG
+  function addRadianTicks(svgEl, cx, cy, r) {
+    var ticks = [
+      [0, '0'], [Math.PI/6, '\u03C0/6'], [Math.PI/4, '\u03C0/4'], [Math.PI/3, '\u03C0/3'],
+      [Math.PI/2, '\u03C0/2'], [2*Math.PI/3, '2\u03C0/3'], [3*Math.PI/4, '3\u03C0/4'], [5*Math.PI/6, '5\u03C0/6'],
+      [Math.PI, '\u03C0'], [7*Math.PI/6, '7\u03C0/6'], [5*Math.PI/4, '5\u03C0/4'], [4*Math.PI/3, '4\u03C0/3'],
+      [3*Math.PI/2, '3\u03C0/2'], [5*Math.PI/3, '5\u03C0/3'], [7*Math.PI/4, '7\u03C0/4'], [11*Math.PI/6, '11\u03C0/6']
+    ];
+    var ns = 'http://www.w3.org/2000/svg';
+    ticks.forEach(function(t) {
+      var a = t[0], lbl = t[1];
+      var cosA = Math.cos(a), sinA = Math.sin(a);
+      // small tick mark
+      var x1 = cx + (r - 4) * cosA, y1 = cy - (r - 4) * sinA;
+      var x2 = cx + (r + 4) * cosA, y2 = cy - (r + 4) * sinA;
+      var line = document.createElementNS(ns, 'line');
+      line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+      line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+      line.setAttribute('stroke', '#7c5cfc'); line.setAttribute('stroke-width', '1.5');
+      line.setAttribute('opacity', '0.4');
+      svgEl.insertBefore(line, svgEl.firstChild.nextSibling.nextSibling);
+      // label for main angles only (multiples of π/2)
+      if (a % (Math.PI / 2) < 0.01) {
+        var tx = cx + (r + 18) * cosA;
+        var ty = cy - (r + 18) * sinA + 4;
+        var text = document.createElementNS(ns, 'text');
+        text.setAttribute('x', tx); text.setAttribute('y', ty);
+        text.setAttribute('fill', '#7c5cfc'); text.setAttribute('font-size', '11');
+        text.setAttribute('font-family', 'monospace'); text.setAttribute('opacity', '0.5');
+        text.setAttribute('text-anchor', 'middle');
+        text.textContent = lbl;
+        svgEl.insertBefore(text, svgEl.firstChild.nextSibling.nextSibling);
+      }
+    });
+  }
+
+  // ===== UNIT CIRCLE =====
+  (function() {
+    var svg = document.getElementById('svg-circle');
+    var cx = 200, cy = 200, r = 140, angle = Math.PI / 4;
+    addRadianTicks(svg, cx, cy, r);
+
+    function draw() {
+      var cosA = Math.cos(angle), sinA = Math.sin(angle);
+      var px = cx + r * cosA, py = cy - r * sinA;
+      var deg = ((angle * 180 / Math.PI) % 360 + 360) % 360;
+      var arcR = 30;
+      var endX = cx + arcR * Math.cos(angle);
+      var endY = cy - arcR * Math.sin(angle);
+      var large = angle > Math.PI ? 1 : angle < 0 ? 1 : 0;
+
+      setA('c-arc', { d: 'M ' + (cx + arcR) + ' ' + cy + ' A ' + arcR + ' ' + arcR + ' 0 ' + large + ' 0 ' + endX + ' ' + endY });
+      setA('c-cos-line', { x1: cx, y1: py, x2: px, y2: py });
+      setA('c-sin-line', { x1: px, y1: cy, x2: px, y2: py });
+      setA('c-radius', { x1: cx, y1: cy, x2: px, y2: py });
+      setA('c-proj-v', { x1: px, y1: py, x2: px, y2: cy });
+      setA('c-proj-h', { x1: px, y1: py, x2: cx, y2: py });
+      setA('c-point', { cx: px, cy: py });
+      setA('c-lbl-cos', { x: lerp(cx, px, 0.5), y: py - 10 });
+      setA('c-lbl-sin', { x: px + 14, y: lerp(cy, py, 0.5) + 4 });
+      setA('c-lbl-angle', { x: cx + 40, y: cy - 8 });
+      setT('c-lbl-angle', deg.toFixed(0) + '\u00B0');
+      setT('c-val-cos', 'cos = ' + cosA.toFixed(3));
+      setT('c-val-sin', 'sin = ' + sinA.toFixed(3));
+      setT('c-val-angle', '\u03B1 = ' + deg.toFixed(1) + '\u00B0');
+      setT('c-val-rad', prettyRad(angle));
+    }
+
+    makeDraggable(svg, function(e) { angle = ptrAngle(svg, e, cx, cy, 400); draw(); });
+    draw();
+  })();
+
+  // ===== TANGENT =====
+  (function() {
+    var svg = document.getElementById('svg-tan');
+    var cx = 200, cy = 200, r = 120, angle = Math.PI / 5;
+    addRadianTicks(svg, cx, cy, r);
+
+    function draw() {
+      var cosA = Math.cos(angle), sinA = Math.sin(angle);
+      var tanVal = Math.abs(cosA) > 0.01 ? Math.tan(angle) : null;
+      var px = cx + r * cosA, py = cy - r * sinA;
+      var tanLineX = cx + r;
+      var tanLineY = tanVal !== null ? cy - r * tanVal : null;
+      var clampedY = tanLineY !== null ? clamp(tanLineY, 20, 380) : null;
+      var tanDot = document.getElementById('t-tan-dot');
+
+      setA('t-radius', { x1: cx, y1: cy, x2: px, y2: py });
+      setA('t-point', { cx: px, cy: py });
+
+      if (tanVal !== null && clampedY !== null) {
+        setA('t-ext-line', { x1: cx, y1: cy, x2: tanLineX, y2: clampedY });
+        setA('t-tan-seg', { x1: tanLineX, y1: cy, x2: tanLineX, y2: clampedY });
+        tanDot.style.display = '';
+        setA('t-tan-dot', { cx: tanLineX, cy: clampedY });
+        setA('t-lbl-tan', { x: tanLineX + 12, y: lerp(cy, clampedY, 0.5) + 4 });
+        document.getElementById('t-lbl-tan').style.display = '';
+      } else {
+        setA('t-ext-line', { x1: 0, y1: 0, x2: 0, y2: 0 });
+        setA('t-tan-seg', { x1: 0, y1: 0, x2: 0, y2: 0 });
+        tanDot.style.display = 'none';
+        document.getElementById('t-lbl-tan').style.display = 'none';
+      }
+
+      var deg = ((angle * 180 / Math.PI) % 360 + 360) % 360;
+      var arcR = 30;
+      var endX = cx + arcR * Math.cos(angle);
+      var endY = cy - arcR * Math.sin(angle);
+      var large = angle > Math.PI ? 1 : angle < 0 ? 1 : 0;
+      setA('t-arc', { d: 'M ' + (cx + arcR) + ' ' + cy + ' A ' + arcR + ' ' + arcR + ' 0 ' + large + ' 0 ' + endX + ' ' + endY });
+      setA('t-lbl-angle', { x: cx + 40, y: cy - 8 });
+      setT('t-lbl-angle', deg.toFixed(0) + '\u00B0');
+
+      setT('t-val', 'tan = ' + (tanVal !== null ? tanVal.toFixed(3) : '\u221E (не існує)'));
+      setT('t-val-angle', '\u03B1 = ' + deg.toFixed(1) + '\u00B0');
+      setT('t-val-rad', prettyRad(angle));
+    }
+
+    makeDraggable(svg, function(e) {
+      var a = ptrAngle(svg, e, cx, cy, 400);
+      if (Math.abs(Math.cos(a)) < 0.02) a += 0.03;
+      angle = a;
+      draw();
+    });
+    draw();
+  })();
+
+  // ===== WAVE =====
+  (function() {
+    var time = 0, running = true, prev = performance.now(), rafId = null;
+    var btn = document.getElementById('wave-toggle');
+    var cx = 80, cy = 150, r = 60;
+
+    function draw() {
+      var angle = time * 1.5;
+      var px = cx + r * Math.cos(angle);
+      var py = cy - r * Math.sin(angle);
+
+      setA('w-radius', { x1: cx, y1: cy, x2: px, y2: py });
+      setA('w-circ-point', { cx: px, cy: py });
+      setA('w-connect', { x1: px, y1: py, x2: 160, y2: py });
+      setA('w-wave-dot', { cx: 160, cy: py });
+      setA('w-sin-line', { x1: px, y1: cy, x2: px, y2: py });
+
+      var pts = [];
+      for (var i = 0; i <= 200; i++) {
+        var frac = i / 200;
+        var x = 160 + frac * 280;
+        var a = angle - frac * TAU * 1.5;
+        var y = cy - r * Math.sin(a);
+        pts.push(x + ',' + y);
+      }
+      setA('w-wave', { points: pts.join(' ') });
+    }
+
+    function tick(now) {
+      time += (now - prev) * 0.001;
+      prev = now;
+      draw();
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function start() { prev = performance.now(); rafId = requestAnimationFrame(tick); }
+    function stop() { cancelAnimationFrame(rafId); }
+
+    btn.addEventListener('click', function() {
+      running = !running;
+      btn.textContent = running ? '\u23F8 Пауза' : '\u25B6 Пуск';
+      btn.classList.toggle('paused', !running);
+      if (running) start(); else stop();
+    });
+
+    start();
+  })();
+
+  // ===== PYTHAGORAS =====
+  (function() {
+    var svg = document.getElementById('svg-pyth');
+    var cx = 200, cy = 200, r = 130, angle = Math.PI / 4;
+
+    function draw() {
+      var cosA = Math.cos(angle), sinA = Math.sin(angle);
+      var px = cx + r * cosA, py = cy - r * sinA;
+      var sin2 = sinA * sinA, cos2 = cosA * cosA;
+
+      setA('p-tri', { points: cx + ',' + cy + ' ' + px + ',' + cy + ' ' + px + ',' + py });
+      setA('p-cos-side', { x1: cx, y1: cy, x2: px, y2: cy });
+      setA('p-sin-side', { x1: px, y1: cy, x2: px, y2: py });
+      setA('p-hyp', { x1: cx, y1: cy, x2: px, y2: py });
+      setA('p-point', { cx: px, cy: py });
+      setA('p-right-angle', { x: px - (cosA >= 0 ? 12 : -2), y: cy - (sinA >= 0 ? 12 : -2) });
+      setA('p-lbl-cos', { x: lerp(cx, px, 0.5), y: cy + 20 });
+      setT('p-lbl-cos', 'cos\u00B2=' + cos2.toFixed(2));
+      setA('p-lbl-sin', { x: px + (cosA >= 0 ? 16 : -60), y: lerp(cy, py, 0.5) });
+      setT('p-lbl-sin', 'sin\u00B2=' + sin2.toFixed(2));
+      setA('p-lbl-r', { x: lerp(cx, px, 0.5) - (sinA >= 0 ? 14 : -14), y: lerp(cy, py, 0.5) - 10 });
+
+      document.getElementById('p-bar-cos').style.width = (cos2 * 100) + '%';
+      document.getElementById('p-bar-sin').style.width = (sin2 * 100) + '%';
+      setT('p-bval-cos', 'cos\u00B2 = ' + cos2.toFixed(3));
+      setT('p-bval-sin', 'sin\u00B2 = ' + sin2.toFixed(3));
+    }
+
+    makeDraggable(svg, function(e) { angle = ptrAngle(svg, e, cx, cy, 400); draw(); });
+    draw();
+  })();
+
+})();
+</script>
+</body>
+</html>
