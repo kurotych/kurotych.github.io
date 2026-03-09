@@ -95,8 +95,8 @@ Tech stack: C++, Qt, C, Python, CMake
 - Established project testing strategy and integrated CI pipelines.
 - Contributed to [cellframe-sdk](https://github.com/demlabs-cellframe/cellframe-sdk) — implemented networking components, stream protocol handling, encryption layers, and CI pipelines in C.
 
----
 
+<br>
 <h3 style="margin-bottom: 0px"> Software Developer Go/NodeJS  at <a href="https://essentia.one/"> EssentiaOne</a> </h3>
 
 <p style="margin: 2px 0; font-style: italic;">
@@ -105,8 +105,8 @@ Industry: Blockchain<br>
 Tech stack: Go, NodeJS, Solidity
 </p>
 
-- Developed architecture design and wrote code for REST API web service to interact with different blockchains (Bitcoin, Ethereum, etc) and decentralized storages like Swarm(Ethereum)/IPFS/Storj via a unified API based on **Go**.
-- Developed a web service to interact with decentralized applications by REST API with **NodeJS**.
+- Designed and built a unified REST API in **Go** for interacting with multiple blockchains (Bitcoin, Ethereum) and decentralized storages (Swarm, IPFS, Storj).
+- Built a **Node.js** web service powering a decentralized admin panel for managing user applications
 
 ---
 
@@ -118,10 +118,8 @@ Industry: Industrial Software, IT Infrastructure &amp; Networking<br>
 Tech stack: C++, Qt, C, Python, CMake
 </p>
 
-
-- Developed human-machine interface with **C++/Qt**.
-- Resolved bugs and optimized performance of Linux VPN server modules written in **C**.
-- Enhanced and extended the cross-platform VPN client with new features, performance improvements, and bug fixes using **C++/Qt**.
+- Developed a GUI for industrial machine control using **C++/Qt**.
+- Optimized performance and extended features of cross-platform VPN client (**C++/Qt**) and **Linux** VPN server modules (**C**).
 
 ## Education
 
@@ -147,7 +145,7 @@ Associate Degree in Automotive Maintenance and Engine Repair
 - [sipmsg](https://github.com/kurotych/sipcore) (2019) - Parse and validate SIP Messages according to RFC3261 with Rust.
 
 ## Certificates and Recommendations
-Can be seen on my [Linkedin page](https://www.linkedin.com/in/anatolii-kurotych/)
+Certificates and recommendations are available on [LinkedIn](https://www.linkedin.com/in/anatolii-kurotych/).
 
 ## Languages
 Ukrainian(native), English(B2 – upper-intermediate)
