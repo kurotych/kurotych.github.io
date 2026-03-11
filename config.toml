@@ -53,6 +53,11 @@ enabled = true
       identifier = "certificates"
       url = "/certificates/"
       weight = 2
+    [[languages.en.menu.main]]
+      name = "CV"
+      identifier = "cv"
+      url = "/cv.pdf"
+      weight = 3
 
   [languages.ua]
     languageName = "Українська"
