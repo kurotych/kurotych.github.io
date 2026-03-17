@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module1/10-testing-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module2/19-flask-routing-practice/">
       
       
-        <link rel="prev" href="../09-testing-lecture/">
+        <link rel="prev" href="../18-flask-routing-lecture/">
       
-      
-        <link rel="next" href="../11-docker-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest - Python (2 семестр)</title>
+        <title>19. (П9) Імплементація маршрутів для REST API у Flask - Python (2 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#10-5-postgresql-pytest" class="md-skip">
+        <a href="#19-9-rest-api-flask" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest
+              19. (П9) Імплементація маршрутів для REST API у Flask
             
           </span>
         </div>
@@ -246,8 +244,6 @@
       
   
   
-    
-  
   
   
     
@@ -259,11 +255,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -277,7 +275,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Модуль 1
@@ -291,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-sqlite-lecture/" class="md-nav__link">
+      <a href="../../module1/01-sqlite-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-sqlite-practice/" class="md-nav__link">
+      <a href="../../module1/02-sqlite-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -333,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-psycopg2-lecture/" class="md-nav__link">
+      <a href="../../module1/03-psycopg2-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-psycopg2-practice/" class="md-nav__link">
+      <a href="../../module1/04-psycopg2-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -375,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-alembic-lecture/" class="md-nav__link">
+      <a href="../../module1/05-alembic-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -396,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-alembic-practice/" class="md-nav__link">
+      <a href="../../module1/06-alembic-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -417,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-error-handling-transactions-lecture/" class="md-nav__link">
+      <a href="../../module1/07-error-handling-transactions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -438,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-error-handling-transactions-practice/" class="md-nav__link">
+      <a href="../../module1/08-error-handling-transactions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -459,11 +457,249 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-testing-lecture/" class="md-nav__link">
+      <a href="../../module1/09-testing-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     9. (Л) Тестування програм, що працюють із базами даних (PostgreSQL) за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/10-testing-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/11-docker-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. (Л) Вступ до Docker. Контейнери vs віртуальні машини, образи, Docker Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/12-dockerfile-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Dockerfile. Інструкції (FROM, COPY, RUN, CMD), шари, збірка образів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/13-docker-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/14-docker-management-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. (Л) Керування контейнерами. Порти, volumes, змінні середовища
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/15-docker-postgres-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. (П7) Розгортання PostgreSQL у Docker-контейнері та наповнення бази тестовими даними
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-http-rest-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. (Л) HTTP та архітектурний стиль REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-rest-api-design-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. (П8) Проєктування REST API для системи управління задачами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-flask-routing-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. (Л) Знайомство з Flask. Маршрутизація (Routing)
   </span>
   
 
@@ -493,7 +729,7 @@
           
   
   <span class="md-ellipsis">
-    10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest
+    19. (П9) Імплементація маршрутів для REST API у Flask
   </span>
   
 
@@ -504,7 +740,7 @@
         
   
   <span class="md-ellipsis">
-    10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest
+    19. (П9) Імплементація маршрутів для REST API у Flask
   </span>
   
 
@@ -545,45 +781,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 1. Підготовка проєкту
+      Підготовка проєкту
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-bankpy" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 2. Рефакторинг bank.py
+      Маршрути для задач
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-conftestpy" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 3. Створення conftest.py
+      Маршрути для категорій
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#curl" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 4. Написання тестів
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 5. Запуск тестів
+      Тестування через curl
     </span>
   </a>
   
@@ -594,248 +821,19 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результат
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11-docker-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11. (Л) Вступ до Docker. Контейнери vs віртуальні машини, образи, Docker Hub
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../12-dockerfile-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    12. (Л) Dockerfile. Інструкції (FROM, COPY, RUN, CMD), шари, збірка образів
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../13-docker-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../14-docker-management-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14. (Л) Керування контейнерами. Порти, volumes, змінні середовища
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../15-docker-postgres-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    15. (П7) Розгортання PostgreSQL у Docker-контейнері та наповнення бази тестовими даними
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Модуль 2
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Модуль 2
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/16-http-rest-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    16. (Л) HTTP та архітектурний стиль REST
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/17-rest-api-design-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    17. (П8) Проєктування REST API для системи управління задачами
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/18-flask-routing-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    18. (Л) Знайомство з Flask. Маршрутизація (Routing)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/19-flask-routing-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    19. (П9) Імплементація маршрутів для REST API у Flask
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -867,72 +865,165 @@
   
 
 
-<h1 id="10-5-postgresql-pytest">10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest<a class="headerlink" href="#10-5-postgresql-pytest" title="Permanent link">&para;</a></h1>
+<h1 id="19-9-rest-api-flask">19. (П9) Імплементація маршрутів для REST API у Flask<a class="headerlink" href="#19-9-rest-api-flask" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Виконана <a href="/ua/courses/programming-2sem/module1/08-error-handling-transactions-practice/">Практична 4 — Обробка помилок і транзакції</a> (файл <code>bank.py</code>)</li>
-<li>Прочитана <a href="/ua/courses/programming-2sem/module1/09-testing-lecture/">Лекція 9 — Тестування програм БД у pytest</a></li>
-<li>Запущений PostgreSQL (<a href="/ua/courses/programming-2sem/module1/04-psycopg2-practice/#postgresql-docker">інструкція запуску через Docker</a>)</li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module2/18-flask-routing-lecture/">Лекція 18 — Знайомство з Flask. Маршрутизація</a></li>
+<li>Виконана <a href="/ua/courses/programming-2sem/module2/17-rest-api-design-practice/">Практична 8 — Проєктування REST API</a> (специфікація Task Manager API)</li>
+<li>Встановлений Python 3.10+</li>
 </ul>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Написати набір автоматичних тестів для банківської програми з Практичної 4, використовуючи pytest та фікстури.</p>
-<h3 id="1">Крок 1. Підготовка проєкту<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>Встановити pytest у віртуальне середовище:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">source</span><span class="w"> </span>env/bin/activate
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w"> </span>psycopg2-binary
+<p>Реалізувати REST API для системи управління задачами (Task Manager) на Flask за специфікацією з Практичної 8. API зберігає дані в пам'яті (без бази даних) та підтримує повний набір CRUD-операцій для задач і категорій.</p>
+<h3 id="_3">Підготовка проєкту<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>task-manager<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>task-manager
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">source</span><span class="w"> </span>env/bin/activate
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>pip<span class="w"> </span>install<span class="w"> </span>flask
 </span></code></pre></div>
-<p>Структура проєкту повинна мати такий вигляд:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>project/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── bank.py                # Програма з Практичної 4
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── conftest.py            # Фікстури pytest
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── test_bank.py           # Тести
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>└── requirements.txt
+<h3 id="_4">Маршрути для задач<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>URL</th>
+<th>Опис</th>
+<th>Коди відповідей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/tasks</code></td>
+<td>Список усіх задач</td>
+<td>200</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/tasks</code></td>
+<td>Створити задачу</td>
+<td>201, 400</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/tasks/&lt;id&gt;</code></td>
+<td>Отримати задачу за ID</td>
+<td>200, 404</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/api/tasks/&lt;id&gt;</code></td>
+<td>Оновити задачу</td>
+<td>200, 400, 404</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/tasks/&lt;id&gt;</code></td>
+<td>Видалити задачу</td>
+<td>204, 404</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/tasks/stats</code></td>
+<td>Статистика по задачах</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вимоги:</strong></p>
+<ul>
+<li>
+<p><strong>GET <code>/api/tasks</code></strong> — повертає список усіх задач. Підтримує фільтрацію через query-параметри <code>status</code> (<code>todo</code>, <code>in_progress</code>, <code>done</code>) та <code>priority</code> (<code>low</code>, <code>medium</code>, <code>high</code>). Приклад: <code>GET /api/tasks?status=todo&amp;priority=high</code>.</p>
+</li>
+<li>
+<p><strong>POST <code>/api/tasks</code></strong> — створює нову задачу. Обов'язкові поля: <code>title</code>, <code>status</code>, <code>priority</code>, <code>created_by</code>. Поле <code>id</code> генерується автоматично. Поле <code>created_at</code> встановлюється автоматично (поточна дата та час в ISO 8601). Необов'язкове поле <code>category_id</code> — зв'язок з категорією. Повертає створену задачу з кодом <code>201</code>.</p>
+</li>
+<li>
+<p><strong>GET <code>/api/tasks/&lt;id&gt;</code></strong> — повертає задачу за ID або <code>404</code> з JSON-повідомленням про помилку.</p>
+</li>
+<li>
+<p><strong>PUT <code>/api/tasks/&lt;id&gt;</code></strong> — оновлює лише ті поля задачі, які передані в тілі запиту. Повертає оновлену задачу або <code>404</code>.</p>
+</li>
+<li>
+<p><strong>DELETE <code>/api/tasks/&lt;id&gt;</code></strong> — видаляє задачу. Повертає порожнє тіло з кодом <code>204</code> або <code>404</code>.</p>
+</li>
+<li>
+<p><strong>GET <code>/api/tasks/stats</code></strong> — повертає статистику: загальну кількість задач, кількість за кожним статусом та пріоритетом.</p>
+</li>
+</ul>
+<p><strong>Валідація при створенні (POST):</strong></p>
+<ul>
+<li>Тіло запиту має бути JSON (якщо <code>request.json</code> — <code>None</code>, повернути <code>400</code>)</li>
+<li><code>title</code> — обов'язкове, не порожній рядок</li>
+<li><code>status</code> — одне з <code>todo</code>, <code>in_progress</code>, <code>done</code></li>
+<li><code>priority</code> — одне з <code>low</code>, <code>medium</code>, <code>high</code></li>
+<li><code>created_by</code> — обов'язкове, не порожній рядок</li>
+</ul>
+<p>У разі помилки валідації повертати JSON з полем <code>error</code> та кодом <code>400</code>:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Поле &#39;title&#39; є обов&#39;язковим&quot;</span><span class="p">}</span>
 </span></code></pre></div>
-<h3 id="2-bankpy">Крок 2. Рефакторинг bank.py<a class="headerlink" href="#2-bankpy" title="Permanent link">&para;</a></h3>
-<p>Щоб код можна було тестувати, банківську логіку потрібно винести в окремий клас <code>AccountService</code>, який приймає з'єднання як параметр.</p>
-<p>Клас повинен мати такі методи:</p>
+<div class="admonition note">
+<p class="admonition-title">Порядок маршрутів</p>
+<p>Маршрут <code>/api/tasks/stats</code> повинен бути оголошений <strong>перед</strong> маршрутом <code>/api/tasks/&lt;int:task_id&gt;</code>, інакше Flask інтерпретує <code>stats</code> як ID задачі. Оскільки конвертер <code>int</code> відхилить рядок <code>stats</code>, помилки не буде, але це хороша практика — ставити статичні маршрути перед динамічними.</p>
+</div>
+<h3 id="_5">Маршрути для категорій<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>URL</th>
+<th>Опис</th>
+<th>Коди відповідей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/categories</code></td>
+<td>Список усіх категорій</td>
+<td>200</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/categories</code></td>
+<td>Створити категорію</td>
+<td>201, 400</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/categories/&lt;id&gt;/tasks</code></td>
+<td>Задачі у категорії</td>
+<td>200, 404</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вимоги:</strong></p>
 <ul>
-<li><code>create_account(owner, balance=0)</code> — створює рахунок, повертає його <code>id</code></li>
-<li><code>get_balance(account_id)</code> — повертає баланс рахунку (або кидає виняток, якщо рахунок не знайдено)</li>
-<li><code>transfer(from_id, to_id, amount)</code> — переказує кошти між рахунками</li>
-<li><code>get_all_accounts()</code> — повертає список усіх рахунків</li>
+<li><strong>POST <code>/api/categories</code></strong> — обов'язкове поле: <code>name</code>. Повертає створену категорію з кодом <code>201</code>.</li>
+<li><strong>GET <code>/api/categories/&lt;id&gt;/tasks</code></strong> — повертає задачі, у яких <code>category_id</code> відповідає ID категорії. Якщо категорію не знайдено — <code>404</code>.</li>
 </ul>
-<p>CLI-частина (<code>if __name__ == "__main__"</code>) залишається в <code>bank.py</code> і використовує <code>AccountService</code>.</p>
-<h3 id="3-conftestpy">Крок 3. Створення conftest.py<a class="headerlink" href="#3-conftestpy" title="Permanent link">&para;</a></h3>
-<p>Створити файл <code>conftest.py</code> з фікстурами:</p>
-<ol>
-<li><strong><code>db_connection</code></strong> (scope=<code>session</code>) — з'єднання з тестовою базою PostgreSQL з <code>autocommit = True</code></li>
-<li><strong><code>create_tables</code></strong> (scope=<code>session</code>, autouse=<code>True</code>) — створення таблиці <code>accounts</code></li>
-<li><strong><code>clean_tables</code></strong> (autouse=<code>True</code>) — очищення таблиці <code>accounts</code> перед кожним тестом</li>
-<li><strong><code>service</code></strong> — екземпляр <code>AccountService</code>, готовий до використання в тестах</li>
-<li><strong><code>funded_accounts</code></strong> — створює два тестових рахунки з початковим балансом (наприклад, 1000 та 500 грн) і повертає їхні <code>id</code></li>
-</ol>
-<h3 id="4">Крок 4. Написання тестів<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>Створити файл <code>test_bank.py</code> з тестами, організованими у класи:</p>
-<p><strong><code>TestCreateAccount</code></strong> — тестування створення рахунків:</p>
+<h3 id="curl">Тестування через curl<a class="headerlink" href="#curl" title="Permanent link">&para;</a></h3>
+<p>За допомогою curl команд переконатися, що:</p>
 <ul>
-<li>Створення рахунку з балансом за замовчуванням (0)</li>
-<li>Створення рахунку з початковим балансом</li>
+<li>Створення задач і категорій повертає <code>201</code> з коректними даними</li>
+<li>Фільтрація за <code>status</code> та <code>priority</code> працює</li>
+<li>Отримання неіснуючого ресурсу повертає <code>404</code> з JSON-помилкою</li>
+<li>Оновлення змінює лише передані поля</li>
+<li>Видалення повертає <code>204</code></li>
+<li>Валідація повертає <code>400</code> з описом помилки</li>
+<li>Статистика коректно підраховує задачі</li>
+<li>Задачі у категорії повертають правильний набір</li>
 </ul>
-<p><strong><code>TestGetBalance</code></strong> — тестування отримання балансу:</p>
+<h2 id="_6">Результат<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Після виконання роботи студент здає:</p>
 <ul>
-<li>Отримання балансу існуючого рахунку</li>
-<li>Спроба отримати баланс неіснуючого рахунку (перевірка винятку)</li>
+<li><strong><code>app.py</code></strong> — Flask-застосунок з усіма маршрутами</li>
+<li>Звіт зі списоком curl команд використаних для тестування</li>
 </ul>
-<p><strong><code>TestTransfer</code></strong> — тестування переказів:</p>
-<ul>
-<li>Успішний переказ коштів (перевірити баланси обох рахунків)</li>
-<li>Переказ усіх коштів з рахунку (баланс = 0)</li>
-<li>Переказ при недостатньому балансі (перевірка винятку та незмінності балансів)</li>
-<li>Переказ від'ємної суми (перевірка винятку)</li>
-<li>Переказ з неіснуючого рахунку (перевірка винятку)</li>
-<li>Переказ на неіснуючий рахунок (перевірка винятку)</li>
-<li>Кілька послідовних переказів (перевірити кінцеві баланси)</li>
-</ul>
-<h3 id="5">Крок 5. Запуск тестів<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<p>Запустити тести та переконатися, що всі проходять:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pytest<span class="w"> </span>-v
-</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Персоналізація</p>
+<p>У всіх запитах, де передається поле <code>created_by</code>, повинно бути <strong>ваше ім'я та прізвище</strong>. Відповіді API також повинні містити ваше ім'я у відповідних полях.
+На скріншотах в звіті повинно бути видно ваше ім'я</p>
+</div>
 
 
 
