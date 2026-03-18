@@ -137,7 +137,7 @@ Associate Degree in Automotive Maintenance and Engine Repair
 
 
 ## Achievements
-- Developed the first open-source implementation of Schnorr digital signatures not based on OpenSSL, integrated into [Trezor Wallet](https://github.com/trustwallet/wallet-core/blob/master/trezor-crypto/crypto/zilliqa.c) and many other projects.
+- Developed the first open-source implementation of Schnorr digital signatures not based on OpenSSL, integrated into [Trust Wallet](https://github.com/trustwallet/wallet-core/blob/master/trezor-crypto/crypto/zilliqa.c) and many other projects.
 - Authored and presented the article *"Optimizing the Process of ER Diagram Creation with PlantUML"*, published in the *Proceedings of the 7th Workshop for Young Scientists in Computer Science & Software Engineering (CS&SE@SW 2024).* [Read paper](https://www.ceur-ws.org/Vol-3917/paper12.pdf)
 
 ## Personal projects
