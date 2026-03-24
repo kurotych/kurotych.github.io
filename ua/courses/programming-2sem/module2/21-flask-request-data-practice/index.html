@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module1/06-alembic-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module2/21-flask-request-data-practice/">
       
       
-        <link rel="prev" href="../05-alembic-lecture/">
+        <link rel="prev" href="../20-flask-request-data-lecture/">
       
-      
-        <link rel="next" href="../07-error-handling-transactions-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>6. (П3) Еволюція погодного сервісу з Alembic - Python (2 семестр)</title>
+        <title>21. (П10) Завдання з передачі даних в HTTP-запиті - Python (2 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#6-3-alembic" class="md-skip">
+        <a href="#21-10-http-" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. (П3) Еволюція погодного сервісу з Alembic
+              21. (П10) Завдання з передачі даних в HTTP-запиті
             
           </span>
         </div>
@@ -246,8 +244,6 @@
       
   
   
-    
-  
   
   
     
@@ -259,11 +255,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -277,7 +275,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Модуль 1
@@ -291,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-sqlite-lecture/" class="md-nav__link">
+      <a href="../../module1/01-sqlite-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-sqlite-practice/" class="md-nav__link">
+      <a href="../../module1/02-sqlite-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -333,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-psycopg2-lecture/" class="md-nav__link">
+      <a href="../../module1/03-psycopg2-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-psycopg2-practice/" class="md-nav__link">
+      <a href="../../module1/04-psycopg2-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -375,11 +373,375 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-alembic-lecture/" class="md-nav__link">
+      <a href="../../module1/05-alembic-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     5. (Л) Міграції у PostgreSQL з використанням Python та бібліотеки Alembic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/06-alembic-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (П3) Еволюція погодного сервісу з Alembic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/07-error-handling-transactions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (Л) Обробка помилок і транзакцій у Python при роботі з PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/08-error-handling-transactions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. (П4) Обробка помилок і транзакції
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/09-testing-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. (Л) Тестування програм, що працюють із базами даних (PostgreSQL) за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/10-testing-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/11-docker-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. (Л) Вступ до Docker. Контейнери vs віртуальні машини, образи, Docker Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/12-dockerfile-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Dockerfile. Інструкції (FROM, COPY, RUN, CMD), шари, збірка образів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/13-docker-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/14-docker-management-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. (Л) Керування контейнерами. Порти, volumes, змінні середовища
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/15-docker-postgres-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. (П7) Розгортання PostgreSQL у Docker-контейнері та наповнення бази тестовими даними
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-http-rest-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. (Л) HTTP та архітектурний стиль REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-rest-api-design-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. (П8) Проєктування REST API для системи управління задачами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-flask-routing-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. (Л) Знайомство з Flask. Маршрутизація (Routing)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-flask-routing-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. (П9) Імплементація маршрутів для REST API у Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-flask-request-data-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. (Л) Доступ до даних в HTTP-запиті за допомогою Flask
   </span>
   
 
@@ -409,7 +771,7 @@
           
   
   <span class="md-ellipsis">
-    6. (П3) Еволюція погодного сервісу з Alembic
+    21. (П10) Завдання з передачі даних в HTTP-запиті
   </span>
   
 
@@ -420,7 +782,7 @@
         
   
   <span class="md-ellipsis">
-    6. (П3) Еволюція погодного сервісу з Alembic
+    21. (П10) Завдання з передачі даних в HTTP-запиті
   </span>
   
 
@@ -461,18 +823,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-alembic" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 1. Ініціалізація Alembic
+      Підготовка проєкту
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-weather" class="md-nav__link">
+  <a href="#1-query-" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 2. Міграція — створення таблиці weather
+      Частина 1: Розширена фільтрація та пагінація (query-параметри)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 2: Форма зворотного зв'язку (дані форми)
     </span>
   </a>
   
@@ -481,7 +852,7 @@
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 3. Міграція — додати вологість
+      Частина 3: Завантаження файлів
     </span>
   </a>
   
@@ -490,7 +861,16 @@
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      Крок 4. Демонстрація відкату
+      Частина 4: Авторизація через заголовки
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Тестування через curl
     </span>
   </a>
   
@@ -502,9 +882,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#history" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Формат виводу команди history
+      Результат
     </span>
   </a>
   
@@ -514,370 +894,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07-error-handling-transactions-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7. (Л) Обробка помилок і транзакцій у Python при роботі з PostgreSQL
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08-error-handling-transactions-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    8. (П4) Обробка помилок і транзакції
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../09-testing-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    9. (Л) Тестування програм, що працюють із базами даних (PostgreSQL) за допомогою pytest
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../10-testing-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11-docker-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    11. (Л) Вступ до Docker. Контейнери vs віртуальні машини, образи, Docker Hub
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../12-dockerfile-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    12. (Л) Dockerfile. Інструкції (FROM, COPY, RUN, CMD), шари, збірка образів
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../13-docker-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../14-docker-management-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    14. (Л) Керування контейнерами. Порти, volumes, змінні середовища
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../15-docker-postgres-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    15. (П7) Розгортання PostgreSQL у Docker-контейнері та наповнення бази тестовими даними
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Модуль 2
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Модуль 2
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/16-http-rest-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    16. (Л) HTTP та архітектурний стиль REST
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/17-rest-api-design-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    17. (П8) Проєктування REST API для системи управління задачами
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/18-flask-routing-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    18. (Л) Знайомство з Flask. Маршрутизація (Routing)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/19-flask-routing-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    19. (П9) Імплементація маршрутів для REST API у Flask
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/20-flask-request-data-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20. (Л) Доступ до даних в HTTP-запиті за допомогою Flask
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module2/21-flask-request-data-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    21. (П10) Завдання з передачі даних в HTTP-запиті
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -909,65 +925,215 @@
   
 
 
-<h1 id="6-3-alembic">6. (П3) Еволюція погодного сервісу з Alembic<a class="headerlink" href="#6-3-alembic" title="Permanent link">&para;</a></h1>
+<h1 id="21-10-http-">21. (П10) Завдання з передачі даних в HTTP-запиті<a class="headerlink" href="#21-10-http-" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Виконана практична 3 (погодний сервіс з PostgreSQL)</li>
-<li>Запущений PostgreSQL (<a href="/ua/courses/programming-2sem/module1/04-psycopg2-practice/#postgresql-docker">інструкція запуску через Docker</a>)</li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module2/20-flask-request-data-lecture/">Лекція 20 — Доступ до даних в HTTP-запиті за допомогою Flask</a></li>
+<li>Виконана <a href="/ua/courses/programming-2sem/module2/19-flask-routing-practice/">Практична 9 — Імплементація маршрутів для REST API у Flask</a></li>
+<li>Встановлений Python 3.10+</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Персоналізація</p>
+<p>У всіх запитах, де передається поле <code>created_by</code>, повинно бути <strong>ваше ім'я та прізвище</strong>. Заголовок <code>X-User</code> також повинен містити ваше ім'я та прізвище. На скріншотах у звіті повинно бути видно ваше ім'я.</p>
+</div>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Взяти за основу свій проєкт з практичної 3 та додати до нього Alembic для управління міграціями.
-Таблицю, яку ви створювали вручну (через Python-код), тепер потрібно створювати через міграції Alembic.</p>
-<h3 id="1-alembic">Крок 1. Ініціалізація Alembic<a class="headerlink" href="#1-alembic" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Встановити Alembic: <code>pip install alembic</code></li>
-<li>Ініціалізувати Alembic у проєкті: <code>alembic init alembic</code></li>
-<li>Створити нову (порожню) БД</li>
-<li>Налаштувати підключення до БД в <code>alembic/env.py</code> (див. <a href="/ua/courses/programming-2sem/module1/05-alembic-lecture/">лекцію 05</a>)</li>
-</ol>
-<h3 id="2-weather">Крок 2. Міграція — створення таблиці weather<a class="headerlink" href="#2-weather" title="Permanent link">&para;</a></h3>
-<p>Створити міграцію, яка створює таблицю <code>weather</code> (ту саму, що була в практичній 3):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;create weather table&quot;</span>
+<p>Розширити Task Manager API з Практичної 9 новими endpoint-ами, які демонструють різні способи передачі даних в HTTP-запиті: query-параметри з пагінацією, дані форм, завантаження файлів та робота із заголовками.</p>
+<h3 id="_3">Підготовка проєкту<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Продовжуйте роботу в проєкті з Практичної 9. Якщо потрібно почати з нуля:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>task-manager<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>task-manager
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">source</span><span class="w"> </span>env/bin/activate
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>pip<span class="w"> </span>install<span class="w"> </span>flask
 </span></code></pre></div>
-<p>Заповнити функції <code>upgrade()</code> та <code>downgrade()</code> у створеному файлі міграції.
-Видалити з Python-коду ручне створення таблиці — тепер за це відповідає Alembic.</p>
-<p>Застосувати міграцію:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
+<p>Додайте директорію для завантажених файлів:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>uploads
 </span></code></pre></div>
-<p>Переконатися, що сервіс працює як і раніше.</p>
-<h3 id="3">Крок 3. Міграція — додати вологість<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>Створити міграцію, яка додає колонку <code>humidity</code> (вологість) до таблиці <code>weather</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;add humidity to weather&quot;</span>
-</span></code></pre></div>
-<p>Отримати вологість можна з wttr.in:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://wttr.in/Lutsk?format=%h&quot;</span>
-</span></code></pre></div>
-<p>Оновити Python-код сервісу:</p>
+<h3 id="1-query-">Частина 1: Розширена фільтрація та пагінація (query-параметри)<a class="headerlink" href="#1-query-" title="Permanent link">&para;</a></h3>
+<p>Замініть існуючий маршрут <code>GET /api/tasks</code> новою версією з підтримкою пагінації та пошуку.</p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>URL</th>
+<th>Опис</th>
+<th>Коди відповідей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/tasks</code></td>
+<td>Список задач з фільтрацією, пагінацією та пошуком</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вимоги:</strong></p>
 <ul>
-<li>Зберігати вологість разом з температурою. (Якщо ваш сервіс не повертає вологість, можна обрати любий інший параметр)</li>
-<li>Виводити вологість в команді <code>history</code></li>
+<li>Фільтрація за <code>status</code> та <code>priority</code> (як у Практичній 9)</li>
+<li>Пошук за ключовим словом у <code>title</code> через query-параметр <code>q</code> (регістронезалежний, часткове входження). Приклад: <code>GET /api/tasks?q=flask</code></li>
+<li>Пагінація через параметри <code>page</code> (за замовчуванням <code>1</code>) та <code>limit</code> (за замовчуванням <code>5</code>). Обидва параметри мають бути цілими числами (використовуйте <code>type=int</code>)</li>
 </ul>
-<h3 id="4">Крок 4. Демонстрація відкату<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>Продемонструвати роботу відкату міграцій:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Перевірити поточний стан</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>alembic<span class="w"> </span>current
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Відкатити останню міграцію</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>alembic<span class="w"> </span>downgrade<span class="w"> </span>-1
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Перевірити стан</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>alembic<span class="w"> </span>current
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Повернутися до останньої версії</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
+<p><strong>Формат відповіді з пагінацією:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;pagination&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nt">&quot;limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&quot;pages&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="history">Формат виводу команди history<a class="headerlink" href="#history" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Weather history from: &lt;Ім&#39;я Прізвище&gt;:
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&lt;Час&gt; &lt;температура&gt; &lt;вологість&gt; &lt;швидкість вітру&gt;
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>...
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&lt;Час&gt; &lt;температура&gt; &lt;вологість&gt; &lt;швидкість вітру&gt;
+<h3 id="2">Частина 2: Форма зворотного зв'язку (дані форми)<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>URL</th>
+<th>Опис</th>
+<th>Коди відповідей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/feedback</code></td>
+<td>HTML-сторінка з формою</td>
+<td>200</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/feedback</code></td>
+<td>Обробка даних форми</td>
+<td>201, 400</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/feedback</code></td>
+<td>Список усіх відгуків (JSON)</td>
+<td>200</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вимоги:</strong></p>
+<ul>
+<li>
+<p><strong>GET <code>/feedback</code></strong> — повертає HTML-сторінку з формою зворотного зв'язку. Форма повинна містити поля:</p>
+<ul>
+<li><code>name</code> — ім'я (текстове поле, обов'язкове)</li>
+<li><code>email</code> — електронна пошта (текстове поле, обов'язкове)</li>
+<li><code>message</code> — повідомлення (<code>textarea</code>, обов'язкове)</li>
+</ul>
+</li>
+<li>
+<p><strong>POST <code>/feedback</code></strong> — обробляє дані форми через <code>request.form</code>. Валідує, що <code>name</code>, <code>email</code> та <code>message</code> не порожні. Зберігає відгук у пам'яті та повертає HTML-сторінку з підтвердженням.</p>
+</li>
+<li>
+<p><strong>GET <code>/api/feedback</code></strong> — повертає список усіх відгуків у форматі JSON.</p>
+</li>
+</ul>
+<h3 id="3">Частина 3: Завантаження файлів<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>URL</th>
+<th>Опис</th>
+<th>Коди відповідей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/api/tasks/&lt;id&gt;/attachment</code></td>
+<td>Додати файл до задачі</td>
+<td>201, 400, 404</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вимоги:</strong></p>
+<ul>
+<li>Якщо задачу не знайдено — <code>404</code></li>
+<li>Якщо файл не надіслано або ім'я файлу порожнє — <code>400</code></li>
+<li>Дозволені розширення: <code>.txt</code>, <code>.pdf</code>, <code>.png</code>, <code>.jpg</code>. Інші — <code>400</code></li>
+<li>Файл зберігається у директорію <code>uploads/</code></li>
+<li>Інформація про файл зберігається у задачі (ім'я файлу, тип)</li>
+</ul>
+<p><strong>Відповідь (201):</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;File uploaded&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;report.pdf&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;content_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/pdf&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;task_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Час має бути відсортований у спадному порядку.</p>
+<p><strong>Тестування через curl:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:5000/api/tasks/1/attachment<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;file=@report.pdf&quot;</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Перевірка розширення файлу</p>
+<p>Завжди перевіряйте розширення файлу на стороні сервера. Клієнт може надіслати файл з будь-яким розширенням, тому не покладайтесь лише на <code>Content-Type</code>.</p>
+</div>
+<h3 id="4">Частина 4: Авторизація через заголовки<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>URL</th>
+<th>Опис</th>
+<th>Коди відповідей</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/tasks/my</code></td>
+<td>Задачі поточного користувача</td>
+<td>200, 401</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/tasks/&lt;id&gt;</code></td>
+<td>Видалити задачу (тільки автор)</td>
+<td>204, 401, 403, 404</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вимоги:</strong></p>
+<ul>
+<li><strong>GET <code>/api/tasks/my</code></strong> — повертає задачі, де <code>created_by</code> збігається з ім'ям із заголовка <code>X-User</code>. Якщо заголовок відсутній — повертає <code>401</code>.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>http://127.0.0.1:5000/api/tasks/my<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;X-User: Ім&#39;я Прізвище&quot;</span>
+</span></code></pre></div>
+<ul>
+<li><strong>DELETE <code>/api/tasks/&lt;id&gt;</code></strong> — оновіть існуючий маршрут видалення: тепер перед видаленням перевіряйте заголовок <code>X-User</code>. Видалити задачу може лише її автор (<code>created_by</code>). Якщо заголовок відсутній — <code>401</code>. Якщо <code>X-User</code> не збігається з <code>created_by</code> задачі — <code>403</code>.</li>
+</ul>
+<p><strong>Відповіді помилок:</strong></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Header &#39;X-User&#39; is required&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You can only delete your own tasks&quot;</span><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="curl">Тестування через curl<a class="headerlink" href="#curl" title="Permanent link">&para;</a></h3>
+<p>За допомогою curl команд переконатися, що:</p>
+<ul>
+<li>Пагінація повертає правильну кількість задач та метадані (<code>page</code>, <code>limit</code>, <code>total</code>, <code>pages</code>)</li>
+<li>Пошук <code>?q=...</code> фільтрує задачі за назвою</li>
+<li>Комбінація фільтрів працює: <code>?status=todo&amp;q=flask&amp;page=1&amp;limit=2</code></li>
+<li>Форма зворотного зв'язку працює через браузер та через curl</li>
+<li>Завантаження файлу зберігається в <code>uploads/</code> та прив'язується до задачі</li>
+<li>Файл із забороненим розширенням відхиляється з кодом <code>400</code></li>
+<li><code>GET /api/tasks/my</code> повертає задачі лише поточного користувача</li>
+<li><code>DELETE</code> без заголовка <code>X-User</code> повертає <code>401</code>, з чужим ім'ям — <code>403</code></li>
+</ul>
+<h2 id="_4">Результат<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Після виконання роботи студент здає:</p>
+<ul>
+<li><strong><code>app.py</code></strong> — Flask-застосунок з усіма маршрутами (з Практичної 9 + нові)</li>
+<li>Звіт зі списком curl команд, використаних для тестування кожної частини та <strong>обов'язково</strong> скріншоти виконання команд</li>
+</ul>
 
 
 
