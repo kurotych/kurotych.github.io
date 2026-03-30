@@ -1,0 +1,2006 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module2/24-flask-sessions-lecture/">
+      
+      
+        <link rel="prev" href="../23-flask-crud-postgres-practice/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>24. (Л) Сесії у Flask. Збереження стану користувача між запитами - Python (2 семестр)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#24-flask" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python (2 семестр)" class="md-header__button md-logo" aria-label="Python (2 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python (2 семестр)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              24. (Л) Сесії у Flask. Збереження стану користувача між запитами
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-2sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-2sem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python (2 семестр)" class="md-nav__button md-logo" aria-label="Python (2 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python (2 семестр)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-2sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-2sem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/01-sqlite-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Python та SQLite. Робота з бібліотекою sqlite3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/02-sqlite-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. (П1) Виконання завдань з Python та sqlite3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/03-psycopg2-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (Л) Python та PostgreSQL. Робота з бібліотекою psycopg2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/04-psycopg2-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. (П2) Виконання завдань з Python та PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/05-alembic-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (Л) Міграції у PostgreSQL з використанням Python та бібліотеки Alembic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/06-alembic-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (П3) Еволюція погодного сервісу з Alembic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/07-error-handling-transactions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (Л) Обробка помилок і транзакцій у Python при роботі з PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/08-error-handling-transactions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. (П4) Обробка помилок і транзакції
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/09-testing-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. (Л) Тестування програм, що працюють із базами даних (PostgreSQL) за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/10-testing-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. (П5) Виконання завдань з тестування програм, що працюють із базою даних PostgreSQL, за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/11-docker-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. (Л) Вступ до Docker. Контейнери vs віртуальні машини, образи, Docker Hub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/12-dockerfile-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Dockerfile. Інструкції (FROM, COPY, RUN, CMD), шари, збірка образів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/13-docker-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/14-docker-management-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. (Л) Керування контейнерами. Порти, volumes, змінні середовища
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/15-docker-postgres-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. (П7) Розгортання PostgreSQL у Docker-контейнері та наповнення бази тестовими даними
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-http-rest-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. (Л) HTTP та архітектурний стиль REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17-rest-api-design-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. (П8) Проєктування REST API для системи управління задачами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18-flask-routing-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. (Л) Знайомство з Flask. Маршрутизація (Routing)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19-flask-routing-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. (П9) Імплементація маршрутів для REST API у Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20-flask-request-data-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. (Л) Доступ до даних в HTTP-запиті за допомогою Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21-flask-request-data-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. (П10) Завдання з передачі даних в HTTP-запиті
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-flask-crud-postgres-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. (Л) CRUD операції у Flask REST API з використанням PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-flask-crud-postgres-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. (П11) Реалізація CRUD операцій і робота з базою даних у Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    24. (Л) Сесії у Flask. Збереження стану користувача між запитами
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    24. (Л) Сесії у Flask. Збереження стану користувача між запитами
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Зміст лекції
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      Проблема: HTTP — протокол без стану
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що таке сесія
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Два підходи до реалізації сесій
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Два підходи до реалізації сесій">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie-based-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cookie-based sessions (клієнтські сесії)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-side sessions (серверні сесії)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Як працюють сесії у Flask
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Як працюють сесії у Flask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Як це працює крок за кроком
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Налаштування секретного ключа
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запис і читання даних сесії
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Запис і читання даних сесії">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основні операції з session
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Видалення даних сесії
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Видалення даних сесії">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Видалення окремого ключа
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Повне очищення сесії
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практичний приклад: система логіну
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Практичний приклад: система логіну">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Як це працює у браузері
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Діаграма потоку
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Час життя сесії
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Час життя сесії">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Постійна сесія
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Сесії та REST API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jwt-rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      JWT — токени для REST API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JWT — токени для REST API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Як працює JWT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура JWT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jwt-flask" class="md-nav__link">
+    <span class="md-ellipsis">
+      Приклад: JWT-автентифікація у Flask
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Тестування через curl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ключові моменти коду
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Порівняння: сесії vs JWT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підсумок
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні посилання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Домашнє завдання
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+<h1 id="24-flask">24. (Л) Сесії у Flask. Збереження стану користувача між запитами<a class="headerlink" href="#24-flask" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Проблема: HTTP — протокол без стану</li>
+<li>Що таке сесія</li>
+<li>Два підходи до реалізації сесій</li>
+<li>Як працюють сесії у Flask</li>
+<li>Налаштування секретного ключа</li>
+<li>Запис і читання даних сесії</li>
+<li>Видалення даних сесії</li>
+<li>Практичний приклад: система логіну</li>
+<li>Час життя сесії</li>
+<li>Сесії та REST API</li>
+<li>JWT — токени для REST API</li>
+</ol>
+<h2 id="http">Проблема: HTTP — протокол без стану<a class="headerlink" href="#http" title="Permanent link">&para;</a></h2>
+<p>HTTP — це <strong>stateless</strong>-протокол. Це означає, що кожен запит є незалежним: сервер не "пам'ятає" попередні запити від того самого клієнта.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant B as Браузер
+    participant S as Flask-сервер
+
+    B-&gt;&gt;S: POST /login (username=taras, password=secret)
+    S-&gt;&gt;B: 200 OK — "Welcome, taras!"
+
+    B-&gt;&gt;S: GET /dashboard
+    S-&gt;&gt;B: 401 — "Who are you?"
+    Note right of S: Сервер не знає,&lt;br/&gt;хто зробив цей запит</code></pre>
+<p>Після успішного логіну сервер одразу "забуває" про користувача. Наступний запит для сервера — це абсолютно новий, незнайомий клієнт.</p>
+<p>Але в реальних застосунках нам потрібно зберігати стан між запитами: хто залогінений, які налаштування сайту обрав користувач і т.д.. Саме для цього існують <strong>сесії</strong>.</p>
+<h2 id="_2">Що таке сесія<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>Сесія (session)</strong> — це механізм збереження даних, прив'язаних до конкретного користувача, між кількома HTTP-запитами.</p>
+<p>Типові приклади використання сесій:</p>
+<ul>
+<li><strong>Автентифікація</strong> — зберігаємо ім'я або ID залогіненого користувача</li>
+<li><strong>Кошик покупок</strong> — зберігаємо список товарів між переходами по сторінках</li>
+<li><strong>Налаштування</strong> — мова інтерфейсу, тема оформлення</li>
+<li><strong>Flash-повідомлення</strong> — одноразові повідомлення ("Задачу створено!")</li>
+</ul>
+<h2 id="_3">Два підходи до реалізації сесій<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Існує два основних способи зберігання даних сесії:</p>
+<h3 id="cookie-based-sessions">Cookie-based sessions (клієнтські сесії)<a class="headerlink" href="#cookie-based-sessions" title="Permanent link">&para;</a></h3>
+<p><strong>Всі дані</strong> сесії зберігаються безпосередньо у cookie браузера. Сервер нічого не зберігає — він лише підписує дані, щоб клієнт не міг їх підробити.</p>
+<h3 id="server-side-sessions">Server-side sessions (серверні сесії)<a class="headerlink" href="#server-side-sessions" title="Permanent link">&para;</a></h3>
+<p>Дані сесії зберігаються <strong>на сервері</strong> (у базі даних, Redis, Memcached або навіть у пам'яті процесу). Клієнт отримує лише <strong>session ID</strong> — унікальний ідентифікатор, за яким сервер знаходить відповідні дані.</p>
+<pre class="mermaid"><code>graph LR
+    subgraph "Cookie-based"
+        A1["Cookie&lt;br/&gt;Усі дані (підписані)"] --&gt;|"Кожен запит"| S1["Сервер&lt;br/&gt;Нічого не зберігає"]
+    end
+
+    subgraph "Server-side"
+        A2["Cookie&lt;br/&gt;Лише session_id"] --&gt;|"Кожен запит"| S2["Сервер&lt;br/&gt;Шукає дані за ID"]
+        S2 --- DB["Сховище&lt;br/&gt;(Redis, БД, пам'ять)"]
+    end
+
+    style A1 fill:#ffd43b,stroke:#333,color:#000
+    style S1 fill:#51cf66,stroke:#333,color:#000
+    style A2 fill:#ffd43b,stroke:#333,color:#000
+    style S2 fill:#51cf66,stroke:#333,color:#000
+    style DB fill:#339af0,stroke:#333,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>Критерій</th>
+<th>Cookie-based</th>
+<th>Server-side</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Де зберігаються дані</strong></td>
+<td>У cookie клієнта</td>
+<td>На сервері</td>
+</tr>
+<tr>
+<td><strong>Що отримує клієнт</strong></td>
+<td>Підписані дані</td>
+<td>Лише session ID</td>
+</tr>
+<tr>
+<td><strong>Обмеження розміру</strong></td>
+<td>~4 КБ (ліміт cookie)</td>
+<td>Практично необмежений</td>
+</tr>
+<tr>
+<td><strong>Видимість даних</strong></td>
+<td>Клієнт бачить дані</td>
+<td>Клієнт бачить лише ID</td>
+</tr>
+<tr>
+<td><strong>Відкликання сесії</strong></td>
+<td>Неможливо до закінчення терміну</td>
+<td>Можна видалити на сервері</td>
+</tr>
+<tr>
+<td><strong>Масштабування</strong></td>
+<td>Просто (нічого на сервері)</td>
+<td>Потрібне спільне сховище</td>
+</tr>
+</tbody>
+</table>
+<p>Flask за замовчуванням використовує <strong>cookie-based sessions</strong> — це простіший підхід, який не потребує додаткової інфраструктури. Для серверних сесій у Flask існує бібліотека <a href="https://flask-session.readthedocs.io/">Flask-Session</a>, яка підтримує Redis, Memcached, SQLAlchemy та інші бекенди.</p>
+<h2 id="flask">Як працюють сесії у Flask<a class="headerlink" href="#flask" title="Permanent link">&para;</a></h2>
+<p>Як ми вже знаємо, Flask використовує <strong>cookie-based sessions</strong> — дані сесії зберігаються безпосередньо у cookie браузера клієнта.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant B as Браузер
+    participant S as Flask-сервер
+
+    B-&gt;&gt;S: POST /login (username=taras)
+    Note right of S: session["user"] = "taras"&lt;br/&gt;Flask підписує дані
+    S-&gt;&gt;B: 200 OK&lt;br/&gt;Header: Set-Cookie: session=eyJ...(підписані дані)
+
+    B-&gt;&gt;S: GET /dashboard&lt;br/&gt;Header: Cookie: session=eyJ...
+    Note right of S: Flask розшифровує cookie&lt;br/&gt;session["user"] → "taras"
+    S-&gt;&gt;B: 200 OK — "Dashboard for taras"</code></pre>
+<h3 id="_4">Як це працює крок за кроком<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Сервер записує дані в об'єкт <code>session</code> (наприклад, <code>session["user"] = "taras"</code>)</li>
+<li>Flask <strong>серіалізує</strong> дані в JSON і <strong>підписує</strong> їх криптографічним ключем</li>
+<li>Підписані дані відправляються клієнту як cookie <code>session</code></li>
+<li>Браузер автоматично додає цю cookie до кожного наступного запиту</li>
+<li>Flask <strong>перевіряє підпис</strong> і <strong>десеріалізує</strong> дані назад у об'єкт <code>session</code></li>
+</ol>
+<pre class="mermaid"><code>graph LR
+    A["Python dict&lt;br/&gt;{'user': 'taras'}"] --&gt;|"Серіалізація + підпис"| B["Cookie&lt;br/&gt;eyJfdWVyIjoidGF..."]
+    B --&gt;|"Перевірка підпису + десеріалізація"| A
+
+    style A fill:#51cf66,stroke:#333,color:#000
+    style B fill:#ffd43b,stroke:#333,color:#000</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Cookie-сесії: підписані, але НЕ зашифровані</p>
+<p>Flask <strong>підписує</strong> cookie, щоб клієнт не міг змінити дані (наприклад, змінити <code>user</code> з <code>"taras"</code> на <code>"admin"</code>). Якщо хтось змінить cookie, підпис не збігатиметься, і Flask відхилить ці дані.</p>
+<p>Але дані <strong>не зашифровані</strong> — їх можна декодувати та прочитати. Тому <strong>ніколи не зберігайте в сесії паролі, токени чи інші секрети</strong>. Зберігайте лише ідентифікатори (наприклад, ID користувача), а чутливі дані тримайте на сервері (у базі даних).</p>
+</div>
+<h2 id="_5">Налаштування секретного ключа<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Для підпису cookie Flask потребує <strong>секретний ключ</strong>. Без нього сесії не працюватимуть.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Секретний ключ для підпису cookie</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s2">&quot;my-secret-key-change-in-production&quot;</span>
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Секретний ключ у production</p>
+<p>У прикладах ми записуємо ключ прямо в коді — це прийнятно лише для навчання. У production секретний ключ повинен бути:</p>
+<ul>
+<li><strong>Довгим і випадковим</strong></li>
+<li><strong>Збережений у змінній оточення</strong> — не в коді:</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Якщо зловмисник дізнається секретний ключ, він зможе підробити будь-яку сесію.</p>
+</div>
+<h2 id="_6">Запис і читання даних сесії<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Об'єкт <code>session</code> у Flask працює як звичайний Python-словник:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s2">&quot;my-secret-key&quot;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/set-language&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_language</span><span class="p">():</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">lang</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">,</span> <span class="s2">&quot;uk&quot;</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="c1"># Записуємо в сесію</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">session</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lang</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Language set to </span><span class="si">{</span><span class="n">lang</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">})</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/get-language&quot;</span><span class="p">)</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_language</span><span class="p">():</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="c1"># Читаємо з сесії</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="n">lang</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">,</span> <span class="s2">&quot;uk&quot;</span><span class="p">)</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="n">lang</span><span class="p">})</span>
+</span></code></pre></div>
+<p>Тестування:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Встановити мову (curl зберігає cookie у файл)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:5000/set-language<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;language&quot;: &quot;en&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>-c<span class="w"> </span>cookies.txt
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Прочитати мову (curl надсилає збережену cookie)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>curl<span class="w"> </span>http://127.0.0.1:5000/get-language<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span>-b<span class="w"> </span>cookies.txt
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># Відповідь: {&quot;language&quot;: &quot;en&quot;}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Прапорці <code>-c</code> та <code>-b</code> у curl</p>
+<ul>
+<li><code>-c cookies.txt</code> — зберігає cookie, отримані від сервера, у файл</li>
+<li><code>-b cookies.txt</code> — надсилає cookie з файлу разом із запитом</li>
+</ul>
+<p>Браузер робить це автоматично, але curl за замовчуванням не зберігає cookie між запитами.</p>
+</div>
+<h3 id="session">Основні операції з <code>session</code><a class="headerlink" href="#session" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Записати значення</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">session</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Прочитати значення (KeyError, якщо ключ відсутній)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">value</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Безпечне читання (None, якщо ключ відсутній)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">value</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Безпечне читання зі значенням за замовчуванням</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">value</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># Перевірити наявність ключа</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="k">if</span> <span class="s2">&quot;key&quot;</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="o">...</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># Видалити один ключ</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="_7">Видалення даних сесії<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">Видалення окремого ключа<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/clear-language&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">clear_language</span><span class="p">():</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Language preference cleared&quot;</span><span class="p">})</span>
+</span></code></pre></div>
+<h3 id="_9">Повне очищення сесії<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/logout&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">():</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">session</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Logged out&quot;</span><span class="p">})</span>
+</span></code></pre></div>
+<p><code>session.clear()</code> видаляє <strong>всі</strong> дані сесії — корисно при виході користувача.</p>
+<h2 id="_10">Практичний приклад: система логіну<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>Побудуємо простий застосунок з логіном, захищеною сторінкою та виходом. Цього разу — з HTML-сторінками, які можна відкрити у браузері.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">redirect</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="s2">&quot;my-secret-key&quot;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Спрощена &quot;база&quot; користувачів</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">USERS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="s2">&quot;taras&quot;</span><span class="p">:</span> <span class="s2">&quot;secret123&quot;</span><span class="p">,</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="s2">&quot;olena&quot;</span><span class="p">:</span> <span class="s2">&quot;password456&quot;</span><span class="p">,</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="k">if</span> <span class="n">user</span><span class="p">:</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="s2">        &lt;h1&gt;Hello, </span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">!&lt;/h1&gt;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="s2">        &lt;p&gt;You are logged in.&lt;/p&gt;</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="s2">        &lt;a href=&quot;/dashboard&quot;&gt;Dashboard&lt;/a&gt;</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="s2">        &lt;form action=&quot;/logout&quot; method=&quot;post&quot; style=&quot;display:inline&quot;&gt;</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="s2">            &lt;button type=&quot;submit&quot;&gt;Logout&lt;/button&gt;</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="s2">        &lt;/form&gt;</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="s2">        &quot;&quot;&quot;</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="s2">    &lt;h1&gt;Welcome&lt;/h1&gt;</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="s2">    &lt;p&gt;You are not logged in.&lt;/p&gt;</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="s2">    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="s2">    &quot;&quot;&quot;</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">():</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>        <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="s2">        &lt;h1&gt;Login&lt;/h1&gt;</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="s2">        &lt;form action=&quot;/login&quot; method=&quot;post&quot;&gt;</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="s2">            &lt;label&gt;Username: &lt;input name=&quot;username&quot;&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="s2">            &lt;label&gt;Password: &lt;input name=&quot;password&quot; type=&quot;password&quot;&gt;&lt;/label&gt;&lt;br&gt;&lt;br&gt;</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="s2">            &lt;button type=&quot;submit&quot;&gt;Login&lt;/button&gt;</span>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="s2">        &lt;/form&gt;</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="s2">        &quot;&quot;&quot;</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">password</span><span class="p">:</span>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>        <span class="k">return</span> <span class="s2">&quot;&lt;h1&gt;Error&lt;/h1&gt;&lt;p&gt;Username and password are required&lt;/p&gt;&quot;</span><span class="p">,</span> <span class="mi">400</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>    <span class="c1"># Перевіряємо облікові дані</span>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>    <span class="k">if</span> <span class="n">USERS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">!=</span> <span class="n">password</span><span class="p">:</span>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>        <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="s2">        &lt;h1&gt;Error&lt;/h1&gt;</span>
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="s2">        &lt;p&gt;Invalid credentials&lt;/p&gt;</span>
+</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="s2">        &lt;a href=&quot;/login&quot;&gt;Try again&lt;/a&gt;</span>
+</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a><span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span> <span class="mi">401</span>
+</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>
+</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>    <span class="c1"># Зберігаємо ім&#39;я користувача в сесії</span>
+</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>    <span class="n">session</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span>
+</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>
+</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/dashboard&quot;</span><span class="p">)</span>
+</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>
+</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>
+</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/dashboard&quot;</span><span class="p">)</span>
+</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a><span class="k">def</span><span class="w"> </span><span class="nf">dashboard</span><span class="p">():</span>
+</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>    <span class="c1"># Перевіряємо, чи є користувач у сесії</span>
+</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span>
+</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>
+</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>        <span class="k">return</span> <span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a><span class="s2">        &lt;h1&gt;Access denied&lt;/h1&gt;</span>
+</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a><span class="s2">        &lt;p&gt;Please &lt;a href=&quot;/login&quot;&gt;login&lt;/a&gt; first.&lt;/p&gt;</span>
+</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a><span class="s2">        &quot;&quot;&quot;</span><span class="p">,</span> <span class="mi">401</span>
+</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>
+</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a><span class="s2">    &lt;h1&gt;Dashboard&lt;/h1&gt;</span>
+</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a><span class="s2">    &lt;p&gt;Welcome to your dashboard, &lt;b&gt;</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">&lt;/b&gt;!&lt;/p&gt;</span>
+</span><span id="__span-7-80"><a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a><span class="s2">    &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;</span>
+</span><span id="__span-7-81"><a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a><span class="s2">    &lt;form action=&quot;/logout&quot; method=&quot;post&quot; style=&quot;display:inline&quot;&gt;</span>
+</span><span id="__span-7-82"><a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a><span class="s2">        &lt;button type=&quot;submit&quot;&gt;Logout&lt;/button&gt;</span>
+</span><span id="__span-7-83"><a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a><span class="s2">    &lt;/form&gt;</span>
+</span><span id="__span-7-84"><a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a><span class="s2">    &quot;&quot;&quot;</span>
+</span><span id="__span-7-85"><a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>
+</span><span id="__span-7-86"><a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a>
+</span><span id="__span-7-87"><a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/logout&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+</span><span id="__span-7-88"><a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a><span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">():</span>
+</span><span id="__span-7-89"><a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a>    <span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-7-90"><a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a>    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_11">Як це працює у браузері<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Відкрийте <code>http://127.0.0.1:5000/</code> — побачите "You are not logged in"</li>
+<li>Перейдіть за посиланням <strong>Login</strong> — з'явиться HTML-форма</li>
+<li>Введіть <code>taras</code> / <code>secret123</code> і натисніть <strong>Login</strong></li>
+<li>Браузер надішле POST-запит, Flask запише <code>session["user"] = "taras"</code> і перенаправить на <code>/dashboard</code></li>
+<li>На dashboard натисніть <strong>Logout</strong> — сесія очиститься, і ви повернетесь на головну</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title"><code>redirect()</code> — перенаправлення</p>
+<p>Функція <code>redirect("/dashboard")</code> повертає відповідь з кодом <code>302 Found</code> і заголовком <code>Location: /dashboard</code>. Браузер автоматично переходить на вказаний URL. Це стандартний підхід після успішного POST-запиту (паттерн <strong>Post/Redirect/Get</strong>), який запобігає повторній відправці форми при оновленні сторінки.</p>
+</div>
+<h3 id="_12">Діаграма потоку<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant B as Браузер
+    participant S as Flask-сервер
+
+    B-&gt;&gt;S: GET /dashboard
+    S-&gt;&gt;B: 401 — "Please login first"
+
+    B-&gt;&gt;S: GET /login
+    S-&gt;&gt;B: 200 — HTML-форма логіну
+
+    B-&gt;&gt;S: POST /login (username=taras, password=secret123)
+    Note right of S: session["user"] = "taras"
+    S-&gt;&gt;B: 302 Redirect → /dashboard&lt;br/&gt;Header: Set-Cookie: session=...
+
+    B-&gt;&gt;S: GET /dashboard&lt;br/&gt;Header: Cookie: session=...
+    Note right of S: session["user"] → "taras"
+    S-&gt;&gt;B: 200 — "Welcome to your dashboard, taras!"
+
+    B-&gt;&gt;S: POST /logout&lt;br/&gt;Header: Cookie: session=...
+    Note right of S: session.pop("user")
+    S-&gt;&gt;B: 302 Redirect → /
+
+    B-&gt;&gt;S: GET /
+    S-&gt;&gt;B: 200 — "You are not logged in"</code></pre>
+<h2 id="_13">Час життя сесії<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>За замовчуванням cookie сесії Flask — це <strong>session cookie</strong>, яка існує, поки браузер відкритий. Коли користувач закриє браузер, cookie видаляється.</p>
+<h3 id="_14">Постійна сесія<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>Щоб сесія зберігалася після закриття браузера, використовуйте <a href="https://flask.palletsprojects.com/en/stable/config/?utm_source=chatgpt.com#PERMANENT_SESSION_LIFETIME">session.permanent</a>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">app</span><span class="o">.</span><span class="n">permanent_session_lifetime</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">():</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="k">if</span> <span class="n">USERS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">!=</span> <span class="n">password</span><span class="p">:</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid credentials&quot;</span><span class="p">}),</span> <span class="mi">401</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="n">session</span><span class="o">.</span><span class="n">permanent</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="n">session</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Welcome, </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">})</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>За замовчуванням</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>session.permanent</code></td>
+<td><code>False</code></td>
+<td>Якщо <code>True</code> — cookie має <code>Expires</code>, інакше — session cookie</td>
+</tr>
+<tr>
+<td><code>app.permanent_session_lifetime</code></td>
+<td><code>timedelta(days=31)</code></td>
+<td>Час життя постійної сесії</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rest-api">Сесії та REST API<a class="headerlink" href="#rest-api" title="Permanent link">&para;</a></h2>
+<p>У попередніх лекціях (<a href="../16-http-rest-lecture/">16</a>, <a href="../22-flask-crud-postgres-lecture/">22</a>) ми будували REST API. Один із принципів REST — <strong>statelessness</strong>: сервер не повинен зберігати стан клієнта між запитами.</p>
+<p>Це означає, що сесії <strong>не використовують</strong> у "чистих" REST API. Замість сесій використовують <strong>токени</strong> (наприклад, JWT), які клієнт передає в заголовку <code>Authorization</code> з кожним запитом.</p>
+<pre class="mermaid"><code>graph TD
+    A{"Який тип застосунку?"} --&gt;|"Веб-сайт з HTML-сторінками"| B["Сесії (cookies)&lt;br/&gt;session['user'] = 'taras'"]
+    A --&gt;|"REST API для мобільних/SPA"| C["Токени (JWT)&lt;br/&gt;Authorization: Bearer eyJ..."]
+
+    style A fill:#339af0,stroke:#333,color:#fff
+    style B fill:#51cf66,stroke:#333,color:#000
+    style C fill:#ffd43b,stroke:#333,color:#000</code></pre>
+<table>
+<thead>
+<tr>
+<th>Підхід</th>
+<th>Де зберігається стан</th>
+<th>Коли використовувати</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Сесії</strong></td>
+<td>Cookie в браузері або сховище на сервері</td>
+<td>Веб-застосунки з HTML-сторінками</td>
+</tr>
+<tr>
+<td><strong>Токени (JWT)</strong></td>
+<td>Клієнт (localStorage, заголовок)</td>
+<td>REST API, мобільні застосунки, SPA</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Що таке localStorage?</p>
+<p><code>localStorage</code> — це вбудоване сховище браузера (Web Storage API), яке дозволяє JavaScript-коду зберігати дані у вигляді key-value пар. На відміну від cookie, дані з <code>localStorage</code> <strong>не надсилаються автоматично</strong> з кожним запитом — клієнтський код сам додає токен у заголовок <code>Authorization</code> при кожному запиті до API.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Чому ми вивчаємо сесії?</p>
+<p>Хоча для REST API сесії не підходять, вони залишаються фундаментальним механізмом веб-розробки. Розуміння сесій необхідне для:</p>
+<ul>
+<li>Роботи з веб-застосунками, що рендерять HTML на сервері</li>
+<li>Розуміння основ автентифікації та авторизації</li>
+<li>Побудови адмін-панелей та внутрішніх інструментів</li>
+</ul>
+</div>
+<h2 id="jwt-rest-api">JWT — токени для REST API<a class="headerlink" href="#jwt-rest-api" title="Permanent link">&para;</a></h2>
+<p><strong>JWT (JSON Web Token)</strong> — це стандарт для передачі автентифікаційних даних у вигляді підписаного токена. Як і cookie-based сесії, JWT не потребує зберігання стану на сервері — вся інформація міститься в самому токені. Але на відміну від сесій, JWT призначений для REST API, де клієнт сам додає токен до кожного запиту.</p>
+<h3 id="jwt">Як працює JWT<a class="headerlink" href="#jwt" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant C as Client
+    participant S as Flask-сервер
+
+    C-&gt;&gt;S: POST /login {"username": "taras", "password": "secret123"}
+    Note right of S: Перевірка пароля ✓&lt;br/&gt;Генерація JWT-токена
+    S-&gt;&gt;C: 200 OK {"token": "eyJhbGci..."}
+
+    C-&gt;&gt;S: GET /api/tasks&lt;br/&gt;Header: Authorization: Bearer eyJhbGci...
+    Note right of S: Перевірка підпису токена ✓&lt;br/&gt;Декодування даних користувача
+    S-&gt;&gt;C: 200 OK [{"id": 1, "title": "..."}]
+
+    C-&gt;&gt;S: GET /api/tasks&lt;br/&gt;(без заголовка Authorization)
+    S-&gt;&gt;C: 401 Unauthorized</code></pre>
+<ol>
+<li>Клієнт надсилає логін і пароль</li>
+<li>Сервер перевіряє облікові дані та генерує <strong>підписаний токен</strong></li>
+<li>Клієнт зберігає токен і додає його до кожного запиту в заголовку <code>Authorization</code></li>
+<li>Сервер перевіряє підпис токена та витягує дані користувача</li>
+</ol>
+<h3 id="jwt_1">Структура JWT<a class="headerlink" href="#jwt_1" title="Permanent link">&para;</a></h3>
+<p>JWT складається з трьох частин, розділених крапкою:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Header:    eyJhbGciOiJIUzI1NiJ9
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Payload:   eyJ1c2VyIjoidGFyYXMiLCJleHAiOjE3NDM5ODQ2MDB9
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Signature: SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+</span></code></pre></div>
+<p>У токені ці три частини з'єднані крапкою: <code>Header.Payload.Signature</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Частина</th>
+<th>Що містить</th>
+<th>Приклад (після декодування з Base64)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Header</strong></td>
+<td>Алгоритм підпису</td>
+<td><code>{"alg": "HS256"}</code></td>
+</tr>
+<tr>
+<td><strong>Payload</strong></td>
+<td>Дані користувача + метадані</td>
+<td><code>{"user": "taras", "exp": 1743984600}</code></td>
+</tr>
+<tr>
+<td><strong>Signature</strong></td>
+<td>Підпис (Header + Payload + секретний ключ)</td>
+<td>бінарні дані</td>
+</tr>
+</tbody>
+</table>
+<p>Header і Payload — це просто JSON, закодований у Base64. Їх може прочитати будь-хто. <strong>Signature</strong> гарантує, що дані не були змінені — аналогічно до підпису cookie у Flask-сесіях.</p>
+<div class="admonition warning">
+<p class="admonition-title">JWT, як і Flask-сесії, підписаний, але НЕ зашифрований</p>
+<p>Payload токена може прочитати будь-хто — достатньо декодувати Base64. Тому не зберігайте в JWT паролі чи інші секрети. Зберігайте лише ідентифікатори: ім'я користувача, ID, роль.</p>
+</div>
+<h3 id="jwt-flask">Приклад: JWT-автентифікація у Flask<a class="headerlink" href="#jwt-flask" title="Permanent link">&para;</a></h3>
+<p>Встановимо бібліотеку для роботи з JWT:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pyjwt
+</span></code></pre></div>
+<p>Повний приклад:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;my-jwt-secret-key&quot;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">USERS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="s2">&quot;taras&quot;</span><span class="p">:</span> <span class="s2">&quot;secret123&quot;</span><span class="p">,</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="s2">&quot;olena&quot;</span><span class="p">:</span> <span class="s2">&quot;password456&quot;</span><span class="p">,</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="p">}</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">():</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Request body must be JSON&quot;</span><span class="p">}),</span> <span class="mi">400</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>    <span class="k">if</span> <span class="n">USERS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">!=</span> <span class="n">password</span><span class="p">:</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid credentials&quot;</span><span class="p">}),</span> <span class="mi">401</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>    <span class="c1"># Створюємо JWT-токен</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>        <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>        <span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>        <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>    <span class="p">}</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;HS256&quot;</span><span class="p">)</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">token</span><span class="p">})</span>
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a>
+</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/api/tasks&quot;</span><span class="p">)</span>
+</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_tasks</span><span class="p">():</span>
+</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>    <span class="c1"># Отримуємо токен із заголовка Authorization</span>
+</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a>    <span class="n">auth_header</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Authorization&quot;</span><span class="p">)</span>
+</span><span id="__span-11-44"><a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a>
+</span><span id="__span-11-45"><a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">auth_header</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">auth_header</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Bearer &quot;</span><span class="p">):</span>
+</span><span id="__span-11-46"><a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Missing or invalid Authorization header&quot;</span><span class="p">}),</span> <span class="mi">401</span>
+</span><span id="__span-11-47"><a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a>
+</span><span id="__span-11-48"><a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">auth_header</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># &quot;Bearer eyJ...&quot; → &quot;eyJ...&quot;</span>
+</span><span id="__span-11-49"><a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a>
+</span><span id="__span-11-50"><a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-11-51"><a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a>        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HS256&quot;</span><span class="p">])</span>
+</span><span id="__span-11-52"><a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a>    <span class="k">except</span> <span class="n">jwt</span><span class="o">.</span><span class="n">ExpiredSignatureError</span><span class="p">:</span>
+</span><span id="__span-11-53"><a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Token has expired&quot;</span><span class="p">}),</span> <span class="mi">401</span>
+</span><span id="__span-11-54"><a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a>    <span class="k">except</span> <span class="n">jwt</span><span class="o">.</span><span class="n">InvalidTokenError</span><span class="p">:</span>
+</span><span id="__span-11-55"><a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a>        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid token&quot;</span><span class="p">}),</span> <span class="mi">401</span>
+</span><span id="__span-11-56"><a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a>
+</span><span id="__span-11-57"><a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+</span><span id="__span-11-58"><a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a>
+</span><span id="__span-11-59"><a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+</span><span id="__span-11-60"><a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a>        <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">,</span>
+</span><span id="__span-11-61"><a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a>        <span class="s2">&quot;tasks&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span id="__span-11-62"><a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a>            <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Learn Flask&quot;</span><span class="p">},</span>
+</span><span id="__span-11-63"><a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a>            <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Learn JWT&quot;</span><span class="p">},</span>
+</span><span id="__span-11-64"><a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a>        <span class="p">],</span>
+</span><span id="__span-11-65"><a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a>    <span class="p">})</span>
+</span></code></pre></div>
+<h3 id="curl">Тестування через curl<a class="headerlink" href="#curl" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Логін — отримуємо токен</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:5000/login<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;username&quot;: &quot;taras&quot;, &quot;password&quot;: &quot;secret123&quot;}&#39;</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># Відповідь: {&quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoi...&quot;}</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># Запит із токеном — працює</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>curl<span class="w"> </span>http://127.0.0.1:5000/api/tasks<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoi...&quot;</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># Відповідь: {&quot;user&quot;: &quot;taras&quot;, &quot;tasks&quot;: [...]}</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1"># Запит без токена — помилка</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>curl<span class="w"> </span>http://127.0.0.1:5000/api/tasks
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="c1"># Відповідь: {&quot;error&quot;: &quot;Missing or invalid Authorization header&quot;} (401)</span>
+</span></code></pre></div>
+<h3 id="_15">Ключові моменти коду<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>jwt.encode(payload, key, algorithm)</code></strong> — створює підписаний токен із даних <code>payload</code></li>
+<li><strong><code>jwt.decode(token, key, algorithms)</code></strong> — перевіряє підпис і декодує дані. Якщо токен змінений або прострочений — викидає виняток</li>
+<li><strong><code>"exp"</code></strong> — стандартне поле JWT, яке визначає час закінчення дії токена. Бібліотека <code>pyjwt</code> автоматично перевіряє його при <code>decode()</code></li>
+<li><strong><code>Authorization: Bearer &lt;token&gt;</code></strong> — стандартний формат заголовка для передачі токена (<a href="https://datatracker.ietf.org/doc/html/rfc6750">RFC 6750</a>)</li>
+</ul>
+<h3 id="vs-jwt">Порівняння: сесії vs JWT<a class="headerlink" href="#vs-jwt" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Критерій</th>
+<th>Сесії (cookie-based)</th>
+<th>Сесії (server-side)</th>
+<th>JWT (токени)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Де зберігається стан</strong></td>
+<td>Cookie в браузері</td>
+<td>Сховище на сервері (Redis, БД)</td>
+<td>Клієнт (localStorage, змінна, заголовок)</td>
+</tr>
+<tr>
+<td><strong>Хто керує відправкою</strong></td>
+<td>Браузер автоматично</td>
+<td>Браузер автоматично (session ID)</td>
+<td>Клієнт вручну додає заголовок</td>
+</tr>
+<tr>
+<td><strong>Стан на сервері</strong></td>
+<td>Ні</td>
+<td>Так</td>
+<td>Ні</td>
+</tr>
+<tr>
+<td><strong>Вихід (logout)</strong></td>
+<td><code>session.clear()</code> — видаляє cookie</td>
+<td>Видалення сесії зі сховища</td>
+<td>Клієнт видаляє токен (сервер не може "відкликати" токен)</td>
+</tr>
+<tr>
+<td><strong>Міжсервісна взаємодія</strong></td>
+<td>Не підходить</td>
+<td>Не підходить</td>
+<td>Підходить — токен можна передати іншому сервісу</td>
+</tr>
+<tr>
+<td><strong>Використання</strong></td>
+<td>Веб-застосунки з HTML</td>
+<td>Веб-застосунки з HTML</td>
+<td>REST API, мобільні застосунки, SPA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_16">Підсумок<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Операція</th>
+<th>Код</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Записати в сесію</td>
+<td><code>session["key"] = value</code></td>
+</tr>
+<tr>
+<td>Прочитати з сесії</td>
+<td><code>session.get("key", default)</code></td>
+</tr>
+<tr>
+<td>Видалити один ключ</td>
+<td><code>session.pop("key", None)</code></td>
+</tr>
+<tr>
+<td>Очистити всю сесію</td>
+<td><code>session.clear()</code></td>
+</tr>
+<tr>
+<td>Зробити сесію постійною</td>
+<td><code>session.permanent = True</code></td>
+</tr>
+</tbody>
+</table>
+<p>Flask-сесії:</p>
+<ul>
+<li>Зберігаються у <strong>cookie</strong> на стороні клієнта</li>
+<li><strong>Підписані</strong> секретним ключем (захист від підробки)</li>
+<li><strong>Не зашифровані</strong> (не зберігайте секрети)</li>
+<li>Працюють як звичайний Python-<strong>словник</strong></li>
+<li>Підходять для <strong>веб-застосунків</strong>, але не для REST API</li>
+</ul>
+<h2 id="_17">Корисні посилання<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://flask.palletsprojects.com/quickstart/#sessions">Flask — Sessions</a></li>
+<li><a href="https://flask.palletsprojects.com/api/#flask.session">Flask — API: session</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">MDN — HTTP Cookies</a></li>
+<li><a href="https://pyjwt.readthedocs.io/en/stable/">PyJWT — Documentation</a></li>
+<li><a href="https://jwt.io/">JWT.io — Debugger</a> — інтерактивний інструмент для декодування та перевірки JWT-токенів</li>
+</ul>
+<h2 id="_18">Домашнє завдання<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Повторити приклад із системою логіну з лекції. Протестувати через <code>curl</code> повний цикл: логін → доступ до захищеного ресурсу → вихід → спроба доступу після виходу.</li>
+<li>Розширити приклад: додати endpoint <code>POST /api/cart/add</code>, який додає товар у "кошик" (<code>session["cart"]</code> — список). Додати endpoint <code>GET /api/cart</code>, який повертає вміст кошика. Перевірити, що кошик зберігається між запитами.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-2sem/issues">Створіть issue на GitHub</a></em></p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Куротич Анатолій. Всі права захищені.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kurotych" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
