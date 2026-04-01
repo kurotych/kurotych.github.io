@@ -2,106 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/01-sqlite-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/02-sqlite-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/03-psycopg2-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/04-psycopg2-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/05-alembic-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/06-alembic-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/07-error-handling-transactions-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/08-error-handling-transactions-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/09-testing-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/10-testing-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/11-docker-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/12-dockerfile-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/13-docker-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/14-docker-management-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module1/15-docker-postgres-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/16-http-rest-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/17-rest-api-design-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/18-flask-routing-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/19-flask-routing-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/20-flask-request-data-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/21-flask-request-data-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/22-flask-crud-postgres-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/23-flask-crud-postgres-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/24-flask-sessions-lecture/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-2sem/module2/25-flask-sessions-practice/</loc>
-         <lastmod>2026-03-31</lastmod>
+         <lastmod>2026-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://kurotych.com/ua/courses/programming-2sem/module2/26-testing-rest-api-lecture/</loc>
+         <lastmod>2026-04-01</lastmod>
+    </url>
+    <url>
+         <loc>https://kurotych.com/ua/courses/programming-2sem/module2/27-testing-rest-api-practice/</loc>
+         <lastmod>2026-04-01</lastmod>
     </url>
 </urlset>

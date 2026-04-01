@@ -985,6 +985,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-testing-rest-api-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. (Л) Тестування REST API за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-testing-rest-api-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. (П13) Розробка та виконання тестів для REST API з використанням pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1016,7 +1058,6 @@
 <ul>
 <li>Прочитана <a href="/ua/courses/programming-2sem/module2/20-flask-request-data-lecture/">Лекція 20 — Доступ до даних в HTTP-запиті за допомогою Flask</a></li>
 <li>Виконана <a href="/ua/courses/programming-2sem/module2/19-flask-routing-practice/">Практична 9 — Імплементація маршрутів для REST API у Flask</a></li>
-<li>Встановлений Python 3.10+</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Персоналізація</p>
@@ -1026,10 +1067,9 @@
 <p>Розширити Task Manager API з Практичної 9 новими endpoint-ами, які демонструють різні способи передачі даних в HTTP-запиті: query-параметри з пагінацією, дані форм, завантаження файлів та робота із заголовками.</p>
 <h3 id="_3">Підготовка проєкту<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>Продовжуйте роботу в проєкті з Практичної 9. Якщо потрібно почати з нуля:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>task-manager<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>task-manager
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">source</span><span class="w"> </span>env/bin/activate
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>pip<span class="w"> </span>install<span class="w"> </span>flask
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">source</span><span class="w"> </span>env/bin/activate
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>flask
 </span></code></pre></div>
 <p>Додайте директорію для завантажених файлів:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>uploads
