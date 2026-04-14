@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module2/19-flask-routing-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module3/33-threading-multiprocessing-practice/">
       
       
-        <link rel="prev" href="../18-flask-routing-lecture/">
+        <link rel="prev" href="../32-async-basics-lecture/">
       
-      
-        <link rel="next" href="../20-flask-request-data-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>19. (П9) Імплементація маршрутів для REST API у Flask - Python (2 семестр)</title>
+        <title>33. (П16) Створення процесів та потоків: threading і multiprocessing - Python (2 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#19-9-rest-api-flask" class="md-skip">
+        <a href="#33-16-threading-multiprocessing" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              19. (П9) Імплементація маршрутів для REST API у Flask
+              33. (П16) Створення процесів та потоків: threading і multiprocessing
             
           </span>
         </div>
@@ -610,8 +608,6 @@
       
   
   
-    
-  
   
   
     
@@ -623,11 +619,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -641,7 +639,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Модуль 2
@@ -655,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../16-http-rest-lecture/" class="md-nav__link">
+      <a href="../../module2/16-http-rest-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -676,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../17-rest-api-design-practice/" class="md-nav__link">
+      <a href="../../module2/17-rest-api-design-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,11 +695,354 @@
   
   
     <li class="md-nav__item">
-      <a href="../18-flask-routing-lecture/" class="md-nav__link">
+      <a href="../../module2/18-flask-routing-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     18. (Л) Знайомство з Flask. Маршрутизація (Routing)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/19-flask-routing-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. (П9) Імплементація маршрутів для REST API у Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/20-flask-request-data-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. (Л) Доступ до даних в HTTP-запиті за допомогою Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/21-flask-request-data-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. (П10) Завдання з передачі даних в HTTP-запиті
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/22-flask-crud-postgres-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. (Л) CRUD операції у Flask REST API з використанням PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/23-flask-crud-postgres-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. (П11) Реалізація CRUD операцій і робота з базою даних у Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/24-flask-sessions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. (Л) Сесії у Flask. Збереження стану користувача між запитами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/25-flask-sessions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. (П12) Робота із сесіями у Flask. Персоналізація
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/26-testing-rest-api-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. (Л) Тестування REST API за допомогою pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/27-testing-rest-api-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. (П13) Розробка та виконання тестів для REST API з використанням pytest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/28-ci-github-actions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. (Л) Неперервна інтеграція (CI). Знайомство з GitHub Actions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/29-ci-github-actions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/30-docker-flask-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. (Л) Контейнеризація Flask-застосунків за допомогою Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/31-docker-flask-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. (П15) Розгортання Flask REST API у Docker: створення Dockerfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-async-basics-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    32. (Л) Основи асинхронного програмування та конкурентності в Python
   </span>
   
 
@@ -731,7 +1072,7 @@
           
   
   <span class="md-ellipsis">
-    19. (П9) Імплементація маршрутів для REST API у Flask
+    33. (П16) Створення процесів та потоків: threading і multiprocessing
   </span>
   
 
@@ -742,7 +1083,7 @@
         
   
   <span class="md-ellipsis">
-    19. (П9) Імплементація маршрутів для REST API у Flask
+    33. (П16) Створення процесів та потоків: threading і multiprocessing
   </span>
   
 
@@ -779,40 +1120,31 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Завдання">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 1: Перші потоки з threading
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частина 1: Перші потоки з threading">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
-      Підготовка проєкту
+      1.1 Запуск кількох потоків
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#12-name" class="md-nav__link">
     <span class="md-ellipsis">
-      Маршрути для задач
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Маршрути для категорій
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#curl" class="md-nav__link">
-    <span class="md-ellipsis">
-      Тестування через curl
+      1.2 Передача аргументів і name
     </span>
   </a>
   
@@ -824,7 +1156,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#2-multiprocessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 2: Перші процеси з multiprocessing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частина 2: Перші процеси з multiprocessing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Запуск процесів
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       Результат
     </span>
@@ -836,349 +1192,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../20-flask-request-data-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    20. (Л) Доступ до даних в HTTP-запиті за допомогою Flask
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../21-flask-request-data-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    21. (П10) Завдання з передачі даних в HTTP-запиті
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../22-flask-crud-postgres-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    22. (Л) CRUD операції у Flask REST API з використанням PostgreSQL
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../23-flask-crud-postgres-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    23. (П11) Реалізація CRUD операцій і робота з базою даних у Flask
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../24-flask-sessions-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    24. (Л) Сесії у Flask. Збереження стану користувача між запитами
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../25-flask-sessions-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    25. (П12) Робота із сесіями у Flask. Персоналізація
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../26-testing-rest-api-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    26. (Л) Тестування REST API за допомогою pytest
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../27-testing-rest-api-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    27. (П13) Розробка та виконання тестів для REST API з використанням pytest
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../28-ci-github-actions-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    28. (Л) Неперервна інтеграція (CI). Знайомство з GitHub Actions
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../29-ci-github-actions-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../30-docker-flask-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    30. (Л) Контейнеризація Flask-застосунків за допомогою Docker
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../31-docker-flask-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    31. (П15) Розгортання Flask REST API у Docker: створення Dockerfile
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Модуль 3
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Модуль 3
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/32-async-basics-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    32. (Л) Основи асинхронного програмування та конкурентності в Python
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/33-threading-multiprocessing-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    33. (П16) Створення процесів та потоків: threading і multiprocessing
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1210,163 +1223,95 @@
   
 
 
-<h1 id="19-9-rest-api-flask">19. (П9) Імплементація маршрутів для REST API у Flask<a class="headerlink" href="#19-9-rest-api-flask" title="Permanent link">&para;</a></h1>
+<h1 id="33-16-threading-multiprocessing">33. (П16) Створення процесів та потоків: threading і multiprocessing<a class="headerlink" href="#33-16-threading-multiprocessing" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Прочитана <a href="/ua/courses/programming-2sem/module2/18-flask-routing-lecture/">Лекція 18 — Знайомство з Flask. Маршрутизація</a></li>
-<li>Виконана <a href="/ua/courses/programming-2sem/module2/17-rest-api-design-practice/">Практична 8 — Проєктування REST API</a> (специфікація Task Manager API)</li>
-</ul>
-<h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Реалізувати REST API для системи управління задачами (Task Manager) на Flask за специфікацією з Практичної 8. API зберігає дані в пам'яті (без бази даних) та підтримує повний набір CRUD-операцій для задач і категорій.</p>
-<h3 id="_3">Підготовка проєкту<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">source</span><span class="w"> </span>env/bin/activate
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>flask
-</span></code></pre></div>
-<h3 id="_4">Маршрути для задач<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>URL</th>
-<th>Опис</th>
-<th>Коди відповідей</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td><code>/api/tasks</code></td>
-<td>Список усіх задач</td>
-<td>200</td>
-</tr>
-<tr>
-<td>POST</td>
-<td><code>/api/tasks</code></td>
-<td>Створити задачу</td>
-<td>201, 400</td>
-</tr>
-<tr>
-<td>GET</td>
-<td><code>/api/tasks/&lt;id&gt;</code></td>
-<td>Отримати задачу за ID</td>
-<td>200, 404</td>
-</tr>
-<tr>
-<td>PUT</td>
-<td><code>/api/tasks/&lt;id&gt;</code></td>
-<td>Оновити задачу</td>
-<td>200, 400, 404</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td><code>/api/tasks/&lt;id&gt;</code></td>
-<td>Видалити задачу</td>
-<td>204, 404</td>
-</tr>
-<tr>
-<td>GET</td>
-<td><code>/api/tasks/stats</code></td>
-<td>Статистика по задачах</td>
-<td>200</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Вимоги:</strong></p>
-<ul>
-<li>
-<p><strong>GET <code>/api/tasks</code></strong> — повертає список усіх задач. Підтримує фільтрацію через query-параметри <code>status</code> (<code>todo</code>, <code>in_progress</code>, <code>done</code>) та <code>priority</code> (<code>low</code>, <code>medium</code>, <code>high</code>). Приклад: <code>GET /api/tasks?status=todo&amp;priority=high</code>.</p>
-</li>
-<li>
-<p><strong>POST <code>/api/tasks</code></strong> — створює нову задачу. Обов'язкові поля: <code>title</code>, <code>status</code>, <code>priority</code>, <code>created_by</code>. Поле <code>id</code> генерується автоматично. Поле <code>created_at</code> встановлюється автоматично (поточна дата та час в ISO 8601). Необов'язкове поле <code>category_id</code> — зв'язок з категорією. Повертає створену задачу з кодом <code>201</code>.</p>
-</li>
-<li>
-<p><strong>GET <code>/api/tasks/&lt;id&gt;</code></strong> — повертає задачу за ID або <code>404</code> з JSON-повідомленням про помилку.</p>
-</li>
-<li>
-<p><strong>PUT <code>/api/tasks/&lt;id&gt;</code></strong> — оновлює лише ті поля задачі, які передані в тілі запиту. Повертає оновлену задачу або <code>404</code>.</p>
-</li>
-<li>
-<p><strong>DELETE <code>/api/tasks/&lt;id&gt;</code></strong> — видаляє задачу. Повертає порожнє тіло з кодом <code>204</code> або <code>404</code>.</p>
-</li>
-<li>
-<p><strong>GET <code>/api/tasks/stats</code></strong> — повертає статистику: загальну кількість задач, кількість за кожним статусом та пріоритетом.</p>
-</li>
-</ul>
-<p><strong>Валідація при створенні (POST):</strong></p>
-<ul>
-<li>Тіло запиту має бути JSON (якщо <code>request.json</code> — <code>None</code>, повернути <code>400</code>)</li>
-<li><code>title</code> — обов'язкове, не порожній рядок</li>
-<li><code>status</code> — одне з <code>todo</code>, <code>in_progress</code>, <code>done</code></li>
-<li><code>priority</code> — одне з <code>low</code>, <code>medium</code>, <code>high</code></li>
-<li><code>created_by</code> — обов'язкове, не порожній рядок</li>
-</ul>
-<p>У разі помилки валідації повертати JSON з полем <code>error</code> та кодом <code>400</code>:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Поле &#39;title&#39; є обов&#39;язковим&quot;</span><span class="p">}</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Порядок маршрутів</p>
-<p>Маршрут <code>/api/tasks/stats</code> повинен бути оголошений <strong>перед</strong> маршрутом <code>/api/tasks/&lt;int:task_id&gt;</code>, інакше Flask інтерпретує <code>stats</code> як ID задачі. Оскільки конвертер <code>int</code> відхилить рядок <code>stats</code>, помилки не буде, але це хороша практика — ставити статичні маршрути перед динамічними.</p>
-</div>
-<h3 id="_5">Маршрути для категорій<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Метод</th>
-<th>URL</th>
-<th>Опис</th>
-<th>Коди відповідей</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td><code>/api/categories</code></td>
-<td>Список усіх категорій</td>
-<td>200</td>
-</tr>
-<tr>
-<td>POST</td>
-<td><code>/api/categories</code></td>
-<td>Створити категорію</td>
-<td>201, 400</td>
-</tr>
-<tr>
-<td>GET</td>
-<td><code>/api/categories/&lt;id&gt;/tasks</code></td>
-<td>Задачі у категорії</td>
-<td>200, 404</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Вимоги:</strong></p>
-<ul>
-<li><strong>POST <code>/api/categories</code></strong> — обов'язкове поле: <code>name</code>. Повертає створену категорію з кодом <code>201</code>.</li>
-<li><strong>GET <code>/api/categories/&lt;id&gt;/tasks</code></strong> — повертає задачі, у яких <code>category_id</code> відповідає ID категорії. Якщо категорію не знайдено — <code>404</code>.</li>
-</ul>
-<h3 id="curl">Тестування через curl<a class="headerlink" href="#curl" title="Permanent link">&para;</a></h3>
-<p>За допомогою curl команд переконатися, що:</p>
-<ul>
-<li>Створення задач і категорій повертає <code>201</code> з коректними даними</li>
-<li>Фільтрація за <code>status</code> та <code>priority</code> працює</li>
-<li>Отримання неіснуючого ресурсу повертає <code>404</code> з JSON-помилкою</li>
-<li>Оновлення змінює лише передані поля</li>
-<li>Видалення повертає <code>204</code></li>
-<li>Валідація повертає <code>400</code> з описом помилки</li>
-<li>Статистика коректно підраховує задачі</li>
-<li>Задачі у категорії повертають правильний набір</li>
-</ul>
-<h2 id="_6">Результат<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>Після виконання роботи студент здає:</p>
-<ul>
-<li><strong><code>app.py</code></strong> — Flask-застосунок з усіма маршрутами</li>
-<li>Звіт зі списоком curl команд використаних для тестування</li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module3/32-async-basics-lecture/">Лекція 32 — Основи асинхронного програмування та конкурентності в Python</a></li>
+<li>Python 3.10+</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Персоналізація</p>
-<p>У всіх запитах, де передається поле <code>created_by</code>, повинно бути <strong>ваше ім'я та прізвище</strong>. Відповіді API також повинні містити ваше ім'я у відповідних полях.
-На скріншотах в звіті повинно бути видно ваше ім'я</p>
+<p>У кожному файлі оголосіть константу <code>STUDENT = "Ім'я Прізвище"</code> (ваші дані) і виводьте її у першому рядку кожного запуску програми: <code>print(f"Студент: {STUDENT}")</code>. На скріншотах у звіті повинно бути видно ваше ім'я.</p>
 </div>
+<h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Освоїти базові інструменти конкурентності Python: створювати потоки та процеси, синхронізувати доступ до спільних даних, вимірювати продуктивність.</p>
+<hr />
+<h2 id="1-threading">Частина 1: Перші потоки з <code>threading</code><a class="headerlink" href="#1-threading" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 Запуск кількох потоків<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>Створіть файл <code>threads_basic.py</code>. Напишіть функцію <code>download(url: str, delay: float) -&gt; None</code>, яка імітує завантаження файлу: виводить <code>"Завантаження: &lt;url&gt;"</code>, чекає <code>delay</code> секунд (<code>time.sleep</code>), виводить <code>"Готово: &lt;url&gt;"</code>.</p>
+<p>Запустіть три потоки для трьох різних URL із затримками 3, 1 і 2 секунди — <strong>спочатку послідовно</strong>, потім <strong>через <code>threading.Thread</code></strong>. Виміряйте час кожного варіанту за допомогою <code>time.perf_counter</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delay</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Завантаження: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Готово: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="p">(</span><span class="s2">&quot;https://example.com/file1&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="p">(</span><span class="s2">&quot;https://example.com/file2&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="p">(</span><span class="s2">&quot;https://example.com/file3&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">]</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Послідовне виконання</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">delay</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">delay</span><span class="p">)</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Послідовно: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">с</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># TODO: замінити на потокове виконання</span>
+</span></code></pre></div>
+<p>Очікуваний результат: послідовне виконання ~6 секунд, потокове ~3 секунди.</p>
+<h3 id="12-name">1.2 Передача аргументів і <code>name</code><a class="headerlink" href="#12-name" title="Permanent link">&para;</a></h3>
+<p>Доповніть <code>threads_basic.py</code>. Дайте кожному потоку ім'я (<code>name="downloader-1"</code> тощо) і виводьте його в повідомленнях функції <code>download</code> через <code>threading.current_thread().name</code>.</p>
+<p>Очікуваний вивід (порядок рядків може різнитись):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[downloader-1] Завантаження: https://example.com/file1
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[downloader-2] Завантаження: https://example.com/file2
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[downloader-3] Завантаження: https://example.com/file3
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>[downloader-2] Готово: https://example.com/file2
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[downloader-3] Готово: https://example.com/file3
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[downloader-1] Готово: https://example.com/file1
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Потоки: 3.01с
+</span></code></pre></div>
+<hr />
+<h2 id="2-multiprocessing">Частина 2: Перші процеси з <code>multiprocessing</code><a class="headerlink" href="#2-multiprocessing" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 Запуск процесів<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>Створіть файл <code>processes_basic.py</code>. Напишіть CPU-bound функцію <code>compute(n: int) -&gt; int</code>, яка рахує суму квадратів від 0 до n: <code>sum(i * i for i in range(n))</code>. Поверніть результат і надрукуйте його разом з іменем процесу.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">current_process</span><span class="p">()</span><span class="o">.</span><span class="n">name</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">] sum of squares(0..</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">) = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10_000_000</span><span class="p">,</span> <span class="mi">8_000_000</span><span class="p">,</span> <span class="mi">12_000_000</span><span class="p">]</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="c1"># Послідовно</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="n">compute</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Послідовно: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">с</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="c1"># TODO: через multiprocessing.Process</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title"><code>if __name__ == '__main__':</code></p>
+<p>Цей захист <strong>обов'язковий</strong> для <code>multiprocessing</code> на Windows і macOS. Без нього запуск нових процесів рекурсивно породить нові процеси і програма зависне.</p>
+</div>
+<p>Запустіть обидва варіанти. Переконайтеся, що процеси дають прискорення на CPU-bound задачі (на відміну від потоків).</p>
+<h2 id="_3">Результат<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Після виконання роботи здайте звіт зі скріншотами:</p>
+<ul>
+<li><strong>Частина 1:</strong> вивід потокового завантаження з іменами потоків; порівняння часу послідовного і потокового виконання</li>
+<li><strong>Частина 2:</strong> порівняльна таблиця часу (послідовно / потоки / процеси) для CPU-bound задачі</li>
+</ul>
 
 
 
