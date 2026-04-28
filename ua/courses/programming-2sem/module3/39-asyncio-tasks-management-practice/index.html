@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module1/13-docker-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module3/39-asyncio-tasks-management-practice/">
       
       
-        <link rel="prev" href="../12-dockerfile-lecture/">
+        <link rel="prev" href="../38-asyncio-tasks-management-lecture/">
       
-      
-        <link rel="next" href="../14-docker-management-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec) - Python (2 семестр)</title>
+        <title>39. (П19) Асинхронне створення, виконання та керування задачами в asyncio - Python (2 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#13-6-docker-build-run-stop-rm-logs-exec" class="md-skip">
+        <a href="#39-19-asyncio" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)
+              39. (П19) Асинхронне створення, виконання та керування задачами в asyncio
             
           </span>
         </div>
@@ -246,8 +244,6 @@
       
   
   
-    
-  
   
   
     
@@ -259,11 +255,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -277,7 +275,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Модуль 1
@@ -291,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-sqlite-lecture/" class="md-nav__link">
+      <a href="../../module1/01-sqlite-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-sqlite-practice/" class="md-nav__link">
+      <a href="../../module1/02-sqlite-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -333,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-psycopg2-lecture/" class="md-nav__link">
+      <a href="../../module1/03-psycopg2-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-psycopg2-practice/" class="md-nav__link">
+      <a href="../../module1/04-psycopg2-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -375,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-alembic-lecture/" class="md-nav__link">
+      <a href="../../module1/05-alembic-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -396,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-alembic-practice/" class="md-nav__link">
+      <a href="../../module1/06-alembic-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -417,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-error-handling-transactions-lecture/" class="md-nav__link">
+      <a href="../../module1/07-error-handling-transactions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -438,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-error-handling-transactions-practice/" class="md-nav__link">
+      <a href="../../module1/08-error-handling-transactions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -459,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-testing-lecture/" class="md-nav__link">
+      <a href="../../module1/09-testing-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -480,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-testing-practice/" class="md-nav__link">
+      <a href="../../module1/10-testing-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -501,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-docker-lecture/" class="md-nav__link">
+      <a href="../../module1/11-docker-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -522,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-dockerfile-lecture/" class="md-nav__link">
+      <a href="../../module1/12-dockerfile-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -540,30 +538,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../module1/13-docker-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,131 +550,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Передумови
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Завдання">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 1. Встановлення Docker
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 2. Створення персоналізованого застосунку
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-docker-build" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 3. Збірка образу (docker build)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-docker-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 4. Запуск контейнера (docker run)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-docker-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 5. Перегляд логів (docker logs)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-docker-exec" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 6. Виконання команд у контейнері (docker exec)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-docker-stop-docker-rm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 7. Зупинка та видалення (docker stop, docker rm)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      Крок 8. Повний цикл
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Результат
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -709,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../14-docker-management-lecture/" class="md-nav__link">
+      <a href="../../module1/14-docker-management-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -730,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../15-docker-postgres-practice/" class="md-nav__link">
+      <a href="../../module1/15-docker-postgres-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1140,8 +993,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1151,13 +1006,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -1171,7 +1024,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Модуль 3
@@ -1185,7 +1038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module3/32-async-basics-lecture/" class="md-nav__link">
+      <a href="../32-async-basics-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1206,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module3/33-threading-multiprocessing-practice/" class="md-nav__link">
+      <a href="../33-threading-multiprocessing-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1227,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module3/34-event-loop-sockets-lecture/" class="md-nav__link">
+      <a href="../34-event-loop-sockets-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1248,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module3/35-threaded-downloads-practice/" class="md-nav__link">
+      <a href="../35-threaded-downloads-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1269,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module3/36-asyncio-basics-lecture/" class="md-nav__link">
+      <a href="../36-asyncio-basics-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1290,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module3/37-asyncio-tasks-practice/" class="md-nav__link">
+      <a href="../37-asyncio-tasks-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1311,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module3/38-asyncio-tasks-management-lecture/" class="md-nav__link">
+      <a href="../38-asyncio-tasks-management-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1329,10 +1182,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../module3/39-asyncio-tasks-management-practice/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    39. (П19) Асинхронне створення, виконання та керування задачами в asyncio
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1341,6 +1214,95 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Передумови
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-wait-vs-as_completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 1: wait vs as_completed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 2: тайм-аути та скасування
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Частина 2: тайм-аути та скасування">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-asynciotimeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 2A — asyncio.timeout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 2B — ручне скасування
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результат
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1372,170 +1334,107 @@
   
 
 
-<h1 id="13-6-docker-build-run-stop-rm-logs-exec">13. (П6) Встановлення Docker. Базові команди (build, run, stop, rm, logs, exec)<a class="headerlink" href="#13-6-docker-build-run-stop-rm-logs-exec" title="Permanent link">&para;</a></h1>
+<h1 id="39-19-asyncio">39. (П19) Асинхронне створення, виконання та керування задачами в asyncio<a class="headerlink" href="#39-19-asyncio" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Прочитані лекції <a href="/ua/courses/programming-2sem/module1/11-docker-lecture/">11 — Вступ до Docker</a> та <a href="/ua/courses/programming-2sem/module1/12-dockerfile-lecture/">12 — Dockerfile</a></li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module3/38-asyncio-tasks-management-lecture/">Лекція 38 — Керування асинхронними задачами та вимірювання продуктивності в asyncio</a></li>
+<li>Виконана <a href="/ua/courses/programming-2sem/module3/37-asyncio-tasks-practice/">Практика 18 — Асинхронне виконання задач із використанням asyncio</a></li>
+<li>Python <strong>3.11+</strong> (для <code>asyncio.timeout</code>)</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Персоналізація</p>
+<p>У кожному файлі оголосіть константу <code>STUDENT = "Imya Prizvysche"</code> (ваші дані латиницею) і виводьте її у першому рядку кожного запуску програми: <code>print(f"Student: {STUDENT}")</code>. На скріншотах у звіті повинно бути видно ваше ім'я.</p>
+</div>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Встановити Docker, створити персоналізований Python-застосунок, запакувати його в Docker-образ та відпрацювати базові команди управління контейнерами.</p>
-<h3 id="1-docker">Крок 1. Встановлення Docker<a class="headerlink" href="#1-docker" title="Permanent link">&para;</a></h3>
-<p>Встановити Docker Engine, дотримуючись офіційної інструкції для вашої ОС:</p>
-<ul>
-<li><strong>Linux (Ubuntu/Debian):</strong> <a href="https://docs.docker.com/engine/install/ubuntu/">docs.docker.com/engine/install/ubuntu</a></li>
-<li><strong>macOS:</strong> <a href="https://docs.docker.com/desktop/setup/install/mac-install/">docs.docker.com/desktop/setup/install/mac-install</a></li>
-</ul>
-<p>Перевірити, що Docker встановлено коректно:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>--version
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Docker version 28.x.x, build ...</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Hello from Docker!</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># This message shows that your installation appears to be working correctly.</span>
+<p>Реалізувати дві невеликі програми, які демонструють керування асинхронними задачами: вибір способу очікування групи (<code>wait</code> vs <code>as_completed</code>) та робота з тайм-аутами і скасуванням. Код пишете самостійно — нижче чітко описано, які функції оголосити, що друкувати і який вивід має вийти.</p>
+<hr />
+<h2 id="1-wait-vs-as_completed">Частина 1: <code>wait</code> vs <code>as_completed</code><a class="headerlink" href="#1-wait-vs-as_completed" title="Permanent link">&para;</a></h2>
+<p>Файл <code>waiting_strategies.py</code>.</p>
+<p>Оголосіть корутину:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">delay</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </span></code></pre></div>
-<h3 id="2">Крок 2. Створення персоналізованого застосунку<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>Створити директорію проєкту та файли:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker-practice/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── app.py
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── Dockerfile
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>└── .dockerignore
-</span></code></pre></div>
-<h4 id="apppy">Файл <code>app.py</code><a class="headerlink" href="#apppy" title="Permanent link">&para;</a></h4>
-<p>Написати програму, яка:</p>
+<p>Поведінка:</p>
 <ol>
-<li>Виводить привітання з <strong>вашим ім'ям та прізвищем</strong> (українською)</li>
-<li>Показує поточну дату та час</li>
-<li>Виводить інформацію про систему (версія Python, ОС)</li>
-<li>Працює у циклі — кожні 5 секунд виводить повідомлення з часом (щоб контейнер не завершувався одразу і можна було практикувати команди <code>logs</code>, <code>stop</code>, <code>exec</code>)</li>
+<li>на старті друкує <code>f"start {name}"</code>;</li>
+<li>чекає <code>delay</code> секунд через <code>asyncio.sleep</code>;</li>
+<li>на завершенні друкує <code>f"done {name}"</code>;</li>
+<li>повертає рядок <code>f"data-{name}"</code>.</li>
 </ol>
-<p>Приклад виводу:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>============================================
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  Привіт! Мене звати Тарас Шевченко
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Дата: 2026-03-06 14:30:00
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  Python: 3.13.2
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  Платформа: Linux-6.1.0-amd64
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>============================================
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>[14:30:05] Тарас Шевченко — програма працює...
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>[14:30:10] Тарас Шевченко — програма працює...
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>[14:30:15] Тарас Шевченко — програма працює...
-</span></code></pre></div>
-<p>Підказки:</p>
+<p>У <code>main</code> викличте її <strong>двічі підряд</strong> для трьох задач із затримками 3, 1 і 2 секунди:</p>
+<p><strong>Блок A — <code>asyncio.wait</code> із <code>FIRST_COMPLETED</code>:</strong></p>
 <ul>
-<li>Використовуйте модулі <code>datetime</code>, <code>platform</code>, <code>sys</code>, <code>time</code></li>
-<li>Ім'я можна зберігати у змінній або зчитувати зі змінної середовища <code>STUDENT_NAME</code></li>
-<li><code>time.sleep(5)</code> для паузи між повідомленнями</li>
+<li>виміряйте час через <code>time.perf_counter</code>;</li>
+<li>після пробудження надрукуйте результат <strong>найшвидшої</strong> задачі у форматі <code>f"first done: {result}"</code>;</li>
+<li>скасуйте решту через <code>task.cancel()</code> і дочекайтесь їх через <code>await asyncio.gather(*pending, return_exceptions=True)</code>;</li>
+<li>надрукуйте <code>f"block A elapsed: {elapsed:.2f}s"</code>.</li>
 </ul>
-<h4 id="dockerfile">Dockerfile<a class="headerlink" href="#dockerfile" title="Permanent link">&para;</a></h4>
-<p>Написати Dockerfile на основі <code>python:3.13-slim</code>, що:</p>
+<p><strong>Блок B — <code>asyncio.as_completed</code>:</strong></p>
 <ul>
-<li>Встановлює <code>WORKDIR</code></li>
-<li>Копіює код застосунку</li>
-<li>Використовує <code>ENV</code> для змінної <code>STUDENT_NAME</code> зі значенням за замовчуванням — <strong>вашим ім'ям</strong></li>
-<li>Задає команду запуску через <code>CMD</code></li>
+<li>виміряйте час;</li>
+<li>у циклі <code>for coro in asyncio.as_completed(...)</code> друкуйте <code>f"got: {await coro}"</code>;</li>
+<li>після циклу надрукуйте <code>f"block B elapsed: {elapsed:.2f}s"</code>.</li>
 </ul>
-<h4 id="dockerignore">Файл <code>.dockerignore</code><a class="headerlink" href="#dockerignore" title="Permanent link">&para;</a></h4>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>__pycache__/
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>*.pyc
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>.git/
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>env/
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>venv/
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Dockerfile
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>.dockerignore
+<p>Очікуваний час: блок A ≈ 1с, блок B ≈ 3с.</p>
+<p>У звіті — повний вивід та 2 речення відповіді: чому <code>wait(FIRST_COMPLETED)</code> завершується за 1с, а <code>as_completed</code> — за 3с, хоча обидва запускають ті самі три задачі.</p>
+<hr />
+<h2 id="2-">Частина 2: тайм-аути та скасування<a class="headerlink" href="#2-" title="Permanent link">&para;</a></h2>
+<p>Файл <code>timeouts_and_cancel.py</code>. Дві незалежні демонстрації, обидві у тому самому <code>main</code>.</p>
+<h3 id="2a-asynciotimeout">Частина 2A — <code>asyncio.timeout</code><a class="headerlink" href="#2a-asynciotimeout" title="Permanent link">&para;</a></h3>
+<p>Оголосіть три корутини без аргументів:</p>
+<table>
+<thead>
+<tr>
+<th>Корутина</th>
+<th>Затримка</th>
+<th>Друкує на старті</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>step_one</code></td>
+<td>0.5с</td>
+<td><code>"step one: start"</code></td>
+</tr>
+<tr>
+<td><code>step_two</code></td>
+<td>0.5с</td>
+<td><code>"step two: start"</code></td>
+</tr>
+<tr>
+<td><code>step_three</code></td>
+<td>2с</td>
+<td><code>"step three: start"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Викличте їх <strong>послідовно</strong> через <code>await</code> всередині <code>async with asyncio.timeout(1.5):</code>. Перехопіть <code>TimeoutError</code> і надрукуйте <code>"timeout reached"</code>.</p>
+<p>Очікуваний вивід:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>step one: start
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>step two: start
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>step three: start
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>timeout reached
 </span></code></pre></div>
-<h3 id="3-docker-build">Крок 3. Збірка образу (<code>docker build</code>)<a class="headerlink" href="#3-docker-build" title="Permanent link">&para;</a></h3>
-<p>Зібрати Docker-образ з тегом, що містить ваше прізвище (латиницею):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Замініть shevchenko на ваше прізвище</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>shevchenko-app:1.0<span class="w"> </span>.
+<h3 id="2b">Частина 2B — ручне скасування<a class="headerlink" href="#2b" title="Permanent link">&para;</a></h3>
+<p>Оголосіть корутину <code>worker()</code>, що в нескінченному циклі друкує <code>f"tick {i}"</code> (де <code>i</code> — лічильник з 1) і чекає 1 секунду.</p>
+<p>У блоці <code>try/except asyncio.CancelledError</code>:</p>
+<ul>
+<li>надрукуйте <code>f"worker: cleanup after {i} ticks"</code>;</li>
+<li>зробіть <code>raise</code>.</li>
+</ul>
+<p>У <code>main</code> запустіть її через <code>create_task</code>, зачекайте 2.5 секунди, викличте <code>task.cancel()</code> і обробіть <code>CancelledError</code> від <code>await task</code> рядком <code>"main: task cancelled"</code>.</p>
+<p>Очікуваний вивід:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tick 1
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>tick 2
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>tick 3
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>worker: cleanup after 3 ticks
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>main: task cancelled
 </span></code></pre></div>
-<p>Перевірити, що образ створено:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>shevchenko
-</span></code></pre></div>
-<p>Переглянути шари образу:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span><span class="nb">history</span><span class="w"> </span>shevchenko-app:1.0
-</span></code></pre></div>
-<h3 id="4-docker-run">Крок 4. Запуск контейнера (<code>docker run</code>)<a class="headerlink" href="#4-docker-run" title="Permanent link">&para;</a></h3>
-<p>Запустити контейнер у різних режимах:</p>
-<p><strong>Запуск на передньому плані (foreground):</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>my-app<span class="w"> </span>shevchenko-app:1.0
-</span></code></pre></div>
-<p>Побачити вивід програми. Зупинити через <code>Ctrl+C</code>.</p>
-<p><strong>Запуск у фоновому режимі (detached):</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>my-app-bg<span class="w"> </span>shevchenko-app:1.0
-</span></code></pre></div>
-<p><strong>Запуск з перевизначенням імені через змінну середовища:</strong></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>my-app-env<span class="w"> </span>-e<span class="w"> </span><span class="nv">STUDENT_NAME</span><span class="o">=</span><span class="s2">&quot;Інше Ім&#39;я&quot;</span><span class="w"> </span>shevchenko-app:1.0
-</span></code></pre></div>
-<h3 id="5-docker-logs">Крок 5. Перегляд логів (<code>docker logs</code>)<a class="headerlink" href="#5-docker-logs" title="Permanent link">&para;</a></h3>
-<p>Переглянути логи фонового контейнера:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Всі логи</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>my-app-bg
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Останні 5 рядків</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">5</span><span class="w"> </span>my-app-bg
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Логи у реальному часі (як tail -f)</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>my-app-bg
-</span></code></pre></div>
-<p>Вийти зі слідкування за логами через <code>Ctrl+C</code> (контейнер продовжує працювати).</p>
-<h3 id="6-docker-exec">Крок 6. Виконання команд у контейнері (<code>docker exec</code>)<a class="headerlink" href="#6-docker-exec" title="Permanent link">&para;</a></h3>
-<p>Виконати команди всередині працюючого контейнера:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Перевірити версію Python у контейнері</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>my-app-bg<span class="w"> </span>python<span class="w"> </span>--version
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Подивитися файли в робочій директорії</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>my-app-bg<span class="w"> </span>ls<span class="w"> </span>-la
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Відкрити інтерактивний shell у контейнері</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>my-app-bg<span class="w"> </span>bash
-</span></code></pre></div>
-<p>Усередині контейнера виконати:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Перевірити змінну середовища</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$STUDENT_NAME</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Подивитися процеси</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>ps<span class="w"> </span>aux
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># Перевірити вміст файлу</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>cat<span class="w"> </span>app.py
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># Вийти з контейнера</span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="nb">exit</span>
-</span></code></pre></div>
-<h3 id="7-docker-stop-docker-rm">Крок 7. Зупинка та видалення (<code>docker stop</code>, <code>docker rm</code>)<a class="headerlink" href="#7-docker-stop-docker-rm" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Подивитися працюючі контейнери</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>docker<span class="w"> </span>ps
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Зупинити контейнер</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>docker<span class="w"> </span>stop<span class="w"> </span>my-app-bg
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Подивитися всі контейнери (включно зі зупиненими)</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Видалити зупинений контейнер</span>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>docker<span class="w"> </span>rm<span class="w"> </span>my-app-bg
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># Видалити всі зупинені контейнери за раз</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>docker<span class="w"> </span>rm<span class="w"> </span>my-app<span class="w"> </span>my-app-env
-</span></code></pre></div>
-<h3 id="8">Крок 8. Повний цикл<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
-<p>Виконати повний цикл роботи з контейнером та зафіксувати результати:</p>
-<ol>
-<li>Зібрати образ версії <code>2.0</code> (можна змінити щось у програмі)</li>
-<li>Запустити контейнер у фоновому режимі</li>
-<li>Переглянути логи та переконатися, що відображається ваше ім'я</li>
-<li>Виконати <code>docker exec</code> для перевірки змінної <code>STUDENT_NAME</code></li>
-<li>Зупинити та видалити контейнер</li>
-<li>Видалити образ:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>rmi<span class="w"> </span>shevchenko-app:1.0<span class="w"> </span>shevchenko-app:2.0
-</span></code></pre></div>
+<p>У звіті у 2 реченнях поясніть, <strong>що зміниться, якщо прибрати <code>raise</code></strong> з блоку <code>except CancelledError</code>.</p>
 <h2 id="_3">Результат<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Після виконання роботи студент має:</p>
+<p>Після виконання роботи здайте звіт зі скріншотами:</p>
 <ul>
-<li>Встановлений та працюючий Docker</li>
-<li>Персоналізований Docker-образ з вашим ім'ям</li>
-<li>Практичний досвід роботи з командами: <code>build</code>, <code>run</code>, <code>stop</code>, <code>rm</code>, <code>logs</code>, <code>exec</code>, <code>ps</code>, <code>images</code>, <code>rmi</code>, <code>history</code></li>
+<li><strong>Частина 1:</strong> повний вивід <code>waiting_strategies.py</code> з обома блоками; пояснення різниці часу</li>
+<li><strong>Частина 2:</strong> вивід <code>timeouts_and_cancel.py</code>; пояснення наслідків прибирання <code>raise</code></li>
 </ul>
 
 
