@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module2/29-ci-github-actions-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module3/41-asyncio-debugging-practice/">
       
       
-        <link rel="prev" href="../28-ci-github-actions-lecture/">
+        <link rel="prev" href="../40-asyncio-debugging-lecture/">
       
-      
-        <link rel="next" href="../30-docker-flask-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку - Python (2 семестр)</title>
+        <title>41. (П20) Налагодження асинхронного коду та робота з подійним циклом - Python (2 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#29-14-github-workflow-python-" class="md-skip">
+        <a href="#41-20" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
+              41. (П20) Налагодження асинхронного коду та робота з подійним циклом
             
           </span>
         </div>
@@ -610,8 +608,6 @@
       
   
   
-    
-  
   
   
     
@@ -623,11 +619,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -641,7 +639,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Модуль 2
@@ -655,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../16-http-rest-lecture/" class="md-nav__link">
+      <a href="../../module2/16-http-rest-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -676,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../17-rest-api-design-practice/" class="md-nav__link">
+      <a href="../../module2/17-rest-api-design-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../18-flask-routing-lecture/" class="md-nav__link">
+      <a href="../../module2/18-flask-routing-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -718,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../19-flask-routing-practice/" class="md-nav__link">
+      <a href="../../module2/19-flask-routing-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -739,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../20-flask-request-data-lecture/" class="md-nav__link">
+      <a href="../../module2/20-flask-request-data-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../21-flask-request-data-practice/" class="md-nav__link">
+      <a href="../../module2/21-flask-request-data-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../22-flask-crud-postgres-lecture/" class="md-nav__link">
+      <a href="../../module2/22-flask-crud-postgres-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -802,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../23-flask-crud-postgres-practice/" class="md-nav__link">
+      <a href="../../module2/23-flask-crud-postgres-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../24-flask-sessions-lecture/" class="md-nav__link">
+      <a href="../../module2/24-flask-sessions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../25-flask-sessions-practice/" class="md-nav__link">
+      <a href="../../module2/25-flask-sessions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../26-testing-rest-api-lecture/" class="md-nav__link">
+      <a href="../../module2/26-testing-rest-api-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../27-testing-rest-api-practice/" class="md-nav__link">
+      <a href="../../module2/27-testing-rest-api-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -907,11 +905,312 @@
   
   
     <li class="md-nav__item">
-      <a href="../28-ci-github-actions-lecture/" class="md-nav__link">
+      <a href="../../module2/28-ci-github-actions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     28. (Л) Неперервна інтеграція (CI). Знайомство з GitHub Actions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/29-ci-github-actions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/30-docker-flask-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    30. (Л) Контейнеризація Flask-застосунків за допомогою Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/31-docker-flask-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. (П15) Розгортання Flask REST API у Docker: створення Dockerfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../32-async-basics-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    32. (Л) Основи асинхронного програмування та конкурентності в Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33-threading-multiprocessing-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    33. (П16) Створення процесів та потоків: threading і multiprocessing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34-event-loop-sockets-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    34. (Л) Асинхронність усередині Python: GIL, подієвий цикл і сокети
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35-threaded-downloads-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    35. (П17) Багатопоточне завантаження даних із мережі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36-asyncio-basics-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    36. (Л) Основи asyncio. Корутини, затримки та виконання задач
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../37-asyncio-tasks-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    37. (П18) Асинхронне виконання задач із використанням asyncio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38-asyncio-tasks-management-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    38. (Л) Керування асинхронними задачами та вимірювання продуктивності в asyncio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39-asyncio-tasks-management-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    39. (П19) Асинхронне створення, виконання та керування задачами в asyncio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40-asyncio-debugging-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    40. (Л) Проблеми виконання асинхронного коду, ручне керування подійним циклом та налагодження asyncio
   </span>
   
 
@@ -941,7 +1240,7 @@
           
   
   <span class="md-ellipsis">
-    29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
+    41. (П20) Налагодження асинхронного коду та робота з подійним циклом
   </span>
   
 
@@ -952,7 +1251,7 @@
         
   
   <span class="md-ellipsis">
-    29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
+    41. (П20) Налагодження асинхронного коду та робота з подійним циклом
   </span>
   
 
@@ -989,52 +1288,28 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Завдання">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      Частина 1: Підготовка репозиторію
+      Частина 1: знайти і виправити повільний крок
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-ci" class="md-nav__link">
-    <span class="md-ellipsis">
-      Частина 2: Адаптація тестів для CI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-ci-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Частина 3: Створення CI workflow
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-ci-pull-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Частина 4: Перевірка CI на pull request
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#2-event-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      Частина 2: ручне керування event loop
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       Результат
     </span>
@@ -1046,307 +1321,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../30-docker-flask-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    30. (Л) Контейнеризація Flask-застосунків за допомогою Docker
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../31-docker-flask-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    31. (П15) Розгортання Flask REST API у Docker: створення Dockerfile
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Модуль 3
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Модуль 3
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/32-async-basics-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    32. (Л) Основи асинхронного програмування та конкурентності в Python
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/33-threading-multiprocessing-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    33. (П16) Створення процесів та потоків: threading і multiprocessing
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/34-event-loop-sockets-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    34. (Л) Асинхронність усередині Python: GIL, подієвий цикл і сокети
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/35-threaded-downloads-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    35. (П17) Багатопоточне завантаження даних із мережі
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/36-asyncio-basics-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    36. (Л) Основи asyncio. Корутини, затримки та виконання задач
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/37-asyncio-tasks-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    37. (П18) Асинхронне виконання задач із використанням asyncio
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/38-asyncio-tasks-management-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    38. (Л) Керування асинхронними задачами та вимірювання продуктивності в asyncio
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/39-asyncio-tasks-management-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    39. (П19) Асинхронне створення, виконання та керування задачами в asyncio
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/40-asyncio-debugging-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    40. (Л) Проблеми виконання асинхронного коду, ручне керування подійним циклом та налагодження asyncio
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../module3/41-asyncio-debugging-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    41. (П20) Налагодження асинхронного коду та робота з подійним циклом
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1378,180 +1352,94 @@
   
 
 
-<h1 id="29-14-github-workflow-python-">29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку<a class="headerlink" href="#29-14-github-workflow-python-" title="Permanent link">&para;</a></h1>
+<h1 id="41-20">41. (П20) Налагодження асинхронного коду та робота з подійним циклом<a class="headerlink" href="#41-20" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Прочитана <a href="/ua/courses/programming-2sem/module2/28-ci-github-actions-lecture/">Лекція 28 — Неперервна інтеграція (CI). Знайомство з GitHub Actions</a></li>
-<li>Виконана <a href="/ua/courses/programming-2sem/module2/27-testing-rest-api-practice/">Практична 13 — Тестування REST API</a></li>
-<li>Встановлений Git</li>
-<li>Є акаунт на GitHub</li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module3/40-asyncio-debugging-lecture/">Лекція 40 — Проблеми виконання асинхронного коду, ручне керування подійним циклом та налагодження asyncio</a></li>
+<li>Python <strong>3.11+</strong></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Персоналізація</p>
-<p>Репозиторій на GitHub повинен бути створений під <strong>вашим акаунтом</strong>. На скріншотах у звіті повинно бути видно ваше ім'я користувача GitHub, назву репозиторію та результати виконання workflow.</p>
+<p>У кожному файлі оголосіть константу <code>STUDENT = "Imya Prizvysche"</code> (ваші дані латиницею) і виводьте її у першому рядку кожного запуску програми: <code>print(f"Student: {STUDENT}")</code>. На скріншотах у звіті повинно бути видно ваше ім'я.</p>
 </div>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Налаштувати CI за допомогою GitHub Actions для <strong>Book Library API</strong> з <a href="/ua/courses/programming-2sem/module2/27-testing-rest-api-practice/">Практичної 13</a>. При кожному push у репозиторій тести повинні запускатись автоматично з PostgreSQL у GitHub Actions.</p>
-<h3 id="1">Частина 1: Підготовка репозиторію<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<h4 id="github">Створення репозиторію на GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h4>
-<ol>
-<li>Створіть новий публічний репозиторій на GitHub (наприклад, <code>library-api</code>)</li>
-<li>Клонуйте його локально:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-username&gt;/library-api.git
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>library-api
-</span></code></pre></div>
-<h4 id="_3">Структура проєкту<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>Скопіюйте файли з Практичної 13 у репозиторій:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>library-api/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── app.py                # Flask-застосунок (application factory)
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── conftest.py           # Фікстури pytest
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── test_authors.py       # Тести для авторів
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── test_books.py         # Тести для книг
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└── requirements.txt
-</span></code></pre></div>
-<h4 id="requirementstxt">Файл requirements.txt<a class="headerlink" href="#requirementstxt" title="Permanent link">&para;</a></h4>
-<p>Переконайтесь, що <code>requirements.txt</code> містить усі залежності:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>flask
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>psycopg2-binary
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pytest
-</span></code></pre></div>
-<h4 id="_4">Перший коміт<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add library API with tests&quot;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>push
-</span></code></pre></div>
-<h3 id="2-ci">Частина 2: Адаптація тестів для CI<a class="headerlink" href="#2-ci" title="Permanent link">&para;</a></h3>
-<p>У Практичній 13 конфігурація бази даних була захардкоджена в <code>conftest.py</code>. Для CI потрібно зробити її гнучкою — щоб тести могли використовувати конфігурацію як з локального середовища, так і з GitHub Actions.</p>
-<h4 id="_5">Читання конфігурації із змінних середовища<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>Змініть <code>conftest.py</code>, щоб конфігурація БД читалась зі змінних середовища з fallback на локальні значення:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">psycopg2</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">app</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_app</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">TEST_DB_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">),</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;5432&quot;</span><span class="p">)),</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_DB&quot;</span><span class="p">,</span> <span class="s2">&quot;library_test_db&quot;</span><span class="p">),</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_USER&quot;</span><span class="p">,</span> <span class="s2">&quot;postgres&quot;</span><span class="p">),</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_PASSWORD&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">),</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># ... решта фікстур залишається без змін</span>
-</span></code></pre></div>
-<p>Тепер тести працюють і локально (з дефолтними значеннями), і в CI (де змінні середовища задаються у workflow).</p>
-<h3 id="3-ci-workflow">Частина 3: Створення CI workflow<a class="headerlink" href="#3-ci-workflow" title="Permanent link">&para;</a></h3>
-<p>Створіть файл <code>.github/workflows/ci.yml</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>.github/workflows
-</span></code></pre></div>
-<p>Напишіть workflow, який:</p>
-<ol>
-<li>Запускається при <strong>push</strong> у гілку <code>main</code> та при <strong>pull request</strong> у <code>main</code></li>
-<li>Використовує runner <code>ubuntu-latest</code></li>
-<li>Піднімає <strong>PostgreSQL 17</strong> як сервіс з health check</li>
-<li>Встановлює <strong>Python 3.12</strong></li>
-<li>Встановлює залежності з <code>requirements.txt</code></li>
-<li>Запускає <code>pytest -v</code></li>
-</ol>
-<p><strong>Вимоги до сервісу PostgreSQL:</strong></p>
+<p>Виконати дві невеликі програми, які демонструють базові навички налагодження asyncio і ручного керування event loop.</p>
+<hr />
+<h2 id="1">Частина 1: знайти і виправити повільний крок<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>Файл <code>slow_step.py</code>.</p>
+<p>Оголосіть три корутини:</p>
 <table>
 <thead>
 <tr>
-<th>Параметр</th>
-<th>Значення</th>
+<th>Корутина</th>
+<th>Поведінка</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Образ</td>
-<td><code>postgres:17</code></td>
+<td><code>load()</code></td>
+<td>друкує <code>"load: start"</code>, чекає 0.3с через <code>asyncio.sleep</code>, повертає <code>"raw"</code></td>
 </tr>
 <tr>
-<td><code>POSTGRES_PASSWORD</code></td>
-<td><code>secret</code></td>
+<td><code>process()</code></td>
+<td>друкує <code>"process: start"</code>, викликає <code>time.sleep(1.2)</code>, повертає <code>"clean"</code></td>
 </tr>
 <tr>
-<td><code>POSTGRES_DB</code></td>
-<td><code>library_test_db</code></td>
-</tr>
-<tr>
-<td>Порт</td>
-<td><code>5432:5432</code></td>
-</tr>
-<tr>
-<td>Health check</td>
-<td><code>pg_isready</code>, інтервал 10s, таймаут 5s, 5 спроб</td>
+<td><code>save()</code></td>
+<td>друкує <code>"save: start"</code>, чекає 0.5с через <code>asyncio.sleep</code>, нічого не повертає</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Вимоги до кроку запуску тестів:</strong></p>
-<p>Передайте змінні середовища для підключення до бази:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest -v</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">POSTGRES_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">POSTGRES_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">library_test_db</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Підказка</p>
-<p>За основу візьміть приклад з <a href="/ua/courses/programming-2sem/module2/28-ci-github-actions-lecture/#_9">лекції 28</a>. Додайте секцію <code>env</code> до кроку запуску тестів.</p>
-</div>
-<h4 id="push">Push та перевірка<a class="headerlink" href="#push" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>add<span class="w"> </span>.github/workflows/ci.yml<span class="w"> </span>conftest.py
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add CI workflow&quot;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git<span class="w"> </span>push
-</span></code></pre></div>
-<p>Після push перейдіть у вкладку <strong>Actions</strong> вашого репозиторію на GitHub та перевірте, що workflow запустився.</p>
-<h3 id="4-ci-pull-request">Частина 4: Перевірка CI на pull request<a class="headerlink" href="#4-ci-pull-request" title="Permanent link">&para;</a></h3>
-<p>Переконайтесь, що CI працює також для pull request:</p>
+<p>Оголосіть корутину <code>step(name, coro)</code>, яка:</p>
 <ol>
-<li>Створіть нову гілку:</li>
+<li>запам'ятовує час через <code>time.perf_counter</code>;</li>
+<li>чекає <code>coro</code> через <code>await</code>;</li>
+<li>друкує <code>f"[{name}] {elapsed:.2f}s"</code>;</li>
+<li>повертає результат корутини.</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>test-ci-pr
+<p>У <code>main</code> послідовно викличте всі три кроки через <code>step("load", ...)</code>, <code>step("process", ...)</code>, <code>step("save", ...)</code>. Запустіть через <code>asyncio.run(main(), debug=True)</code>.</p>
+<p>Очікуваний вивід:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>load: start
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[load] 0.30s
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>process: start
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>[process] 1.20s
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>save: start
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>[save] 0.50s
 </span></code></pre></div>
+<p>У debug-режимі asyncio додатково попередить про повільний callback у <code>process</code> (<code>took ... seconds</code>).</p>
+<p><strong>Виправлення.</strong> Зробіть так, щоб <code>process</code> не блокувала event loop: оберніть <code>time.sleep(1.2)</code> у <code>asyncio.to_thread</code>. Запустіть програму ще раз і переконайтесь, що попередження зникло.</p>
+<p>У звіті у 1 реченні поясніть, чому до виправлення asyncio попереджав про повільний callback саме у <code>process</code>, а не у <code>load</code> чи <code>save</code>.</p>
+<hr />
+<h2 id="2-event-loop">Частина 2: ручне керування event loop<a class="headerlink" href="#2-event-loop" title="Permanent link">&para;</a></h2>
+<p>Файл <code>manual_loop.py</code>.</p>
+<p>Оголосіть корутину <code>tick()</code>:</p>
 <ol>
-<li>Додайте новий тест у <code>test_books.py</code>:</li>
+<li>у нескінченному циклі друкує <code>f"tick {i}"</code> (де <code>i</code> — лічильник з 1);</li>
+<li>чекає 1 секунду через <code>asyncio.sleep</code>;</li>
+<li>у блоці <code>except asyncio.CancelledError</code> друкує <code>"tick: stopped"</code> і робить <code>raise</code>.</li>
 </ol>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_create_book_default_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Книга створюється зі статусом за замовчуванням&quot;&quot;&quot;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/books&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Test Book&quot;</span><span class="p">,</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="s2">&quot;created_by&quot;</span><span class="p">:</span> <span class="s2">&quot;Ім&#39;я Прізвище&quot;</span><span class="p">,</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="p">})</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+<p>У <code>main</code> (звичайна синхронна функція):</p>
+<ol>
+<li>створіть новий event loop через <code>asyncio.new_event_loop()</code>;</li>
+<li>зареєструйте задачу через <code>loop.create_task(tick())</code>;</li>
+<li>запустіть <code>loop.run_forever()</code> у блоці <code>try</code>;</li>
+<li>у <code>except KeyboardInterrupt</code> скасуйте задачу через <code>task.cancel()</code> і викличте <code>loop.run_until_complete(task)</code> (огорніть у <code>try/except CancelledError</code>);</li>
+<li>у <code>finally</code> викличте <code>loop.close()</code> і надрукуйте <code>"loop closed"</code>.</li>
+</ol>
+<p>Запустіть програму, дайте їй надрукувати 3-4 тіки і натисніть <code>Ctrl+C</code>.</p>
+<p>Очікуваний вивід (приблизно):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tick 1
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>tick 2
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>tick 3
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>^Ctick: stopped
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>loop closed
 </span></code></pre></div>
-<ol>
-<li>Зробіть коміт та push нової гілки:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>add<span class="w"> </span>test_books.py
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add test for default book status&quot;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>test-ci-pr
-</span></code></pre></div>
-<ol>
-<li>Створіть Pull Request на GitHub (base: <code>main</code>, compare: <code>test-ci-pr</code>)</li>
-<li>Переконайтесь, що CI запустився для PR та успішно пройшов</li>
-</ol>
-<p>В інтерфейсі PR ви побачите статус перевірки CI:</p>
+<p>У звіті у 1-2 реченнях поясніть, навіщо ми викликаємо <code>loop.run_until_complete(task)</code> після <code>task.cancel()</code> — що було б, якби ми просто закрили loop одразу.</p>
+<h2 id="_3">Результат<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Після виконання роботи здайте звіт зі скріншотами:</p>
 <ul>
-<li>Жовтий індикатор — workflow ще виконується</li>
-<li>Зелена галочка — всі перевірки пройшли</li>
-<li>Червоний хрестик — є помилки</li>
-</ul>
-<h2 id="_6">Результат<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>Після виконання роботи студент здає:</p>
-<ul>
-<li>Посилання на <strong>GitHub-репозиторій</strong> з кодом та workflow</li>
-<li>Звіт зі скріншотами:<ul>
-<li>Вкладка Actions з успішним workflow (зелена галочка)</li>
-<li>Логи кроку "Run tests" з виводом pytest</li>
-<li>Pull request зі статусом CI-перевірки</li>
-</ul>
-</li>
+<li><strong>Частина 1:</strong> вивід <code>slow_step.py</code> до і після виправлення (з попередженням asyncio і без нього); пояснення, чому попереджало саме про <code>process</code></li>
+<li><strong>Частина 2:</strong> вивід <code>manual_loop.py</code> із зупинкою через <code>Ctrl+C</code>; пояснення ролі <code>run_until_complete</code> після скасування</li>
 </ul>
 
 
