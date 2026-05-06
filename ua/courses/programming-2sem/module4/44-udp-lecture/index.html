@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module4/43-network-transport-layers-lecture/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module4/44-udp-lecture/">
       
       
-        <link rel="prev" href="../42-osi-model-lecture/">
+        <link rel="prev" href="../43-network-transport-layers-lecture/">
       
       
-        <link rel="next" href="../44-udp-lecture/">
+        <link rel="next" href="../45-tcp-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>43. (Л) Мережевий та транспортний рівні — роль у мережевій взаємодії - Python (2 семестр)</title>
+        <title>44. (Л) Огляд протоколу транспортного рівня UDP - Python (2 семестр)</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#43" class="md-skip">
+        <a href="#44-udp" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              43. (Л) Мережевий та транспортний рівні — роль у мережевій взаємодії
+              44. (Л) Огляд протоколу транспортного рівня UDP
             
           </span>
         </div>
@@ -1317,6 +1317,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../43-network-transport-layers-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    43. (Л) Мережевий та транспортний рівні — роль у мережевій взаємодії
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1333,7 +1354,7 @@
           
   
   <span class="md-ellipsis">
-    43. (Л) Мережевий та транспортний рівні — роль у мережевій взаємодії
+    44. (Л) Огляд протоколу транспортного рівня UDP
   </span>
   
 
@@ -1344,7 +1365,7 @@
         
   
   <span class="md-ellipsis">
-    43. (Л) Мережевий та транспортний рівні — роль у мережевій взаємодії
+    44. (Л) Огляд протоколу транспортного рівня UDP
   </span>
   
 
@@ -1375,37 +1396,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#udp" class="md-nav__link">
     <span class="md-ellipsis">
-      Місце мережевого та транспортного рівнів
+      Місце UDP серед транспортних протоколів
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ip-icmp" class="md-nav__link">
+  <a href="#udp-" class="md-nav__link">
     <span class="md-ellipsis">
-      Мережевий рівень: IP, маршрутизація, ICMP
+      Структура UDP-датаграми
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Мережевий рівень: IP, маршрутизація, ICMP">
+    <nav class="md-nav" aria-label="Структура UDP-датаграми">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ip-" class="md-nav__link">
+  <a href="#udp-ip-" class="md-nav__link">
     <span class="md-ellipsis">
-      IP-адреса
+      UDP усередині IP-пакета
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Сценарії використання UDP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Сценарії використання UDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Голос і відео в реальному часі
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
+  <a href="#dns" class="md-nav__link">
     <span class="md-ellipsis">
-      Приватні vs публічні адреси
+      DNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-ntp-snmp" class="md-nav__link">
+    <span class="md-ellipsis">
+      DHCP, NTP, SNMP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Онлайн-ігри
     </span>
   </a>
   
@@ -1414,16 +1477,16 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Маршрутизація
+      Метрики й логи
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#icmp" class="md-nav__link">
+  <a href="#quic-http3" class="md-nav__link">
     <span class="md-ellipsis">
-      ICMP — службові повідомлення мережевого рівня
+      QUIC і HTTP/3
     </span>
   </a>
   
@@ -1435,97 +1498,130 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tcp-udp" class="md-nav__link">
+  <a href="#udp-python" class="md-nav__link">
     <span class="md-ellipsis">
-      Транспортний рівень: TCP та UDP
+      Робота з UDP у Python
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Транспортний рівень: TCP та UDP">
+    <nav class="md-nav" aria-label="Робота з UDP у Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#udp-echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP-сервер (echo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDP-клієнт
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підключений UDP-сокет
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send" class="md-nav__link">
+    <span class="md-ellipsis">
+      Один send — одна датаграма
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#broadcast-multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broadcast і multicast
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Broadcast і multicast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#broadcast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Broadcast — «усім у локальній мережі»
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multicast" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multicast — «усім, хто підписався»
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mtu" class="md-nav__link">
+    <span class="md-ellipsis">
+      MTU та фрагментація
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udp-_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Діагностика UDP-трафіку
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Діагностика UDP-трафіку">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Що таке порт
+      Перевірити, що порт слухається
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tcp-transmission-control-protocol" class="md-nav__link">
+  <a href="#udp_2" class="md-nav__link">
     <span class="md-ellipsis">
-      TCP — Transmission Control Protocol
+      Надіслати UDP вручну
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#udp-user-datagram-protocol" class="md-nav__link">
-    <span class="md-ellipsis">
-      UDP — User Datagram Protocol
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tcp-vs-udp" class="md-nav__link">
-    <span class="md-ellipsis">
-      TCP vs UDP
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tcpudp" class="md-nav__link">
-    <span class="md-ellipsis">
-      Розширення поверх TCP/UDP
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Порти й сокети
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Порти й сокети">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tcp-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      TCP-сервер на Python
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tcp-" class="md-nav__link">
-    <span class="md-ellipsis">
-      TCP-клієнт
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#udp" class="md-nav__link">
-    <span class="md-ellipsis">
-      UDP — лише два рядки відмінності
+      Захопити пакети
     </span>
   </a>
   
@@ -1537,49 +1633,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Що бачить програміст у Python
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Що бачить програміст у Python">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Часті винятки
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      Приклад: розпізнаємо рівень помилки
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      Інструменти діагностики
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       Підсумок
     </span>
@@ -1588,7 +1642,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       Корисні посилання
     </span>
@@ -1600,27 +1654,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../44-udp-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    44. (Л) Огляд протоколу транспортного рівня UDP
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1715,438 +1748,281 @@
   
 
 
-<h1 id="43">43. (Л) Мережевий та транспортний рівні — роль у мережевій взаємодії<a class="headerlink" href="#43" title="Permanent link">&para;</a></h1>
+<h1 id="44-udp">44. (Л) Огляд протоколу транспортного рівня UDP<a class="headerlink" href="#44-udp" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Місце мережевого та транспортного рівнів</li>
-<li>Мережевий рівень: IP, маршрутизація, ICMP</li>
-<li>Транспортний рівень: TCP та UDP</li>
-<li>Порти й сокети</li>
-<li>Практика: що бачить програміст у Python</li>
-<li>Інструменти діагностики</li>
+<li>Місце UDP серед транспортних протоколів</li>
+<li>Структура UDP-датаграми</li>
+<li>Сценарії використання UDP</li>
+<li>Робота з UDP у Python</li>
+<li>Ненадійність — як із нею жити</li>
+<li>Broadcast і multicast</li>
+<li>MTU та фрагментація</li>
+<li>Діагностика UDP-трафіку</li>
 </ol>
-<h2 id="_2">Місце мережевого та транспортного рівнів<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>З попередньої лекції ми знаємо сім рівнів OSI. Сьогодні зосередимось на двох найважливіших для програміста:</p>
+<h2 id="udp">Місце UDP серед транспортних протоколів<a class="headerlink" href="#udp" title="Permanent link">&para;</a></h2>
+<p>UDP (<strong>User Datagram Protocol</strong>, RFC 768, 1980 рік) — один із двох основних протоколів транспортного рівня в стеку TCP/IP. Він свідомо мінімалістичний: робить буквально стільки, скільки потрібно, щоб доставити пакет від однієї програми до іншої — і ні байта більше.</p>
 <pre class="mermaid"><code>graph TD
-    L7["7. Application — HTTP, DNS, SMTP"]
-    L4["4. Transport — TCP, UDP (порти)"]
-    L3["3. Network — IP (адресація, маршрутизація)"]
-    L1["1-2. Link / Physical — Ethernet, Wi-Fi"]
+    APP["Прикладний рівень&lt;br/&gt;(DNS, VoIP, гра, метрики)"]
+    UDP["UDP&lt;br/&gt;порти, контрольна сума"]
+    IP["IP&lt;br/&gt;адресація, маршрутизація"]
+    LINK["Канальний / Фізичний"]
 
-    L7 --&gt; L4 --&gt; L3 --&gt; L1
+    APP --&gt; UDP --&gt; IP --&gt; LINK
 
-    style L4 fill:#82c91e,stroke:#333,color:#000
-    style L3 fill:#15aabf,stroke:#333,color:#fff</code></pre>
+    style UDP fill:#82c91e,stroke:#333,color:#000</code></pre>
+<p>UDP відрізняється від TCP трьома ключовими ознаками:</p>
 <ul>
-<li><strong>Мережевий рівень (Network)</strong> відповідає на запитання: «<strong>Куди</strong> доставити дані?» — між машинами в інтернеті.</li>
-<li><strong>Транспортний рівень (Transport)</strong> відповідає на запитання: «<strong>Кому саме</strong> на цій машині та <strong>як надійно</strong>?» — між програмами на машині.</li>
+<li><strong>немає з'єднання</strong> — нема handshake, нема стану «відкрите з'єднання»;</li>
+<li><strong>немає гарантій</strong> — пакет може загубитися, продублюватися чи прийти не в порядку;</li>
+<li><strong>межі повідомлень зберігаються</strong> — кожен <code>send</code> стає окремою датаграмою (на відміну від байтового потоку TCP).</li>
 </ul>
-<p>Ці два рівні разом утворюють серцевину інтернету — саме за них відповідають такі терміни як TCP/IP.</p>
-<h2 id="ip-icmp">Мережевий рівень: IP, маршрутизація, ICMP<a class="headerlink" href="#ip-icmp" title="Permanent link">&para;</a></h2>
-<h3 id="ip-">IP-адреса<a class="headerlink" href="#ip-" title="Permanent link">&para;</a></h3>
-<p><strong>IP (Internet Protocol)</strong> — основний протокол мережевого рівня. Він задає формат адрес і правила, як пакети мандрують між мережами.</p>
-<table>
-<thead>
-<tr>
-<th>Версія</th>
-<th>Приклад</th>
-<th>Розмір</th>
-<th>Особливості</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>IPv4</td>
-<td><code>192.168.1.10</code></td>
-<td>32 біти (~4.3 млрд адрес)</td>
-<td>Поширена; адреси майже вичерпані</td>
-</tr>
-<tr>
-<td>IPv6</td>
-<td><code>2001:0db8::1</code></td>
-<td>128 біт (~3.4 × 10³⁸ адрес)</td>
-<td>Майбутнє; повільне впровадження</td>
-</tr>
-</tbody>
-</table>
-<p>Кожна IP-адреса має дві частини: <strong>префікс мережі</strong> і <strong>номер хоста в ній</strong>. Записується через CIDR: <code>192.168.1.0/24</code> означає, що перші 24 біти — це адреса мережі, останні 8 — адреси конкретних пристроїв.</p>
-<h3 id="vs">Приватні vs публічні адреси<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
-<p>Не всі IP-адреси доступні з будь-якої точки інтернету. Для внутрішніх мереж зарезервовано спеціальні діапазони:</p>
-<table>
-<thead>
-<tr>
-<th>Діапазон</th>
-<th>Призначення</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>10.0.0.0/8</code></td>
-<td>Великі приватні мережі</td>
-</tr>
-<tr>
-<td><code>172.16.0.0/12</code></td>
-<td>Приватні мережі (наприклад, Docker)</td>
-</tr>
-<tr>
-<td><code>192.168.0.0/16</code></td>
-<td>Домашні роутери</td>
-</tr>
-<tr>
-<td><code>127.0.0.0/8</code></td>
-<td>Loopback (локальний хост)</td>
-</tr>
-</tbody>
-</table>
-<p>Коли ваш ноутбук виходить в інтернет, провайдер транслює приватну адресу в публічну через <strong>NAT</strong> (Network Address Translation).</p>
-<h3 id="_3">Маршрутизація<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>Пакет із вашого комп'ютера до сервера в іншій країні проходить через десятки маршрутизаторів. Кожен маршрутизатор:</p>
-<ol>
-<li>Дивиться на <strong>IP призначення</strong> в заголовку пакета.</li>
-<li>Шукає у своїй <strong>таблиці маршрутизації</strong> найкращий шлях.</li>
-<li>Передає пакет наступному маршрутизатору («hop»).</li>
-</ol>
-<pre class="mermaid"><code>graph LR
-    A["Ваш ПК&lt;br/&gt;192.168.0.5"] --&gt; R1["Домашній&lt;br/&gt;роутер"]
-    R1 --&gt; R2["Провайдер"]
-    R2 --&gt; R3["Магістраль"]
-    R3 --&gt; R4["Дата-центр"]
-    R4 --&gt; B["Сервер&lt;br/&gt;93.184.216.34"]
-
-    style A fill:#339af0,stroke:#333,color:#fff
-    style B fill:#51cf66,stroke:#333,color:#000</code></pre>
-<p>Подивитися реальний маршрут можна командою:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>traceroute<span class="w"> </span>example.com
-</span></code></pre></div>
-<h3 id="icmp">ICMP — службові повідомлення мережевого рівня<a class="headerlink" href="#icmp" title="Permanent link">&para;</a></h3>
-<p><strong>ICMP (Internet Control Message Protocol)</strong> — допоміжний протокол для діагностики й помилок. Класичний приклад — <code>ping</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ping<span class="w"> </span>example.com
-</span></code></pre></div>
-<p>ICMP надсилає коротке повідомлення «echo request» і чекає на «echo reply». Якщо хост недоступний або маршрут зламаний, ICMP повертає помилку (<code>Destination unreachable</code>, <code>TTL exceeded</code>).</p>
 <div class="admonition info">
-<p class="admonition-title">Цікавий факт</p>
-<p>Команда <code>traceroute</code> працює саме через ICMP/UDP. Вона надсилає пакети з малим <strong>TTL</strong> (час життя), і кожен маршрутизатор, що відкидає пакет, відповідає ICMP-повідомленням, розкриваючи свою адресу.</p>
+<p class="admonition-title">Що це означає для програміста</p>
+<p>Якщо TCP — це телефонний дзвінок (встановлюємо з'єднання, говоримо, кладемо слухавку), то UDP — це поштова листівка: написав адресу, кинув у скриньку, далі — як вийде.</p>
 </div>
-<h2 id="tcp-udp">Транспортний рівень: TCP та UDP<a class="headerlink" href="#tcp-udp" title="Permanent link">&para;</a></h2>
-<p>Мережевий рівень доставляє пакет на <strong>машину</strong>. Але на машині працюють десятки програм одночасно — браузер, Spotify, Slack. Як зрозуміти, кому саме віддати дані?</p>
-<p>Відповідь дає <strong>транспортний рівень</strong> через поняття <strong>порту</strong> — числа від 0 до 65535, що ідентифікує програму.</p>
-<h3 id="_4">Що таке порт<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>Адреса повного «з'єднання» в інтернеті — це чотири числа:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>(IP_джерела, порт_джерела, IP_призначення, порт_призначення)
+<h2 id="udp-">Структура UDP-датаграми<a class="headerlink" href="#udp-" title="Permanent link">&para;</a></h2>
+<p>UDP-заголовок має лише <strong>8 байтів</strong> — мінімум, який можна уявити для транспортного протоколу:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a> 0                   1                   2                   3
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>|        Source port (16)       |     Destination port (16)     |
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>|          Length (16)          |        Checksum (16)          |
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>|                          Data ...                              |
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+---------------------------------------------------------------+
 </span></code></pre></div>
-<p>Цю четвірку часто називають <strong>socket pair</strong>.</p>
 <table>
 <thead>
 <tr>
-<th>Порт</th>
+<th>Поле</th>
+<th>Розмір</th>
 <th>Призначення</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0–1023</td>
-<td>Системні («well-known»): 80 — HTTP, 443 — HTTPS, 22 — SSH, 53 — DNS</td>
+<td>Source port</td>
+<td>2 байти</td>
+<td>Порт відправника (необов'язковий, може бути 0)</td>
 </tr>
 <tr>
-<td>1024–49151</td>
-<td>Зареєстровані для конкретних сервісів</td>
+<td>Destination port</td>
+<td>2 байти</td>
+<td>Порт одержувача</td>
 </tr>
 <tr>
-<td>49152–65535</td>
-<td>Динамічні / тимчасові (вибирає ОС для клієнта)</td>
+<td>Length</td>
+<td>2 байти</td>
+<td>Довжина датаграми (заголовок + дані), мінімум 8</td>
+</tr>
+<tr>
+<td>Checksum</td>
+<td>2 байти</td>
+<td>Контрольна сума заголовка й даних (необов'язкова в IPv4)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="tcp-transmission-control-protocol">TCP — Transmission Control Protocol<a class="headerlink" href="#tcp-transmission-control-protocol" title="Permanent link">&para;</a></h3>
-<p>TCP — <strong>надійний протокол з установленням з'єднання</strong>. Гарантує:</p>
-<ul>
-<li>доставку всіх байтів у правильному порядку</li>
-<li>виявлення та повторну передачу втрачених пакетів</li>
-<li>контроль перевантаження (не «затопити» мережу)</li>
-</ul>
-<h4 id="tcp-handshake">TCP handshake — три кроки до з'єднання<a class="headerlink" href="#tcp-handshake" title="Permanent link">&para;</a></h4>
-<p>Перед обміном даними клієнт і сервер встановлюють з'єднання через <strong>3-way handshake</strong>:</p>
-<pre class="mermaid"><code>sequenceDiagram
-    participant C as Клієнт
-    participant S as Сервер
+<div class="admonition note">
+<p class="admonition-title">Контрольна сума — захист від пошкоджень, не від зловмисників</p>
+<p>Checksum виявляє лише випадкові спотворення бітів на лінії. Це <strong>не</strong> криптографічна цілісність — атакуючий, що змінить дані, легко перерахує і checksum. Для безпеки використовують DTLS / QUIC.</p>
+</div>
+<h3 id="udp-ip-">UDP усередині IP-пакета<a class="headerlink" href="#udp-ip-" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    ETH["Ethernet header"] --&gt; IP["IP header (20 байт)"]
+    IP --&gt; U["UDP header (8 байт)"]
+    U --&gt; PAY["Payload (дані)"]
 
-    C-&gt;&gt;S: SYN (хочу підключитися, seq=x)
-    S--&gt;&gt;C: SYN-ACK (згоден, seq=y, ack=x+1)
-    C-&gt;&gt;S: ACK (підтверджую, ack=y+1)
-    Note over C,S: З'єднання встановлено&lt;br/&gt;обмін даними
-    C-&gt;&gt;S: FIN (завершую)
-    S--&gt;&gt;C: ACK + FIN
-    C-&gt;&gt;S: ACK
-    Note over C,S: З'єднання закрито</code></pre>
-<p>Завдяки цьому обидві сторони знають, що співрозмовник готовий, і домовляються про початкові номери послідовності.</p>
-<h4 id="tcp">Що дає TCP<a class="headerlink" href="#tcp" title="Permanent link">&para;</a></h4>
+    style U fill:#82c91e,stroke:#333,color:#000</code></pre>
+<p>Накладні витрати UDP — лише 8 байтів. Для порівняння: TCP — мінімум 20 байтів.</p>
+<h2 id="udp_1">Сценарії використання UDP<a class="headerlink" href="#udp_1" title="Permanent link">&para;</a></h2>
+<p>UDP виграє там, де <strong>затримка важливіша за надійність</strong>, або де надійність вирішується на прикладному рівні.</p>
+<h3 id="_2">Голос і відео в реальному часі<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>VoIP (SIP, RTP), відеодзвінки, стримінг. Якщо один пакет із голосовим фреймом загубиться — краще пропустити 20 мс звуку, ніж зупинити розмову й чекати на повторну передачу.</p>
+<h3 id="dns">DNS<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h3>
+<p>Маленький запит → маленька відповідь. Заводити TCP-з'єднання заради двох пакетів — марнотратно. DNS працює на UDP/53; на TCP переходить лише для великих відповідей (понад 512 байт) або для зональних трансферів.</p>
+<h3 id="dhcp-ntp-snmp">DHCP, NTP, SNMP<a class="headerlink" href="#dhcp-ntp-snmp" title="Permanent link">&para;</a></h3>
+<p>Службові протоколи з короткими повідомленнями. NTP-запит часу взагалі займає 48 байтів — UDP ідеальний.</p>
+<h3 id="-">Онлайн-ігри<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<p>Координати гравця оновлюються 30–60 разів на секунду. Якщо одне оновлення загубилося — наступне за 16 мс уже містить актуальніший стан, тож ретрансляція не потрібна.</p>
+<h3 id="_3">Метрики й логи<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Протоколи на кшталт <strong>statsd</strong> надсилають короткі UDP-датаграми («counter+1», «timer=12ms») на сервер метрик. Мінімальний оверхед на джерелі: програма «вистрелила» датаграму і одразу повернулась до роботи — навіть якщо колектор недоступний, програма не блокується.</p>
+<h3 id="quic-http3">QUIC і HTTP/3<a class="headerlink" href="#quic-http3" title="Permanent link">&para;</a></h3>
+<p>QUIC — сучасний транспорт від Google, що працює <strong>поверх UDP</strong> і реалізує власну надійність + шифрування у просторі користувача. На ньому базується HTTP/3.</p>
 <table>
 <thead>
 <tr>
-<th>Властивість</th>
-<th>Як працює</th>
+<th>Сценарій</th>
+<th>Чому UDP</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Надійність</td>
-<td>Кожен сегмент підтверджується (<code>ACK</code>)</td>
+<td>DNS-запит</td>
+<td>Один пакет туди-сюди, TCP-handshake — зайвий</td>
 </tr>
 <tr>
-<td>Порядок</td>
-<td>Сегменти нумеруються; одержувач збирає їх у потрібному порядку</td>
+<td>Voice / video</td>
+<td>Втрата кадру терпима, затримка — ні</td>
 </tr>
 <tr>
-<td>Контроль потоку</td>
-<td>Одержувач каже, скільки байтів готовий прийняти (<code>window</code>)</td>
+<td>Гра-шутер</td>
+<td>Свіжий стан важливіший за повторну доставку старого</td>
 </tr>
 <tr>
-<td>Контроль перевантаження</td>
-<td>Якщо мережа втрачає пакети — швидкість зменшується</td>
+<td>Метрики (statsd)</td>
+<td>Вистрілив-забув; колектор може лежати — це ок</td>
+</tr>
+<tr>
+<td>QUIC / HTTP/3</td>
+<td>Власна надійність на прикладному рівні</td>
 </tr>
 </tbody>
 </table>
-<h3 id="udp-user-datagram-protocol">UDP — User Datagram Protocol<a class="headerlink" href="#udp-user-datagram-protocol" title="Permanent link">&para;</a></h3>
-<p>UDP — <strong>простий протокол без з'єднання</strong>. Принцип «вистрелив і забув»:</p>
+<h2 id="udp-python">Робота з UDP у Python<a class="headerlink" href="#udp-python" title="Permanent link">&para;</a></h2>
+<p>Стандартний модуль <code>socket</code> дає прямий доступ до UDP через тип <code>SOCK_DGRAM</code>.</p>
+<h3 id="udp-echo">UDP-сервер (echo)<a class="headerlink" href="#udp-echo" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9001</span><span class="p">))</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UDP server listening on 127.0.0.1:9001&quot;</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="c1"># recvfrom повертає і дані, і адресу відправника</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">data</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;from </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">data</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Зверніть увагу:</p>
 <ul>
-<li>немає handshake</li>
-<li>немає підтверджень</li>
-<li>немає гарантії порядку чи доставки</li>
-<li><strong>дуже низькі накладні витрати</strong> і затримка</li>
+<li>немає <code>listen</code> чи <code>accept</code> — у UDP немає поняття «вхідне з'єднання»;</li>
+<li>сервер обробляє пакети <strong>по черзі</strong> в одному циклі;</li>
+<li>щоб відповісти, треба знати <strong>адресу відправника</strong>, тому вживаємо <code>recvfrom</code>, а не <code>recv</code>.</li>
 </ul>
-<pre class="mermaid"><code>sequenceDiagram
-    participant C as Клієнт
-    participant S as Сервер
-    C-&gt;&gt;S: Datagram 1
-    C-&gt;&gt;S: Datagram 2
-    C-&gt;&gt;S: Datagram 3
-    Note over S: Може отримати в іншому&lt;br/&gt;порядку або не отримати взагалі</code></pre>
-<h3 id="tcp-vs-udp">TCP vs UDP<a class="headerlink" href="#tcp-vs-udp" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Критерій</th>
-<th>TCP</th>
-<th>UDP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>З'єднання</td>
-<td>Встановлюється (handshake)</td>
-<td>Немає</td>
-</tr>
-<tr>
-<td>Надійність</td>
-<td>Гарантована</td>
-<td>Немає</td>
-</tr>
-<tr>
-<td>Порядок</td>
-<td>Гарантований</td>
-<td>Немає</td>
-</tr>
-<tr>
-<td>Швидкість</td>
-<td>Повільніший</td>
-<td>Швидший</td>
-</tr>
-<tr>
-<td>Розмір заголовка</td>
-<td>20 байт</td>
-<td>8 байт</td>
-</tr>
-<tr>
-<td>Типові протоколи</td>
-<td>HTTP(S), SSH, FTP, SMTP</td>
-<td>DNS, DHCP, VoIP, ігри, відео</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Коли вибирати UDP</p>
-<p>UDP виграє там, де <strong>затримка важливіша за надійність</strong>: відеоконференції, онлайн-ігри, потокове відео. Якщо один пакет втратиться, краще пропустити кадр, ніж зупинити все потокове відео для повторної передачі.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Коли вибирати TCP</p>
-<p>Для всього, де важлива <strong>цілісність даних</strong>: завантаження файлів, веб, бази даних, банківські операції. Втрата одного байта в SQL-запиті — це катастрофа.</p>
-</div>
-<h3 id="tcpudp">Розширення поверх TCP/UDP<a class="headerlink" href="#tcpudp" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>HTTP/2</strong> працює поверх TCP, <strong>HTTP/3</strong> — поверх <strong>QUIC</strong> (надбудова над UDP, що додає надійність та шифрування).</li>
-<li><strong>WebSocket</strong> — двосторонній канал поверх TCP після HTTP-handshake.</li>
-<li><strong>DNS</strong> історично працює на UDP, але для великих відповідей переходить на TCP.</li>
-</ul>
-<h2 id="_5">Порти й сокети<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><strong>Сокет (socket)</strong> — програмна абстракція, що з'єднує програму з мережею. У Python є вбудований модуль <code>socket</code>, що дозволяє працювати безпосередньо з TCP/UDP.</p>
-<h3 id="tcp-python">TCP-сервер на Python<a class="headerlink" href="#tcp-python" title="Permanent link">&para;</a></h3>
+<h3 id="udp-_1">UDP-клієнт<a class="headerlink" href="#udp-_1" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">sock</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9001</span><span class="p">))</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="n">data</span><span class="p">,</span> <span class="n">_addr</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;reply:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no reply&quot;</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<p>Тут особливо важливий <code>settimeout</code>: без нього <code>recvfrom</code> блокуватиметься нескінченно, бо UDP не знає, чи прийде відповідь узагалі.</p>
+<h3 id="udp-_2">Підключений UDP-сокет<a class="headerlink" href="#udp-_2" title="Permanent link">&para;</a></h3>
+<p>UDP-сокет можна «підключити» через <code>connect</code>. Це <strong>не</strong> створює з'єднання в мережі — це лише локальна оптимізація: ОС запам'ятовує віддалену адресу, і далі можна писати <code>send</code>/<code>recv</code> без <code>sendto</code>/<code>recvfrom</code>. Бонус: ОС фільтрує пакети не від цієї адреси та повертає <code>ConnectionRefusedError</code>, якщо адресат відповів ICMP <code>Port Unreachable</code>.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">server</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">server</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9000</span><span class="p">))</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">server</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listening on 127.0.0.1:9000&quot;</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9001</span><span class="p">))</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">sock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">))</span>
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">conn</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">with</span> <span class="n">conn</span><span class="p">:</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected by </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="c1"># Луна-сервер: повертаємо те саме</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="n">main</span><span class="p">()</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
-<p>Розберемо рядки:</p>
-<ul>
-<li><code>AF_INET</code> — використовуємо IPv4 (мережевий рівень).</li>
-<li><code>SOCK_STREAM</code> — TCP (транспортний рівень).</li>
-<li><code>bind</code> — прив'язуємо сокет до конкретного IP та порту.</li>
-<li><code>listen</code> + <code>accept</code> — приймаємо вхідні з'єднання.</li>
-<li><code>recv</code> / <code>sendall</code> — обмін байтами через TCP.</li>
-</ul>
-<h3 id="tcp-">TCP-клієнт<a class="headerlink" href="#tcp-" title="Permanent link">&para;</a></h3>
+<h3 id="send">Один send — одна датаграма<a class="headerlink" href="#send" title="Permanent link">&para;</a></h3>
+<p>UDP зберігає межі повідомлень: якщо ви викликали <code>sendto(b"abc")</code> і <code>sendto(b"def")</code>, отримувач зробить два окремих <code>recvfrom</code> і отримає <code>b"abc"</code> та <code>b"def"</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Розмір буфера в <code>recvfrom</code></p>
+<p>Якщо вказати <code>recvfrom(4)</code>, а датаграма має 100 байтів — отримаєте лише перші 4, <strong>решта 96 байтів буде втрачена</strong> (на відміну від TCP, де можна дочитати залишок). Тому буфер варто робити ≥ MTU, тобто принаймні 1500 — або 65535, якщо є шанс на великі пакети.</p>
+</div>
+<h2 id="broadcast-multicast">Broadcast і multicast<a class="headerlink" href="#broadcast-multicast" title="Permanent link">&para;</a></h2>
+<p>UDP уміє те, що TCP не вміє в принципі: надсилати один пакет <strong>багатьом одержувачам</strong> одночасно.</p>
+<h3 id="broadcast">Broadcast — «усім у локальній мережі»<a class="headerlink" href="#broadcast" title="Permanent link">&para;</a></h3>
+<p>Спеціальна адреса <code>255.255.255.255</code> (або широкомовна адреса підмережі, наприклад <code>192.168.1.255</code>) доставляє пакет усім вузлам у тому самому L2-сегменті.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9000</span><span class="p">))</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">client</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server replied:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">main</span><span class="p">()</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">sock</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_BROADCAST</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;discover-server&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;255.255.255.255&quot;</span><span class="p">,</span> <span class="mi">9999</span><span class="p">))</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
-<h3 id="udp">UDP — лише два рядки відмінності<a class="headerlink" href="#udp" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;ping&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9000</span><span class="p">))</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">data</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Замість <code>SOCK_STREAM</code> — <code>SOCK_DGRAM</code>, замість <code>connect/send/recv</code> — <code>sendto/recvfrom</code>. Жодного handshake немає.</p>
-<div class="admonition note">
-<p class="admonition-title">На практиці</p>
-<p>Прямо з модулем <code>socket</code> ми працюватимемо рідко. Зазвичай поверх нього лежать бібліотеки прикладного рівня (<code>requests</code>, <code>aiohttp</code>, <code>psycopg</code>). Але розуміння того, що відбувається на транспортному рівні, рятує під час налагодження.</p>
+<p>Класичний приклад broadcast — DHCP: новий пристрій ще не має IP, тож кричить «хто може дати мені адресу?» усій локальній мережі.</p>
+<h3 id="multicast">Multicast — «усім, хто підписався»<a class="headerlink" href="#multicast" title="Permanent link">&para;</a></h3>
+<p>Multicast використовує спеціальний діапазон <code>224.0.0.0/4</code>. Одержувачі <strong>підписуються</strong> на групу (через IGMP), і маршрутизатори доставляють пакет лише підписаним.</p>
+<p>Multicast застосовується для IPTV, біржових даних, виявлення сервісів (mDNS / Bonjour використовують <code>224.0.0.251</code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Broadcast і multicast не виходять за межі локальної мережі</p>
+<p>Маршрутизатори не пересилають broadcast, а multicast — лише за окремої конфігурації. У публічному інтернеті ці механізми майже не працюють.</p>
 </div>
-<h2 id="python">Що бачить програміст у Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
-<p>Більшість мережевих помилок Python — це повідомлення з транспортного або мережевого рівня. Розпізнавати їх — половина успіху в діагностиці.</p>
-<h3 id="_6">Часті винятки<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h2 id="mtu">MTU та фрагментація<a class="headerlink" href="#mtu" title="Permanent link">&para;</a></h2>
+<p><strong>MTU (Maximum Transmission Unit)</strong> — максимальний розмір кадру на канальному рівні. Для Ethernet — традиційно <strong>1500 байтів</strong>.</p>
+<p>Якщо UDP-датаграма більша, ніж поміщається в один кадр, IP <strong>фрагментує</strong> її на кілька частин і збирає на боці одержувача. Це звучить зручно, але має проблеми:</p>
+<ul>
+<li>якщо хоч один фрагмент загубиться — <strong>уся датаграма</strong> відкидається;</li>
+<li>деякі маршрутизатори блокують фрагментовані пакети;</li>
+<li>збирання фрагментів — навантаження на одержувача.</li>
+</ul>
+<p><strong>Практична межа</strong> для безпечного UDP-payload:</p>
 <table>
 <thead>
 <tr>
-<th>Помилка</th>
-<th>Рівень</th>
-<th>Імовірна причина</th>
+<th>Сценарій</th>
+<th>Безпечний розмір payload</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>ConnectionRefusedError</code></td>
-<td>Transport</td>
-<td>На вказаному порту ніхто не слухає</td>
+<td>LAN</td>
+<td>~1472 байти (1500 − 20 IP − 8 UDP)</td>
 </tr>
 <tr>
-<td><code>ConnectionResetError</code></td>
-<td>Transport</td>
-<td>Сервер різко обірвав TCP-з'єднання</td>
+<td>Інтернет (без сюрпризів)</td>
+<td>~1400 байтів</td>
 </tr>
 <tr>
-<td><code>TimeoutError</code></td>
-<td>Transport</td>
-<td>TCP не дочекався відповіді</td>
-</tr>
-<tr>
-<td><code>socket.gaierror</code></td>
-<td>Application (DNS)</td>
-<td>Не вдалося знайти IP за іменем</td>
-</tr>
-<tr>
-<td><code>OSError: [Errno 113] No route to host</code></td>
-<td>Network</td>
-<td>Маршрут до IP відсутній</td>
+<td>Через VPN / тунелі</td>
+<td>~1200 байтів</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_7">Приклад: розпізнаємо рівень помилки<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<p>QUIC, наприклад, працює з пакетами ≤ 1200 байтів саме щоб уникнути фрагментації.</p>
+<h2 id="udp-_3">Діагностика UDP-трафіку<a class="headerlink" href="#udp-_3" title="Permanent link">&para;</a></h2>
+<p>UDP «непомітніший» за TCP — немає з'єднань, які можна побачити в <code>ss</code>, але є інструменти.</p>
+<h3 id="_4">Перевірити, що порт слухається<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ss<span class="w"> </span>-ulnp<span class="w">        </span><span class="c1"># u = UDP, l = listening, n = numeric, p = process</span>
+</span></code></pre></div>
+<p><code>ss -tuln</code> покаже і TCP, і UDP сокети одразу.</p>
+<h3 id="udp_2">Надіслати UDP вручну<a class="headerlink" href="#udp_2" title="Permanent link">&para;</a></h3>
+<p><code>netcat</code> уміє і клієнта, і сервера:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Сервер: слухає UDP/9001 і друкує отримане</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>nc<span class="w"> </span>-u<span class="w"> </span>-l<span class="w"> </span><span class="m">9001</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">probe</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="k">try</span><span class="p">:</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK:&quot;</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">gaierror</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DNS error (Application):&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="k">except</span> <span class="ne">ConnectionRefusedError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection refused (Transport):&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="k">except</span> <span class="ne">TimeoutError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timeout (Transport / Network):&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Network error:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="n">probe</span><span class="p">(</span><span class="s2">&quot;example.com&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="n">probe</span><span class="p">(</span><span class="s2">&quot;does-not-exist.invalid&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">probe</span><span class="p">(</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>            <span class="c1"># майже точно ніхто не слухає</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Клієнт: надсилає рядок (Ctrl+D — вийти)</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>nc<span class="w"> </span>-u<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">9001</span>
 </span></code></pre></div>
-<p>Дивлячись на тип винятку, ви одразу знаєте, <strong>на якому рівні шукати причину</strong>.</p>
-<h2 id="_8">Інструменти діагностики<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Інструмент</th>
-<th>Що показує</th>
-<th>Рівень</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ping</code></td>
-<td>Доступність хоста, втрати, RTT</td>
-<td>Network (ICMP)</td>
-</tr>
-<tr>
-<td><code>traceroute</code> / <code>tracepath</code></td>
-<td>Маршрут пакета через мережу</td>
-<td>Network</td>
-</tr>
-<tr>
-<td><code>nslookup</code> / <code>dig</code></td>
-<td>DNS-резолвінг</td>
-<td>Application</td>
-</tr>
-<tr>
-<td><code>telnet host port</code>, <code>nc -v host port</code></td>
-<td>Чи відкритий TCP-порт</td>
-<td>Transport</td>
-</tr>
-<tr>
-<td><code>ss -tulpn</code> (Linux)</td>
-<td>Локальні порти, що слухаються</td>
-<td>Transport</td>
-</tr>
-<tr>
-<td><code>tcpdump</code> / <code>wireshark</code></td>
-<td>Захоплення пакетів</td>
-<td>Усі</td>
-</tr>
-</tbody>
-</table>
-<p>Приклад: перевірити, чи працює локальний сервер на порту 9000:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ss<span class="w"> </span>-tulpn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">9000</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>nc<span class="w"> </span>-vz<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">9000</span>
+<h3 id="_5">Захопити пакети<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>any<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;udp port 9001&#39;</span>
 </span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Wireshark — друг програміста</p>
-<p>Якщо ви бачите дивну поведінку клієнт-серверного коду, запустіть <code>wireshark</code> чи <code>tcpdump</code>. Перегляд реальних пакетів відповіді — найшвидший спосіб зрозуміти, що насправді надсилає ваш код.</p>
-</div>
-<h2 id="_9">Підсумок<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p><code>tcpdump</code> друкує заголовки (адреси, порти, довжини) у реальному часі. Для глибокого аналізу — <code>wireshark</code>.</p>
+<h2 id="_6">Підсумок<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2156,58 +2032,54 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>IP-адреса</strong></td>
-<td>Глобальний ідентифікатор машини в мережі</td>
+<td>Без з'єднання</td>
+<td>Жодного handshake, жодного стану</td>
 </tr>
 <tr>
-<td><strong>Маршрутизація</strong></td>
-<td>Шлях пакета через мережу маршрутизаторів</td>
+<td>Межі датаграм</td>
+<td>Один <code>send</code> = одна датаграма</td>
 </tr>
 <tr>
-<td><strong>NAT</strong></td>
-<td>Перетворення приватних IP у публічні</td>
+<td>Заголовок 8 байтів</td>
+<td>Source/Destination port, Length, Checksum</td>
 </tr>
 <tr>
-<td><strong>ICMP</strong></td>
-<td>Службові повідомлення (ping, traceroute)</td>
+<td>Без гарантій</td>
+<td>Можуть бути втрати, дублі, переупорядкування</td>
 </tr>
 <tr>
-<td><strong>Порт</strong></td>
-<td>Ідентифікатор програми на машині (0–65535)</td>
+<td>Broadcast / Multicast</td>
+<td>Один пакет — багатьом одержувачам</td>
 </tr>
 <tr>
-<td><strong>TCP</strong></td>
-<td>Надійний протокол з handshake, для даних, де важлива цілісність</td>
+<td>MTU</td>
+<td>~1472 байти на Ethernet, бажано тримати ≤ 1200 в інтернеті</td>
 </tr>
 <tr>
-<td><strong>UDP</strong></td>
-<td>Швидкий протокол без гарантій, для real-time даних</td>
+<td>Підключений UDP</td>
+<td><code>connect</code> для UDP — лише локальна фільтрація</td>
 </tr>
 <tr>
-<td><strong>Сокет</strong></td>
-<td>Програмний об'єкт, що зв'язує програму з мережею</td>
-</tr>
-<tr>
-<td><strong>socket pair</strong></td>
-<td>(IP джерела, порт джерела, IP призначення, порт призначення)</td>
+<td>Stop-and-wait</td>
+<td>Найпростіший спосіб додати надійність поверх UDP</td>
 </tr>
 </tbody>
 </table>
 <p>Ключові принципи:</p>
 <ul>
-<li><strong>Network</strong> доставляє пакет на машину, <strong>Transport</strong> — конкретній програмі.</li>
-<li><strong>TCP — для надійності</strong>, <strong>UDP — для швидкості</strong>.</li>
-<li><strong>Помилка має рівень</strong> — від типу винятку залежить, де шукати проблему.</li>
-<li><strong>Інструменти <code>ping</code>, <code>traceroute</code>, <code>ss</code>, <code>tcpdump</code></strong> — мінімальний набір для мережевої діагностики.</li>
+<li><strong>UDP — мінімальний транспорт</strong>: лише адресація через порти і необов'язкова контрольна сума.</li>
+<li><strong>Гарантії — на вашій совісті</strong>: ACK, ретрансляції, дедуплікація — на прикладному рівні.</li>
+<li><strong>Слідкуйте за MTU</strong>: фрагментація вбиває надійність UDP сильніше, ніж сама ненадійність.</li>
+<li><strong>Завжди ставте <code>settimeout</code></strong> на клієнті: інакше програма просто зависне.</li>
+<li><strong>Перш ніж додавати надійність — подумайте про TCP</strong>: можливо, ви відтворюєте його гірше.</li>
 </ul>
-<h2 id="_10">Корисні посилання<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_7">Корисні посилання<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://datatracker.ietf.org/doc/html/rfc791">RFC 791 — Internet Protocol</a></li>
-<li><a href="https://datatracker.ietf.org/doc/html/rfc793">RFC 793 — Transmission Control Protocol</a></li>
 <li><a href="https://datatracker.ietf.org/doc/html/rfc768">RFC 768 — User Datagram Protocol</a></li>
-<li><a href="https://docs.python.org/3/library/socket.html">Python docs — socket</a></li>
-<li><a href="https://www.cloudflare.com/learning/network-layer/what-is-the-network-layer/">Cloudflare — What is the network layer?</a></li>
-<li><a href="https://www.cloudflare.com/learning/ddos/glossary/user-datagram-protocol-udp/">Cloudflare — TCP vs UDP</a></li>
+<li><a href="https://docs.python.org/3/library/socket.html#example">Python docs — socket (UDP)</a></li>
+<li><a href="https://www.cloudflare.com/learning/ddos/glossary/user-datagram-protocol-udp/">Cloudflare — What is UDP?</a></li>
+<li><a href="https://www.cloudflare.com/learning/performance/what-is-http3/">Cloudflare — What is QUIC?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Maximum_transmission_unit">Wikipedia — Maximum Transmission Unit</a></li>
 </ul>
 
 
