@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module1/04-psycopg2-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module4/48-blocking-echo-server-practice/">
       
       
-        <link rel="prev" href="../03-psycopg2-lecture/">
+        <link rel="prev" href="../47-blocking-limitations-lecture/">
       
-      
-        <link rel="next" href="../05-alembic-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>4. (П2) Виконання завдань з Python та PostgreSQL - Python (2 семестр)</title>
+        <title>48. (П21) Блокуючий ехо-сервер на сокетах - Python (2 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4-2-python-postgresql" class="md-skip">
+        <a href="#48-21-" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4. (П2) Виконання завдань з Python та PostgreSQL
+              48. (П21) Блокуючий ехо-сервер на сокетах
             
           </span>
         </div>
@@ -246,8 +244,6 @@
       
   
   
-    
-  
   
   
     
@@ -259,11 +255,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -277,7 +275,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Модуль 1
@@ -291,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-sqlite-lecture/" class="md-nav__link">
+      <a href="../../module1/01-sqlite-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -312,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-sqlite-practice/" class="md-nav__link">
+      <a href="../../module1/02-sqlite-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -333,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-psycopg2-lecture/" class="md-nav__link">
+      <a href="../../module1/03-psycopg2-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -351,30 +349,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    4. (П2) Виконання завдань з Python та PostgreSQL
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../module1/04-psycopg2-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -383,44 +361,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#postgresql-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      Команда запуску PostgreSQL за допомогою docker
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -433,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-alembic-lecture/" class="md-nav__link">
+      <a href="../../module1/05-alembic-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -454,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-alembic-practice/" class="md-nav__link">
+      <a href="../../module1/06-alembic-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -475,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-error-handling-transactions-lecture/" class="md-nav__link">
+      <a href="../../module1/07-error-handling-transactions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -496,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-error-handling-transactions-practice/" class="md-nav__link">
+      <a href="../../module1/08-error-handling-transactions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -517,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../09-testing-lecture/" class="md-nav__link">
+      <a href="../../module1/09-testing-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -538,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../10-testing-practice/" class="md-nav__link">
+      <a href="../../module1/10-testing-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -559,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../11-docker-lecture/" class="md-nav__link">
+      <a href="../../module1/11-docker-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -580,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../12-dockerfile-lecture/" class="md-nav__link">
+      <a href="../../module1/12-dockerfile-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../13-docker-practice/" class="md-nav__link">
+      <a href="../../module1/13-docker-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -622,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../14-docker-management-lecture/" class="md-nav__link">
+      <a href="../../module1/14-docker-management-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -643,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../15-docker-postgres-practice/" class="md-nav__link">
+      <a href="../../module1/15-docker-postgres-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1312,8 +1252,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1323,13 +1265,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -1343,7 +1283,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Модуль 4
@@ -1357,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/42-osi-model-lecture/" class="md-nav__link">
+      <a href="../42-osi-model-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1378,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/43-network-transport-layers-lecture/" class="md-nav__link">
+      <a href="../43-network-transport-layers-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1399,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/44-udp-lecture/" class="md-nav__link">
+      <a href="../44-udp-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1420,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/45-tcp-lecture/" class="md-nav__link">
+      <a href="../45-tcp-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1441,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/46-sockets-blocking-lecture/" class="md-nav__link">
+      <a href="../46-sockets-blocking-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1462,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/47-blocking-limitations-lecture/" class="md-nav__link">
+      <a href="../47-blocking-limitations-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1480,10 +1420,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../module4/48-blocking-echo-server-practice/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    48. (П21) Блокуючий ехо-сервер на сокетах
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1492,6 +1452,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Передумови
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результат
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1523,30 +1530,92 @@
   
 
 
-<h1 id="4-2-python-postgresql">4. (П2) Виконання завдань з Python та PostgreSQL<a class="headerlink" href="#4-2-python-postgresql" title="Permanent link">&para;</a></h1>
-<h2 id="_1">Завдання<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Завдання аналогічне до першої практичної, але на цей раз використати PostgreSQL.</p>
-<p>Виконувати лише за допомогою Python коду (без прямого втручання в БД)</p>
-<p>Розробити сервіс, який зберігає інформацію про погоду в місті Луцьк (Lutsk) в PostgreSQL бд
-використовуючи <a href="https://github.com/chubin/wttr.in">wttr.in</a> API.
-Сервіс повинен підтримувати два command line аргументи:</p>
+<h1 id="48-21-">48. (П21) Блокуючий ехо-сервер на сокетах<a class="headerlink" href="#48-21-" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>service - запускає процес, який кожну хвилину зберігає інформацію про температуру в бд</li>
-<li>history - виводить в термінал збережену інформацію (історію) в форматі:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Weather history from: &lt;ВАШІ ім&#39;я та прізвище&gt;:
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&lt;Час&gt; &lt;температура&gt;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>...
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>&lt;Час&gt; &lt;температура&gt;
-</span></code></pre></div>
-Час має бути відсортований у спадному порядку.</li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module4/46-sockets-blocking-lecture/">Лекція 46 — Основи сокетів та блокуючий режим роботи</a></li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module4/47-blocking-limitations-lecture/">Лекція 47 — Обмеження блокуючих сокетів та підходи до їх подолання</a></li>
+<li>Python <strong>3.10+</strong></li>
+<li>Утиліта <code>nc</code> (netcat) — є за замовчуванням у більшості Linux-дистрибутивів та macOS</li>
 </ul>
-<p>Приклад запиту для отримання актуальної температури:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://wttr.in/Lutsk?format=%t&quot;</span>
-</span></code></pre></div></p>
-<h2 id="postgresql-docker">Команда запуску PostgreSQL за допомогою docker<a class="headerlink" href="#postgresql-docker" title="Permanent link">&para;</a></h2>
-<p>Для запуску PostgreSQL ви можете використати Docker:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>mydb<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-d<span class="w"> </span>postgres
-</span></code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Персоналізація</p>
+<p>У кожному файлі оголосіть константу <code>STUDENT = "Imya Prizvysche"</code> (ваші дані латиницею) і виводьте її у першому рядку кожного запуску програми: <code>print(f"Student: {STUDENT}")</code>. Окрім того, сервер надсилає це ім'я у вітальному повідомленні кожному клієнту — тому на скріншотах звіту воно має бути видно і на стороні сервера, і на стороні клієнта.</p>
+</div>
+<h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Реалізувати блокуючий TCP ехо-сервер, який, окрім простого повторення повідомлень, розуміє кілька керуючих команд і веде статистику для кожного з'єднання.</p>
+<p>Сервер слухає на <code>127.0.0.1:9100</code>, використовує <code>SO_REUSEADDR</code>. Кожне повідомлення від клієнта — це один виклик <code>recv</code> (на практиці у <code>nc</code> це один рядок, бо stdin лінійно-буферизовано).</p>
+<p>Файл <code>echo_server.py</code>.</p>
+<p>При підключенні клієнта сервер веде <strong>per-connection</strong> лічильник отриманих повідомлень <code>n</code> (з 1) і запам'ятовує момент підключення <code>started_at = time.monotonic()</code>.</p>
+<p>Одразу після <code>accept</code> сервер надсилає клієнту вітання:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Hello from &lt;STUDENT&gt;! Commands: PING | TIME | WHOAMI | STATS | QUIT
+</span></code></pre></div>
+<p>Далі у циклі читайте від клієнта <code>recv(4096)</code>. Якщо повернулось <code>b""</code> — клієнт закрив з'єднання, виходимо з внутрішнього циклу. Інакше декодуйте байти через <code>decode()</code> і обріжте пробіли по краях — це і буде <code>msg</code>. Залежно від <code>msg.upper()</code> сервер реагує так:</p>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Відповідь</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PING</code></td>
+<td><code>PONG</code></td>
+</tr>
+<tr>
+<td><code>TIME</code></td>
+<td>поточний час у форматі ISO-8601 — <code>datetime.datetime.now().isoformat(timespec="seconds")</code></td>
+</tr>
+<tr>
+<td><code>WHOAMI</code></td>
+<td><code>&lt;ip&gt;:&lt;port&gt;</code> клієнта (з кортежу <code>addr</code>, що повернув <code>accept</code>)</td>
+</tr>
+<tr>
+<td><code>STATS</code></td>
+<td><code>messages: &lt;n&gt;, uptime: &lt;s&gt;s</code>, де <code>n</code> — поточне значення лічильника, <code>s</code> — <code>int(time.monotonic() - started_at)</code></td>
+</tr>
+<tr>
+<td><code>QUIT</code></td>
+<td>надіслати <code>BYE</code> і <strong>закрити з'єднання</strong> (<code>break</code> із внутрішнього циклу)</td>
+</tr>
+<tr>
+<td>будь-що інше</td>
+<td><code>[&lt;n&gt;] &lt;msg&gt;</code> — ехо з префіксом-номером повідомлення</td>
+</tr>
+</tbody>
+</table>
+<p>Лічильник <code>n</code> інкрементується <strong>на кожне отримане повідомлення</strong>, незалежно від того, команда це чи звичайний текст. Вітання відправляється до першого <code>recv</code> і у лічильнику не враховується.</p>
+<p>На стороні сервера на кожну подію друкуйте один рядок логу:</p>
+<ul>
+<li><code>connected: &lt;ip&gt;:&lt;port&gt;</code> — після <code>accept</code>;</li>
+<li><code>&lt;- &lt;ip&gt;:&lt;port&gt;: &lt;msg&gt;</code> — отримано повідомлення;</li>
+<li><code>-&gt; &lt;ip&gt;:&lt;port&gt;: &lt;reply&gt;</code> — надіслано відповідь;</li>
+<li><code>disconnected: &lt;ip&gt;:&lt;port&gt; (n=&lt;n&gt;, uptime=&lt;s&gt;s)</code> — після виходу з внутрішнього циклу.</li>
+</ul>
+<p>Не забудьте:</p>
+<ul>
+<li><code>setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)</code> перед <code>bind</code>;</li>
+<li>слухаючий сокет — у <code>with socket.socket(...) as server:</code>, а сокет з'єднання — <code>with conn:</code>, щоб гарантовано закривалися навіть на винятках;</li>
+<li>зовнішній <code>try/except KeyboardInterrupt</code> у головному циклі — щоб після <code>Ctrl+C</code> надрукувати <code>server stopped</code> і завершитись штатно.</li>
+</ul>
+<p>Запустіть сервер. Перевірте всі команди через <code>nc 127.0.0.1 9100</code>. Очікуваний приклад сесії клієнта:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ nc 127.0.0.1 9100
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Hello from Imya Prizvysche! Commands: PING | TIME | WHOAMI | STATS | QUIT
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>PING
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>PONG
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>hello world
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[2] hello world
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>TIME
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>2026-05-05T14:33:02
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>STATS
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>messages: 4, uptime: 7s
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>QUIT
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>BYE
+</span></code></pre></div>
+<p>Зверніть увагу: ехо <code>hello world</code> отримало префікс <code>[2]</code>, а не <code>[1]</code> — бо <code>PING</code> був першим повідомленням і вже інкрементував лічильник.</p>
+<h2 id="_3">Результат<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Після виконання роботи здайте звіт зі скріншотом сесії з <code>nc</code>, де видно вітання з вашим ім'ям та виконано всі п'ять команд (<code>PING</code>, <code>TIME</code>, <code>WHOAMI</code>, <code>STATS</code>, <code>QUIT</code>); поряд — лог сервера зі своїм <code>Student: ...</code> та подіями.</p>
 
 
 
