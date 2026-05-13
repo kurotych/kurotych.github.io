@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module2/29-ci-github-actions-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-2sem/module4/52-non-blocking-udp-echo-practice/">
       
       
-        <link rel="prev" href="../28-ci-github-actions-lecture/">
+        <link rel="prev" href="../51-event-loop-selectors-lecture/">
       
-      
-        <link rel="next" href="../30-docker-flask-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку - Python (2 семестр)</title>
+        <title>52. (П23) Мультиплексування TCP + UDP в одному selectors-циклі - Python (2 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#29-14-github-workflow-python-" class="md-skip">
+        <a href="#52-23-tcp-udp-selectors-" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
+              52. (П23) Мультиплексування TCP + UDP в одному selectors-циклі
             
           </span>
         </div>
@@ -610,8 +608,6 @@
       
   
   
-    
-  
   
   
     
@@ -623,11 +619,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -641,7 +639,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Модуль 2
@@ -655,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../16-http-rest-lecture/" class="md-nav__link">
+      <a href="../../module2/16-http-rest-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -676,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../17-rest-api-design-practice/" class="md-nav__link">
+      <a href="../../module2/17-rest-api-design-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -697,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../18-flask-routing-lecture/" class="md-nav__link">
+      <a href="../../module2/18-flask-routing-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -718,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../19-flask-routing-practice/" class="md-nav__link">
+      <a href="../../module2/19-flask-routing-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -739,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../20-flask-request-data-lecture/" class="md-nav__link">
+      <a href="../../module2/20-flask-request-data-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -760,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../21-flask-request-data-practice/" class="md-nav__link">
+      <a href="../../module2/21-flask-request-data-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../22-flask-crud-postgres-lecture/" class="md-nav__link">
+      <a href="../../module2/22-flask-crud-postgres-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -802,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../23-flask-crud-postgres-practice/" class="md-nav__link">
+      <a href="../../module2/23-flask-crud-postgres-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../24-flask-sessions-lecture/" class="md-nav__link">
+      <a href="../../module2/24-flask-sessions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../25-flask-sessions-practice/" class="md-nav__link">
+      <a href="../../module2/25-flask-sessions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../26-testing-rest-api-lecture/" class="md-nav__link">
+      <a href="../../module2/26-testing-rest-api-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../27-testing-rest-api-practice/" class="md-nav__link">
+      <a href="../../module2/27-testing-rest-api-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -907,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../28-ci-github-actions-lecture/" class="md-nav__link">
+      <a href="../../module2/28-ci-github-actions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -925,30 +923,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../module2/29-ci-github-actions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -957,95 +935,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Передумови
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Завдання">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Частина 1: Підготовка репозиторію
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-ci" class="md-nav__link">
-    <span class="md-ellipsis">
-      Частина 2: Адаптація тестів для CI
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-ci-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      Частина 3: Створення CI workflow
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-ci-pull-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      Частина 4: Перевірка CI на pull request
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Результат
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1058,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../30-docker-flask-lecture/" class="md-nav__link">
+      <a href="../../module2/30-docker-flask-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1079,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../31-docker-flask-practice/" class="md-nav__link">
+      <a href="../../module2/31-docker-flask-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1363,8 +1252,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1374,13 +1265,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -1394,7 +1283,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Модуль 4
@@ -1408,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/42-osi-model-lecture/" class="md-nav__link">
+      <a href="../42-osi-model-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1429,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/43-network-transport-layers-lecture/" class="md-nav__link">
+      <a href="../43-network-transport-layers-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1450,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/44-udp-lecture/" class="md-nav__link">
+      <a href="../44-udp-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1471,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/45-tcp-lecture/" class="md-nav__link">
+      <a href="../45-tcp-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1492,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/46-sockets-blocking-lecture/" class="md-nav__link">
+      <a href="../46-sockets-blocking-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1513,7 +1402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/47-blocking-limitations-lecture/" class="md-nav__link">
+      <a href="../47-blocking-limitations-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1534,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/48-blocking-echo-server-practice/" class="md-nav__link">
+      <a href="../48-blocking-echo-server-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1555,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/49-non-blocking-sockets-lecture/" class="md-nav__link">
+      <a href="../49-non-blocking-sockets-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1576,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/50-non-blocking-echo-server-practice/" class="md-nav__link">
+      <a href="../50-non-blocking-echo-server-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1597,7 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../module4/51-event-loop-selectors-lecture/" class="md-nav__link">
+      <a href="../51-event-loop-selectors-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1615,10 +1504,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../module4/52-non-blocking-udp-echo-practice/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    52. (П23) Мультиплексування TCP + UDP в одному selectors-циклі
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1627,6 +1536,62 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Передумови
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Тестування. Обидва транспорти живі одночасно
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результат
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1658,181 +1623,57 @@
   
 
 
-<h1 id="29-14-github-workflow-python-">29. (П14) Створення GitHub workflow для автоматичного тестування Python-застосунку<a class="headerlink" href="#29-14-github-workflow-python-" title="Permanent link">&para;</a></h1>
+<h1 id="52-23-tcp-udp-selectors-">52. (П23) Мультиплексування TCP + UDP в одному <code>selectors</code>-циклі<a class="headerlink" href="#52-23-tcp-udp-selectors-" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Прочитана <a href="/ua/courses/programming-2sem/module2/28-ci-github-actions-lecture/">Лекція 28 — Неперервна інтеграція (CI). Знайомство з GitHub Actions</a></li>
-<li>Виконана <a href="/ua/courses/programming-2sem/module2/27-testing-rest-api-practice/">Практична 13 — Тестування REST API</a></li>
-<li>Встановлений Git</li>
-<li>Є акаунт на GitHub</li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module4/44-udp-lecture/">Лекція 44 — UDP</a></li>
+<li>Прочитана <a href="/ua/courses/programming-2sem/module4/49-non-blocking-sockets-lecture/">Лекція 49 — Неблокуючі сокети</a></li>
+<li><strong>Виконане <a href="/ua/courses/programming-2sem/module4/50-non-blocking-echo-server-practice/">Практичне 22 (файл 50) — Неблокуючий TCP ехо-сервер</a></strong> — беремо його <code>echo_server_nb.py</code> як основу</li>
+<li>Утиліта <code>nc</code></li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Навіщо це практичне</p>
+<p>На UDP саме по собі неблокуючий режим виграшу не дає — там нема з'єднань, які б одне одному заважали. Виграш з'являється тоді, коли в <strong>одному event-loop</strong> живуть сокети різних типів. Цього разу ви додасте UDP-сокет у той самий <code>selectors</code>, що вже обслуговує TCP-ехо з П22, — і побачите, що <code>selectors</code> нічого не змінює: API однаковий для обох транспортів.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Персоналізація</p>
-<p>Репозиторій на GitHub повинен бути створений під <strong>вашим акаунтом</strong>. На скріншотах у звіті повинно бути видно ваше ім'я користувача GitHub, назву репозиторію та результати виконання workflow.</p>
+<p>Залиште <code>STUDENT = "Imya Prizvysche"</code> з П22 і виведіть <code>print(f"Student: {STUDENT}")</code> при старті.</p>
 </div>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Налаштувати CI за допомогою GitHub Actions для <strong>Book Library API</strong> з <a href="/ua/courses/programming-2sem/module2/27-testing-rest-api-practice/">Практичної 13</a>. При кожному push у репозиторій тести повинні запускатись автоматично з PostgreSQL у GitHub Actions.</p>
-<h3 id="1">Частина 1: Підготовка репозиторію<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<h4 id="github">Створення репозиторію на GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h4>
-<ol>
-<li>Створіть новий публічний репозиторій на GitHub (наприклад, <code>library-api</code>)</li>
-<li>Клонуйте його локально:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your-username&gt;/library-api.git
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>library-api
-</span></code></pre></div>
-<h4 id="_3">Структура проєкту<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>Скопіюйте файли з Практичної 13 у репозиторій:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>library-api/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── app.py                # Flask-застосунок (application factory)
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── conftest.py           # Фікстури pytest
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── test_authors.py       # Тести для авторів
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── test_books.py         # Тести для книг
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└── requirements.txt
-</span></code></pre></div>
-<h4 id="requirementstxt">Файл requirements.txt<a class="headerlink" href="#requirementstxt" title="Permanent link">&para;</a></h4>
-<p>Переконайтесь, що <code>requirements.txt</code> містить усі залежності:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>flask
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>psycopg2-binary
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pytest
-</span></code></pre></div>
-<h4 id="_4">Перший коміт<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add library API with tests&quot;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>push
-</span></code></pre></div>
-<h3 id="2-ci">Частина 2: Адаптація тестів для CI<a class="headerlink" href="#2-ci" title="Permanent link">&para;</a></h3>
-<p>У Практичній 13 конфігурація бази даних була захардкоджена в <code>conftest.py</code>. Для CI потрібно зробити її гнучкою — щоб тести могли використовувати конфігурацію як з локального середовища, так і з GitHub Actions.</p>
-<h4 id="_5">Читання конфігурації із змінних середовища<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>Змініть <code>conftest.py</code>, щоб конфігурація БД читалась зі змінних середовища з fallback на локальні значення:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">psycopg2</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">app</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_app</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">TEST_DB_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">),</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;5432&quot;</span><span class="p">)),</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_DB&quot;</span><span class="p">,</span> <span class="s2">&quot;library_test_db&quot;</span><span class="p">),</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_USER&quot;</span><span class="p">,</span> <span class="s2">&quot;postgres&quot;</span><span class="p">),</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;POSTGRES_PASSWORD&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">),</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">}</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># ... решта фікстур залишається без змін</span>
-</span></code></pre></div>
-<p>Тепер тести працюють і локально (з дефолтними значеннями), і в CI (де змінні середовища задаються у workflow).</p>
-<h3 id="3-ci-workflow">Частина 3: Створення CI workflow<a class="headerlink" href="#3-ci-workflow" title="Permanent link">&para;</a></h3>
-<p>Створіть файл <code>.github/workflows/ci.yml</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>.github/workflows
-</span></code></pre></div>
-<p>Напишіть workflow, який:</p>
-<ol>
-<li>Запускається при <strong>push</strong> у гілку <code>main</code> та при <strong>pull request</strong> у <code>main</code></li>
-<li>Використовує runner <code>ubuntu-latest</code></li>
-<li>Піднімає <strong>PostgreSQL 17</strong> як сервіс з health check</li>
-<li>Встановлює <strong>Python 3.12</strong></li>
-<li>Встановлює залежності з <code>requirements.txt</code></li>
-<li>Запускає <code>pytest -v</code></li>
-</ol>
-<p><strong>Вимоги до сервісу PostgreSQL:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Параметр</th>
-<th>Значення</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Образ</td>
-<td><code>postgres:17</code></td>
-</tr>
-<tr>
-<td><code>POSTGRES_PASSWORD</code></td>
-<td><code>secret</code></td>
-</tr>
-<tr>
-<td><code>POSTGRES_DB</code></td>
-<td><code>library_test_db</code></td>
-</tr>
-<tr>
-<td>Порт</td>
-<td><code>5432:5432</code></td>
-</tr>
-<tr>
-<td>Health check</td>
-<td><code>pg_isready</code>, інтервал 10s, таймаут 5s, 5 спроб</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Вимоги до кроку запуску тестів:</strong></p>
-<p>Передайте змінні середовища для підключення до бази:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest -v</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">POSTGRES_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">POSTGRES_PORT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">library_test_db</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
-</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Підказка</p>
-<p>За основу візьміть приклад з <a href="/ua/courses/programming-2sem/module2/28-ci-github-actions-lecture/#_9">лекції 28</a>. Додайте секцію <code>env</code> до кроку запуску тестів.</p>
-</div>
-<h4 id="push">Push та перевірка<a class="headerlink" href="#push" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>git<span class="w"> </span>add<span class="w"> </span>.github/workflows/ci.yml<span class="w"> </span>conftest.py
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add CI workflow&quot;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>git<span class="w"> </span>push
-</span></code></pre></div>
-<p>Після push перейдіть у вкладку <strong>Actions</strong> вашого репозиторію на GitHub та перевірте, що workflow запустився.</p>
-<h3 id="4-ci-pull-request">Частина 4: Перевірка CI на pull request<a class="headerlink" href="#4-ci-pull-request" title="Permanent link">&para;</a></h3>
-<p>Переконайтесь, що CI працює також для pull request:</p>
-<ol>
-<li>Створіть нову гілку:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>test-ci-pr
-</span></code></pre></div>
-<ol>
-<li>Додайте новий тест у <code>test_books.py</code>:</li>
-</ol>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_create_book_default_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">):</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Книга створюється зі статусом за замовчуванням&quot;&quot;&quot;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/api/books&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Test Book&quot;</span><span class="p">,</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="s2">&quot;created_by&quot;</span><span class="p">:</span> <span class="s2">&quot;Ім&#39;я Прізвище&quot;</span><span class="p">,</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="p">})</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
-</span></code></pre></div>
-<ol>
-<li>Зробіть коміт та push нової гілки:</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>add<span class="w"> </span>test_books.py
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add test for default book status&quot;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>test-ci-pr
-</span></code></pre></div>
-<ol>
-<li>Створіть Pull Request на GitHub (base: <code>main</code>, compare: <code>test-ci-pr</code>)</li>
-<li>Переконайтесь, що CI запустився для PR та успішно пройшов</li>
-</ol>
-<p>В інтерфейсі PR ви побачите статус перевірки CI:</p>
+<p>Скопіюйте <code>echo_server_nb.py</code> з П22 у файл <code>echo_server_mux.py</code> і <strong>додайте</strong> до нього UDP-гілку.</p>
+<p>Після ваших змін один процес тримає:</p>
 <ul>
-<li>Жовтий індикатор — workflow ще виконується</li>
-<li>Зелена галочка — всі перевірки пройшли</li>
-<li>Червоний хрестик — є помилки</li>
+<li><strong>TCP</strong> на <code>127.0.0.1:9100</code> — поведінка <strong>без змін</strong> з П22: вітання <code>Hello from &lt;STUDENT&gt;!\n</code>, лічильник <code>n</code>, ехо <code>[&lt;n&gt;] &lt;msg&gt;\n</code>, акуратне закриття на <code>b""</code>.</li>
+<li><strong>UDP</strong> на <code>127.0.0.1:9101</code> — <code>SOCK_DGRAM</code>, <code>setblocking(False)</code>, <code>bind</code>. На кожну отриману датаграму сервер відправляє назад <code>[udp] &lt;msg&gt;</code> тому ж відправникові (<code>sendto(data, addr)</code>).</li>
 </ul>
-<h2 id="_6">Результат<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>Після виконання роботи студент здає:</p>
-<ul>
-<li>Посилання на <strong>GitHub-репозиторій</strong> з кодом та workflow</li>
-<li>Звіт зі скріншотами:<ul>
-<li>Вкладка Actions з успішним workflow (зелена галочка)</li>
-<li>Логи кроку "Run tests" з виводом pytest</li>
-<li>Pull request зі статусом CI-перевірки</li>
-</ul>
-</li>
-</ul>
+<p>Обидва сокети живуть в <strong>одному</strong> <code>selectors.DefaultSelector</code> і <strong>одному</strong> циклі <code>sel.select()</code>. Розрізнити їх у обробнику зручно через <code>key.data</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">sel</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">server_tcp</span><span class="p">,</span> <span class="n">selectors</span><span class="o">.</span><span class="n">EVENT_READ</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        <span class="c1"># TCP-listener</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">sel</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">server_udp</span><span class="p">,</span> <span class="n">selectors</span><span class="o">.</span><span class="n">EVENT_READ</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">&quot;udp&quot;</span><span class="p">)</span>       <span class="c1"># UDP-сокет</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># а TCP-клієнти, як і в П22, реєструються з dict у data</span>
+</span></code></pre></div>
+<p>У головному циклі:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">_mask</span> <span class="ow">in</span> <span class="n">sel</span><span class="o">.</span><span class="n">select</span><span class="p">():</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="n">accept</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>                          <span class="c1"># новий TCP-клієнт</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">elif</span> <span class="n">key</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="s2">&quot;udp&quot;</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        <span class="n">handle_udp</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">fileobj</span><span class="p">)</span>              <span class="c1"># UDP-датаграма(и)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        <span class="n">serve</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>                           <span class="c1"># TCP-клієнт з П22</span>
+</span></code></pre></div>
+<h2 id="_3">Тестування. Обидва транспорти живі одночасно<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Запустіть сервер. У двох окремих терміналах:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ nc 127.0.0.1 9100              # TCP
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hello from Imya Prizvysche!
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>hello
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>[1] hello
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ nc -u 127.0.0.1 9101            # UDP
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ping
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[udp] ping
+</span></code></pre></div>
+<p>Обидва клієнти отримують відповіді <strong>в одному й тому ж процесі сервера</strong>.</p>
+<h2 id="_4">Результат<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Скріншот з трьох вікон: лог сервера, TCP-клієнт (<code>nc</code>), UDP-клієнт (<code>nc -u</code>). У логу мають бути присутні події <strong>обох</strong> транспортів і <code>Student: &lt;Ім'я&gt;</code>.</p>
 
 
 
