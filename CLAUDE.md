@@ -26,7 +26,7 @@ hugo --minify
 ## Architecture
 
 - **Hugo site** with PaperMod theme (git submodule at `themes/PaperMod`)
-- **MkDocs submodule** at `programming-python-2sem/` - builds separately and deploys to `/ua/courses/programming-2sem/` path
+- **MkDocs submodules** at `programming-python-1sem/`, `programming-python-2sem/`, `programming-python-3sem/` - each builds separately and deploys to `/ua/courses/programming-<N>sem/`
 - **GitHub Actions** deploys to GitHub Pages on push to main (`.github/workflows/gh-pages.yml`)
 
 ### Multilingual Setup

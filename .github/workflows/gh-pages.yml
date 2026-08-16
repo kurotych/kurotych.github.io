@@ -22,12 +22,15 @@ jobs:
 
       - name: Install MkDocs dependencies
         run: |
-          pip install -r programming-python-2sem/requirements.txt
+          for sem in 1 2 3; do
+            pip install -r programming-python-${sem}sem/requirements.txt
+          done
 
-      - name: Build MkDocs site
+      - name: Build MkDocs sites
         run: |
-          cd programming-python-2sem
-          mkdocs build
+          for sem in 1 2 3; do
+            (cd programming-python-${sem}sem && mkdocs build)
+          done
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -38,10 +41,12 @@ jobs:
       - name: Build Hugo site
         run: hugo --minify
 
-      - name: Copy MkDocs site to Hugo public directory
+      - name: Copy MkDocs sites to Hugo public directory
         run: |
-          mkdir -p ./public/ua/courses/programming-2sem
-          cp -r programming-python-2sem/site/* ./public/ua/courses/programming-2sem/
+          for sem in 1 2 3; do
+            mkdir -p ./public/ua/courses/programming-${sem}sem
+            cp -r programming-python-${sem}sem/site/* ./public/ua/courses/programming-${sem}sem/
+          done
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
