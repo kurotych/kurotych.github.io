@@ -1,0 +1,1162 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module1/02-tools-lecture/">
+      
+      
+        <link rel="prev" href="../01-intro-lecture/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори) - Python (1 семестр)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-python-vs-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python (1 семестр)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python (1 семестр)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Вступ. Предмет і завдання курсу. Алгоритм, блок-схеми, програма, компіляція, інтерпретація
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Зміст лекції
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що потрібно для написання програм
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Встановлення Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Встановлення Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      macOS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Перевірка встановлення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      pip — менеджер пакетів
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Інтерактивний режим (REPL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запуск програм із файлу
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Запуск програм із файлу">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Мінімум команд терміналу
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Редактор коду та IDE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visual Studio Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visual Studio Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Встановлення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Розширення Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вибір інтерпретатора
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Робочий процес
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні комбінації клавіш
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вбудований термінал
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Налагодження (debugging) у VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Онлайн-інтерпретатори Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Онлайн-інтерпретатори Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-tutor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Tutor — окрема рекомендація
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Обмеження онлайн-сервісів
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що використовувати і коли
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні посилання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Домашнє завдання
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+<h1 id="2-python-vs-code">2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)<a class="headerlink" href="#2-python-vs-code" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Що потрібно для написання програм</li>
+<li>Встановлення Python</li>
+<li>Інтерактивний режим (REPL)</li>
+<li>Запуск програм із файлу</li>
+<li>Редактор коду та IDE</li>
+<li>Visual Studio Code</li>
+<li>Налагодження (debugging) у VS Code</li>
+<li>Онлайн-інтерпретатори Python</li>
+<li>Що використовувати і коли</li>
+</ol>
+<h2 id="_2">Що потрібно для написання програм<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Мінімальний набір інструментів програміста складається з трьох частин:</p>
+<pre class="mermaid"><code>graph LR
+    ED["Редактор коду&lt;br/&gt;VS Code"] --&gt; FILE["Файл program.py"]
+    FILE --&gt; PY["Інтерпретатор Python"]
+    PY --&gt; OUT["Результат у терміналі"]
+
+    style ED fill:#339af0,stroke:#333,color:#fff
+    style PY fill:#ffd43b,stroke:#333,color:#000
+    style OUT fill:#51cf66,stroke:#333,color:#000</code></pre>
+<table>
+<thead>
+<tr>
+<th>Інструмент</th>
+<th>Призначення</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Інтерпретатор Python</strong></td>
+<td>Виконує вашу програму. Без нього код — просто текст</td>
+</tr>
+<tr>
+<td><strong>Редактор коду</strong></td>
+<td>Місце, де ви пишете програму: підсвічування синтаксису, автодоповнення, підказки</td>
+</tr>
+<tr>
+<td><strong>Термінал</strong></td>
+<td>Запуск програм, встановлення пакетів, робота з системою</td>
+</tr>
+</tbody>
+</table>
+<p>Файл із програмою на Python — це <strong>звичайний текстовий файл</strong> з розширенням <code>.py</code>. Його можна створити навіть у «Блокноті», просто працювати буде значно незручніше.</p>
+<h2 id="python">Встановлення Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<p>У більшості дистрибутивів Python 3 уже встановлений. Перевірте:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>--version
+</span></code></pre></div>
+<p>Якщо потрібно встановити (Debian / Ubuntu):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
+</span></code></pre></div>
+<p>Fedora:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
+</span></code></pre></div>
+<p>Arch Linux:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>pacman<span class="w"> </span>-S<span class="w"> </span>python<span class="w"> </span>python-pip
+</span></code></pre></div>
+<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
+<p>Системний Python може бути застарілим, тому встановлюють свіжу версію через <a href="https://brew.sh/">Homebrew</a>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>brew<span class="w"> </span>install<span class="w"> </span>python3
+</span></code></pre></div>
+<p>Альтернатива — завантажити інсталятор з <a href="https://www.python.org/downloads/">python.org/downloads</a>.</p>
+<h3 id="_3">Перевірка встановлення<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python3<span class="w"> </span>--version
+</span></code></pre></div>
+<p>Виведення має бути приблизно таким:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Python 3.13.2
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">python чи python3?</p>
+<p>У багатьох системах команда <code>python</code> або відсутня, або вказує на давно застарілий Python 2. Завжди використовуйте <strong><code>python3</code></strong> — тоді ви точно запускаєте третю версію.</p>
+</div>
+<h3 id="pip">pip — менеджер пакетів<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<p><code>pip</code> встановлює додаткові бібліотеки з репозиторію <a href="https://pypi.org/">PyPI</a>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>--version
+</span></code></pre></div>
+<p>У першому семестрі ми працюємо переважно зі <strong>стандартною бібліотекою</strong>, тому pip знадобиться рідко. Але корисно знати, що він є.</p>
+<h2 id="repl">Інтерактивний режим (REPL)<a class="headerlink" href="#repl" title="Permanent link">&para;</a></h2>
+<p>Запустіть Python без аргументів:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python3
+</span></code></pre></div>
+<p>Ви потрапите в <strong>REPL</strong> (Read — Eval — Print — Loop): інтерпретатор читає рядок, обчислює його, друкує результат і чекає наступного.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Python 3.13.2 (main, Feb  5 2025, 08:05:21)
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>&gt;&gt;&gt; 2 + 2
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>4
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>&gt;&gt;&gt; 10 / 4
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>2.5
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>&gt;&gt;&gt; name = &quot;Alice&quot;
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>&gt;&gt;&gt; len(name)
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>5
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>&gt;&gt;&gt; print(&quot;Hello,&quot;, name)
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>Hello, Alice
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>&gt;&gt;&gt;
+</span></code></pre></div>
+<p>Вийти з REPL: команда <code>exit()</code> або комбінація <code>Ctrl+D</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Для чого REPL</p>
+<p>REPL — це «чернетка» програміста. Швидко перевірити, що робить незнайома функція, порахувати вираз, подивитися тип значення. Але повноцінні програми в REPL не пишуть: після виходу все написане зникає.</p>
+</div>
+<h2 id="_4">Запуск програм із файлу<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Створіть файл <code>hello.py</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2 + 2 =&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Запустіть його з того каталогу, де він лежить:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python3<span class="w"> </span>hello.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Hello, world!
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>2 + 2 = 4
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Найпоширеніша помилка початківця</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>python3: can&#39;t open file &#39;hello.py&#39;: [Errno 2] No such file or directory
+</span></code></pre></div>
+Це означає, що ви запускаєте команду <strong>не з того каталогу</strong>, де лежить файл. Перевірте поточний каталог командою <code>pwd</code>, перегляньте його вміст командою <code>ls</code> і перейдіть куди треба за допомогою <code>cd</code>.</p>
+</div>
+<h3 id="_5">Мінімум команд терміналу<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Дія</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code></td>
+<td>Показати поточний каталог</td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>Перелічити файли в каталозі</td>
+</tr>
+<tr>
+<td><code>cd my_folder</code></td>
+<td>Перейти в каталог <code>my_folder</code></td>
+</tr>
+<tr>
+<td><code>cd ..</code></td>
+<td>Піднятися на рівень вище</td>
+</tr>
+<tr>
+<td><code>mkdir my_folder</code></td>
+<td>Створити каталог</td>
+</tr>
+<tr>
+<td><code>python3 file.py</code></td>
+<td>Запустити програму</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ide">Редактор коду та IDE<a class="headerlink" href="#ide" title="Permanent link">&para;</a></h2>
+<p><strong>Редактор коду</strong> — текстовий редактор із підтримкою мов програмування: підсвічування синтаксису, автодоповнення, пошук по проєкту.</p>
+<p><strong>IDE (Integrated Development Environment)</strong> — інтегроване середовище розробки: редактор плюс налагоджувач, система збірки, керування залежностями, інтеграція з git тощо.</p>
+<table>
+<thead>
+<tr>
+<th>Інструмент</th>
+<th>Тип</th>
+<th>Особливості</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VS Code</strong></td>
+<td>Редактор із розширеннями</td>
+<td>Безкоштовний, легкий, розширення перетворюють його на IDE</td>
+</tr>
+<tr>
+<td>PyCharm</td>
+<td>IDE</td>
+<td>Потужний, але важчий; Community-версія безкоштовна</td>
+</tr>
+<tr>
+<td>Vim / Neovim</td>
+<td>Редактор</td>
+<td>Дуже швидкий, високий поріг входу</td>
+</tr>
+<tr>
+<td>Sublime Text</td>
+<td>Редактор</td>
+<td>Швидкий, платний</td>
+</tr>
+<tr>
+<td>Блокнот / gedit</td>
+<td>Текстовий редактор</td>
+<td>Працює, але без жодної допомоги програмісту</td>
+</tr>
+</tbody>
+</table>
+<p>У цьому курсі ми використовуємо <strong>VS Code</strong> — він безкоштовний, кросплатформний і його достатньо для всіх завдань семестру.</p>
+<h2 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">&para;</a></h2>
+<h3 id="_6">Встановлення<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Завантажте з <a href="https://code.visualstudio.com/">code.visualstudio.com</a> або встановіть із пакетного менеджера:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Debian / Ubuntu (після додавання репозиторію Microsoft)</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>code
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Arch Linux (AUR)</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>yay<span class="w"> </span>-S<span class="w"> </span>visual-studio-code-bin
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># macOS</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>visual-studio-code
+</span></code></pre></div>
+<h3 id="python_1">Розширення Python<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h3>
+<p>Одразу після встановлення відкрийте панель розширень (<code>Ctrl+Shift+X</code>) і встановіть розширення <strong>Python</strong> від Microsoft. Разом із ним встановиться <strong>Pylance</strong>.</p>
+<p>Що дають ці розширення:</p>
+<ul>
+<li>підсвічування синтаксису та автодоповнення;</li>
+<li>підказки про помилки ще до запуску програми;</li>
+<li>кнопка запуску файлу;</li>
+<li>вбудований налагоджувач;</li>
+<li>автоформатування коду.</li>
+</ul>
+<h3 id="_7">Вибір інтерпретатора<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>VS Code має знати, яким саме Python запускати ваш код. Натисніть <code>Ctrl+Shift+P</code>, введіть <code>Python: Select Interpreter</code> і виберіть встановлений Python 3.</p>
+<p>Поточний інтерпретатор завжди видно в рядку стану внизу вікна.</p>
+<h3 id="_8">Робочий процес<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TD
+    A["Створити каталог проєкту"] --&gt; B["Відкрити його у VS Code&lt;br/&gt;File → Open Folder"]
+    B --&gt; C["Створити файл program.py"]
+    C --&gt; D["Написати код"]
+    D --&gt; E["Запустити: кнопка ▷ або Ctrl+F5"]
+    E --&gt; F{"Працює правильно?"}
+    F --&gt;|ні| D
+    F --&gt;|так| G["Готово"]
+
+    style E fill:#339af0,stroke:#333,color:#fff
+    style F fill:#ffd43b,stroke:#333,color:#000
+    style G fill:#51cf66,stroke:#333,color:#000</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Відкривайте каталог, а не окремий файл</p>
+<p><code>File → Open Folder</code> замість <code>Open File</code>. VS Code вважає відкритий каталог коренем проєкту: від нього рахуються відносні шляхи до файлів, там працює пошук по проєкту та термінал.</p>
+</div>
+<h3 id="_9">Корисні комбінації клавіш<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Комбінація</th>
+<th>Дія</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+S</code></td>
+<td>Зберегти файл</td>
+</tr>
+<tr>
+<td><code>Ctrl+F5</code></td>
+<td>Запустити програму без налагодження</td>
+</tr>
+<tr>
+<td><code>F5</code></td>
+<td>Запустити з налагодженням</td>
+</tr>
+<tr>
+<td><code>F9</code></td>
+<td>Поставити / зняти точку зупинки</td>
+</tr>
+<tr>
+<td><code>Ctrl+`</code></td>
+<td>Відкрити / закрити вбудований термінал</td>
+</tr>
+<tr>
+<td><code>Ctrl+Shift+P</code></td>
+<td>Палітра команд (доступ до всіх дій)</td>
+</tr>
+<tr>
+<td><code>Ctrl+/</code></td>
+<td>Закоментувати / розкоментувати рядок</td>
+</tr>
+<tr>
+<td><code>Ctrl+Space</code></td>
+<td>Викликати автодоповнення</td>
+</tr>
+<tr>
+<td><code>F2</code></td>
+<td>Перейменувати змінну або функцію всюди в проєкті</td>
+</tr>
+<tr>
+<td><code>Shift+Alt+F</code></td>
+<td>Відформатувати документ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">Вбудований термінал<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><code>Ctrl+`</code> відкриває термінал прямо у вікні редактора, причому в каталозі проєкту. Там можна запускати програми вручну:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>python3<span class="w"> </span>hello.py
+</span></code></pre></div>
+<p>Це те саме, що й окремий термінал, просто зручніше — не треба перемикатися між вікнами.</p>
+<h2 id="debugging-vs-code">Налагодження (debugging) у VS Code<a class="headerlink" href="#debugging-vs-code" title="Permanent link">&para;</a></h2>
+<p><strong>Налагоджувач (debugger)</strong> дозволяє зупинити програму в потрібному місці та подивитися, які значення насправді мають змінні. Це головний інструмент пошуку помилок — значно ефективніший за розстановку <code>print()</code> по всьому коду.</p>
+<p><strong>Точка зупинки (breakpoint)</strong> — позначка на рядку коду; дійшовши до неї, програма призупиняється.</p>
+<p>Порядок роботи:</p>
+<ol>
+<li>Клацніть ліворуч від номера рядка (або натисніть <code>F9</code>) — з'явиться червона крапка.</li>
+<li>Запустіть налагодження клавішею <code>F5</code>.</li>
+<li>Програма зупиниться на цьому рядку. У панелі <strong>Variables</strong> зліва видно всі змінні та їхні поточні значення.</li>
+<li>Керуйте виконанням кнопками панелі налагодження.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Клавіша</th>
+<th>Дія</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>F5</code></td>
+<td>Continue — продовжити до наступної точки зупинки</td>
+</tr>
+<tr>
+<td><code>F10</code></td>
+<td>Step Over — виконати рядок цілком</td>
+</tr>
+<tr>
+<td><code>F11</code></td>
+<td>Step Into — зайти всередину функції</td>
+</tr>
+<tr>
+<td><code>Shift+F11</code></td>
+<td>Step Out — вийти з поточної функції</td>
+</tr>
+<tr>
+<td><code>Shift+F5</code></td>
+<td>Зупинити налагодження</td>
+</tr>
+</tbody>
+</table>
+<p>Спробуйте на цій програмі: поставте точку зупинки на рядку з <code>if</code> і подивіться значення <code>a</code> та <code>b</code> перед порівнянням.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Program: find the largest of two numbers</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;a = &quot;</span><span class="p">))</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;b = &quot;</span><span class="p">))</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    <span class="n">biggest</span> <span class="o">=</span> <span class="n">a</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="n">biggest</span> <span class="o">=</span> <span class="n">b</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The largest number is&quot;</span><span class="p">,</span> <span class="n">biggest</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Налагоджувач і алгоритм</p>
+<p>Покрокове виконання показує <strong>реальний шлях</strong> програми через блок-схему: які гілки спрацювали, скільки разів виконався цикл. Це найкращий спосіб зрозуміти, чому програма робить не те, що ви очікували.</p>
+</div>
+<h2 id="-python">Онлайн-інтерпретатори Python<a class="headerlink" href="#-python" title="Permanent link">&para;</a></h2>
+<p>Онлайн-інтерпретатор — це сайт, на якому можна написати й запустити код без встановлення чогось на комп'ютер. Код виконується на сервері, результат повертається у вікно браузера.</p>
+<table>
+<thead>
+<tr>
+<th>Сервіс</th>
+<th>Адреса</th>
+<th>Особливості</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Python Shell</strong></td>
+<td><a href="https://www.python.org/shell/">python.org/shell</a></td>
+<td>Офіційний REPL у браузері, без реєстрації</td>
+</tr>
+<tr>
+<td><strong>Python Tutor</strong></td>
+<td><a href="https://pythontutor.com/">pythontutor.com</a></td>
+<td>Покрокова <strong>візуалізація</strong> виконання: змінні, пам'ять, виклики функцій</td>
+</tr>
+<tr>
+<td><strong>Programiz</strong></td>
+<td><a href="https://www.programiz.com/python-programming/online-compiler/">programiz.com/python-programming/online-compiler</a></td>
+<td>Простий редактор із підтримкою <code>input()</code></td>
+</tr>
+<tr>
+<td><strong>Replit</strong></td>
+<td><a href="https://replit.com/">replit.com</a></td>
+<td>Повноцінне середовище з файлами; потрібна реєстрація</td>
+</tr>
+<tr>
+<td><strong>Google Colab</strong></td>
+<td><a href="https://colab.research.google.com/">colab.research.google.com</a></td>
+<td>Ноутбуки Jupyter, потрібен акаунт Google</td>
+</tr>
+</tbody>
+</table>
+<h3 id="python-tutor">Python Tutor — окрема рекомендація<a class="headerlink" href="#python-tutor" title="Permanent link">&para;</a></h3>
+<p><a href="https://pythontutor.com/">pythontutor.com</a> виконує програму <strong>по кроках</strong> і малює стан пам'яті: які змінні існують, які значення в них лежать, на якому рядку зараз виконання.</p>
+<p>Візьміть приклад із першої лекції та прогляньте його крок за кроком — ви буквально побачите, як працює цикл:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">i</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;total =&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Це найкращий інструмент, щоб зрозуміти зв'язок «блок-схема → код → виконання».</p>
+<h3 id="-">Обмеження онлайн-сервісів<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<ul>
+<li>немає доступу до файлової системи вашого комп'ютера — робота з файлами обмежена або неможлива;</li>
+<li>немає повноцінного налагоджувача з точками зупинки;</li>
+<li>сторонні бібліотеки або недоступні, або обмежені набором, який передбачив сервіс;</li>
+<li>обмеження на час виконання та обсяг пам'яті;</li>
+<li>код зберігається на чужому сервері, а вкладка легко закривається разом із роботою.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Практичні роботи виконуються локально</p>
+<p>Онлайн-інтерпретатори — інструмент для швидкої перевірки ідеї або для роботи з чужого комп'ютера. Практичні роботи курсу виконуються <strong>локально</strong>: потрібні скріншоти запуску, робота з файлами та власна структура проєкту.</p>
+</div>
+<h2 id="_11">Що використовувати і коли<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    Q{"Що потрібно зробити?"}
+    Q --&gt;|"Перевірити один вираз"| R["REPL: python3"]
+    Q --&gt;|"Написати програму,&lt;br/&gt;практичну роботу"| V["VS Code + python3 file.py"]
+    Q --&gt;|"Зрозуміти, як&lt;br/&gt;виконується код"| P["Python Tutor"]
+    Q --&gt;|"Немає доступу&lt;br/&gt;до свого комп'ютера"| O["Онлайн-інтерпретатор"]
+
+    style V fill:#51cf66,stroke:#333,color:#000
+    style P fill:#ffd43b,stroke:#333,color:#000</code></pre>
+<p><strong>Основний інструмент курсу — VS Code з локально встановленим Python 3.</strong> Решта — допоміжні засоби.</p>
+<h2 id="_12">Корисні посилання<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.python.org/downloads/">Завантажити Python</a></li>
+<li><a href="https://code.visualstudio.com/">Завантажити VS Code</a></li>
+<li><a href="https://code.visualstudio.com/docs/languages/python">Python у VS Code — офіційна документація</a></li>
+<li><a href="https://code.visualstudio.com/docs/python/debugging">Налагодження Python у VS Code</a></li>
+<li><a href="https://pythontutor.com/">Python Tutor — візуалізація виконання коду</a></li>
+<li><a href="https://www.python.org/shell/">Офіційний Python Shell у браузері</a></li>
+</ul>
+<h2 id="_13">Домашнє завдання<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Встановити Python 3 і переконатися, що <code>python3 --version</code> виводить версію.</li>
+<li>Встановити VS Code та розширення <strong>Python</strong> від Microsoft, вибрати інтерпретатор.</li>
+<li>Створити каталог <code>python-course</code>, відкрити його у VS Code, створити файл <code>hello.py</code> і запустити його.</li>
+<li>У REPL обчислити кілька виразів: <code>17 // 5</code>, <code>17 % 5</code>, <code>2 ** 10</code>. Пояснити результати.</li>
+<li>Поставити точку зупинки в програмі пошуку найбільшого з двох чисел і пройти її по кроках у налагоджувачі, спостерігаючи за панеллю <strong>Variables</strong>.</li>
+<li>Відкрити <a href="https://pythontutor.com/">pythontutor.com</a>, вставити програму обчислення суми від 1 до N та переглянути її покрокове виконання.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-1sem/issues">Створіть issue на GitHub</a></em></p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Куротич Анатолій. Всі права захищені.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kurotych" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
