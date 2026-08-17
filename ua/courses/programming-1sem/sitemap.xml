@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://kurotych.com/ua/courses/programming-1sem/</loc>
-         <lastmod>2026-08-16</lastmod>
+         <lastmod>2026-08-17</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-1sem/module1/01-intro-lecture/</loc>
-         <lastmod>2026-08-16</lastmod>
+         <lastmod>2026-08-17</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-1sem/module1/02-tools-lecture/</loc>
-         <lastmod>2026-08-16</lastmod>
+         <lastmod>2026-08-17</lastmod>
+    </url>
+    <url>
+         <loc>https://kurotych.com/ua/courses/programming-1sem/module1/03-tools-practice/</loc>
+         <lastmod>2026-08-17</lastmod>
     </url>
 </urlset>

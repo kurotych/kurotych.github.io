@@ -1718,7 +1718,7 @@
 </ol>
 <h3 id="2-weather">Крок 2. Міграція — створення таблиці weather<a class="headerlink" href="#2-weather" title="Permanent link">&para;</a></h3>
 <p>Створити міграцію, яка створює таблицю <code>weather</code> (ту саму, що була в практичній 3):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;create weather table&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>-m<span class="w"> </span><span class="s2">"create weather table"</span>
 </span></code></pre></div>
 <p>Заповнити функції <code>upgrade()</code> та <code>downgrade()</code> у створеному файлі міграції.
 Видалити з Python-коду ручне створення таблиці — тепер за це відповідає Alembic.</p>
@@ -1728,10 +1728,10 @@
 <p>Переконатися, що сервіс працює як і раніше.</p>
 <h3 id="3">Крок 3. Міграція — додати вологість<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p>Створити міграцію, яка додає колонку <code>humidity</code> (вологість) до таблиці <code>weather</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;add humidity to weather&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>-m<span class="w"> </span><span class="s2">"add humidity to weather"</span>
 </span></code></pre></div>
 <p>Отримати вологість можна з wttr.in:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://wttr.in/Lutsk?format=%h&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span><span class="s2">"https://wttr.in/Lutsk?format=%h"</span>
 </span></code></pre></div>
 <p>Оновити Python-код сервісу:</p>
 <ul>
@@ -1753,7 +1753,7 @@
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
 </span></code></pre></div>
 <h2 id="history">Формат виводу команди history<a class="headerlink" href="#history" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Weather history from: &lt;Ім&#39;я Прізвище&gt;:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Weather history from: &lt;Ім'я Прізвище&gt;:
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&lt;Час&gt; &lt;температура&gt; &lt;вологість&gt; &lt;швидкість вітру&gt;
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>...
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&lt;Час&gt; &lt;температура&gt; &lt;вологість&gt; &lt;швидкість вітру&gt;
