@@ -8,23 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/module1/04-input-form-practice/">
       
       
+        <link rel="prev" href="../03-basic-widgets-lecture/">
       
-        <link rel="next" href="module1/01-pyside6-intro-lecture/">
+      
+        <link rel="next" href="../05-layouts-lecture/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
       
-        <title>Python (3 семестр)</title>
+        <title>4. (П2) Форма введення даних: картка товару - Python (3 семестр)</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
       
       
 
@@ -43,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-3" class="md-skip">
+        <a href="#4-2" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Python (3 семестр)" class="md-header__button md-logo" aria-label="Python (3 семестр)" data-md-component="logo">
+    <a href="../.." title="Python (3 семестр)" class="md-header__button md-logo" aria-label="Python (3 семестр)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Головна
+              4. (П2) Форма введення даних: картка товару
             
           </span>
         </div>
@@ -197,7 +199,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Python (3 семестр)" class="md-nav__button md-logo" aria-label="Python (3 семестр)" data-md-component="logo">
+    <a href="../.." title="Python (3 семестр)" class="md-nav__button md-logo" aria-label="Python (3 семестр)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -224,6 +226,131 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-pyside6-intro-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Вступ до PySide6 та архітектури Qt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-first-pyside6-app-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. (П1) Створення першого PySide6-застосунку
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-basic-widgets-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (Л) Базові віджети: QWidget, QPushButton, QLabel, QLineEdit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -240,18 +367,18 @@
           
   
   <span class="md-ellipsis">
-    Головна
+    4. (П2) Форма введення даних: картка товару
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Головна
+    4. (П2) Форма введення даних: картка товару
   </span>
   
 
@@ -275,7 +402,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Про курс
+      Передумови
     </span>
   </a>
   
@@ -284,35 +411,44 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Передумови
+      Завдання
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Політика використання ШІ
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Структура курсу
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Структура курсу">
+    <nav class="md-nav" aria-label="Завдання">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-pyside6" class="md-nav__link">
+  <a href="#productentryform" class="md-nav__link">
     <span class="md-ellipsis">
-      Модуль 1: Графічний інтерфейс на PySide6
+      Клас ProductEntryForm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поля вводу
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поле результату
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Кнопки
     </span>
   </a>
   
@@ -323,24 +459,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Здача практичних
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Формат занять
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -348,68 +466,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    Модуль 1
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Модуль 1
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="module1/01-pyside6-intro-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    1. (Л) Вступ до PySide6 та архітектури Qt
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -419,70 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/02-first-pyside6-app-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    2. (П1) Створення першого PySide6-застосунку
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="module1/03-basic-widgets-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    3. (Л) Базові віджети: QWidget, QPushButton, QLabel, QLineEdit
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="module1/04-input-form-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    4. (П2) Форма введення даних: картка товару
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="module1/05-layouts-lecture/" class="md-nav__link">
+      <a href="../05-layouts-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -522,35 +515,68 @@
   
 
 
-<h1 id="python-3">Програмування Python - 3 семестр<a class="headerlink" href="#python-3" title="Permanent link">&para;</a></h1>
-<p>Ласкаво прошу на курс "Програмування Python - 3 семестр"</p>
-<h2 id="_1">Про курс<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Продовження курсу програмування на Python з фокусом на практичне застосування в реальних проєктах.
-Для кращого засвоєння матеріалу наполегливо рекомендую тестувати та досліджувати код (представлений на лекційних матеріалах) локально.</p>
-<h2 id="_2">Передумови<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Матеріал курсів <a href="https://kurotych.com/ua/courses/programming-1sem/">1 семестру</a> та <a href="https://kurotych.com/ua/courses/programming-2sem/">2 семестру</a>.</p>
-<h2 id="_3">Політика використання ШІ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Ви вільні використовувати ШІ, але обов'язковою умовою є:</p>
+<h1 id="4-2">4. (П2) Форма введення даних: картка товару<a class="headerlink" href="#4-2" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Розуміння кожного символу в коді;</strong></li>
-<li><strong>Повне розуміння всіх кроків (алгоритму) які ви використали для вирішення завдання;</strong></li>
-<li><strong>Заборонено використовувати ШІ для генерації тексту чи зображень в звітах.</strong></li>
+<li>Прочитана <a href="/ua/courses/programming-3sem/module1/03-basic-widgets-lecture/">Лекція 3 — Базові віджети: QWidget, QPushButton, QLabel, QLineEdit</a></li>
+<li>Успішно запущені приклади <code>LineEditDemo</code>, <code>ValidationDemo</code> та <code>RegistrationForm</code> з лекції</li>
 </ul>
-<h2 id="_4">Структура курсу<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="1-pyside6"><a href="module1/01-pyside6-intro-lecture/">Модуль 1: Графічний інтерфейс на PySide6</a><a class="headerlink" href="#1-pyside6" title="Permanent link">&para;</a></h3>
-<p>Розробка десктопних застосунків з використанням Qt та PySide6.</p>
-<p>Матеріали курсу в процесі наповнення.</p>
-<h2 id="_5">Здача практичних<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Звіти з практичних робіт здавати за адресою kurotych.anatolii@ktbp.net.ua в форматі PDF.
-В темі повідомлення вказати: Прізвище, Група, Предмет, Номер практичної.
-До практичної обов'язково прикріпити код або посилання на публічний репозиторій.</p>
-<h2 id="_6">Формат занять<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>Кожен модуль містить:</p>
+<h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Створити файл <code>product_entry.py</code> — застосунок для внесення товару на склад.</p>
+<h3 id="productentryform">Клас <code>ProductEntryForm</code><a class="headerlink" href="#productentryform" title="Permanent link">&para;</a></h3>
+<p>Клас, успадкований від <code>QWidget</code>, заголовок вікна <code>Product Entry - &lt;Ваше ім'я та прізвище&gt;</code> (транслітерацією, наприклад <code>Product Entry - Ivan Petrenko</code>), фіксований розмір 400×280 (<code>setFixedSize</code>).</p>
+<h3 id="_3">Поля вводу<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Розмістити через <code>QFormLayout</code> чотири поля <code>QLineEdit</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Підпис</th>
+<th>Перевірка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name_field</code></td>
+<td><code>Name:</code></td>
+<td>вручну (без валідатора), правило нижче</td>
+</tr>
+<tr>
+<td><code>sku_field</code></td>
+<td><code>SKU:</code></td>
+<td>вручну (без валідатора), правило нижче</td>
+</tr>
+<tr>
+<td><code>quantity_field</code></td>
+<td><code>Quantity:</code></td>
+<td><code>QIntValidator(0, 10000)</code> — ціле число 0-10000</td>
+</tr>
+<tr>
+<td><code>price_field</code></td>
+<td><code>Unit price:</code></td>
+<td><code>QDoubleValidator(0.01, 999999.99, 2)</code> — дробове число, 2 знаки після крапки</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><strong>Лекції</strong> (Л) - теоретичний матеріал</li>
-<li><strong>Практичні заняття</strong> - завдання для самостійного виконання</li>
+<li><strong>Name</strong> валідний, якщо: довжина від 3 до 40 символів, і після видалення пробілів увесь рядок складається з латинських літер (<code>name.replace(" ", "").isalpha()</code>).</li>
+<li><strong>SKU</strong> валідний, якщо: рядок містить рівно один символ <code>"-"</code>; частина до нього — 2 або 3 великі латинські літери; частина після нього — рівно 4 цифри. Приклад коректного значення: <code>AB-1234</code>.</li>
 </ul>
-<p>Успіхів у навчанні!</p>
+<p>Кожне поле повинне мати <code>setPlaceholderText()</code> з прикладом коректного значення (наприклад, <code>name_field</code> — <code>"e.g. Wireless Mouse"</code>, <code>sku_field</code> — <code>"e.g. AB-1234"</code>).</p>
+<h3 id="_4">Поле результату<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Ще один <code>QLineEdit</code> з іменем <code>total_field</code>, <strong>тільки для читання</strong> (<code>setReadOnly(True)</code>), під формою. Показує вартість партії — <code>quantity * price</code>, відформатовану як <code>"$123.45"</code>.</p>
+<p>Перерахунок відбувається <strong>автоматично</strong>, без кнопки, кожного разу коли користувач змінює <code>quantity_field</code> або <code>price_field</code> (сигнал <code>textEdited</code>). Якщо хоч одне з цих двох полів зараз не проходить валідацію — <code>total_field</code> повинен показувати <code>"$0.00"</code>.</p>
+<h3 id="_5">Кнопки<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>add_button</code> («Add to warehouse») — активна лише тоді, коли <code>is_form_valid()</code> повертає <code>True</code> для <strong>всіх чотирьох</strong> полів (name і SKU — за ручним правилом вище, quantity і price — через <code>hasAcceptableInput()</code>). Тобто стан кнопки треба перераховувати при зміні будь-якого з чотирьох полів (<code>textChanged</code> для <code>name_field</code>/<code>sku_field</code>, <code>textEdited</code> для решти). При натисканні:<ol>
+<li>Вивести в консоль рядок за форматом <code>Added: &lt;name&gt; (&lt;sku&gt;) x&lt;quantity&gt; = &lt;total&gt;</code>.</li>
+<li>Очистити всі чотири поля вводу.</li>
+<li>Оновити <code>total_field</code> на <code>"$0.00"</code>.</li>
+<li>Кнопка <code>add_button</code> знову стає неактивною (бо порожні поля не проходять валідацію).</li>
+</ol>
+</li>
+<li><code>reset_button</code> («Reset») — очищає всі поля та <code>total_field</code> без будь-яких перевірок і без виводу в консоль.</li>
+</ul>
 
 
 
@@ -621,10 +647,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
   </body>
