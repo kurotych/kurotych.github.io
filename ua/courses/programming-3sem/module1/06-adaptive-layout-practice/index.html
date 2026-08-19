@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/module1/04-input-form-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/module1/06-adaptive-layout-practice/">
       
       
-        <link rel="prev" href="../03-basic-widgets-lecture/">
+        <link rel="prev" href="../05-layouts-lecture/">
       
-      
-        <link rel="next" href="../05-layouts-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>4. (П2) Форма введення даних: картка товару - Python (3 семестр)</title>
+        <title>6. (П3) Побудова адаптивного інтерфейсу: панель нотаток - Python (3 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#4-2" class="md-skip">
+        <a href="#6-3" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4. (П2) Форма введення даних: картка товару
+              6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
             
           </span>
         </div>
@@ -351,6 +349,48 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-input-form-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. (П2) Форма введення даних: картка товару
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-layouts-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (Л) Менеджери компоновки: QVBoxLayout, QHBoxLayout, QGridLayout
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -367,7 +407,7 @@
           
   
   <span class="md-ellipsis">
-    4. (П2) Форма введення даних: картка товару
+    6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
   </span>
   
 
@@ -378,7 +418,7 @@
         
   
   <span class="md-ellipsis">
-    4. (П2) Форма введення даних: картка товару
+    6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
   </span>
   
 
@@ -415,47 +455,50 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Завдання">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#productentryform" class="md-nav__link">
-    <span class="md-ellipsis">
-      Клас ProductEntryForm
-    </span>
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Поля вводу
+      Персоналізація
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      Поле результату
+      База даних
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Кнопки
+      Схема розміщення елементів
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Віджети
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поведінка
+    </span>
+  </a>
   
 </li>
       
@@ -463,48 +506,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05-layouts-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    5. (Л) Менеджери компоновки: QVBoxLayout, QHBoxLayout, QGridLayout
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06-adaptive-layout-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -536,68 +537,143 @@
   
 
 
-<h1 id="4-2">4. (П2) Форма введення даних: картка товару<a class="headerlink" href="#4-2" title="Permanent link">&para;</a></h1>
+<h1 id="6-3">6. (П3) Побудова адаптивного інтерфейсу: панель нотаток<a class="headerlink" href="#6-3" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Прочитана <a href="/ua/courses/programming-3sem/module1/03-basic-widgets-lecture/">Лекція 3 — Базові віджети: QWidget, QPushButton, QLabel, QLineEdit</a></li>
-<li>Успішно запущені приклади <code>LineEditDemo</code>, <code>ValidationDemo</code> та <code>RegistrationForm</code> з лекції</li>
+<li>Прочитана <a href="/ua/courses/programming-3sem/module1/05-layouts-lecture/">Лекція 5 — Менеджери компоновки: QVBoxLayout, QHBoxLayout, QGridLayout</a></li>
+<li>Успішно запущені приклади <code>ToolbarDemo</code>, <code>NestedLayoutDemo</code> та <code>CalculatorDemo</code> з лекції</li>
+<li>Модуль <code>sqlite3</code> зі стандартної бібліотеки (матеріал 2 семестру); нічого додатково встановлювати не треба</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Мова в коді</p>
+<p>Усі рядкові літерали, написи на віджетах, заголовок вікна, SQL-запити та імена змінних — <strong>лише латиницею</strong>. Своє ім'я, прізвище та групу пишіть у транслітерації: <code>Ivan Petrenko</code>, <code>KI-31</code>. Кирилиця допускається тільки в коментарях.</p>
+</div>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Створити файл <code>product_entry.py</code> — застосунок для внесення товару на склад.</p>
-<h3 id="productentryform">Клас <code>ProductEntryForm</code><a class="headerlink" href="#productentryform" title="Permanent link">&para;</a></h3>
-<p>Клас, успадкований від <code>QWidget</code>, заголовок вікна <code>Product Entry - &lt;Ваше ім'я та прізвище&gt;</code> (транслітерацією, наприклад <code>Product Entry - Ivan Petrenko</code>), фіксований розмір 400×280 (<code>setFixedSize</code>).</p>
-<h3 id="_3">Поля вводу<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>Розмістити через <code>QFormLayout</code> чотири поля <code>QLineEdit</code>:</p>
+<p>Створити файл <code>workspace.py</code> — панель нотаток, які <strong>зберігаються між запусками</strong> у базі SQLite.</p>
+<p>Головна вимога: <strong>Нотатки живуть у базі, а не в пам'яті.</strong> Після закриття й повторного запуску застосунку всі нотатки мають бути на місці.</p>
+<h2 id="_3">Персоналізація<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>На початку файлу оголосити три константи і використовувати <strong>лише їх</strong> (не дублювати ці значення в коді):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">STUDENT_NAME</span> <span class="o">=</span> <span class="s2">"Ivan Petrenko"</span>                <span class="c1"># ваше ім'я та прізвище транслітерацією</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">STUDENT_GROUP</span> <span class="o">=</span> <span class="s2">"KI-31"</span>                       <span class="c1"># ваша група</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DB_FILE</span> <span class="o">=</span> <span class="s2">"workspace_ivan_petrenko.db"</span>        <span class="c1"># файл бази з вашим прізвищем</span>
+</span></code></pre></div>
+<h2 id="_4">База даних<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Одна таблиця, створюється при старті:</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">notes</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nb">text</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><code>created_at</code> заповнюється в Python: <code>datetime.now().strftime("%Y-%m-%d %H:%M")</code>.</p>
+<h2 id="_5">Схема розміщення елементів<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Кожен прямокутник на схемі — це один віджет, а підпис усередині — <strong>ім'я змінної</strong>, під яким його треба створити:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>+--------------------------------------------------------------------+
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>|  WorkspacePanel (QWidget)                                          |
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>+--------------------------------------------------------------------+
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>|                                                                    |
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>|  +------------------------+                  +------------------+  |
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>|  |      title_label       |                  |  counter_label   |  |
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>|  +------------------------+                  +------------------+  |
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>|                                                                    |
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>|  +------------------+  +----------------------------------------+  |
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>|  |    add_button    |  |               note_field               |  |
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>|  +------------------+  +----------------------------------------+  |
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>|  +------------------+                                              |
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>|  |  delete_button   |  +----------------------------------------+  |
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>|  +------------------+  |                                        |  |
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>|  +------------------+  |                                        |  |
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>|  |   clear_button   |  |             preview_label              |  |
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>|  +------------------+  |                                        |  |
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>|                        |                                        |  |
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>|                        +----------------------------------------+  |
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>|                                                                    |
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>|  +----------------------+                          +------------+  |
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>|  |     status_label     |                          |quit_button |  |
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>|  +----------------------+                          +------------+  |
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>|                                                                    |
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>+--------------------------------------------------------------------+
+</span></code></pre></div>
+<p>Порожні місця між лівою та правою групами в шапці й підвалі — це <code>addStretch()</code>.</p>
+<h2 id="_6">Віджети<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Поле</th>
-<th>Підпис</th>
-<th>Перевірка</th>
+<th>Ім'я</th>
+<th>Тип</th>
+<th>Що показує</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>name_field</code></td>
-<td><code>Name:</code></td>
-<td>вручну (без валідатора), правило нижче</td>
+<td><code>title_label</code></td>
+<td><code>QLabel</code></td>
+<td>ім'я і групу з констант: <code>Ivan Petrenko, KI-31</code></td>
 </tr>
 <tr>
-<td><code>sku_field</code></td>
-<td><code>SKU:</code></td>
-<td>вручну (без валідатора), правило нижче</td>
+<td><code>counter_label</code></td>
+<td><code>QLabel</code></td>
+<td>кількість нотаток у базі: <code>Notes: 4</code></td>
 </tr>
 <tr>
-<td><code>quantity_field</code></td>
-<td><code>Quantity:</code></td>
-<td><code>QIntValidator(0, 10000)</code> — ціле число 0-10000</td>
+<td><code>add_button</code></td>
+<td><code>QPushButton</code></td>
+<td>напис <code>Add</code> — додає нотатку з <code>note_field</code></td>
 </tr>
 <tr>
-<td><code>price_field</code></td>
-<td><code>Unit price:</code></td>
-<td><code>QDoubleValidator(0.01, 999999.99, 2)</code> — дробове число, 2 знаки після крапки</td>
+<td><code>delete_button</code></td>
+<td><code>QPushButton</code></td>
+<td>напис <code>Delete last</code> — видаляє останню нотатку</td>
+</tr>
+<tr>
+<td><code>clear_button</code></td>
+<td><code>QPushButton</code></td>
+<td>напис <code>Clear all</code> — видаляє всі нотатки</td>
+</tr>
+<tr>
+<td><code>note_field</code></td>
+<td><code>QLineEdit</code></td>
+<td>поле вводу тексту нової нотатки</td>
+</tr>
+<tr>
+<td><code>preview_label</code></td>
+<td><code>QLabel</code></td>
+<td>нотатки з бази, по одній у рядок:<br><code>2026-08-19 14:05  read Qt docs</code><br><code>2026-08-19 14:07  finish practice 3</code></td>
+</tr>
+<tr>
+<td><code>status_label</code></td>
+<td><code>QLabel</code></td>
+<td>назву файлу бази: <code>Database: workspace_ivan_petrenko.db</code></td>
+</tr>
+<tr>
+<td><code>quit_button</code></td>
+<td><code>QPushButton</code></td>
+<td>напис <code>Quit</code>, закриває вікно</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><strong>Name</strong> валідний, якщо: довжина від 3 до 40 символів, і після видалення пробілів увесь рядок складається з латинських літер (<code>name.replace(" ", "").isalpha()</code>).</li>
-<li><strong>SKU</strong> валідний, якщо: рядок містить рівно один символ <code>"-"</code>; частина до нього — 2 або 3 великі латинські літери; частина після нього — рівно 4 цифри. Приклад коректного значення: <code>AB-1234</code>.</li>
-</ul>
-<p>Кожне поле повинне мати <code>setPlaceholderText()</code> з прикладом коректного значення (наприклад, <code>name_field</code> — <code>"e.g. Wireless Mouse"</code>, <code>sku_field</code> — <code>"e.g. AB-1234"</code>).</p>
-<h3 id="_4">Поле результату<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>Ще один <code>QLineEdit</code> з іменем <code>total_field</code>, <strong>тільки для читання</strong> (<code>setReadOnly(True)</code>), під формою. Показує вартість партії — <code>quantity * price</code>, відформатовану як <code>"$123.45"</code>.</p>
-<p>Перерахунок відбувається <strong>автоматично</strong>, без кнопки, кожного разу коли користувач змінює <code>quantity_field</code> або <code>price_field</code> (сигнал <code>textEdited</code>). Якщо хоч одне з цих двох полів зараз не проходить валідацію — <code>total_field</code> повинен показувати <code>"$0.00"</code>.</p>
-<h3 id="_5">Кнопки<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>add_button</code> («Add to warehouse») — активна лише тоді, коли <code>is_form_valid()</code> повертає <code>True</code> для <strong>всіх чотирьох</strong> полів (name і SKU — за ручним правилом вище, quantity і price — через <code>hasAcceptableInput()</code>). Тобто стан кнопки треба перераховувати при зміні будь-якого з чотирьох полів (<code>textChanged</code> для <code>name_field</code>/<code>sku_field</code>, <code>textEdited</code> для решти). При натисканні:<ol>
-<li>Вивести в консоль рядок за форматом <code>Added: &lt;name&gt; (&lt;sku&gt;) x&lt;quantity&gt; = &lt;total&gt;</code>.</li>
-<li>Очистити всі чотири поля вводу.</li>
-<li>Оновити <code>total_field</code> на <code>"$0.00"</code>.</li>
-<li>Кнопка <code>add_button</code> знову стає неактивною (бо порожні поля не проходять валідацію).</li>
+<h2 id="_7">Поведінка<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>Старт.</strong> Підключитись до бази, створити таблицю, за потреби додати три власні нотатки, після чого відмалювати вміст бази у вікні.</p>
+<p><strong>Оновлення вигляду.</strong> Зробити один метод <code>refresh()</code>, який:</p>
+<ol>
+<li>Читає всі нотатки: <code>SELECT created_at, text FROM notes ORDER BY id</code>.</li>
+<li>Формує рядки виду <code>&lt;created_at&gt;  &lt;text&gt;</code> і показує їх у <code>preview_label</code>, з'єднавши через <code>"\n"</code>. Якщо база порожня — <code>No notes yet</code>.</li>
+<li>Оновлює <code>counter_label</code> на <code>Notes: &lt;кількість&gt;</code>.</li>
 </ol>
-</li>
-<li><code>reset_button</code> («Reset») — очищає всі поля та <code>total_field</code> без будь-яких перевірок і без виводу в консоль.</li>
-</ul>
+<p>Цей самий метод викликається після кожної зміни бази — окремої копії нотаток у пам'яті класу тримати не треба.</p>
+<p><strong><code>add_button</code>.</strong> Якщо <code>note_field</code> порожнє (перевіряти <code>.strip()</code>) — нічого не робити. Інакше <code>INSERT</code> нового рядка з поточним часом, <code>commit()</code>, очистити <code>note_field</code> і викликати <code>refresh()</code>.</p>
+<p><strong><code>delete_button</code>.</strong> Видаляє нотатку з найбільшим <code>id</code>:</p>
+<p><strong><code>clear_button</code>.</strong> <code>DELETE FROM notes</code> — видаляє всі записи.</p>
+<p><strong>Закриття.</strong> Перевизначити <code>closeEvent()</code> і закрити підключення:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">closeEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>quit_button</code> викликає <code>self.close()</code> — і <code>closeEvent()</code> спрацює сам.</p>
+<div class="admonition danger">
+<p class="admonition-title">Параметри запитів</p>
+<p>Текст нотатки підставляти <strong>тільки</strong> через плейсхолдер: <code>cursor.execute("INSERT INTO notes (text, created_at) VALUES (?, ?)", (text, created_at))</code>. Склеювання SQL через f-рядок — помилка, за яку знімаються бали.</p>
+</div>
 
 
 
