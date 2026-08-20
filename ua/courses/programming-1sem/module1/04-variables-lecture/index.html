@@ -1,0 +1,2062 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module1/04-variables-lecture/">
+      
+      
+        <link rel="prev" href="../03-tools-practice/">
+      
+      
+        <link rel="next" href="../05-variables-practice/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>4. (Л) Змінні та типи даних. Вирази та оператори - Python (1 семестр)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python (1 семестр)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. (Л) Змінні та типи даних. Вирази та оператори
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python (1 семестр)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Вступ. Предмет і завдання курсу. Алгоритм, блок-схеми, програма, компіляція, інтерпретація
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-tools-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-tools-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (П1) Налаштування середовища розробки. Запуск Python коду локально та онлайн
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4. (Л) Змінні та типи даних. Вирази та оператори
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    4. (Л) Змінні та типи даних. Вирази та оператори
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Зміст лекції
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що таке змінна
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Іменування змінних
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Іменування змінних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Правила (обов'язкові)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pep-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Домовленості (стиль PEP 8)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Присвоєння та модель пам'яті Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Присвоєння та модель пам'яті Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Кілька форм присвоєння
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Складені оператори присвоєння
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Як Python зберігає значення
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основні типи даних
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Основні типи даних">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Динамічна типізація
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#int-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      Числа: int та float
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Числа: int та float">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#int" class="md-nav__link">
+    <span class="md-ellipsis">
+      Цілі числа (int)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    <span class="md-ellipsis">
+      Дробові числа (float)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Арифметичні оператори
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні вбудовані функції для чисел
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#str" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рядки: str
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Рядки: str">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Багаторядкові рядки
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Операції з рядками
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Екранування символів
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Логічний тип: bool
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Логічний тип: bool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Оператори порівняння
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Логічні оператори
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Хибні значення
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nonetype" class="md-nav__link">
+    <span class="md-ellipsis">
+      Тип NoneType
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Визначення та перетворення типів
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Визначення та перетворення типів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Дізнатися тип
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Явне перетворення (приведення типів)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Неявне перетворення
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Введення даних з клавіатури
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вирази та оператори
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Вирази та оператори">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      Групи операторів
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пріоритет операцій
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пріоритет операцій">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      Скорочене обчислення логічних виразів
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Форматування виведення (f-рядки)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Форматування виведення (f-рядки)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    <span class="md-ellipsis">
+      Функція print()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      f-рядки — сучасний спосіб
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      Повний приклад
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      Типові помилки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підсумок
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні посилання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      Домашнє завдання
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-variables-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (П2) Змінні, типи даних та вирази
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+<h1 id="4">4. (Л) Змінні та типи даних. Вирази та оператори<a class="headerlink" href="#4" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Що таке змінна</li>
+<li>Іменування змінних</li>
+<li>Присвоєння та модель пам'яті Python</li>
+<li>Основні типи даних</li>
+<li>Числа: <code>int</code> та <code>float</code></li>
+<li>Рядки: <code>str</code></li>
+<li>Логічний тип: <code>bool</code></li>
+<li>Тип <code>NoneType</code></li>
+<li>Визначення та перетворення типів</li>
+<li>Введення даних з клавіатури</li>
+<li>Вирази та оператори</li>
+<li>Пріоритет операцій</li>
+<li>Форматування виведення (f-рядки)</li>
+<li>Типові помилки</li>
+</ol>
+<h2 id="_2">Що таке змінна<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Будь-яка програма працює з даними: числами, текстом, результатами обчислень. Ці дані потрібно десь зберігати, щоб потім до них звертатися.</p>
+<p><strong>Змінна</strong> — це іменоване посилання на значення в пам'яті комп'ютера. Простіше кажучи, це «підписана коробка», у якій лежить якесь значення, а підпис — це ім'я, за яким ми до цього значення звертаємося.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+</span></code></pre></div>
+<p>Цей рядок читається так: «створити значення <code>19</code> у пам'яті та зв'язати з ним ім'я <code>age</code>».</p>
+<pre class="mermaid"><code>graph LR
+    N["Ім'я&lt;br/&gt;age"] --&gt;|посилається на| V["Значення&lt;br/&gt;19"]
+
+    style N fill:#339af0,stroke:#333,color:#fff
+    style V fill:#51cf66,stroke:#333,color:#000</code></pre>
+<p>Далі ім'я <code>age</code> можна використовувати замість самого значення:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>          <span class="c1"># 19</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>      <span class="c1"># 20</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1"># 38</span>
+</span></code></pre></div>
+<p>Значення змінної можна <strong>змінити</strong> — звідси й назва:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>      <span class="c1"># 0</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">counter</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>      <span class="c1"># 5</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># взяти поточне значення, додати 1, записати назад</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>      <span class="c1"># 6</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Знак <code>=</code> — це не рівність</p>
+<p>У математиці <code>x = x + 1</code> — хибне твердження. У Python <code>=</code> — це <strong>оператор присвоєння</strong>: «обчислити те, що праворуч, і зв'язати результат з іменем ліворуч». Порівняння на рівність записується подвійним знаком: <code>==</code>.</p>
+</div>
+<h2 id="_3">Іменування змінних<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">Правила (обов'язкові)<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Порушення цих правил — синтаксична помилка, програма не запуститься.</p>
+<ul>
+<li>ім'я складається з латинських літер, цифр і символу підкреслення <code>_</code>;</li>
+<li>ім'я <strong>не може починатися з цифри</strong>;</li>
+<li>ім'я не може збігатися з ключовим словом мови (<code>if</code>, <code>for</code>, <code>class</code>, <code>def</code>, <code>import</code>, …);</li>
+<li>регістр має значення: <code>age</code>, <code>Age</code> та <code>AGE</code> — три різні змінні.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># правильно</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">name</span> <span class="o">=</span> <span class="s2">"Ivan"</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">user_age</span> <span class="o">=</span> <span class="mi">19</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">_temp</span> <span class="o">=</span> <span class="mf">3.14</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">x2</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># помилки</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># 2x = 5          -&gt; SyntaxError: ім'я починається з цифри</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># user-age = 19   -&gt; SyntaxError: дефіс — це оператор віднімання</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># class = "PZ-11" -&gt; SyntaxError: class — ключове слово</span>
+</span></code></pre></div>
+<p>Повний список ключових слів можна побачити так:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">keyword</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="pep-8">Домовленості (стиль PEP 8)<a class="headerlink" href="#pep-8" title="Permanent link">&para;</a></h3>
+<p>Це не вимоги інтерпретатора, а загальноприйнятий стиль, якого дотримується вся спільнота Python.</p>
+<table>
+<thead>
+<tr>
+<th>Правило</th>
+<th>Приклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Змінні — малими літерами, слова через <code>_</code> (<em>snake_case</em>)</td>
+<td><code>student_name</code>, <code>total_price</code></td>
+</tr>
+<tr>
+<td>Константи — великими літерами</td>
+<td><code>MAX_SPEED = 120</code>, <code>PI = 3.14159</code></td>
+</tr>
+<tr>
+<td>Ім'я має описувати зміст, а не тип</td>
+<td><code>age</code>, а не <code>int_value</code></td>
+</tr>
+<tr>
+<td>Уникати однолітерних імен, окрім лічильників</td>
+<td><code>i</code>, <code>j</code> — у циклах; решта — осмислені</td>
+</tr>
+<tr>
+<td>Не використовувати кирилицю в іменах</td>
+<td><code>price</code>, а не <code>ціна</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Ім'я змінної — це коментар, який неможливо забути оновити</p>
+<p>Порівняйте: <code>a = b * c</code> та <code>total = price * quantity</code>. Другий варіант не потребує пояснень.</p>
+</div>
+<h2 id="python">Присвоєння та модель пам'яті Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<h3 id="_5">Кілька форм присвоєння<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># звичайне присвоєння</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># одночасне присвоєння кільком змінним</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>      <span class="c1"># 1 2 3</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># те саме значення кільком змінним</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>      <span class="c1"># 0 0 0</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># обмін значеннями (у Python — без тимчасової змінної)</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>         <span class="c1"># 2 1</span>
+</span></code></pre></div>
+<h3 id="_6">Складені оператори присвоєння<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">count</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">count</span> <span class="o">+=</span> <span class="mi">5</span>      <span class="c1"># count = count + 5   -&gt; 15</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">count</span> <span class="o">-=</span> <span class="mi">3</span>      <span class="c1"># count = count - 3   -&gt; 12</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">count</span> <span class="o">*=</span> <span class="mi">2</span>      <span class="c1"># count = count * 2   -&gt; 24</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">count</span> <span class="o">//=</span> <span class="mi">5</span>     <span class="c1"># count = count // 5  -&gt; 4</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">count</span> <span class="o">**=</span> <span class="mi">2</span>     <span class="c1"># count = count ** 2  -&gt; 16</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>    <span class="c1"># 16</span>
+</span></code></pre></div>
+<h3 id="python_1">Як Python зберігає значення<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h3>
+<p>У Python змінна <strong>не є коробкою зі значенням усередині</strong>. Змінна — це <em>ярлик</em>, прикріплений до об'єкта в пам'яті. Присвоєння не копіює значення, а лише перевішує ярлик.</p>
+<pre class="mermaid"><code>graph TD
+    subgraph "a = 100"
+        A1["a"] --&gt; V1["100"]
+    end
+    subgraph "b = a"
+        A2["a"] --&gt; V2["100"]
+        B2["b"] --&gt; V2
+    end
+    subgraph "a = 200"
+        A3["a"] --&gt; V3["200"]
+        B3["b"] --&gt; V4["100"]
+    end
+
+    style V1 fill:#51cf66,stroke:#333,color:#000
+    style V2 fill:#51cf66,stroke:#333,color:#000
+    style V3 fill:#ffd43b,stroke:#333,color:#000
+    style V4 fill:#51cf66,stroke:#333,color:#000</code></pre>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>       <span class="c1"># b посилається на той самий об'єкт 100</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">200</span>     <span class="c1"># a тепер посилається на новий об'єкт 200</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>    <span class="c1"># 200</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>    <span class="c1"># 100 — значення b не змінилося</span>
+</span></code></pre></div>
+<p>Побачити «адресу» об'єкта можна вбудованою функцією <code>id()</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>   <span class="c1"># True — це один і той самий об'єкт</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">200</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>   <span class="c1"># False — тепер об'єкти різні</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Чому це важливо</p>
+<p>Для чисел і рядків різниця непомітна: їх не можна змінити «на місці» (вони <em>незмінні</em>, immutable). Але коли ми дійдемо до списків, ця модель пояснить поведінку, яка інакше здається магією.</p>
+</div>
+<h2 id="_7">Основні типи даних<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>Тип даних</strong> визначає, які значення може приймати змінна та які операції з нею дозволені. Додати два числа можна, а «поділити текст на дату» — ні.</p>
+<pre class="mermaid"><code>graph TD
+    T["Типи даних Python"] --&gt; NUM["Числові"]
+    T --&gt; TXT["Текстовий"]
+    T --&gt; LOG["Логічний"]
+    T --&gt; NONE["NoneType"]
+    T --&gt; COL["Колекції&lt;br/&gt;(наступні лекції)"]
+
+    NUM --&gt; I["int&lt;br/&gt;цілі числа"]
+    NUM --&gt; F["float&lt;br/&gt;дробові числа"]
+    NUM --&gt; C["complex&lt;br/&gt;комплексні"]
+    TXT --&gt; S["str&lt;br/&gt;рядки"]
+    LOG --&gt; B["bool&lt;br/&gt;True / False"]
+    COL --&gt; L["list, tuple,&lt;br/&gt;set, dict"]
+
+    style I fill:#51cf66,stroke:#333,color:#000
+    style F fill:#51cf66,stroke:#333,color:#000
+    style S fill:#339af0,stroke:#333,color:#fff
+    style B fill:#ffd43b,stroke:#333,color:#000</code></pre>
+<table>
+<thead>
+<tr>
+<th>Тип</th>
+<th>Призначення</th>
+<th>Приклади значень</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>Цілі числа</td>
+<td><code>0</code>, <code>42</code>, <code>-7</code>, <code>1000000</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>Дробові числа</td>
+<td><code>3.14</code>, <code>-0.5</code>, <code>2.0</code>, <code>1e-3</code></td>
+</tr>
+<tr>
+<td><code>str</code></td>
+<td>Текст</td>
+<td><code>"Hello"</code>, <code>'Python'</code>, <code>""</code></td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td>Істина / хиба</td>
+<td><code>True</code>, <code>False</code></td>
+</tr>
+<tr>
+<td><code>NoneType</code></td>
+<td>Відсутність значення</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>complex</code></td>
+<td>Комплексні числа</td>
+<td><code>2 + 3j</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">Динамічна типізація<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">value</span> <span class="o">=</span> <span class="mi">42</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>      <span class="c1"># &lt;class 'int'&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">value</span> <span class="o">=</span> <span class="s2">"forty two"</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>      <span class="c1"># &lt;class 'str'&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">value</span> <span class="o">=</span> <span class="mf">3.14</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>      <span class="c1"># &lt;class 'float'&gt;</span>
+</span></code></pre></div>
+<p>У мовах зі <em>статичною</em> типізацією (C, Java) тип змінної оголошується заздалегідь і не змінюється. Динамічна типізація зручніша, але помилку типу виявляє лише під час виконання.</p>
+<h2 id="int-float">Числа: <code>int</code> та <code>float</code><a class="headerlink" href="#int-float" title="Permanent link">&para;</a></h2>
+<h3 id="int">Цілі числа (<code>int</code>)<a class="headerlink" href="#int" title="Permanent link">&para;</a></h3>
+<p>Цілі числа в Python мають <strong>необмежену точність</strong> — розмір обмежений лише пам'яттю комп'ютера.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">big</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">100</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">big</span><span class="p">)</span>      <span class="c1"># 1267650600228229401496703205376</span>
+</span></code></pre></div>
+<p>Для читабельності великих чисел можна вживати підкреслення — воно ігнорується:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">population</span> <span class="o">=</span> <span class="mi">1_400_000_000</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>       <span class="c1"># 1400000000</span>
+</span></code></pre></div>
+<h3 id="float">Дробові числа (<code>float</code>)<a class="headerlink" href="#float" title="Permanent link">&para;</a></h3>
+<p>Дробова частина відокремлюється <strong>крапкою</strong>, а не комою. Підтримується експоненційний запис:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">temperature</span> <span class="o">=</span> <span class="o">-</span><span class="mf">12.5</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">electron_mass</span> <span class="o">=</span> <span class="mf">9.1e-31</span>     <span class="c1"># 9.1 * 10^-31</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">distance</span> <span class="o">=</span> <span class="mf">1.5e8</span>            <span class="c1"># 150000000.0</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">electron_mass</span><span class="p">)</span>        <span class="c1"># 9.1e-31</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>             <span class="c1"># 150000000.0</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Точність float</p>
+<p>Дробові числа зберігаються у двійковій системі за стандартом IEEE 754, тому частина десяткових дробів подається наближено:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>            <span class="c1"># 0.30000000000000004</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>     <span class="c1"># False</span>
+</span></code></pre></div>
+<p>Це не помилка Python — так поводяться всі мови. Порівнювати дробові числа слід із допуском:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mf">0.3</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">)</span>    <span class="c1"># True</span>
+</span></code></pre></div>
+<p>Для грошових розрахунків використовують модуль <code>decimal</code>.</p>
+</div>
+<h3 id="_9">Арифметичні оператори<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Оператор</th>
+<th>Дія</th>
+<th>Приклад</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Додавання</td>
+<td><code>7 + 3</code></td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Віднімання</td>
+<td><code>7 - 3</code></td>
+<td><code>4</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Множення</td>
+<td><code>7 * 3</code></td>
+<td><code>21</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Ділення (завжди <code>float</code>)</td>
+<td><code>7 / 3</code></td>
+<td><code>2.3333333333333335</code></td>
+</tr>
+<tr>
+<td><code>//</code></td>
+<td>Цілочисельне ділення</td>
+<td><code>7 // 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Остача від ділення</td>
+<td><code>7 % 3</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>Піднесення до степеня</td>
+<td><code>7 ** 3</code></td>
+<td><code>343</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">17</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>        <span class="c1"># 22</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>        <span class="c1"># 12</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>        <span class="c1"># 85</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>        <span class="c1"># 3.4</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span>       <span class="c1"># 3</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>        <span class="c1"># 2</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span>       <span class="c1"># 1419857</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Навіщо потрібні <code>//</code> та <code>%</code></p>
+<p>Ця пара розкладає число на «скільки цілих разів помістилося» та «що залишилося». Класичні застосування:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">total_seconds</span> <span class="o">=</span> <span class="mi">3725</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">hours</span> <span class="o">=</span> <span class="n">total_seconds</span> <span class="o">//</span> <span class="mi">3600</span>           <span class="c1"># 1</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">minutes</span> <span class="o">=</span> <span class="n">total_seconds</span> <span class="o">%</span> <span class="mi">3600</span> <span class="o">//</span> <span class="mi">60</span>    <span class="c1"># 2</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">seconds</span> <span class="o">=</span> <span class="n">total_seconds</span> <span class="o">%</span> <span class="mi">60</span>            <span class="c1"># 5</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">,</span> <span class="n">minutes</span><span class="p">,</span> <span class="s2">"min"</span><span class="p">,</span> <span class="n">seconds</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Виведення: <code>1 h 2 min 5 s</code></p>
+<p>Перевірка на парність: число парне, якщо <code>n % 2 == 0</code>.</p>
+</div>
+<p>Для від'ємних чисел <code>//</code> округлює <strong>вниз</strong> (до меншого числа), а не «до нуля»:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>       <span class="c1"># 3</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1"># -4  (не -3!)</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>       <span class="c1"># 1</span>
+</span></code></pre></div>
+<h3 id="_10">Корисні вбудовані функції для чисел<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>          <span class="c1"># 5      — модуль числа</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">3.7</span><span class="p">))</span>       <span class="c1"># 4      — округлення</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="c1"># 3.14   — до 2 знаків після коми</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>     <span class="c1"># 1</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>     <span class="c1"># 9</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>       <span class="c1"># 1024   — те саме, що 2 ** 10</span>
+</span></code></pre></div>
+<h2 id="str">Рядки: <code>str</code><a class="headerlink" href="#str" title="Permanent link">&para;</a></h2>
+<p><strong>Рядок</strong> — послідовність символів. Записується в одинарних або подвійних лапках — різниці між ними немає.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">name</span> <span class="o">=</span> <span class="s2">"Ivan"</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">city</span> <span class="o">=</span> <span class="s1">'Kyiv'</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">empty</span> <span class="o">=</span> <span class="s2">""</span>
+</span></code></pre></div>
+<p>Вибір лапок зручний, коли всередині тексту вже є лапки:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">quote</span> <span class="o">=</span> <span class="s2">"It's a great day"</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">title</span> <span class="o">=</span> <span class="s1">'He said "hello" and left'</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">quote</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_11">Багаторядкові рядки<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">text</span> <span class="o">=</span> <span class="s2">"""This is line one</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="s2">This is line two</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="s2">This is line three"""</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="_12">Операції з рядками<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">first</span> <span class="o">=</span> <span class="s2">"Hello"</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">second</span> <span class="o">=</span> <span class="s2">"World"</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># конкатенація (склеювання)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="n">greeting</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="s2">", "</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="s2">"!"</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>             <span class="c1"># Hello, World!</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="c1"># повторення</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="n">line</span> <span class="o">=</span> <span class="s2">"-"</span> <span class="o">*</span> <span class="mi">20</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>                 <span class="c1"># --------------------</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="c1"># довжина</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">greeting</span><span class="p">))</span>        <span class="c1"># 13</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="c1"># доступ до символу за індексом (нумерація з 0)</span>
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>          <span class="c1"># H</span>
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>         <span class="c1"># !  (останній символ)</span>
+</span></code></pre></div>
+<pre class="mermaid"><code>graph LR
+    subgraph "Індексація рядка Python"
+        direction TB
+        A["P"] --- B["y"] --- C["t"] --- D["h"] --- E["o"] --- F["n"]
+    end</code></pre>
+<table>
+<thead>
+<tr>
+<th>Символ</th>
+<th><code>P</code></th>
+<th><code>y</code></th>
+<th><code>t</code></th>
+<th><code>h</code></th>
+<th><code>o</code></th>
+<th><code>n</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Індекс зліва</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Індекс справа</td>
+<td>-6</td>
+<td>-5</td>
+<td>-4</td>
+<td>-3</td>
+<td>-2</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">Екранування символів<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Line one</span><span class="se">\n</span><span class="s2">Line two"</span><span class="p">)</span>     <span class="c1"># \n — перехід на новий рядок</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Name:</span><span class="se">\t</span><span class="s2">Ivan"</span><span class="p">)</span>            <span class="c1"># \t — табуляція</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Quote: </span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">"</span><span class="p">)</span>        <span class="c1"># \" — лапка всередині рядка</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Path: C:</span><span class="se">\\</span><span class="s2">temp"</span><span class="p">)</span>         <span class="c1"># \\ — сам символ зворотної скісної риски</span>
+</span></code></pre></div>
+<h2 id="bool">Логічний тип: <code>bool</code><a class="headerlink" href="#bool" title="Permanent link">&para;</a></h2>
+<p>Тип <code>bool</code> має лише два значення: <code>True</code> та <code>False</code> (обов'язково з великої літери).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">is_student</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">has_debt</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">is_student</span><span class="p">))</span>     <span class="c1"># &lt;class 'bool'&gt;</span>
+</span></code></pre></div>
+<h3 id="_14">Оператори порівняння<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>Результат будь-якого порівняння — значення типу <code>bool</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Оператор</th>
+<th>Значення</th>
+<th>Приклад</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Дорівнює</td>
+<td><code>5 == 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Не дорівнює</td>
+<td><code>5 != 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Більше</td>
+<td><code>5 &gt; 3</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Менше</td>
+<td><code>5 &lt; 3</code></td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Більше або дорівнює</td>
+<td><code>5 &gt;= 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Менше або дорівнює</td>
+<td><code>4 &lt;= 3</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span>            <span class="c1"># True</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">==</span> <span class="mi">20</span><span class="p">)</span>            <span class="c1"># False</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">!=</span> <span class="mi">20</span><span class="p">)</span>            <span class="c1"># True</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1"># порівнювати можна й рядки — за алфавітом (кодами символів)</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"apple"</span> <span class="o">&lt;</span> <span class="s2">"banana"</span><span class="p">)</span>   <span class="c1"># True</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Zebra"</span> <span class="o">&lt;</span> <span class="s2">"apple"</span><span class="p">)</span>    <span class="c1"># True — великі літери мають менші коди</span>
+</span></code></pre></div>
+<p>Python дозволяє <strong>ланцюжки порівнянь</strong>, як у математиці:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">score</span> <span class="o">=</span> <span class="mi">75</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="nb">print</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">score</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span>    <span class="c1"># True</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="nb">print</span><span class="p">(</span><span class="mi">60</span> <span class="o">&lt;</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">)</span>      <span class="c1"># True</span>
+</span></code></pre></div>
+<h3 id="_15">Логічні оператори<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Оператор</th>
+<th>Дія</th>
+<th>Результат <code>True</code>, коли</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>and</code></td>
+<td>Логічне «і»</td>
+<td>обидва операнди істинні</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>Логічне «або»</td>
+<td>хоча б один операнд істинний</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>Заперечення</td>
+<td>операнд хибний</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">has_ticket</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">has_ticket</span><span class="p">)</span>     <span class="c1"># True</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">65</span> <span class="ow">or</span> <span class="n">has_ticket</span><span class="p">)</span>      <span class="c1"># True</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">has_ticket</span><span class="p">)</span>               <span class="c1"># False</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="c1"># комбінування</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="n">is_weekend</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="n">is_holiday</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">is_weekend</span> <span class="ow">or</span> <span class="n">is_holiday</span><span class="p">)</span>             <span class="c1"># True</span>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="p">(</span><span class="n">is_weekend</span> <span class="ow">or</span> <span class="n">is_holiday</span><span class="p">))</span>       <span class="c1"># False</span>
+</span></code></pre></div>
+<p>Таблиця істинності:</p>
+<table>
+<thead>
+<tr>
+<th><code>a</code></th>
+<th><code>b</code></th>
+<th><code>a and b</code></th>
+<th><code>a or b</code></th>
+<th><code>not a</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>True</code></td>
+<td><code>True</code></td>
+<td><code>True</code></td>
+<td><code>True</code></td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>True</code></td>
+<td><code>False</code></td>
+<td><code>False</code></td>
+<td><code>True</code></td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>False</code></td>
+<td><code>True</code></td>
+<td><code>False</code></td>
+<td><code>True</code></td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>False</code></td>
+<td><code>False</code></td>
+<td><code>False</code></td>
+<td><code>False</code></td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">Хибні значення<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>Будь-яке значення в Python можна трактувати як логічне. <strong>Хибними</strong> вважаються:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>          <span class="c1"># False</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>        <span class="c1"># False</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">""</span><span class="p">))</span>         <span class="c1"># False — порожній рядок</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>       <span class="c1"># False</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>         <span class="c1"># True</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>         <span class="c1"># True — будь-яке ненульове число</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">"text"</span><span class="p">))</span>     <span class="c1"># True</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">"0"</span><span class="p">))</span>        <span class="c1"># True — це непорожній рядок!</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">bool — це різновид int</p>
+<p>Технічно <code>True</code> дорівнює <code>1</code>, а <code>False</code> — <code>0</code>, тому їх можна додавати:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="o">+</span> <span class="kc">True</span><span class="p">)</span>      <span class="c1"># 2</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>        <span class="c1"># True</span>
+</span></code></pre></div>
+<p>На практиці так писати не варто, але знати корисно — це пояснює несподівані результати.</p>
+</div>
+<h2 id="nonetype">Тип <code>NoneType</code><a class="headerlink" href="#nonetype" title="Permanent link">&para;</a></h2>
+<p><code>None</code> — спеціальне значення, що позначає <strong>відсутність значення</strong>. Це не нуль і не порожній рядок.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>               <span class="c1"># None</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>         <span class="c1"># &lt;class 'NoneType'&gt;</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>       <span class="c1"># True — правильна перевірка</span>
+</span></code></pre></div>
+<p><code>None</code> використовують, коли значення ще не обчислене або функція нічого не повертає:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># функція print() нічого не повертає</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="n">value</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"text"</span><span class="p">)</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>                <span class="c1"># None</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Перевіряйте <code>None</code> через <code>is</code></p>
+<p>Пишіть <code>if value is None:</code>, а не <code>if value == None:</code>. Оператор <code>is</code> порівнює <em>об'єкти</em>, а <code>==</code> — <em>значення</em>; для <code>None</code> коректним вважається саме <code>is</code>.</p>
+</div>
+<h2 id="_17">Визначення та перетворення типів<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="_18">Дізнатися тип<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>             <span class="c1"># &lt;class 'int'&gt;</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">3.14</span><span class="p">))</span>           <span class="c1"># &lt;class 'float'&gt;</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">"text"</span><span class="p">))</span>         <span class="c1"># &lt;class 'str'&gt;</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>           <span class="c1"># &lt;class 'bool'&gt;</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>           <span class="c1"># &lt;class 'NoneType'&gt;</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="c1"># перевірка на конкретний тип</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="n">value</span> <span class="o">=</span> <span class="mi">42</span>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>   <span class="c1"># True</span>
+</span></code></pre></div>
+<h3 id="_19">Явне перетворення (приведення типів)<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># у ціле число</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s2">"42"</span><span class="p">))</span>            <span class="c1"># 42</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">3.99</span><span class="p">))</span>            <span class="c1"># 3   — дробова частина відкидається, не округлюється!</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="o">-</span><span class="mf">3.99</span><span class="p">))</span>           <span class="c1"># -3</span>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>            <span class="c1"># 1</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="c1"># у дробове</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"3.14"</span><span class="p">))</span>        <span class="c1"># 3.14</span>
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>             <span class="c1"># 7.0</span>
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="c1"># у рядок</span>
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>              <span class="c1"># "42"</span>
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mf">3.14</span><span class="p">))</span>            <span class="c1"># "3.14"</span>
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>            <span class="c1"># "True"</span>
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>
+</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a><span class="c1"># у логічне</span>
+</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>              <span class="c1"># True</span>
+</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">""</span><span class="p">))</span>             <span class="c1"># False</span>
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Не всяке перетворення можливе</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1"># int("hello")     -&gt; ValueError: invalid literal for int() with base 10: 'hello'</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="c1"># int("3.14")      -&gt; ValueError: рядок містить крапку</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="c1"># float("3,14")    -&gt; ValueError: кома замість крапки</span>
+</span></code></pre></div>
+<p>Для рядка з дробовим числом потрібне подвійне перетворення:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">"3.14"</span><span class="p">)))</span>   <span class="c1"># 3</span>
+</span></code></pre></div>
+</div>
+<h3 id="_20">Неявне перетворення<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>Якщо в одному виразі зустрічаються <code>int</code> і <code>float</code>, Python автоматично розширює тип до «ширшого»:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">3.0</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>               <span class="c1"># 5.0</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>         <span class="c1"># &lt;class 'float'&gt;</span>
+</span></code></pre></div>
+<p>А от між числом і рядком автоматичного перетворення <strong>немає</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="c1"># print("Age: " + 19)   -&gt; TypeError: can only concatenate str (not "int") to str</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Age: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">19</span><span class="p">))</span>    <span class="c1"># Age: 19</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Age:"</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>           <span class="c1"># Age: 19 — print розділяє аргументи пробілом</span>
+</span></code></pre></div>
+<h2 id="_21">Введення даних з клавіатури<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>Функція <code>input()</code> зчитує рядок з клавіатури і <strong>завжди повертає <code>str</code></strong>, навіть якщо користувач ввів число.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your name: "</span><span class="p">)</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello,"</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Enter your name: Ivan
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Hello, Ivan
+</span></code></pre></div>
+<p>Щоб працювати з числом, результат треба перетворити:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># Program: calculate the area of a rectangle</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="n">width</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Width: "</span><span class="p">))</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="n">height</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Height: "</span><span class="p">))</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="n">area</span> <span class="o">=</span> <span class="n">width</span> <span class="o">*</span> <span class="n">height</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">width</span> <span class="o">+</span> <span class="n">height</span><span class="p">)</span>
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Area:"</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Perimeter:"</span><span class="p">,</span> <span class="n">perimeter</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>Width: 3.5
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>Height: 2
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>Area: 7.0
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>Perimeter: 11.0
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Класична помилка новачка</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"a = "</span><span class="p">)</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="n">b</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"b = "</span><span class="p">)</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Введіть <code>2</code> та <code>3</code> — програма виведе <code>23</code>, а не <code>5</code>. Обидва значення є рядками, і <code>+</code> для рядків означає склеювання. Правильно:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"a = "</span><span class="p">))</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"b = "</span><span class="p">))</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>        <span class="c1"># 5</span>
+</span></code></pre></div>
+</div>
+<p>Приклад повної програми:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># Program: convert temperature from Celsius to Fahrenheit and Kelvin</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="n">celsius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Temperature in Celsius: "</span><span class="p">))</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="n">fahrenheit</span> <span class="o">=</span> <span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="n">kelvin</span> <span class="o">=</span> <span class="n">celsius</span> <span class="o">+</span> <span class="mf">273.15</span>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
+</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Fahrenheit:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Kelvin:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">kelvin</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>Temperature in Celsius: 25
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>Fahrenheit: 77.0
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>Kelvin: 298.15
+</span></code></pre></div>
+<h2 id="_22">Вирази та оператори<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p><strong>Вираз</strong> — конструкція, що обчислюється та дає значення. <strong>Оператор</strong> — символ дії всередині виразу. <strong>Операнд</strong> — те, над чим виконується дія.</p>
+<pre class="mermaid"><code>graph TD
+    E["Вираз:  total = price * quantity + 10"]
+    E --&gt; O1["Операнди: price, quantity, 10, total"]
+    E --&gt; O2["Оператори: *, +, ="]
+    E --&gt; O3["Результат: число"]
+
+    style E fill:#339af0,stroke:#333,color:#fff
+    style O3 fill:#51cf66,stroke:#333,color:#000</code></pre>
+<p>Виразами є все, що має значення: <code>2 + 2</code>, <code>x &gt; 5</code>, <code>"a" * 3</code>, <code>input()</code>, навіть просто <code>42</code>.</p>
+<h3 id="_23">Групи операторів<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Група</th>
+<th>Оператори</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Арифметичні</td>
+<td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, <code>**</code></td>
+</tr>
+<tr>
+<td>Присвоєння</td>
+<td><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>//=</code>, <code>%=</code>, <code>**=</code></td>
+</tr>
+<tr>
+<td>Порівняння</td>
+<td><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></td>
+</tr>
+<tr>
+<td>Логічні</td>
+<td><code>and</code>, <code>or</code>, <code>not</code></td>
+</tr>
+<tr>
+<td>Ідентичності</td>
+<td><code>is</code>, <code>is not</code></td>
+</tr>
+<tr>
+<td>Належності</td>
+<td><code>in</code>, <code>not in</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="c1"># оператори належності</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="n">text</span> <span class="o">=</span> <span class="s2">"Python Programming"</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Python"</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>         <span class="c1"># True</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Java"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>       <span class="c1"># True</span>
+</span></code></pre></div>
+<h2 id="_24">Пріоритет операцій<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<p>Коли у виразі кілька операторів, порядок обчислення визначається пріоритетом — від вищого до нижчого.</p>
+<table>
+<thead>
+<tr>
+<th>Пріоритет</th>
+<th>Оператори</th>
+<th>Опис</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (найвищий)</td>
+<td><code>()</code></td>
+<td>Дужки</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>**</code></td>
+<td>Степінь</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>+x</code>, <code>-x</code></td>
+<td>Унарний плюс/мінус</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></td>
+<td>Множення та ділення</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>+</code>, <code>-</code></td>
+<td>Додавання та віднімання</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>in</code>, <code>is</code></td>
+<td>Порівняння</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>not</code></td>
+<td>Логічне заперечення</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>and</code></td>
+<td>Логічне «і»</td>
+</tr>
+<tr>
+<td>9 (найнижчий)</td>
+<td><code>or</code></td>
+<td>Логічне «або»</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>        <span class="c1"># 14, а не 20 — множення першe</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="nb">print</span><span class="p">((</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>      <span class="c1"># 20</span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>      <span class="c1"># 512 — степінь обчислюється справа наліво: 2 ** (3 ** 2)</span>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="nb">print</span><span class="p">((</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>    <span class="c1"># 64</span>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>       <span class="c1"># 3 — віднімання зліва направо: (10 - 4) - 3</span>
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>
+</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>      <span class="c1"># True — and має вищий пріоритет</span>
+</span><span id="__span-47-10"><a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a><span class="nb">print</span><span class="p">((</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>    <span class="c1"># False</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Дужки безкоштовні</p>
+<p>Навіть коли пріоритет очевидний, дужки роблять намір явним. <code>(a * b) + c</code> читається швидше, ніж <code>a * b + c</code>, і не залишає місця для сумніву.</p>
+</div>
+<h3 id="_25">Скорочене обчислення логічних виразів<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>Python обчислює <code>and</code> та <code>or</code> <strong>зліва направо і зупиняється, щойно результат стає відомим</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">15</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="n">has_permit</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="c1"># якщо перша умова хибна, друга навіть не перевіряється</span>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">has_permit</span><span class="p">)</span>     <span class="c1"># False</span>
+</span></code></pre></div>
+<p>Це не просто оптимізація: така поведінка дозволяє захищати вирази від помилок.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="n">divisor</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="c1"># друга частина не обчислюється -&gt; ділення на нуль не станеться</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">divisor</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">divisor</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>   <span class="c1"># False</span>
+</span></code></pre></div>
+<h2 id="f-">Форматування виведення (f-рядки)<a class="headerlink" href="#f-" title="Permanent link">&para;</a></h2>
+<h3 id="print">Функція <code>print()</code><a class="headerlink" href="#print" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="n">name</span> <span class="o">=</span> <span class="s2">"Ivan"</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Name:"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"Age:"</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>       <span class="c1"># аргументи розділяються пробілом</span>
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"-"</span><span class="p">)</span>           <span class="c1"># a-b-c</span>
+</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"no newline at the end"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">" &lt;- continued here"</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="f-_1">f-рядки — сучасний спосіб<a class="headerlink" href="#f-_1" title="Permanent link">&para;</a></h3>
+<p>Літера <code>f</code> перед лапками дозволяє вставляти вирази прямо в текст, усередині фігурних дужок.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="n">name</span> <span class="o">=</span> <span class="s2">"Ivan"</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="n">height</span> <span class="o">=</span> <span class="mf">1.8234</span>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"My name is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> and I am </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old"</span><span class="p">)</span>
+</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Next year I will be </span><span class="si">{</span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Height: </span><span class="si">{</span><span class="n">height</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>            <span class="c1"># 2 знаки після коми</span>
+</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Letters in the name: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>My name is Ivan and I am 19 years old
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>Next year I will be 20
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>Height: 1.82 m
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>Letters in the name: 4
+</span></code></pre></div>
+<p>Корисні специфікатори формату:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="n">value</span> <span class="o">=</span> <span class="mf">1234.56789</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>       <span class="c1"># 1234.57      — два знаки після коми</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">10.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>     <span class="c1">#    1234.57   — ширина поля 10 символів</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>      <span class="c1"># 1,234.57     — роздільник тисяч</span>
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mi">42</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>          <span class="c1"># 00042        — доповнення нулями</span>
+</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mf">0.856</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>       <span class="c1"># 85.6%        — відсотки</span>
+</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>
+</span><span id="__span-53-9"><a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="c1"># вирівнювання</span>
+</span><span id="__span-53-10"><a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"|</span><span class="si">{</span><span class="s1">'left'</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">|"</span><span class="p">)</span>    <span class="c1"># |left      |</span>
+</span><span id="__span-53-11"><a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"|</span><span class="si">{</span><span class="s1">'center'</span><span class="si">:</span><span class="s2">^10</span><span class="si">}</span><span class="s2">|"</span><span class="p">)</span>  <span class="c1"># |  center  |</span>
+</span><span id="__span-53-12"><a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"|</span><span class="si">{</span><span class="s1">'right'</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">|"</span><span class="p">)</span>   <span class="c1"># |     right|</span>
+</span></code></pre></div>
+<p>Режим налагодження (<code>=</code> після виразу) друкує і вираз, і його значення:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="si">= }</span><span class="s2">"</span><span class="p">)</span>        <span class="c1"># x + y = 10</span>
+</span></code></pre></div>
+<h3 id="_26">Повний приклад<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># Program: student report card</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Student name: "</span><span class="p">)</span>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="n">group</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Group: "</span><span class="p">)</span>
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="n">score1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Score 1: "</span><span class="p">))</span>
+</span><span id="__span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="n">score2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Score 2: "</span><span class="p">))</span>
+</span><span id="__span-55-6"><a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="n">score3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Score 3: "</span><span class="p">))</span>
+</span><span id="__span-55-7"><a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>
+</span><span id="__span-55-8"><a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="n">total</span> <span class="o">=</span> <span class="n">score1</span> <span class="o">+</span> <span class="n">score2</span> <span class="o">+</span> <span class="n">score3</span>
+</span><span id="__span-55-9"><a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="n">average</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">3</span>
+</span><span id="__span-55-10"><a id="__codelineno-55-10" name="__codelineno-55-10" href="#__codelineno-55-10"></a><span class="n">passed</span> <span class="o">=</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">60</span>
+</span><span id="__span-55-11"><a id="__codelineno-55-11" name="__codelineno-55-11" href="#__codelineno-55-11"></a>
+</span><span id="__span-55-12"><a id="__codelineno-55-12" name="__codelineno-55-12" href="#__codelineno-55-12"></a><span class="nb">print</span><span class="p">()</span>
+</span><span id="__span-55-13"><a id="__codelineno-55-13" name="__codelineno-55-13" href="#__codelineno-55-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">34</span><span class="p">)</span>
+</span><span id="__span-55-14"><a id="__codelineno-55-14" name="__codelineno-55-14" href="#__codelineno-55-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"|</span><span class="si">{</span><span class="s1">'STUDENT REPORT'</span><span class="si">:</span><span class="s2">^32</span><span class="si">}</span><span class="s2">|"</span><span class="p">)</span>
+</span><span id="__span-55-15"><a id="__codelineno-55-15" name="__codelineno-55-15" href="#__codelineno-55-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">34</span><span class="p">)</span>
+</span><span id="__span-55-16"><a id="__codelineno-55-16" name="__codelineno-55-16" href="#__codelineno-55-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| Name:    </span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;21</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-55-17"><a id="__codelineno-55-17" name="__codelineno-55-17" href="#__codelineno-55-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| Group:   </span><span class="si">{</span><span class="n">group</span><span class="si">:</span><span class="s2">&lt;21</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-55-18"><a id="__codelineno-55-18" name="__codelineno-55-18" href="#__codelineno-55-18"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| Total:   </span><span class="si">{</span><span class="n">total</span><span class="si">:</span><span class="s2">&lt;21.1f</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-55-19"><a id="__codelineno-55-19" name="__codelineno-55-19" href="#__codelineno-55-19"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| Average: </span><span class="si">{</span><span class="n">average</span><span class="si">:</span><span class="s2">&lt;21.2f</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-55-20"><a id="__codelineno-55-20" name="__codelineno-55-20" href="#__codelineno-55-20"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"| Passed:  </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">passed</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;21</span><span class="si">}</span><span class="s2"> |"</span><span class="p">)</span>
+</span><span id="__span-55-21"><a id="__codelineno-55-21" name="__codelineno-55-21" href="#__codelineno-55-21"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">34</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>Student name: Ivan Petrenko
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>Group: PZ-11
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>Score 1: 85
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>Score 2: 72
+</span><span id="__span-56-5"><a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>Score 3: 90
+</span><span id="__span-56-6"><a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>
+</span><span id="__span-56-7"><a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>==================================
+</span><span id="__span-56-8"><a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>|         STUDENT REPORT         |
+</span><span id="__span-56-9"><a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>==================================
+</span><span id="__span-56-10"><a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a>| Name:    Ivan Petrenko         |
+</span><span id="__span-56-11"><a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a>| Group:   PZ-11                 |
+</span><span id="__span-56-12"><a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a>| Total:   247.0                 |
+</span><span id="__span-56-13"><a id="__codelineno-56-13" name="__codelineno-56-13" href="#__codelineno-56-13"></a>| Average: 82.33                 |
+</span><span id="__span-56-14"><a id="__codelineno-56-14" name="__codelineno-56-14" href="#__codelineno-56-14"></a>| Passed:  True                  |
+</span><span id="__span-56-15"><a id="__codelineno-56-15" name="__codelineno-56-15" href="#__codelineno-56-15"></a>==================================
+</span></code></pre></div>
+<h2 id="_27">Типові помилки<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Помилка</th>
+<th>Причина</th>
+<th>Виправлення</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>NameError: name 'x' is not defined</code></td>
+<td>Змінна використана до присвоєння або помилка в імені</td>
+<td>Перевірити написання та порядок рядків</td>
+</tr>
+<tr>
+<td><code>TypeError: can only concatenate str ... to str</code></td>
+<td>Складання рядка з числом</td>
+<td><code>str(number)</code> або <code>print(a, b)</code></td>
+</tr>
+<tr>
+<td><code>TypeError: unsupported operand type(s)</code></td>
+<td>Операція між несумісними типами</td>
+<td>Привести типи явно</td>
+</tr>
+<tr>
+<td><code>ValueError: invalid literal for int()</code></td>
+<td><code>int("abc")</code> — рядок не є числом</td>
+<td>Перевірити введені дані</td>
+</tr>
+<tr>
+<td><code>ZeroDivisionError: division by zero</code></td>
+<td>Ділення на нуль</td>
+<td>Перевірити дільник перед діленням</td>
+</tr>
+<tr>
+<td><code>SyntaxError: invalid syntax</code></td>
+<td>Порушення правил запису</td>
+<td>Перевірити дужки, лапки, двокрапки</td>
+</tr>
+<tr>
+<td><code>IndentationError</code></td>
+<td>Неправильний відступ</td>
+<td>Вирівняти відступи (4 пробіли)</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="c1"># 1. рядок замість числа</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Number: "</span><span class="p">)</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="c1"># print(value * 2)      -&gt; для "5" дасть "55"</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>   <span class="c1"># 10</span>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="c1"># 2. плутанина = та ==</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="c1"># if x = 5:             -&gt; SyntaxError</span>
+</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>           <span class="c1"># True</span>
+</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a>
+</span><span id="__span-57-11"><a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a><span class="c1"># 3. int() відкидає, а не округлює</span>
+</span><span id="__span-57-12"><a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">9.99</span><span class="p">))</span>        <span class="c1"># 9</span>
+</span><span id="__span-57-13"><a id="__codelineno-57-13" name="__codelineno-57-13" href="#__codelineno-57-13"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">9.99</span><span class="p">))</span>      <span class="c1"># 10</span>
+</span><span id="__span-57-14"><a id="__codelineno-57-14" name="__codelineno-57-14" href="#__codelineno-57-14"></a>
+</span><span id="__span-57-15"><a id="__codelineno-57-15" name="__codelineno-57-15" href="#__codelineno-57-15"></a><span class="c1"># 4. хибне порівняння float</span>
+</span><span id="__span-57-16"><a id="__codelineno-57-16" name="__codelineno-57-16" href="#__codelineno-57-16"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>                 <span class="c1"># False</span>
+</span><span id="__span-57-17"><a id="__codelineno-57-17" name="__codelineno-57-17" href="#__codelineno-57-17"></a><span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">)</span>      <span class="c1"># True</span>
+</span></code></pre></div>
+<h2 id="_28">Підсумок<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Змінна</strong> — ім'я, що посилається на значення в пам'яті; присвоєння <code>=</code> перевішує це ім'я на новий об'єкт.</li>
+<li>Імена — латиницею, у стилі <code>snake_case</code>, осмислені.</li>
+<li>Основні типи: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>NoneType</code>. Тип належить значенню, а не змінній.</li>
+<li><code>input()</code> завжди повертає <strong>рядок</strong> — для обчислень потрібне перетворення <code>int()</code> або <code>float()</code>.</li>
+<li>Дробові числа зберігаються наближено; порівнювати їх на точну рівність не можна.</li>
+<li>Порядок обчислення визначає таблиця пріоритетів; дужки роблять намір явним.</li>
+<li>f-рядки — основний спосіб форматованого виведення.</li>
+</ul>
+<h2 id="_29">Корисні посилання<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/stdtypes.html">Вбудовані типи — документація Python</a></li>
+<li><a href="https://docs.python.org/3/library/stdtypes.html#string-methods">Методи рядків</a></li>
+<li><a href="https://docs.python.org/3/library/string.html#format-specification-mini-language">f-рядки: специфікація формату</a></li>
+<li><a href="https://peps.python.org/pep-0008/">PEP 8 — стиль коду Python</a></li>
+<li><a href="https://docs.python.org/3/tutorial/floatingpoint.html">Чому 0.1 + 0.2 != 0.3</a></li>
+<li><a href="https://docs.python.org/3/library/functions.html">Вбудовані функції</a></li>
+</ul>
+<h2 id="_30">Домашнє завдання<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<p>Розібратися, чому числа з комою поводяться «дивно».</p>
+<p>Відкрийте інтерактивний конвертер <a href="https://www.h-schmidt.net/FloatConverter/IEEE754.html">IEEE 754 Floating Point Converter</a>. Він показує, як число розкладається на <strong>знак</strong>, <strong>порядок (exponent)</strong> і <strong>мантису (mantissa)</strong>, і яке значення насправді зберігається в пам'яті.</p>
+<ol>
+<li>Введіть у поле десяткового значення число <code>0.1</code>. Конвертер покаже, яке значення насправді зберігається у змінній, — це буде не <code>0.1</code>, а приблизно <code>0.100000001490116...</code>. Запишіть це значення та поясніть, звідки береться різниця.</li>
+<li>Зробіть те саме для <code>0.2</code>, <code>0.5</code>, <code>0.25</code> і <code>3.14</code>. Визначте, які з цих чисел зберігаються <strong>точно</strong>, а які — наближено. Сформулюйте правило: за якої умови десятковий дріб подається у двійковій системі без похибки?</li>
+<li>Подивіться на подання числа <code>0.1</code>: скільки бітів відведено під мантису та порядок? Поясніть, чому кількість бітів скінченна, а двійковий запис <code>0.1</code> — нескінченний періодичний.</li>
+<li>
+<p>Перевірте в Python:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="mf">0.1</span><span class="si">:</span><span class="s2">.20f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Поясніть, чому <code>print(0.1)</code> виводить рівно <code>0.1</code>, хоча збережене значення інше.</p>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Конвертер показує 32 біти, Python використовує 64</p>
+<p>Сайт демонструє <strong>single precision</strong> (<code>float</code>, 32 біти). Тип <code>float</code> у Python — це <strong>double precision</strong> (64 біти): 1 біт знака, 11 бітів порядку, 52 біти мантиси. Принцип однаковий, точність вища — саме тому Python виводить <code>0.30000000000000004</code>, а не <code>0.3000000119...</code>. У звіті вкажіть цю різницю.</p>
+</div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-1sem/issues">Створіть issue на GitHub</a></em></p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Куротич Анатолій. Всі права захищені.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kurotych" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
