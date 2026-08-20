@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/</loc>
-         <lastmod>2026-08-19</lastmod>
+         <lastmod>2026-08-20</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/01-pyside6-intro-lecture/</loc>
-         <lastmod>2026-08-19</lastmod>
+         <lastmod>2026-08-20</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/02-first-pyside6-app-practice/</loc>
-         <lastmod>2026-08-19</lastmod>
+         <lastmod>2026-08-20</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/03-basic-widgets-lecture/</loc>
-         <lastmod>2026-08-19</lastmod>
+         <lastmod>2026-08-20</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/04-input-form-practice/</loc>
-         <lastmod>2026-08-19</lastmod>
+         <lastmod>2026-08-20</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/05-layouts-lecture/</loc>
-         <lastmod>2026-08-19</lastmod>
+         <lastmod>2026-08-20</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/06-adaptive-layout-practice/</loc>
-         <lastmod>2026-08-19</lastmod>
+         <lastmod>2026-08-20</lastmod>
+    </url>
+    <url>
+         <loc>https://kurotych.com/ua/courses/programming-3sem/module1/07-qmainwindow-lecture/</loc>
+         <lastmod>2026-08-20</lastmod>
     </url>
 </urlset>
