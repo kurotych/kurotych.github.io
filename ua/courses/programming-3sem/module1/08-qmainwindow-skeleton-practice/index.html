@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/module1/06-adaptive-layout-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/module1/08-qmainwindow-skeleton-practice/">
       
       
-        <link rel="prev" href="../05-layouts-lecture/">
+        <link rel="prev" href="../07-qmainwindow-lecture/">
       
-      
-        <link rel="next" href="../07-qmainwindow-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>6. (П3) Побудова адаптивного інтерфейсу: панель нотаток - Python (3 семестр)</title>
+        <title>8. (П4) Каркас десктоп-застосунку: менеджер нотаток - Python (3 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#6-3" class="md-skip">
+        <a href="#8-4-" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
+              8. (П4) Каркас десктоп-застосунку: менеджер нотаток
             
           </span>
         </div>
@@ -393,6 +391,48 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-adaptive-layout-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-qmainwindow-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (Л) Головне вікно застосунку (QMainWindow). Структура головного вікна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -409,7 +449,7 @@
           
   
   <span class="md-ellipsis">
-    6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
+    8. (П4) Каркас десктоп-застосунку: менеджер нотаток
   </span>
   
 
@@ -420,7 +460,7 @@
         
   
   <span class="md-ellipsis">
-    6. (П3) Побудова адаптивного інтерфейсу: панель нотаток
+    8. (П4) Каркас десктоп-застосунку: менеджер нотаток
   </span>
   
 
@@ -480,7 +520,7 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Схема розміщення елементів
+      Схема головного вікна
     </span>
   </a>
   
@@ -489,16 +529,85 @@
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      Віджети
+      Складові вікна
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Складові вікна">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Дії (QAction)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menubar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Меню (menuBar())
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main_toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Панель інструментів (main_toolbar)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes_dock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бічна панель (notes_dock)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Центральний віджет
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рядок стану
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поведінка
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      Поведінка
+      Перевірка
     </span>
   </a>
   
@@ -508,48 +617,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../07-qmainwindow-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    7. (Л) Головне вікно застосунку (QMainWindow). Структура головного вікна
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../08-qmainwindow-skeleton-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    8. (П4) Каркас десктоп-застосунку: менеджер нотаток
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -581,142 +648,194 @@
   
 
 
-<h1 id="6-3">6. (П3) Побудова адаптивного інтерфейсу: панель нотаток<a class="headerlink" href="#6-3" title="Permanent link">&para;</a></h1>
+<h1 id="8-4-">8. (П4) Каркас десктоп-застосунку: менеджер нотаток<a class="headerlink" href="#8-4-" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Прочитана <a href="/ua/courses/programming-3sem/module1/05-layouts-lecture/">Лекція 5 — Менеджери компоновки: QVBoxLayout, QHBoxLayout, QGridLayout</a></li>
-<li>Успішно запущені приклади <code>ToolbarDemo</code>, <code>NestedLayoutDemo</code> та <code>CalculatorDemo</code> з лекції</li>
-<li>Модуль <code>sqlite3</code> зі стандартної бібліотеки (матеріал 2 семестру); нічого додатково встановлювати не треба</li>
+<li>Прочитана <a href="/ua/courses/programming-3sem/module1/07-qmainwindow-lecture/">Лекція 7 — Головне вікно застосунку (QMainWindow). Структура головного вікна</a></li>
+<li>Успішно запущені приклади <code>MenuDemo</code>, <code>StatusBarDemo</code>, <code>DockDemo</code>, <code>PersistentWindow</code> та <code>TextEditor</code> з лекції</li>
+<li>Виконана <a href="/ua/courses/programming-3sem/module1/06-adaptive-layout-practice/">Практична 3 — панель нотаток</a>: база SQLite і таблиця <code>notes</code> беруться звідти</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Мова в коді</p>
-<p>Усі рядкові літерали, написи на віджетах, заголовок вікна, SQL-запити та імена змінних — <strong>лише латиницею</strong>. Своє ім'я, прізвище та групу пишіть у транслітерації: <code>Ivan Petrenko</code>, <code>KI-31</code>. Кирилиця допускається тільки в коментарях.</p>
+<p>Усі рядкові літерали, написи на віджетах і в меню, заголовок вікна, SQL-запити та імена змінних — <strong>лише латиницею</strong>. Своє ім'я, прізвище та групу пишіть у транслітерації: <code>Ivan Petrenko</code>, <code>KI-31</code>. Кирилиця допускається тільки в коментарях.</p>
 </div>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Створити файл <code>workspace.py</code> — панель нотаток, які <strong>зберігаються між запусками</strong> у базі SQLite.</p>
-<p>Головна вимога: <strong>Нотатки живуть у базі, а не в пам'яті.</strong> Після закриття й повторного запуску застосунку всі нотатки мають бути на місці.</p>
+<p>Створити файл <code>notes_app.py</code> — той самий менеджер нотаток, але вже як <strong>повноцінний десктоп-застосунок</strong> на <code>QMainWindow</code>: з меню, панеллю інструментів, бічною панеллю, рядком стану й запам'ятовуванням вигляду вікна між запусками.</p>
 <h2 id="_3">Персоналізація<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>На початку файлу оголосити три константи і використовувати <strong>лише їх</strong> (не дублювати ці значення в коді):</p>
+<p>На початку файлу оголосити чотири константи і використовувати <strong>лише їх</strong> (не дублювати ці значення в коді):</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">STUDENT_NAME</span> <span class="o">=</span> <span class="s2">"Ivan Petrenko"</span>                <span class="c1"># ваше ім'я та прізвище транслітерацією</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">STUDENT_GROUP</span> <span class="o">=</span> <span class="s2">"KI-31"</span>                       <span class="c1"># ваша група</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DB_FILE</span> <span class="o">=</span> <span class="s2">"workspace_ivan_petrenko.db"</span>        <span class="c1"># файл бази з вашим прізвищем</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DB_FILE</span> <span class="o">=</span> <span class="s2">"workspace_ivan_petrenko.db"</span>        <span class="c1"># файл бази з практичної 3</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">SETTINGS_APP</span> <span class="o">=</span> <span class="s2">"NotesAppIvanPetrenko"</span>         <span class="c1"># ім'я застосунку для QSettings</span>
 </span></code></pre></div>
 <h2 id="_4">База даних<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>Одна таблиця, створюється при старті:</p>
+<p>Та сама таблиця, що й у практичній 3 (створюється при старті, якщо її ще немає):</p>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">notes</span><span class="w"> </span><span class="p">(</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nb">text</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">)</span>
 </span></code></pre></div>
-<p><code>created_at</code> заповнюється в Python: <code>datetime.now().strftime("%Y-%m-%d %H:%M")</code>.</p>
-<h2 id="_5">Схема розміщення елементів<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Кожен прямокутник на схемі — це один віджет, а підпис усередині — <strong>ім'я змінної</strong>, під яким його треба створити:</p>
+<p><code>created_at</code> заповнюється в Python при створенні нотатки: <code>datetime.now().strftime("%Y-%m-%d %H:%M")</code>.</p>
+<h2 id="_5">Схема головного вікна<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Підпис усередині кожної зони — <strong>ім'я змінної</strong>, під яким її треба створити:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>+--------------------------------------------------------------------+
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>|  WorkspacePanel (QWidget)                                          |
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>|  NotesWindow (QMainWindow)         Notes - Ivan Petrenko, KI-31     |
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>+--------------------------------------------------------------------+
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>|                                                                    |
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>|  +------------------------+                  +------------------+  |
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>|  |      title_label       |                  |  counter_label   |  |
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>|  +------------------------+                  +------------------+  |
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>|                                                                    |
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>|  +------------------+  +----------------------------------------+  |
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>|  |    add_button    |  |               note_field               |  |
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>|  +------------------+  +----------------------------------------+  |
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>|  +------------------+                                              |
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>|  |  delete_button   |  +----------------------------------------+  |
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>|  +------------------+  |                                        |  |
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>|  +------------------+  |                                        |  |
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>|  |   clear_button   |  |             preview_label              |  |
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>|  +------------------+  |                                        |  |
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>|                        |                                        |  |
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>|                        +----------------------------------------+  |
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>|                                                                    |
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>|  +----------------------+                          +------------+  |
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>|  |     status_label     |                          |quit_button |  |
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>|  +----------------------+                          +------------+  |
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>|                                                                    |
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>+--------------------------------------------------------------------+
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>|  File      View      Help                       &lt;- menuBar()        |
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>+--------------------------------------------------------------------+
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>|  [ New ] [ Save ] [ Delete ]                    &lt;- main_toolbar     |
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>+--------------------------------------------------------------------+
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>|                        |                                           |
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>|  +------------------+  |  +-------------------------------------+  |
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>|  |                  |  |  |                                     |  |
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>|  |    notes_list    |  |  |            note_editor              |  |
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>|  |                  |  |  |         (centralWidget)             |  |
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>|  |  (у notes_dock)  |  |  |                                     |  |
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>|  |                  |  |  |                                     |  |
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>|  +------------------+  |  +-------------------------------------+  |
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>|                        |                                           |
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>+--------------------------------------------------------------------+
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>|  Ready                                          [ counter_label ]  |
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>+--------------------------------------------------------------------+
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>                          ^- statusBar()
 </span></code></pre></div>
-<p>Порожні місця між лівою та правою групами в шапці й підвалі — це <code>addStretch()</code>.</p>
-<h2 id="_6">Віджети<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">Складові вікна<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="qaction">Дії (<code>QAction</code>)<a class="headerlink" href="#qaction" title="Permanent link">&para;</a></h3>
+<p>Усі дії створюються <strong>один раз</strong> у методі <code>create_actions()</code>. Кожна має текст, гарячу клавішу, <code>setStatusTip()</code> і підключений <code>triggered</code>.</p>
 <table>
 <thead>
 <tr>
 <th>Ім'я</th>
-<th>Тип</th>
-<th>Що показує</th>
+<th>Текст</th>
+<th>Гаряча клавіша</th>
+<th>Що робить</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>title_label</code></td>
-<td><code>QLabel</code></td>
-<td>ім'я і групу з констант: <code>Ivan Petrenko, KI-31</code></td>
+<td><code>new_action</code></td>
+<td><code>New</code></td>
+<td><code>QKeySequence.StandardKey.New</code></td>
+<td>починає нову нотатку</td>
 </tr>
 <tr>
-<td><code>counter_label</code></td>
-<td><code>QLabel</code></td>
-<td>кількість нотаток у базі: <code>Notes: 4</code></td>
+<td><code>save_action</code></td>
+<td><code>Save</code></td>
+<td><code>QKeySequence.StandardKey.Save</code></td>
+<td>зберігає поточну нотатку в базу</td>
 </tr>
 <tr>
-<td><code>add_button</code></td>
-<td><code>QPushButton</code></td>
-<td>напис <code>Add</code> — додає нотатку з <code>note_field</code></td>
+<td><code>delete_action</code></td>
+<td><code>Delete</code></td>
+<td><code>QKeySequence("Ctrl+D")</code></td>
+<td>видаляє поточну нотатку з бази</td>
 </tr>
 <tr>
-<td><code>delete_button</code></td>
-<td><code>QPushButton</code></td>
-<td>напис <code>Delete last</code> — видаляє останню нотатку</td>
+<td><code>quit_action</code></td>
+<td><code>Quit</code></td>
+<td><code>QKeySequence.StandardKey.Quit</code></td>
+<td>викликає <code>self.close()</code></td>
 </tr>
 <tr>
-<td><code>clear_button</code></td>
-<td><code>QPushButton</code></td>
-<td>напис <code>Clear all</code> — видаляє всі нотатки</td>
-</tr>
-<tr>
-<td><code>note_field</code></td>
-<td><code>QLineEdit</code></td>
-<td>поле вводу тексту нової нотатки</td>
-</tr>
-<tr>
-<td><code>preview_label</code></td>
-<td><code>QLabel</code></td>
-<td>нотатки з бази, по одній у рядок:<br><code>2026-08-19 14:05  read Qt docs</code><br><code>2026-08-19 14:07  finish practice 3</code></td>
-</tr>
-<tr>
-<td><code>status_label</code></td>
-<td><code>QLabel</code></td>
-<td>назву файлу бази: <code>Database: workspace_ivan_petrenko.db</code></td>
-</tr>
-<tr>
-<td><code>quit_button</code></td>
-<td><code>QPushButton</code></td>
-<td>напис <code>Quit</code>, закриває вікно</td>
+<td><code>about_action</code></td>
+<td><code>About</code></td>
+<td>—</td>
+<td>показує <code>QMessageBox</code> з даними студента</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_7">Поведінка<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p><strong>Старт.</strong> Підключитись до бази, створити таблицю, за потреби додати три власні нотатки, після чого відмалювати вміст бази у вікні.</p>
-<p><strong>Оновлення вигляду.</strong> Зробити один метод <code>refresh()</code>, який:</p>
-<ol>
-<li>Читає всі нотатки: <code>SELECT created_at, text FROM notes ORDER BY id</code>.</li>
-<li>Формує рядки виду <code>&lt;created_at&gt;  &lt;text&gt;</code> і показує їх у <code>preview_label</code>, з'єднавши через <code>"\n"</code>. Якщо база порожня — <code>No notes yet</code>.</li>
-<li>Оновлює <code>counter_label</code> на <code>Notes: &lt;кількість&gt;</code>.</li>
-</ol>
-<p>Цей самий метод викликається після кожної зміни бази — окремої копії нотаток у пам'яті класу тримати не треба.</p>
-<p><strong><code>add_button</code>.</strong> Якщо <code>note_field</code> порожнє (перевіряти <code>.strip()</code>) — нічого не робити. Інакше <code>INSERT</code> нового рядка з поточним часом, <code>commit()</code>, очистити <code>note_field</code> і викликати <code>refresh()</code>.</p>
-<p><strong><code>delete_button</code>.</strong> Видаляє нотатку з найбільшим <code>id</code>:</p>
-<p><strong><code>clear_button</code>.</strong> <code>DELETE FROM notes</code> — видаляє всі записи.</p>
-<p><strong>Закриття.</strong> Перевизначити <code>closeEvent()</code> і закрити підключення:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">closeEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-</span></code></pre></div>
-<p><code>quit_button</code> викликає <code>self.close()</code> — і <code>closeEvent()</code> спрацює сам.</p>
+<h3 id="menubar">Меню (<code>menuBar()</code>)<a class="headerlink" href="#menubar" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Меню</th>
+<th>Пункти</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>File</code></td>
+<td><code>new_action</code>, <code>save_action</code>, <code>delete_action</code>, роздільник (<code>addSeparator()</code>), <code>quit_action</code></td>
+</tr>
+<tr>
+<td><code>View</code></td>
+<td><code>notes_dock.toggleViewAction()</code>, <code>main_toolbar.toggleViewAction()</code></td>
+</tr>
+<tr>
+<td><code>Help</code></td>
+<td><code>about_action</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="main_toolbar">Панель інструментів (<code>main_toolbar</code>)<a class="headerlink" href="#main_toolbar" title="Permanent link">&para;</a></h3>
+<p>Створюється через <code>self.addToolBar("Main")</code>, обов'язково <code>setObjectName("main_toolbar")</code>. Містить <code>new_action</code>, <code>save_action</code>, <code>delete_action</code> — <strong>ті самі об'єкти</strong>, що вже додані в меню <code>File</code>, а не їхні копії.</p>
+<h3 id="notes_dock">Бічна панель (<code>notes_dock</code>)<a class="headerlink" href="#notes_dock" title="Permanent link">&para;</a></h3>
+<p><code>QDockWidget</code> із заголовком <code>Notes</code>, <code>setObjectName("notes_dock")</code>, прикріплений ліворуч (<code>Qt.DockWidgetArea.LeftDockWidgetArea</code>). Дозволені зони — лише ліва та права. Усередині — <code>notes_list</code> (<code>QListWidget</code>).</p>
+<h3 id="_7">Центральний віджет<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><code>note_editor</code> — <code>QTextEdit</code>, встановлений через <code>setCentralWidget()</code>.</p>
 <div class="admonition danger">
-<p class="admonition-title">Параметри запитів</p>
-<p>Текст нотатки підставляти <strong>тільки</strong> через плейсхолдер: <code>cursor.execute("INSERT INTO notes (text, created_at) VALUES (?, ?)", (text, created_at))</code>. Склеювання SQL через f-рядок — помилка, за яку знімаються бали.</p>
+<p class="admonition-title"><code>setLayout()</code> на <code>QMainWindow</code> не працює</p>
+<p>Не намагайтесь викликати <code>self.setLayout(...)</code> — головне вікно вже має власний компонувальник. Вміст ставиться лише через <code>setCentralWidget()</code>.</p>
+</div>
+<h3 id="_8">Рядок стану<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>counter_label</code> — <code>QLabel</code>, доданий через <code>addPermanentWidget()</code>, показує <code>Notes: 4</code>.</li>
+<li>Тимчасові повідомлення через <code>showMessage(text, 2000)</code> після кожної операції з базою.</li>
+</ul>
+<h2 id="_9">Поведінка<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p><strong>Старт.</strong> Підключитись до бази, створити таблицю, побудувати дії, меню, панелі та рядок стану, відновити налаштування вікна, після чого заповнити список нотаток.</p>
+<p><strong>Стан документа.</strong> Тримати два атрибути:</p>
+<ul>
+<li><code>self._current_id</code> — <code>id</code> нотатки, яку зараз редагують, або <code>None</code>, якщо це нова нотатка;</li>
+<li><code>self._modified</code> — <code>True</code>, якщо текст у <code>note_editor</code> змінено після останнього збереження (виставляється в обробнику сигналу <code>textChanged</code>).</li>
+</ul>
+<p><strong>Заголовок вікна.</strong> Метод <code>update_title()</code> формує заголовок <code>Notes - Ivan Petrenko, KI-31</code> з констант і додає <code>*</code> на початку, якщо <code>self._modified</code> — <code>True</code>. Викликається після кожної зміни стану.</p>
+<p><strong><code>refresh_list()</code>.</strong> Читає <code>SELECT id, created_at, text FROM notes ORDER BY id DESC</code> і наповнює <code>notes_list</code>. Для кожної нотатки:</p>
+<ul>
+<li>текст елемента — <code>&lt;created_at&gt;  &lt;перший рядок тексту, обрізаний до 40 символів&gt;</code>;</li>
+<li><code>id</code> зберігається в самому елементі: <code>item.setData(Qt.ItemDataRole.UserRole, note_id)</code>.</li>
+</ul>
+<p>Тут же оновлюється <code>counter_label</code> на <code>Notes: &lt;кількість&gt;</code>. Окремої копії нотаток у пам'яті класу тримати не треба — джерело істини завжди база.</p>
+<div class="admonition tip">
+<p class="admonition-title">Як не спіймати зайвий сигнал</p>
+<p>Заповнення <code>notes_list</code> саме по собі змінює поточний елемент і викликає ваш обробник вибору. Щоб при оновленні списку не перезаписати текст, який користувач зараз друкує, обгортайте наповнення в <code>notes_list.blockSignals(True)</code> / <code>blockSignals(False)</code>.</p>
+</div>
+<p><strong>Вибір нотатки в <code>notes_list</code>.</strong> Сигнал <code>currentItemChanged</code>. Обробник дістає <code>id</code> з елемента (<code>item.data(Qt.ItemDataRole.UserRole)</code>), читає <code>SELECT text FROM notes WHERE id = ?</code>, кладе текст у <code>note_editor</code>, записує <code>self._current_id</code>, скидає <code>self._modified</code> у <code>False</code> і оновлює заголовок.</p>
+<p><strong><code>new_action</code>.</strong> Очищає <code>note_editor</code>, ставить <code>self._current_id = None</code>, знімає виділення в списку (<code>notes_list.setCurrentRow(-1)</code>), скидає <code>self._modified</code>, переводить фокус у редактор (<code>setFocus()</code>).</p>
+<p><strong><code>save_action</code>.</strong> Бере текст <code>note_editor.toPlainText()</code>. Якщо після <code>.strip()</code> він порожній — <code>showMessage("Nothing to save", 2000)</code> і вихід. Інакше:</p>
+<ul>
+<li>якщо <code>self._current_id is None</code> — <code>INSERT</code> нового рядка з поточним часом, а новий <code>id</code> взяти з <code>cursor.lastrowid</code> і записати в <code>self._current_id</code>;</li>
+<li>інакше — <code>UPDATE notes SET text = ? WHERE id = ?</code>.</li>
+</ul>
+<p>Далі <code>commit()</code>, <code>refresh_list()</code>, <code>self._modified = False</code>, <code>update_title()</code> і <code>showMessage("Note saved", 2000)</code>.</p>
+<p><strong><code>delete_action</code>.</strong> Якщо <code>self._current_id is None</code> — <code>showMessage("Nothing to delete", 2000)</code>. Інакше запитати підтвердження через <code>QMessageBox.question()</code> з кнопками <code>Yes</code> / <code>No</code>; при <code>Yes</code> — <code>DELETE FROM notes WHERE id = ?</code>, <code>commit()</code>, після чого поводитись як <code>new_action</code> (порожній редактор, <code>_current_id = None</code>) і оновити список.</p>
+<p><strong><code>about_action</code>.</strong> <code>QMessageBox.information()</code> із заголовком <code>About</code> і текстом із трьох рядків: ім'я та прізвище, група, <code>Python Programming, Semester 3</code>.</p>
+<p><strong>Налаштування вікна.</strong> Через <code>QSettings("KTBP", SETTINGS_APP)</code>:</p>
+<ul>
+<li>у <code>closeEvent()</code> зберегти <code>saveGeometry()</code> під ключем <code>geometry</code> і <code>saveState()</code> під ключем <code>window_state</code>;</li>
+<li>при старті відновити обидва; якщо збереженої геометрії ще немає — <code>self.resize(800, 500)</code>.</li>
+</ul>
+<p><strong>Закриття.</strong> Перевизначити <code>closeEvent()</code>:</p>
+<ol>
+<li>Якщо <code>self._modified</code> — показати <code>QMessageBox.question()</code> з кнопками <code>Save</code>, <code>Discard</code>, <code>Cancel</code>. <code>Save</code> — зберегти й закривати далі, <code>Discard</code> — закривати без збереження, <code>Cancel</code> — <code>event.ignore()</code> і вихід із методу (нічого більше не робити).</li>
+<li>Зберегти геометрію та стан вікна в <code>QSettings</code>.</li>
+<li>Закрити підключення до бази: <code>self.connection.close()</code>.</li>
+<li><code>event.accept()</code>.</li>
+</ol>
+<h2 id="_10">Перевірка<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>Перед здачею переконайтесь, що:</p>
+<ul>
+<li><code>Ctrl+N</code>, <code>Ctrl+S</code>, <code>Ctrl+D</code>, <code>Ctrl+Q</code> працюють, коли фокус у редакторі;</li>
+<li>наведення миші на пункт меню показує текст із <code>setStatusTip()</code> у рядку стану;</li>
+<li>панель <code>Notes</code> перетягується до правого краю, ховається через меню <code>View</code> і повертається назад;</li>
+<li>після закриття й повторного запуску розмір вікна, положення панелей та всі нотатки на місці;</li>
+<li>при спробі закрити вікно з незбереженим текстом з'являється діалог, а <code>Cancel</code> справді скасовує закриття.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Дві помилки, за які знімаються бали</p>
+<p><strong>SQL-параметри.</strong> Текст нотатки та <code>id</code> підставляти <strong>тільки</strong> через плейсхолдер: <code>cursor.execute("UPDATE notes SET text = ? WHERE id = ?", (text, note_id))</code>. Склеювання SQL через f-рядок — помилка.</p>
+<p><strong><code>objectName</code>.</strong> Без <code>setObjectName()</code> у <code>main_toolbar</code> і <code>notes_dock</code> виклик <code>saveState()</code> виведе попередження, а розташування панелей не відновиться після перезапуску.</p>
 </div>
 
 
