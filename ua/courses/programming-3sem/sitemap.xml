@@ -2,74 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/01-pyside6-intro-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/02-first-pyside6-app-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/03-basic-widgets-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/04-input-form-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/05-layouts-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/06-adaptive-layout-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/07-qmainwindow-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/08-qmainwindow-skeleton-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/09-actions-menus-toolbars-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/10-actions-menus-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/11-dialogs-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/12-dialogs-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module1/13-signals-slots-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module2/14-app-state-structure-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module2/15-project-structure-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module2/16-multiwindow-apps-lecture/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
     </url>
     <url>
          <loc>https://kurotych.com/ua/courses/programming-3sem/module2/17-multiwindow-app-practice/</loc>
-         <lastmod>2026-09-01</lastmod>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://kurotych.com/ua/courses/programming-3sem/module2/18-model-view-lecture/</loc>
+         <lastmod>2026-09-02</lastmod>
+    </url>
+    <url>
+         <loc>https://kurotych.com/ua/courses/programming-3sem/module2/19-table-view-practice/</loc>
+         <lastmod>2026-09-02</lastmod>
     </url>
 </urlset>

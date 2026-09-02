@@ -724,15 +724,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      Що саме передається у функцію
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#docstring" class="md-nav__link">
     <span class="md-ellipsis">
       Документування функції: docstring та анотації типів
@@ -742,7 +733,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       Приклад: програма з функцій
     </span>
@@ -751,7 +742,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       Типові помилки
     </span>
@@ -760,7 +751,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       Підсумок
     </span>
@@ -769,7 +760,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       Корисні посилання
     </span>
@@ -778,7 +769,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       Домашнє завдання
     </span>
@@ -1598,181 +1589,122 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>2
 </span></code></pre></div>
 </div>
-<h2 id="_13">Що саме передається у функцію<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
-<p>Ми бачили, що зміна числа всередині функції не впливає на зовнішню змінну. Але зі списком поведінка інша:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">add_item</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"new"</span><span class="p">)</span>         <span class="c1"># змінюємо сам об'єкт</span>
-</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>
-</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>
-</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span>
-</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a><span class="n">add_item</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>
-</span><span id="__span-72-7"><a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>['a', 'b', 'new']
-</span></code></pre></div>
-<p>Річ у тім, що у функцію передається <strong>посилання на об'єкт</strong>, а не його копія. Далі все залежить від того, чи можна цей об'єкт змінити:</p>
-<table>
-<thead>
-<tr>
-<th>Тип</th>
-<th>Змінюваний?</th>
-<th>Наслідок</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>tuple</code></td>
-<td>ні</td>
-<td>функція не може вплинути на зовнішню змінну</td>
-</tr>
-<tr>
-<td><code>list</code>, <code>dict</code>, <code>set</code></td>
-<td>так</td>
-<td>зміна всередині функції видима ззовні</td>
-</tr>
-</tbody>
-</table>
-<p>Ключова різниця — між <strong>зміною об'єкта</strong> і <strong>присвоєнням нового</strong>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">mutate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>           <span class="c1"># змінює той самий список</span>
-</span><span id="__span-74-3"><a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a>
-</span><span id="__span-74-4"><a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a>
-</span><span id="__span-74-5"><a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">rebind</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-</span><span id="__span-74-6"><a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a>    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"completely"</span><span class="p">,</span> <span class="s2">"new"</span><span class="p">]</span>   <span class="c1"># прив'язує локальне ім'я до іншого списку</span>
-</span><span id="__span-74-7"><a id="__codelineno-74-7" name="__codelineno-74-7" href="#__codelineno-74-7"></a>    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
-</span><span id="__span-74-8"><a id="__codelineno-74-8" name="__codelineno-74-8" href="#__codelineno-74-8"></a>
-</span><span id="__span-74-9"><a id="__codelineno-74-9" name="__codelineno-74-9" href="#__codelineno-74-9"></a>
-</span><span id="__span-74-10"><a id="__codelineno-74-10" name="__codelineno-74-10" href="#__codelineno-74-10"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">]</span>
-</span><span id="__span-74-11"><a id="__codelineno-74-11" name="__codelineno-74-11" href="#__codelineno-74-11"></a><span class="n">mutate</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span id="__span-74-12"><a id="__codelineno-74-12" name="__codelineno-74-12" href="#__codelineno-74-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span id="__span-74-13"><a id="__codelineno-74-13" name="__codelineno-74-13" href="#__codelineno-74-13"></a>
-</span><span id="__span-74-14"><a id="__codelineno-74-14" name="__codelineno-74-14" href="#__codelineno-74-14"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">]</span>
-</span><span id="__span-74-15"><a id="__codelineno-74-15" name="__codelineno-74-15" href="#__codelineno-74-15"></a><span class="n">rebind</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span id="__span-74-16"><a id="__codelineno-74-16" name="__codelineno-74-16" href="#__codelineno-74-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>['a', 'x']
-</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>['a']
-</span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Як не потрапити в пастку</p>
-<p>Якщо функція має щось порахувати — не змінюйте вхідні дані, а поверніть новий результат. Якщо функція таки змінює аргумент, назвіть її так, щоб це було очевидно: <code>add_item</code>, <code>sort_grades</code>, <code>clear_cache</code>.</p>
-</div>
 <h2 id="docstring">Документування функції: docstring та анотації типів<a class="headerlink" href="#docstring" title="Permanent link">&para;</a></h2>
 <p><strong>Docstring</strong> — рядок одразу під <code>def</code>, який пояснює, що робить функція. Він доступний програмно й показується у підказках редактора:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">average_of_three</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="w">    </span><span class="sd">"""Return the arithmetic mean of three numbers."""</span>
-</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
-</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>
-</span><span id="__span-76-5"><a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>
-</span><span id="__span-76-6"><a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">average_of_three</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</span><span id="__span-76-7"><a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">average_of_three</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-</span><span id="__span-76-8"><a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a><span class="n">help</span><span class="p">(</span><span class="n">average_of_three</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">average_of_three</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="w">    </span><span class="sd">"""Return the arithmetic mean of three numbers."""</span>
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>
+</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">average_of_three</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span><span id="__span-72-7"><a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">average_of_three</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</span><span id="__span-72-8"><a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a><span class="n">help</span><span class="p">(</span><span class="n">average_of_three</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>2.0
-</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>Return the arithmetic mean of three numbers.
-</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>Help on function average_of_three in module __main__:
-</span><span id="__span-77-4"><a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>
-</span><span id="__span-77-5"><a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>average_of_three(a, b, c)
-</span><span id="__span-77-6"><a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>    Return the arithmetic mean of three numbers.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>2.0
+</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>Return the arithmetic mean of three numbers.
+</span><span id="__span-73-3"><a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a>Help on function average_of_three in module __main__:
+</span><span id="__span-73-4"><a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a>
+</span><span id="__span-73-5"><a id="__codelineno-73-5" name="__codelineno-73-5" href="#__codelineno-73-5"></a>average_of_three(a, b, c)
+</span><span id="__span-73-6"><a id="__codelineno-73-6" name="__codelineno-73-6" href="#__codelineno-73-6"></a>    Return the arithmetic mean of three numbers.
 </span></code></pre></div>
 <p>Для складнішої функції docstring роблять багаторядковим:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">net_salary</span><span class="p">(</span><span class="n">gross</span><span class="p">,</span> <span class="n">tax_rate</span><span class="o">=</span><span class="mf">0.18</span><span class="p">):</span>
-</span><span id="__span-78-2"><a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="w">    </span><span class="sd">"""Calculate salary after tax.</span>
-</span><span id="__span-78-3"><a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a>
-</span><span id="__span-78-4"><a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a><span class="sd">    Args:</span>
-</span><span id="__span-78-5"><a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a><span class="sd">        gross: salary before tax.</span>
-</span><span id="__span-78-6"><a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a><span class="sd">        tax_rate: tax rate as a fraction, 0.18 by default.</span>
-</span><span id="__span-78-7"><a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a>
-</span><span id="__span-78-8"><a id="__codelineno-78-8" name="__codelineno-78-8" href="#__codelineno-78-8"></a><span class="sd">    Returns:</span>
-</span><span id="__span-78-9"><a id="__codelineno-78-9" name="__codelineno-78-9" href="#__codelineno-78-9"></a><span class="sd">        Salary after tax as a float.</span>
-</span><span id="__span-78-10"><a id="__codelineno-78-10" name="__codelineno-78-10" href="#__codelineno-78-10"></a><span class="sd">    """</span>
-</span><span id="__span-78-11"><a id="__codelineno-78-11" name="__codelineno-78-11" href="#__codelineno-78-11"></a>    <span class="k">return</span> <span class="n">gross</span> <span class="o">-</span> <span class="n">gross</span> <span class="o">*</span> <span class="n">tax_rate</span>
-</span><span id="__span-78-12"><a id="__codelineno-78-12" name="__codelineno-78-12" href="#__codelineno-78-12"></a>
-</span><span id="__span-78-13"><a id="__codelineno-78-13" name="__codelineno-78-13" href="#__codelineno-78-13"></a>
-</span><span id="__span-78-14"><a id="__codelineno-78-14" name="__codelineno-78-14" href="#__codelineno-78-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">net_salary</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">net_salary</span><span class="p">(</span><span class="n">gross</span><span class="p">,</span> <span class="n">tax_rate</span><span class="o">=</span><span class="mf">0.18</span><span class="p">):</span>
+</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a><span class="w">    </span><span class="sd">"""Calculate salary after tax.</span>
+</span><span id="__span-74-3"><a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a>
+</span><span id="__span-74-4"><a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a><span class="sd">    Args:</span>
+</span><span id="__span-74-5"><a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a><span class="sd">        gross: salary before tax.</span>
+</span><span id="__span-74-6"><a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a><span class="sd">        tax_rate: tax rate as a fraction, 0.18 by default.</span>
+</span><span id="__span-74-7"><a id="__codelineno-74-7" name="__codelineno-74-7" href="#__codelineno-74-7"></a>
+</span><span id="__span-74-8"><a id="__codelineno-74-8" name="__codelineno-74-8" href="#__codelineno-74-8"></a><span class="sd">    Returns:</span>
+</span><span id="__span-74-9"><a id="__codelineno-74-9" name="__codelineno-74-9" href="#__codelineno-74-9"></a><span class="sd">        Salary after tax as a float.</span>
+</span><span id="__span-74-10"><a id="__codelineno-74-10" name="__codelineno-74-10" href="#__codelineno-74-10"></a><span class="sd">    """</span>
+</span><span id="__span-74-11"><a id="__codelineno-74-11" name="__codelineno-74-11" href="#__codelineno-74-11"></a>    <span class="k">return</span> <span class="n">gross</span> <span class="o">-</span> <span class="n">gross</span> <span class="o">*</span> <span class="n">tax_rate</span>
+</span><span id="__span-74-12"><a id="__codelineno-74-12" name="__codelineno-74-12" href="#__codelineno-74-12"></a>
+</span><span id="__span-74-13"><a id="__codelineno-74-13" name="__codelineno-74-13" href="#__codelineno-74-13"></a>
+</span><span id="__span-74-14"><a id="__codelineno-74-14" name="__codelineno-74-14" href="#__codelineno-74-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">net_salary</span><span class="p">(</span><span class="mi">20000</span><span class="p">))</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>16400.0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>16400.0
 </span></code></pre></div>
 <p><strong>Анотації типів</strong> підказують, які типи очікуються. Python їх не перевіряє під час виконання — це підказка для людини та редактора:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="w">    </span><span class="sd">"""Return text repeated the given number of times."""</span>
-</span><span id="__span-80-3"><a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a>    <span class="k">return</span> <span class="n">text</span> <span class="o">*</span> <span class="n">times</span>
-</span><span id="__span-80-4"><a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a>
-</span><span id="__span-80-5"><a id="__codelineno-80-5" name="__codelineno-80-5" href="#__codelineno-80-5"></a>
-</span><span id="__span-80-6"><a id="__codelineno-80-6" name="__codelineno-80-6" href="#__codelineno-80-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">))</span>
-</span><span id="__span-80-7"><a id="__codelineno-80-7" name="__codelineno-80-7" href="#__codelineno-80-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</span><span id="__span-80-8"><a id="__codelineno-80-8" name="__codelineno-80-8" href="#__codelineno-80-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">repeat</span><span class="o">.</span><span class="vm">__annotations__</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">repeat</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">times</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a><span class="w">    </span><span class="sd">"""Return text repeated the given number of times."""</span>
+</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>    <span class="k">return</span> <span class="n">text</span> <span class="o">*</span> <span class="n">times</span>
+</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>
+</span><span id="__span-76-5"><a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>
+</span><span id="__span-76-6"><a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">))</span>
+</span><span id="__span-76-7"><a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span><span id="__span-76-8"><a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">repeat</span><span class="o">.</span><span class="vm">__annotations__</span><span class="p">)</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>abab
-</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>ababab
-</span><span id="__span-81-3"><a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>{'text': &lt;class 'str'&gt;, 'times': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>abab
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>ababab
+</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>{'text': &lt;class 'str'&gt;, 'times': &lt;class 'int'&gt;, 'return': &lt;class 'str'&gt;}
 </span></code></pre></div>
-<h2 id="_14">Приклад: програма з функцій<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h2 id="_13">Приклад: програма з функцій<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>Складімо все разом — типова структура невеликої програми:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="c1"># Program: grade report built from small functions</span>
-</span><span id="__span-82-2"><a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">read_grade</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
-</span><span id="__span-82-3"><a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a><span class="w">    </span><span class="sd">"""Ask the user for a grade until a valid value is entered."""</span>
-</span><span id="__span-82-4"><a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span><span id="__span-82-5"><a id="__codelineno-82-5" name="__codelineno-82-5" href="#__codelineno-82-5"></a>        <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
-</span><span id="__span-82-6"><a id="__codelineno-82-6" name="__codelineno-82-6" href="#__codelineno-82-6"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-</span><span id="__span-82-7"><a id="__codelineno-82-7" name="__codelineno-82-7" href="#__codelineno-82-7"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: digits only"</span><span class="p">)</span>
-</span><span id="__span-82-8"><a id="__codelineno-82-8" name="__codelineno-82-8" href="#__codelineno-82-8"></a>            <span class="k">continue</span>
-</span><span id="__span-82-9"><a id="__codelineno-82-9" name="__codelineno-82-9" href="#__codelineno-82-9"></a>        <span class="n">grade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</span><span id="__span-82-10"><a id="__codelineno-82-10" name="__codelineno-82-10" href="#__codelineno-82-10"></a>        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">grade</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
-</span><span id="__span-82-11"><a id="__codelineno-82-11" name="__codelineno-82-11" href="#__codelineno-82-11"></a>            <span class="k">return</span> <span class="n">grade</span>
-</span><span id="__span-82-12"><a id="__codelineno-82-12" name="__codelineno-82-12" href="#__codelineno-82-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: the value must be between 0 and 100"</span><span class="p">)</span>
-</span><span id="__span-82-13"><a id="__codelineno-82-13" name="__codelineno-82-13" href="#__codelineno-82-13"></a>
-</span><span id="__span-82-14"><a id="__codelineno-82-14" name="__codelineno-82-14" href="#__codelineno-82-14"></a>
-</span><span id="__span-82-15"><a id="__codelineno-82-15" name="__codelineno-82-15" href="#__codelineno-82-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">to_letter</span><span class="p">(</span><span class="n">grade</span><span class="p">):</span>
-</span><span id="__span-82-16"><a id="__codelineno-82-16" name="__codelineno-82-16" href="#__codelineno-82-16"></a><span class="w">    </span><span class="sd">"""Convert a numeric grade into a letter grade."""</span>
-</span><span id="__span-82-17"><a id="__codelineno-82-17" name="__codelineno-82-17" href="#__codelineno-82-17"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
-</span><span id="__span-82-18"><a id="__codelineno-82-18" name="__codelineno-82-18" href="#__codelineno-82-18"></a>        <span class="k">return</span> <span class="s2">"A"</span>
-</span><span id="__span-82-19"><a id="__codelineno-82-19" name="__codelineno-82-19" href="#__codelineno-82-19"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
-</span><span id="__span-82-20"><a id="__codelineno-82-20" name="__codelineno-82-20" href="#__codelineno-82-20"></a>        <span class="k">return</span> <span class="s2">"B"</span>
-</span><span id="__span-82-21"><a id="__codelineno-82-21" name="__codelineno-82-21" href="#__codelineno-82-21"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
-</span><span id="__span-82-22"><a id="__codelineno-82-22" name="__codelineno-82-22" href="#__codelineno-82-22"></a>        <span class="k">return</span> <span class="s2">"C"</span>
-</span><span id="__span-82-23"><a id="__codelineno-82-23" name="__codelineno-82-23" href="#__codelineno-82-23"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-</span><span id="__span-82-24"><a id="__codelineno-82-24" name="__codelineno-82-24" href="#__codelineno-82-24"></a>        <span class="k">return</span> <span class="s2">"D"</span>
-</span><span id="__span-82-25"><a id="__codelineno-82-25" name="__codelineno-82-25" href="#__codelineno-82-25"></a>    <span class="k">return</span> <span class="s2">"F"</span>
-</span><span id="__span-82-26"><a id="__codelineno-82-26" name="__codelineno-82-26" href="#__codelineno-82-26"></a>
-</span><span id="__span-82-27"><a id="__codelineno-82-27" name="__codelineno-82-27" href="#__codelineno-82-27"></a>
-</span><span id="__span-82-28"><a id="__codelineno-82-28" name="__codelineno-82-28" href="#__codelineno-82-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grades</span><span class="p">):</span>
-</span><span id="__span-82-29"><a id="__codelineno-82-29" name="__codelineno-82-29" href="#__codelineno-82-29"></a><span class="w">    </span><span class="sd">"""Print a short report for one student."""</span>
-</span><span id="__span-82-30"><a id="__codelineno-82-30" name="__codelineno-82-30" href="#__codelineno-82-30"></a>    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>
-</span><span id="__span-82-31"><a id="__codelineno-82-31" name="__codelineno-82-31" href="#__codelineno-82-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Student: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-82-32"><a id="__codelineno-82-32" name="__codelineno-82-32" href="#__codelineno-82-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Grades: </span><span class="si">{</span><span class="n">grades</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-82-33"><a id="__codelineno-82-33" name="__codelineno-82-33" href="#__codelineno-82-33"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">average</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">to_letter</span><span class="p">(</span><span class="n">average</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-</span><span id="__span-82-34"><a id="__codelineno-82-34" name="__codelineno-82-34" href="#__codelineno-82-34"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Best: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span><span class="si">}</span><span class="s2">, worst: </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-82-35"><a id="__codelineno-82-35" name="__codelineno-82-35" href="#__codelineno-82-35"></a>
-</span><span id="__span-82-36"><a id="__codelineno-82-36" name="__codelineno-82-36" href="#__codelineno-82-36"></a>
-</span><span id="__span-82-37"><a id="__codelineno-82-37" name="__codelineno-82-37" href="#__codelineno-82-37"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-</span><span id="__span-82-38"><a id="__codelineno-82-38" name="__codelineno-82-38" href="#__codelineno-82-38"></a><span class="w">    </span><span class="sd">"""Entry point of the program."""</span>
-</span><span id="__span-82-39"><a id="__codelineno-82-39" name="__codelineno-82-39" href="#__codelineno-82-39"></a>    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Your name: "</span><span class="p">)</span>
-</span><span id="__span-82-40"><a id="__codelineno-82-40" name="__codelineno-82-40" href="#__codelineno-82-40"></a>    <span class="n">grades</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="__span-82-41"><a id="__codelineno-82-41" name="__codelineno-82-41" href="#__codelineno-82-41"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-</span><span id="__span-82-42"><a id="__codelineno-82-42" name="__codelineno-82-42" href="#__codelineno-82-42"></a>        <span class="n">grades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">read_grade</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Grade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> (0-100): "</span><span class="p">))</span>
-</span><span id="__span-82-43"><a id="__codelineno-82-43" name="__codelineno-82-43" href="#__codelineno-82-43"></a>    <span class="n">report</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grades</span><span class="p">)</span>
-</span><span id="__span-82-44"><a id="__codelineno-82-44" name="__codelineno-82-44" href="#__codelineno-82-44"></a>
-</span><span id="__span-82-45"><a id="__codelineno-82-45" name="__codelineno-82-45" href="#__codelineno-82-45"></a>
-</span><span id="__span-82-46"><a id="__codelineno-82-46" name="__codelineno-82-46" href="#__codelineno-82-46"></a><span class="n">main</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="c1"># Program: grade report built from small functions</span>
+</span><span id="__span-78-2"><a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">read_grade</span><span class="p">(</span><span class="n">prompt</span><span class="p">):</span>
+</span><span id="__span-78-3"><a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a><span class="w">    </span><span class="sd">"""Ask the user for a grade until a valid value is entered."""</span>
+</span><span id="__span-78-4"><a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-78-5"><a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a>        <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span><span id="__span-78-6"><a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+</span><span id="__span-78-7"><a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: digits only"</span><span class="p">)</span>
+</span><span id="__span-78-8"><a id="__codelineno-78-8" name="__codelineno-78-8" href="#__codelineno-78-8"></a>            <span class="k">continue</span>
+</span><span id="__span-78-9"><a id="__codelineno-78-9" name="__codelineno-78-9" href="#__codelineno-78-9"></a>        <span class="n">grade</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-78-10"><a id="__codelineno-78-10" name="__codelineno-78-10" href="#__codelineno-78-10"></a>        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">grade</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+</span><span id="__span-78-11"><a id="__codelineno-78-11" name="__codelineno-78-11" href="#__codelineno-78-11"></a>            <span class="k">return</span> <span class="n">grade</span>
+</span><span id="__span-78-12"><a id="__codelineno-78-12" name="__codelineno-78-12" href="#__codelineno-78-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: the value must be between 0 and 100"</span><span class="p">)</span>
+</span><span id="__span-78-13"><a id="__codelineno-78-13" name="__codelineno-78-13" href="#__codelineno-78-13"></a>
+</span><span id="__span-78-14"><a id="__codelineno-78-14" name="__codelineno-78-14" href="#__codelineno-78-14"></a>
+</span><span id="__span-78-15"><a id="__codelineno-78-15" name="__codelineno-78-15" href="#__codelineno-78-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">to_letter</span><span class="p">(</span><span class="n">grade</span><span class="p">):</span>
+</span><span id="__span-78-16"><a id="__codelineno-78-16" name="__codelineno-78-16" href="#__codelineno-78-16"></a><span class="w">    </span><span class="sd">"""Convert a numeric grade into a letter grade."""</span>
+</span><span id="__span-78-17"><a id="__codelineno-78-17" name="__codelineno-78-17" href="#__codelineno-78-17"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+</span><span id="__span-78-18"><a id="__codelineno-78-18" name="__codelineno-78-18" href="#__codelineno-78-18"></a>        <span class="k">return</span> <span class="s2">"A"</span>
+</span><span id="__span-78-19"><a id="__codelineno-78-19" name="__codelineno-78-19" href="#__codelineno-78-19"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+</span><span id="__span-78-20"><a id="__codelineno-78-20" name="__codelineno-78-20" href="#__codelineno-78-20"></a>        <span class="k">return</span> <span class="s2">"B"</span>
+</span><span id="__span-78-21"><a id="__codelineno-78-21" name="__codelineno-78-21" href="#__codelineno-78-21"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+</span><span id="__span-78-22"><a id="__codelineno-78-22" name="__codelineno-78-22" href="#__codelineno-78-22"></a>        <span class="k">return</span> <span class="s2">"C"</span>
+</span><span id="__span-78-23"><a id="__codelineno-78-23" name="__codelineno-78-23" href="#__codelineno-78-23"></a>    <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+</span><span id="__span-78-24"><a id="__codelineno-78-24" name="__codelineno-78-24" href="#__codelineno-78-24"></a>        <span class="k">return</span> <span class="s2">"D"</span>
+</span><span id="__span-78-25"><a id="__codelineno-78-25" name="__codelineno-78-25" href="#__codelineno-78-25"></a>    <span class="k">return</span> <span class="s2">"F"</span>
+</span><span id="__span-78-26"><a id="__codelineno-78-26" name="__codelineno-78-26" href="#__codelineno-78-26"></a>
+</span><span id="__span-78-27"><a id="__codelineno-78-27" name="__codelineno-78-27" href="#__codelineno-78-27"></a>
+</span><span id="__span-78-28"><a id="__codelineno-78-28" name="__codelineno-78-28" href="#__codelineno-78-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grades</span><span class="p">):</span>
+</span><span id="__span-78-29"><a id="__codelineno-78-29" name="__codelineno-78-29" href="#__codelineno-78-29"></a><span class="w">    </span><span class="sd">"""Print a short report for one student."""</span>
+</span><span id="__span-78-30"><a id="__codelineno-78-30" name="__codelineno-78-30" href="#__codelineno-78-30"></a>    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>
+</span><span id="__span-78-31"><a id="__codelineno-78-31" name="__codelineno-78-31" href="#__codelineno-78-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Student: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-78-32"><a id="__codelineno-78-32" name="__codelineno-78-32" href="#__codelineno-78-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Grades: </span><span class="si">{</span><span class="n">grades</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-78-33"><a id="__codelineno-78-33" name="__codelineno-78-33" href="#__codelineno-78-33"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">average</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">to_letter</span><span class="p">(</span><span class="n">average</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-78-34"><a id="__codelineno-78-34" name="__codelineno-78-34" href="#__codelineno-78-34"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Best: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span><span class="si">}</span><span class="s2">, worst: </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-78-35"><a id="__codelineno-78-35" name="__codelineno-78-35" href="#__codelineno-78-35"></a>
+</span><span id="__span-78-36"><a id="__codelineno-78-36" name="__codelineno-78-36" href="#__codelineno-78-36"></a>
+</span><span id="__span-78-37"><a id="__codelineno-78-37" name="__codelineno-78-37" href="#__codelineno-78-37"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-78-38"><a id="__codelineno-78-38" name="__codelineno-78-38" href="#__codelineno-78-38"></a><span class="w">    </span><span class="sd">"""Entry point of the program."""</span>
+</span><span id="__span-78-39"><a id="__codelineno-78-39" name="__codelineno-78-39" href="#__codelineno-78-39"></a>    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Your name: "</span><span class="p">)</span>
+</span><span id="__span-78-40"><a id="__codelineno-78-40" name="__codelineno-78-40" href="#__codelineno-78-40"></a>    <span class="n">grades</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-78-41"><a id="__codelineno-78-41" name="__codelineno-78-41" href="#__codelineno-78-41"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+</span><span id="__span-78-42"><a id="__codelineno-78-42" name="__codelineno-78-42" href="#__codelineno-78-42"></a>        <span class="n">grades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">read_grade</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Grade </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> (0-100): "</span><span class="p">))</span>
+</span><span id="__span-78-43"><a id="__codelineno-78-43" name="__codelineno-78-43" href="#__codelineno-78-43"></a>    <span class="n">report</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">grades</span><span class="p">)</span>
+</span><span id="__span-78-44"><a id="__codelineno-78-44" name="__codelineno-78-44" href="#__codelineno-78-44"></a>
+</span><span id="__span-78-45"><a id="__codelineno-78-45" name="__codelineno-78-45" href="#__codelineno-78-45"></a>
+</span><span id="__span-78-46"><a id="__codelineno-78-46" name="__codelineno-78-46" href="#__codelineno-78-46"></a><span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>Your name: Ivan
-</span><span id="__span-83-2"><a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a>Grade 1 (0-100): 90
-</span><span id="__span-83-3"><a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a>Grade 2 (0-100): abc
-</span><span id="__span-83-4"><a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a>Error: digits only
-</span><span id="__span-83-5"><a id="__codelineno-83-5" name="__codelineno-83-5" href="#__codelineno-83-5"></a>Grade 2 (0-100): 84
-</span><span id="__span-83-6"><a id="__codelineno-83-6" name="__codelineno-83-6" href="#__codelineno-83-6"></a>Grade 3 (0-100): 77
-</span><span id="__span-83-7"><a id="__codelineno-83-7" name="__codelineno-83-7" href="#__codelineno-83-7"></a>Student: Ivan
-</span><span id="__span-83-8"><a id="__codelineno-83-8" name="__codelineno-83-8" href="#__codelineno-83-8"></a>Grades: [90, 84, 77]
-</span><span id="__span-83-9"><a id="__codelineno-83-9" name="__codelineno-83-9" href="#__codelineno-83-9"></a>Average: 83.67 (B)
-</span><span id="__span-83-10"><a id="__codelineno-83-10" name="__codelineno-83-10" href="#__codelineno-83-10"></a>Best: 90, worst: 77
+<div class="language-text highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>Your name: Ivan
+</span><span id="__span-79-2"><a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>Grade 1 (0-100): 90
+</span><span id="__span-79-3"><a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a>Grade 2 (0-100): abc
+</span><span id="__span-79-4"><a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a>Error: digits only
+</span><span id="__span-79-5"><a id="__codelineno-79-5" name="__codelineno-79-5" href="#__codelineno-79-5"></a>Grade 2 (0-100): 84
+</span><span id="__span-79-6"><a id="__codelineno-79-6" name="__codelineno-79-6" href="#__codelineno-79-6"></a>Grade 3 (0-100): 77
+</span><span id="__span-79-7"><a id="__codelineno-79-7" name="__codelineno-79-7" href="#__codelineno-79-7"></a>Student: Ivan
+</span><span id="__span-79-8"><a id="__codelineno-79-8" name="__codelineno-79-8" href="#__codelineno-79-8"></a>Grades: [90, 84, 77]
+</span><span id="__span-79-9"><a id="__codelineno-79-9" name="__codelineno-79-9" href="#__codelineno-79-9"></a>Average: 83.67 (B)
+</span><span id="__span-79-10"><a id="__codelineno-79-10" name="__codelineno-79-10" href="#__codelineno-79-10"></a>Best: 90, worst: 77
 </span></code></pre></div>
 <p>Зверніть увагу на розподіл ролей: <code>read_grade</code> тільки читає, <code>to_letter</code> тільки перетворює, <code>report</code> тільки друкує, <code>main</code> керує послідовністю. Кожну з них можна замінити або перевірити окремо.</p>
 <div class="admonition info">
 <p class="admonition-title">Скільки коду має бути у функції</p>
 <p>Орієнтир — функція вміщується на екран (до 20–30 рядків) і має <strong>одну</strong> зрозумілу відповідальність. Якщо в описі функції з'являється «і» («читає дані <strong>і</strong> рахує середнє <strong>і</strong> друкує»), її варто розділити.</p>
 </div>
-<h2 id="_15">Типові помилки<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h2 id="_14">Типові помилки<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1834,41 +1766,41 @@
 </tr>
 </tbody>
 </table>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="c1"># 1. дужки обов'язкові при виклику</span>
-</span><span id="__span-84-2"><a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
-</span><span id="__span-84-3"><a id="__codelineno-84-3" name="__codelineno-84-3" href="#__codelineno-84-3"></a>    <span class="k">return</span> <span class="s2">"Hi"</span>
-</span><span id="__span-84-4"><a id="__codelineno-84-4" name="__codelineno-84-4" href="#__codelineno-84-4"></a>
-</span><span id="__span-84-5"><a id="__codelineno-84-5" name="__codelineno-84-5" href="#__codelineno-84-5"></a>
-</span><span id="__span-84-6"><a id="__codelineno-84-6" name="__codelineno-84-6" href="#__codelineno-84-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>                    <span class="c1"># об'єкт функції</span>
-</span><span id="__span-84-7"><a id="__codelineno-84-7" name="__codelineno-84-7" href="#__codelineno-84-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">())</span>                  <span class="c1"># результат</span>
-</span><span id="__span-84-8"><a id="__codelineno-84-8" name="__codelineno-84-8" href="#__codelineno-84-8"></a>
-</span><span id="__span-84-9"><a id="__codelineno-84-9" name="__codelineno-84-9" href="#__codelineno-84-9"></a><span class="c1"># 2. функція без return повертає None</span>
-</span><span id="__span-84-10"><a id="__codelineno-84-10" name="__codelineno-84-10" href="#__codelineno-84-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-</span><span id="__span-84-11"><a id="__codelineno-84-11" name="__codelineno-84-11" href="#__codelineno-84-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span><span id="__span-84-12"><a id="__codelineno-84-12" name="__codelineno-84-12" href="#__codelineno-84-12"></a>
-</span><span id="__span-84-13"><a id="__codelineno-84-13" name="__codelineno-84-13" href="#__codelineno-84-13"></a>
-</span><span id="__span-84-14"><a id="__codelineno-84-14" name="__codelineno-84-14" href="#__codelineno-84-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
-</span><span id="__span-84-15"><a id="__codelineno-84-15" name="__codelineno-84-15" href="#__codelineno-84-15"></a>
-</span><span id="__span-84-16"><a id="__codelineno-84-16" name="__codelineno-84-16" href="#__codelineno-84-16"></a><span class="c1"># 3. локальна змінна не видима ззовні</span>
-</span><span id="__span-84-17"><a id="__codelineno-84-17" name="__codelineno-84-17" href="#__codelineno-84-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">():</span>
-</span><span id="__span-84-18"><a id="__codelineno-84-18" name="__codelineno-84-18" href="#__codelineno-84-18"></a>    <span class="n">inner_result</span> <span class="o">=</span> <span class="mi">42</span>
-</span><span id="__span-84-19"><a id="__codelineno-84-19" name="__codelineno-84-19" href="#__codelineno-84-19"></a>    <span class="k">return</span> <span class="n">inner_result</span>
-</span><span id="__span-84-20"><a id="__codelineno-84-20" name="__codelineno-84-20" href="#__codelineno-84-20"></a>
-</span><span id="__span-84-21"><a id="__codelineno-84-21" name="__codelineno-84-21" href="#__codelineno-84-21"></a>
-</span><span id="__span-84-22"><a id="__codelineno-84-22" name="__codelineno-84-22" href="#__codelineno-84-22"></a><span class="nb">print</span><span class="p">(</span><span class="n">compute</span><span class="p">())</span>
-</span><span id="__span-84-23"><a id="__codelineno-84-23" name="__codelineno-84-23" href="#__codelineno-84-23"></a><span class="c1"># print(inner_result)           -&gt; NameError</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a><span class="c1"># 1. дужки обов'язкові при виклику</span>
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
+</span><span id="__span-80-3"><a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a>    <span class="k">return</span> <span class="s2">"Hi"</span>
+</span><span id="__span-80-4"><a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a>
+</span><span id="__span-80-5"><a id="__codelineno-80-5" name="__codelineno-80-5" href="#__codelineno-80-5"></a>
+</span><span id="__span-80-6"><a id="__codelineno-80-6" name="__codelineno-80-6" href="#__codelineno-80-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>                    <span class="c1"># об'єкт функції</span>
+</span><span id="__span-80-7"><a id="__codelineno-80-7" name="__codelineno-80-7" href="#__codelineno-80-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">())</span>                  <span class="c1"># результат</span>
+</span><span id="__span-80-8"><a id="__codelineno-80-8" name="__codelineno-80-8" href="#__codelineno-80-8"></a>
+</span><span id="__span-80-9"><a id="__codelineno-80-9" name="__codelineno-80-9" href="#__codelineno-80-9"></a><span class="c1"># 2. функція без return повертає None</span>
+</span><span id="__span-80-10"><a id="__codelineno-80-10" name="__codelineno-80-10" href="#__codelineno-80-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span><span id="__span-80-11"><a id="__codelineno-80-11" name="__codelineno-80-11" href="#__codelineno-80-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span><span id="__span-80-12"><a id="__codelineno-80-12" name="__codelineno-80-12" href="#__codelineno-80-12"></a>
+</span><span id="__span-80-13"><a id="__codelineno-80-13" name="__codelineno-80-13" href="#__codelineno-80-13"></a>
+</span><span id="__span-80-14"><a id="__codelineno-80-14" name="__codelineno-80-14" href="#__codelineno-80-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-80-15"><a id="__codelineno-80-15" name="__codelineno-80-15" href="#__codelineno-80-15"></a>
+</span><span id="__span-80-16"><a id="__codelineno-80-16" name="__codelineno-80-16" href="#__codelineno-80-16"></a><span class="c1"># 3. локальна змінна не видима ззовні</span>
+</span><span id="__span-80-17"><a id="__codelineno-80-17" name="__codelineno-80-17" href="#__codelineno-80-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">compute</span><span class="p">():</span>
+</span><span id="__span-80-18"><a id="__codelineno-80-18" name="__codelineno-80-18" href="#__codelineno-80-18"></a>    <span class="n">inner_result</span> <span class="o">=</span> <span class="mi">42</span>
+</span><span id="__span-80-19"><a id="__codelineno-80-19" name="__codelineno-80-19" href="#__codelineno-80-19"></a>    <span class="k">return</span> <span class="n">inner_result</span>
+</span><span id="__span-80-20"><a id="__codelineno-80-20" name="__codelineno-80-20" href="#__codelineno-80-20"></a>
+</span><span id="__span-80-21"><a id="__codelineno-80-21" name="__codelineno-80-21" href="#__codelineno-80-21"></a>
+</span><span id="__span-80-22"><a id="__codelineno-80-22" name="__codelineno-80-22" href="#__codelineno-80-22"></a><span class="nb">print</span><span class="p">(</span><span class="n">compute</span><span class="p">())</span>
+</span><span id="__span-80-23"><a id="__codelineno-80-23" name="__codelineno-80-23" href="#__codelineno-80-23"></a><span class="c1"># print(inner_result)           -&gt; NameError</span>
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>&lt;function hello at 0x7f3a2c1b4e50&gt;
-</span><span id="__span-85-2"><a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a>Hi
-</span><span id="__span-85-3"><a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a>5
-</span><span id="__span-85-4"><a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a>True
-</span><span id="__span-85-5"><a id="__codelineno-85-5" name="__codelineno-85-5" href="#__codelineno-85-5"></a>42
+<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>&lt;function hello at 0x7f3a2c1b4e50&gt;
+</span><span id="__span-81-2"><a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>Hi
+</span><span id="__span-81-3"><a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>5
+</span><span id="__span-81-4"><a id="__codelineno-81-4" name="__codelineno-81-4" href="#__codelineno-81-4"></a>True
+</span><span id="__span-81-5"><a id="__codelineno-81-5" name="__codelineno-81-5" href="#__codelineno-81-5"></a>42
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Дві порожні лінії між функціями</p>
 <p>PEP 8 вимагає відділяти визначення функцій верхнього рівня <strong>двома</strong> порожніми рядками. Це не впливає на роботу програми, але формально перевіряється лінтерами й помітно покращує читабельність.</p>
 </div>
-<h2 id="_16">Підсумок<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h2 id="_15">Підсумок<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Функція</strong> — іменований блок коду з однією зрозумілою відповідальністю; оголошується через <code>def</code>, викликається іменем з дужками.</li>
 <li>Оголошення лише створює функцію; код виконується тільки під час <strong>виклику</strong>, і функцію треба оголосити раніше за виклик.</li>
@@ -1883,7 +1815,7 @@
 <li>Незмінювані об'єкти (числа, рядки, кортежі) функція змінити не може; змінювані (списки, словники) — може, і це видно ззовні.</li>
 <li>Docstring і анотації типів роблять функцію зрозумілою без читання її тіла.</li>
 </ul>
-<h2 id="_17">Корисні посилання<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h2 id="_16">Корисні посилання<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">Визначення функцій — підручник Python</a></li>
 <li><a href="https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions">Детальніше про аргументи функцій</a></li>
@@ -1892,7 +1824,7 @@
 <li><a href="https://peps.python.org/pep-0257/">PEP 257 — угоди щодо docstring</a></li>
 <li><a href="https://peps.python.org/pep-0008/">PEP 8 — оформлення коду</a></li>
 </ul>
-<h2 id="_18">Домашнє завдання<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h2 id="_17">Домашнє завдання<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
 <p>Мета — навчитися виділяти повторюваний код у функції та свідомо розрізняти локальні й глобальні змінні.</p>
 <ol>
 <li>
