@@ -1,0 +1,1044 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module1/13-git-practice/">
+      
+      
+        <link rel="prev" href="../12-git-lecture/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub - Python (1 семестр)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#13-6-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python (1 семестр)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python (1 семестр)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Вступ. Предмет і завдання курсу. Алгоритм, блок-схеми, програма, компіляція, інтерпретація
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-tools-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-tools-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (П1) Налаштування середовища розробки. Запуск Python коду локально та онлайн
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-variables-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. (Л) Змінні та типи даних. Вирази та оператори
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-variables-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (П2) Змінні, типи даних та вирази
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-conditions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (Л) Умовні оператори: if, elif, else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-conditions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (П3) Умовні оператори та введення даних з консолі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-loops-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. (Л) Цикли for і while та їх застосування
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-loops-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. (П4) Розв'язування задач із використанням циклів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-functions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. (Л) Функції. Параметри та область видимості змінних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-functions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. (П5) Написання та використання функцій у Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-git-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Основи роботи з Git та GitHub. Система контролю версій, репозиторії, коміти, запит на злиття, віддалена співпраця
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Мета роботи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підготовка
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Підготовка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ваші персональні дані
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Хід роботи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Хід роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання 1. Локальний репозиторій і перші коміти
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання 2. Історія, .gitignore та скасування змін
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання 3. Публікація на GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання 4. Гілка та запит на злиття у власному репозиторії
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+<h1 id="13-6-github">13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub<a class="headerlink" href="#13-6-github" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Мета роботи<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Створити власний локальний Git-репозиторій, навчитися фіксувати зміни комітами та скасовувати їх, опублікувати репозиторій на GitHub і оформити <strong>запит на злиття (Pull Request)</strong> через окрему гілку.</p>
+<div class="admonition danger">
+<p class="admonition-title">Персоналізація обов'язкова</p>
+<p>Репозиторій, коміти та вміст файлів мають містити <strong>ваші справжні дані</strong>: ім'я, прізвище, групу, ваші розв'язки попередніх практичних робіт. Коміти підписані чужою поштою, скопійовані репозиторії або посилання на чужий профіль GitHub не приймаються.</p>
+</div>
+<h2 id="_2">Підготовка<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Git встановлений і налаштований — див. розділ «Встановлення та початкове налаштування Git» у <a href="../12-git-lecture/">лекції 12</a>. Перевірте:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>--version
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>config<span class="w"> </span>user.name
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>config<span class="w"> </span>user.email
+</span></code></pre></div>
+</li>
+<li>
+<p>Створений акаунт на <a href="https://github.com/">github.com</a> з <strong>тією самою поштою</strong>, що вказана в <code>git config user.email</code>.</p>
+</li>
+<li>Під рукою — ваші файли з практичних робіт 3, 4 і 5.</li>
+</ol>
+<h3 id="_3">Ваші персональні дані<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Позначення</th>
+<th>Звідки береться</th>
+<th>Приклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;surname&gt;</code></td>
+<td>ваше прізвище латиницею, малими літерами</td>
+<td><code>petrenko</code></td>
+</tr>
+<tr>
+<td><code>&lt;name&gt;</code></td>
+<td>ваше ім'я латиницею</td>
+<td><code>Ivan</code></td>
+</tr>
+<tr>
+<td><code>&lt;group&gt;</code></td>
+<td>ваша група</td>
+<td><code>PZ-11</code></td>
+</tr>
+<tr>
+<td><code>&lt;login&gt;</code></td>
+<td>ваш логін на GitHub</td>
+<td><code>ivan-petrenko</code></td>
+</tr>
+</tbody>
+</table>
+<p>Назва репозиторію в усій роботі: <strong><code>python-practice-&lt;surname&gt;</code></strong> (наприклад, <code>python-practice-petrenko</code>).</p>
+<pre class="mermaid"><code>graph LR
+    A["Завдання 1&lt;br/&gt;git init&lt;br/&gt;локальний репозиторій"] --&gt; B["Завдання 2&lt;br/&gt;історія та&lt;br/&gt;скасування змін"]
+    B --&gt; C["Завдання 3&lt;br/&gt;GitHub&lt;br/&gt;git push"]
+    C --&gt; D["Завдання 4&lt;br/&gt;гілка&lt;br/&gt;та Pull Request"]
+
+    style A fill:#339af0,stroke:#333,color:#fff
+    style B fill:#ffd43b,stroke:#333,color:#000
+    style C fill:#ff922b,stroke:#333,color:#000
+    style D fill:#51cf66,stroke:#333,color:#000</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Знімки екрана обов'язкові</p>
+<p>Кожне завдання завершується виводом команди або сторінкою GitHub. Робіть знімок екрана <strong>одразу</strong> — відтворити стан репозиторію заднім числом складно.</p>
+</div>
+<h2 id="_4">Хід роботи<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1">Завдання 1. Локальний репозиторій і перші коміти<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Створіть каталог <code>python-practice-&lt;surname&gt;</code> і перейдіть у нього. <strong>Не</strong> створюйте репозиторій у домашньому каталозі.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>python-practice-petrenko
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>python-practice-petrenko
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>init
+</span></code></pre></div>
+</li>
+<li>
+<p>Створіть файл <code>README.md</code> з такою структурою (замініть на власні дані):</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gh"># Python practice - Ivan Petrenko</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Student: Ivan Petrenko
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Group: PZ-11
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Course: Python programming, semester 1
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="gu">## Contents</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">-</span><span class="w"> </span>practice3 - development environment
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">-</span><span class="w"> </span>practice4 - loops
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">-</span><span class="w"> </span>practice5 - functions
+</span></code></pre></div>
+</li>
+<li>
+<p>Виконайте <code>git status</code> і <strong>до</strong> першого коміту збережіть його вивід. Знайдіть у ньому слово <code>Untracked</code>.</p>
+</li>
+<li>
+<p>Зробіть перший коміт:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>add<span class="w"> </span>README.md
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add readme with student info"</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Створіть каталоги <code>practice3</code>, <code>practice4</code>, <code>practice5</code> і скопіюйте в них <strong>свої</strong> розв'язки відповідних практичних робіт.</p>
+</li>
+<li>
+<p>Зафіксуйте їх <strong>трьома окремими комітами</strong> — по одному на практичну. Повідомлення англійською, у наказовому способі, наприклад:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Add practice 3 solution
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Add practice 4 loop tasks
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Add practice 5 functions
+</span></code></pre></div>
+</li>
+<li>
+<p>Виведіть історію:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span></code></pre></div>
+</li>
+</ol>
+<p>Очікуваний результат:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>c47d2f8 (HEAD -&gt; main) Add practice 5 functions
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>a91b7e4 Add practice 4 loop tasks
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>5d0c3b1 Add practice 3 solution
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>8f3a1c2 Add readme with student info
+</span></code></pre></div>
+<p><strong>Питання:</strong> чому чотири коміти краще за один коміт <code>Add all my work</code>?</p>
+<h3 id="2-gitignore">Завдання 2. Історія, <code>.gitignore</code> та скасування змін<a class="headerlink" href="#2-gitignore" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Запустіть будь-яку свою програму з каталогу <code>practice5</code> — поряд з'явиться каталог <code>__pycache__</code>. Переконайтеся, що <code>git status</code> його бачить.</li>
+<li>
+<p>Створіть у корені репозиторію файл <code>.gitignore</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>__pycache__/
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>*.pyc
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>env/
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>.venv/
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>.vscode/
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>.idea/
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>*.log
+</span></code></pre></div>
+</li>
+<li>
+<p>Виконайте <code>git status</code> ще раз і збережіть вивід — <code>__pycache__</code> має зникнути зі списку. Закомітьте <code>.gitignore</code> окремим комітом <code>Add gitignore for Python project</code>.</p>
+</li>
+<li>
+<p><strong>Скасування незакомічених змін.</strong> Відкрийте <code>README.md</code>, зіпсуйте в ньому назву своєї групи, збережіть файл і подивіться, що змінилося:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>diff
+</span></code></pre></div>
+<p>Збережіть вивід, потім поверніть файл у попередній стан <strong>однією командою</strong> <code>git restore README.md</code> і покажіть, що <code>git status</code> знову чистий.</p>
+</li>
+<li>
+<p><strong>Виправлення останнього коміту.</strong> Додайте до <code>README.md</code> рядок зі своєю поштою та зробіть коміт із <strong>навмисно поганим</strong> повідомленням <code>fix</code>. Потім виправте це повідомлення:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add contact email to readme"</span>
+</span></code></pre></div>
+<p>Наведіть <code>git log --oneline</code> до і після виправлення.</p>
+</li>
+<li>
+<p><strong>Скасування давнього коміту.</strong> Створіть файл <code>temp.txt</code> з будь-яким текстом, закомітьте його (<code>Add temporary file</code>), а потім скасуйте цей коміт через <code>git revert</code>. Поясніть, чому після <code>revert</code> у <code>git log</code> <strong>два</strong> коміти, а не жодного, і чи існує файл <code>temp.txt</code> після цього.</p>
+</li>
+</ol>
+<p><strong>Питання:</strong> чим <code>git restore</code> відрізняється від <code>git revert</code> і коли який застосовують?</p>
+<h3 id="3-github">Завдання 3. Публікація на GitHub<a class="headerlink" href="#3-github" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Налаштуйте SSH-ключ (якщо ще не налаштований):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">"your.email@example.com"</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cat<span class="w"> </span>~/.ssh/id_ed25519.pub
+</span></code></pre></div>
+<p>Скопіюйте <strong>публічний</strong> ключ і додайте його на GitHub: <strong>Settings → SSH and GPG keys → New SSH key</strong>.</p>
+</li>
+<li>
+<p>Перевірте зв'язок і збережіть вивід:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ssh<span class="w"> </span>-T<span class="w"> </span>git@github.com
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Hi ivan-petrenko! You've successfully authenticated, but GitHub does not provide shell access.
+</span></code></pre></div>
+</li>
+<li>
+<p>На GitHub створіть <strong>публічний</strong> репозиторій <code>python-practice-&lt;surname&gt;</code>. Файли README, <code>.gitignore</code> та ліцензію при створенні <strong>не</strong> додавайте — вони у вас уже є локально.</p>
+</li>
+<li>
+<p>Прив'яжіть віддалений репозиторій і вивантажте свою роботу:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:ivan-petrenko/python-practice-petrenko.git
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git<span class="w"> </span>remote<span class="w"> </span>-v
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
+</span></code></pre></div>
+</li>
+<li>
+<p>Відкрийте репозиторій у браузері й перевірте, що там є всі ваші коміти (вкладка <strong>Commits</strong>) і що <code>__pycache__</code> <strong>відсутній</strong>.</p>
+</li>
+<li><strong>Перевірка авторства.</strong> Відкрийте будь-який коміт на GitHub. Якщо поруч з іменем немає вашого аватара й посилання на профіль — пошта в <code>git config user.email</code> не збігається з поштою акаунта. Виправте налаштування, зробіть новий коміт і покажіть, що тепер авторство визначається правильно.</li>
+</ol>
+<p><strong>Питання:</strong> що станеться з віддаленим репозиторієм, якщо ви видалите каталог проєкту на своєму комп'ютері? А що станеться з локальним, якщо видалити репозиторій на GitHub?</p>
+<h3 id="4">Завдання 4. Гілка та запит на злиття у власному репозиторії<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>Тепер додамо нову можливість так, як це роблять у справжніх проєктах: <strong>не</strong> прямо в <code>main</code>, а через окрему гілку й Pull Request.</p>
+<pre class="mermaid"><code>graph LR
+    M["main"] --&gt;|"git switch -c add-about"| B["гілка add-about"]
+    B --&gt;|"git commit"| C["коміт"]
+    C --&gt;|"git push -u origin add-about"| GH["гілка на GitHub"]
+    GH --&gt;|"Compare &amp; pull request"| PR["Pull Request"]
+    PR --&gt;|"Merge"| M2["main з новим кодом"]
+
+    style M fill:#339af0,stroke:#333,color:#fff
+    style B fill:#ffd43b,stroke:#333,color:#000
+    style C fill:#ffd43b,stroke:#333,color:#000
+    style GH fill:#ff922b,stroke:#333,color:#000
+    style PR fill:#845ef7,stroke:#333,color:#fff
+    style M2 fill:#51cf66,stroke:#333,color:#000</code></pre>
+<ol>
+<li>
+<p>Створіть гілку й перейдіть до неї:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>add-about
+</span></code></pre></div>
+</li>
+<li>
+<p>У гілці створіть файл <code>about.py</code>, який друкує ваші дані. Програма має бути повноцінною й запускатися з порожнього файлу:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Program: personal information card</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">name</span> <span class="o">=</span> <span class="s2">"Ivan"</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">surname</span> <span class="o">=</span> <span class="s2">"Petrenko"</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="n">group</span> <span class="o">=</span> <span class="s2">"PZ-11"</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="n">birth_year</span> <span class="o">=</span> <span class="mi">2007</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">surname</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Group: </span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Age in 2026: </span><span class="si">{</span><span class="mi">2026</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">birth_year</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Favourite language: Python"</span><span class="p">)</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Name: Ivan Petrenko
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Group: PZ-11
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Age in 2026: 19
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Favourite language: Python
+</span></code></pre></div>
+</li>
+<li>
+<p>Закомітьте файл (<code>Add personal information script</code>) і вивантажте гілку:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>add-about
+</span></code></pre></div>
+</li>
+<li>
+<p>На GitHub натисніть <strong>Compare &amp; pull request</strong>. У запиті вкажіть:</p>
+<ul>
+<li><strong>заголовок</strong> англійською, що описує зміну, наприклад <code>Add personal information script</code>;</li>
+<li><strong>опис</strong>: що додано, як запустити (<code>python3 about.py</code>) і який очікуваний вивід.</li>
+</ul>
+</li>
+<li>
+<p>Відкрийте вкладку <strong>Files changed</strong> і зробіть знімок екрана — це те, що бачить рецензент.</p>
+</li>
+<li><strong>Доопрацювання за зауваженням.</strong> Не зливаючи запит, додайте в <code>about.py</code> ще один рядок виводу (наприклад, кількість літер у вашому прізвищі), закомітьте та виконайте <code>git push</code>. Оновіть сторінку PR і покажіть, що там <strong>автоматично</strong> з'явився другий коміт.</li>
+<li>Натисніть <strong>Merge pull request</strong>, потім <strong>Delete branch</strong> на GitHub.</li>
+<li>
+<p>Поверніться локально в <code>main</code>, заберіть зміни й приберіть за собою:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>switch<span class="w"> </span>main
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>git<span class="w"> </span>pull
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>add-about
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span>--graph<span class="w"> </span>--all
+</span></code></pre></div>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-1sem/issues">Створіть issue на GitHub</a></em></p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Куротич Анатолій. Всі права захищені.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kurotych" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
