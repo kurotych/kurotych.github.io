@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/module2/17-multiwindow-app-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-3sem/module2/21-background-tasks-practice/">
       
       
-        <link rel="prev" href="../16-multiwindow-apps-lecture/">
+        <link rel="prev" href="../20-threading-lecture/">
       
-      
-        <link rel="next" href="../18-model-view-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>17. (П8) Реалізація багатовіконного застосунку: нотатки в окремих вікнах - Python (3 семестр)</title>
+        <title>21. (П10) Реалізація фонових задач без блокування інтерфейсу - Python (3 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#17-8" class="md-skip">
+        <a href="#21-10" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              17. (П8) Реалізація багатовіконного застосунку: нотатки в окремих вікнах
+              21. (П10) Реалізація фонових задач без блокування інтерфейсу
             
           </span>
         </div>
@@ -673,30 +671,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    17. (П8) Реалізація багатовіконного застосунку: нотатки в окремих вікнах
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../17-multiwindow-app-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -705,98 +683,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Передумови
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Завдання
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Персоналізація
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Структура проєкту
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Схема головного вікна
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      Схема вікна нотатки
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      Схема діалогу налаштувань
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      Команди
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -869,10 +755,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../21-background-tasks-practice/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    21. (П10) Реалізація фонових задач без блокування інтерфейсу
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -881,6 +787,107 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Передумови
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Персоналізація
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Схема вікна
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що має робити застосунок
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-blocking_taskpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Файл 1: blocking_task.py
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-threaded_taskpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Файл 2: threaded_task.py
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що перевірити руками
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Для звіту
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -912,182 +919,107 @@
   
 
 
-<h1 id="17-8">17. (П8) Реалізація багатовіконного застосунку: нотатки в окремих вікнах<a class="headerlink" href="#17-8" title="Permanent link">&para;</a></h1>
+<h1 id="21-10">21. (П10) Реалізація фонових задач без блокування інтерфейсу<a class="headerlink" href="#21-10" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Передумови<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Прочитана <a href="/ua/courses/programming-3sem/module2/16-multiwindow-apps-lecture/">Лекція 16 — Багатовіконні застосунки</a></li>
-<li>Успішно запущений застосунок «Contacts» із лекції та пройдені всі шість перевірок із розділу «Що перевірити руками»</li>
-<li>Виконана <a href="/ua/courses/programming-3sem/module2/15-project-structure-practice/">Практична 7 — проєкт із розділенням логіки на модулі</a>: пакет <code>app/</code> беремо звідти й далі тільки доповнюємо</li>
+<li>Прочитана <a href="/ua/courses/programming-3sem/module2/20-threading-lecture/">Лекція 20 — Багатопоточність у PySide6</a></li>
+<li>Запущений приклад із розділу «Воркер і <code>moveToThread</code>: базовий патерн»</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Мова в коді</p>
+<p>Усі рядкові літерали, написи на кнопках, заголовок вікна, імена файлів та змінних — <strong>лише латиницею</strong>. Своє ім'я, прізвище та групу пишіть у транслітерації: <code>Ivan Petrenko</code>, <code>KI-31</code>. Кирилиця допускається тільки в коментарях.</p>
+</div>
 <h2 id="_2">Завдання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Перетворити менеджер нотаток із практичної 7 на <strong>багатовіконний</strong> застосунок. Додається три типи вікон:</p>
-<ul>
-<li><strong>головне вікно</strong> — список нотаток і редактор; таких вікон можна відкрити скільки завгодно;</li>
-<li><strong>вікно нотатки</strong> — немодальне, <strong>по одному на нотатку</strong>, зміни застосовуються під час набору;</li>
-<li><strong>вікно налаштувань</strong> — модальний діалог із <code>OK</code> / <code>Cancel</code>.</li>
-</ul>
-<p>Головна вимога: <strong>жодне вікно не тримає посилання на інше вікно</strong>. Дані вікна беруть зі спільного <code>AppState</code>, перемальовуються за його сигналами, а відкриттям і закриттям керує один об'єкт — <code>WindowManager</code>.</p>
+<p>Написати <strong>два окремі файли</strong> з однаковим вікном і однаковою «довгою роботою» — циклом із паузами <code>SLEEP_MS</code> мілісекунд на кожному з <code>STEP_COUNT</code> кроків:</p>
+<ol>
+<li><code>blocking_task.py</code> — робота виконується <strong>прямо в слоті кнопки</strong>;</li>
+<li><code>threaded_task.py</code> — та сама робота винесена у <strong>воркер</strong> (<code>QObject</code> + <code>moveToThread</code> + <code>QThread</code>).</li>
+</ol>
+<p>Мета практичної — побачити різницю власними руками: перше вікно на час роботи повністю замерзає, друге лишається живим.</p>
 <h2 id="_3">Персоналізація<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Константи, як і раніше, живуть тільки в <code>app/config.py</code>. До наявних додаються дві нові:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">STUDENT_NAME</span> <span class="o">=</span> <span class="s2">"Ivan Petrenko"</span>                <span class="c1"># ваше ім'я та прізвище транслітерацією</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">STUDENT_GROUP</span> <span class="o">=</span> <span class="s2">"KI-31"</span>                       <span class="c1"># ваша група</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DB_FILE</span> <span class="o">=</span> <span class="s2">"workspace_ivan_petrenko.db"</span>        <span class="c1"># файл бази з практичних 3-5</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">APP_TITLE</span> <span class="o">=</span> <span class="s2">"Notes Manager"</span>                   <span class="c1"># назва застосунку</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">CASCADE_STEP</span> <span class="o">=</span> <span class="mi">40</span>                             <span class="c1"># зсув кожного наступного вікна, пікселів</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">DEFAULT_PREVIEW_LENGTH</span> <span class="o">=</span> <span class="mi">30</span>                   <span class="c1"># символів тексту нотатки у списку</span>
+<p>Константи оголошуються на початку <strong>кожного</strong> файлу:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">STUDENT_NAME</span> <span class="o">=</span> <span class="s2">"Ivan Petrenko"</span>      <span class="c1"># ваше ім'я та прізвище транслітерацією</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">STUDENT_GROUP</span> <span class="o">=</span> <span class="s2">"KI-31"</span>             <span class="c1"># ваша група</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">APP_TITLE</span> <span class="o">=</span> <span class="s2">"Task Demo"</span>             <span class="c1"># назва застосунку</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">STEP_COUNT</span> <span class="o">=</span> <span class="mi">10</span>                     <span class="c1"># скільки кроків у роботі</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">SLEEP_MS</span> <span class="o">=</span> <span class="mi">500</span>                      <span class="c1"># пауза на кожному кроці, мілісекунд</span>
 </span></code></pre></div>
-<p>Заголовки вікон:</p>
+<p>Заголовок вікна: <code>Task Demo - Ivan Petrenko, KI-31</code>.</p>
+<h2 id="_4">Схема вікна<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Вікно однакове в обох файлах:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>+--------------------------------------------------+
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>|  QWidget          Task Demo - Ivan Petrenko, KI-31|
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>+--------------------------------------------------+
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>|  Ready                                            |
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>|   ^- status_label                                 |
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>|                                                   |
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>|  [#############-----------------------]           |
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>|   ^- progress_bar (0 .. STEP_COUNT)               |
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>|                                                   |
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>|  [        Start        ]                          |
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>|   ^- start_button                                 |
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>|                                                   |
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>|  [     Click me (0)    ]                          |
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>|   ^- click_button: лічильник клацань              |
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>+--------------------------------------------------+
+</span></code></pre></div>
+<p><code>Click me</code> — це «датчик життя» вікна: він нічого не рахує, лише збільшує число у своєму написі.</p>
+<h2 id="_5">Що має робити застосунок<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Вікно</th>
-<th>Заголовок</th>
+<th>Момент</th>
+<th><code>status_label</code></th>
+<th><code>progress_bar</code></th>
+<th><code>start_button</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>перше головне</td>
-<td><code>Notes Manager - Ivan Petrenko, KI-31</code></td>
+<td>запуск</td>
+<td><code>Ready</code></td>
+<td><code>0</code></td>
+<td>доступна</td>
 </tr>
 <tr>
-<td>друге, третє, ... головне</td>
-<td><code>Notes Manager (2) - Ivan Petrenko, KI-31</code></td>
+<td>під час роботи</td>
+<td><code>Working...</code></td>
+<td>росте на кожному кроці</td>
+<td>вимкнена</td>
 </tr>
 <tr>
-<td>вікно нотатки</td>
-<td><code>Note 7 - Notes Manager</code></td>
-</tr>
-<tr>
-<td>вікно нотатки з незбереженими змінами</td>
-<td><code>Note 7* - Notes Manager</code></td>
-</tr>
-<tr>
-<td>налаштування</td>
-<td><code>Preferences</code></td>
+<td>після роботи</td>
+<td><code>Done</code></td>
+<td><code>STEP_COUNT</code></td>
+<td>знову доступна</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">Структура проєкту<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>Нові файли позначено <code>&lt;- нове</code>; решта береться з практичної 7 без переписування з нуля:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>notes_manager/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── main.py                      &lt;- створює storage, state, WindowManager
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── check_state.py               &lt;- доповнюється перевірками налаштувань
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── workspace_ivan_petrenko.db
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>└── app/
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    ├── __init__.py
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    ├── config.py                &lt;- дві нові константи
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    ├── models.py
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    ├── storage.py
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    ├── state.py                 &lt;- нові сигнали й налаштування
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    └── ui/
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        ├── __init__.py
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        ├── window_manager.py        &lt;- нове: реєстр відкритих вікон
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        ├── main_window.py
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        ├── note_list_panel.py
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        ├── note_editor_panel.py
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        ├── note_window.py           &lt;- нове: немодальне вікно однієї нотатки
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        └── preferences_dialog.py    &lt;- нове: модальний діалог налаштувань
-</span></code></pre></div>
-<h2 id="_5">Схема головного вікна<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Порівняно з практичною 7 змінюється небагато: у меню з'являється розділ вікон, у рядку стану — номер вікна.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>+----------------------------------------------------------------------+
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>|  MainWindow                 Notes Manager - Ivan Petrenko, KI-31     |
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>+----------------------------------------------------------------------+
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>|  Note      Edit      Window      Help              &lt;- menuBar()      |
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>+----------------------------------------------------------------------+
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>|  [New] [Save] [Delete] | [Open in new window]      &lt;- QToolBar       |
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>+----------------------------------------------------------------------+
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>|                         |                                            |
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>|  +-------------------+  |  +--------------------------------------+  |
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>|  |                   |  |  |                                      |  |
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>|  |  note_list_panel  |  |  |         note_editor_panel            |  |
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>|  |                   |  |  |          (centralWidget)             |  |
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>|  +-------------------+  |  +--------------------------------------+  |
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>|                         |                                            |
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>+----------------------------------------------------------------------+
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>|  Ready                          [ Window: 1 ]   [ Notes: 12 ]        |
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>|                                                   &lt;- statusBar()     |
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>+----------------------------------------------------------------------+
-</span></code></pre></div>
-<h2 id="_6">Схема вікна нотатки<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>+----------------------------------------------------+
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>|  NoteWindow            Note 7* - Notes Manager     |
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>+----------------------------------------------------+
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>|  Note 7                     [x] Pinned             |
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>|                              ^- pinned_box         |
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>|                                                    |
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>|  +----------------------------------------------+  |
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>|  |                                              |  |
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>|  |                  text_edit                   |  |
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>|  |                 (QTextEdit)                  |  |
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>|  |                                              |  |
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>|  +----------------------------------------------+  |
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>|                                                    |
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>|  Updated: 2026-09-01 14:30            [ Close ]    |
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>|   ^- updated_label                                 |
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>+----------------------------------------------------+
-</span></code></pre></div>
-<p>Вікно нотатки — це <code>QWidget</code> верхнього рівня (без батька), а не <code>QDialog</code> і не <code>QMainWindow</code>.</p>
-<h2 id="_7">Схема діалогу налаштувань<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>+-------------------------------------------------+
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>|  PreferencesDialog               Preferences    |
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>+-------------------------------------------------+
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>|  Applies to every open window.                  |
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>|                                                 |
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>|  [x] Show pinned notes first                    |
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>|   ^- pinned_first_box                           |
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>|                                                 |
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>|  Preview length:  [ 30 ]                        |
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>|                     ^- preview_spin             |
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>|                                                 |
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>|                         [ OK ]  [ Cancel ]      |
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>|                          ^- QDialogButtonBox    |
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>+-------------------------------------------------+
-</span></code></pre></div>
-<h2 id="_8">Команди<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Команда</th>
-<th>Клавіша</th>
-<th>Меню</th>
-<th>Що робить</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>New window</code></td>
-<td><code>Ctrl+Shift+N</code></td>
-<td><code>Window</code></td>
-<td>відкриває ще одне головне вікно з тими самими даними</td>
-</tr>
-<tr>
-<td><code>Open in new window</code></td>
-<td><code>Ctrl+Return</code></td>
-<td><code>Note</code></td>
-<td>відкриває вікно вибраної нотатки; подвійне клацання по списку робить те саме</td>
-</tr>
-<tr>
-<td><code>Close window</code></td>
-<td><code>Ctrl+W</code></td>
-<td><code>Window</code></td>
-<td>закриває <strong>поточне</strong> вікно, а не застосунок</td>
-</tr>
-<tr>
-<td><code>Preferences...</code></td>
-<td><code>Ctrl+,</code></td>
-<td><code>Edit</code></td>
-<td>відкриває модальний діалог налаштувань</td>
-</tr>
-<tr>
-<td><code>Quit</code></td>
-<td><code>Ctrl+Q</code></td>
-<td><code>Note</code></td>
-<td>закриває всі вікна через <code>QApplication.closeAllWindows()</code></td>
-</tr>
-</tbody>
-</table>
-<p>Команди з практичної 7 (<code>New note</code>, <code>Save note</code>, <code>Delete note</code>, <code>Pin</code>, <code>Export</code>, <code>About</code>) лишаються на місці й мають працювати в <strong>кожному</strong> головному вікні.</p>
+<h2 id="1-blocking_taskpy">Файл 1: <code>blocking_task.py</code><a class="headerlink" href="#1-blocking_taskpy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>пауза робиться викликом <code>time.sleep(SLEEP_MS / 1000)</code> у слоті кнопки <code>Start</code>;</li>
+<li>прогрес оновлюється на кожному кроці — <code>progress_bar.setValue(step)</code>;</li>
+<li><code>processEvents()</code> використовувати <strong>заборонено</strong>.</li>
+</ul>
+<h2 id="2-threaded_taskpy">Файл 2: <code>threaded_task.py</code><a class="headerlink" href="#2-threaded_taskpy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>клас <code>Worker(QObject)</code> із сигналами <code>progress = Signal(int)</code> та <code>finished = Signal()</code> і слотом <code>run()</code>;</li>
+<li>пауза робиться через <code>QThread.currentThread().msleep(SLEEP_MS)</code>, а не <code>time.sleep()</code>;</li>
+<li>у <code>Worker</code> <strong>немає жодного віджета</strong> й жодного імпорту з <code>PySide6.QtWidgets</code>;</li>
+<li>вікно створює <code>QThread</code> і <code>Worker</code>, викликає <code>worker.moveToThread(thread)</code>, з'єднує <code>thread.started</code> → <code>worker.run</code>, а <code>progress</code> і <code>finished</code> — зі своїми слотами;</li>
+<li><code>thread</code> і <code>worker</code> зберігаються в полях вікна (<code>self.thread</code>, <code>self.worker</code>), а не в локальних змінних;</li>
+<li><code>worker.finished</code> з'єднано з <code>thread.quit</code>;</li>
+<li>у <code>closeEvent()</code> вікно робить <code>thread.quit()</code> і <code>thread.wait(3000)</code>, якщо потік ще працює.</li>
+</ul>
+<h2 id="_6">Що перевірити руками<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Запустити <code>blocking_task.py</code>, натиснути <code>Start</code> і одразу клацати <code>Click me</code> — число <strong>не змінюється</strong>, вікно не перемальовується, прогрес стоїть на місці (або взагалі не малюється).</li>
+<li>Під час роботи <code>blocking_task.py</code> спробувати перетягнути вікно — воно не рухається; система може підписати заголовок <code>Not Responding</code>.</li>
+<li>Запустити <code>threaded_task.py</code>, натиснути <code>Start</code> і клацати <code>Click me</code> — число <strong>росте</strong>, прогрес рухається плавно, вікно перетягується.</li>
+<li>У <code>threaded_task.py</code> закрити вікно посеред роботи — застосунок завершується <strong>без</strong> повідомлення <code>QThread: Destroyed while thread is still running</code>.</li>
+</ol>
+<h2 id="_7">Для звіту<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Знімок екрана обох вікон одразу після натискання <code>Start</code> і кількох клацань <code>Click me</code>: у першому лічильник <code>Click me (0)</code>, у другому — більший за нуль. Одним-двома реченнями пояснити, чому так.</p>
 
 
 
