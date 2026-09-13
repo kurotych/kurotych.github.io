@@ -8,23 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module2/15-lists-tuples-practice/">
+      
+      
+        <link rel="prev" href="../14-lists-tuples-lecture/">
       
       
       
-        <link rel="next" href="module1/01-intro-lecture/">
-      
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
       
-        <title>Python (1 семестр)</title>
+        <title>15. (П7) Виконання завдань зі списками та кортежами - Python (1 семестр)</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.a40c8224.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#python-1" class="md-skip">
+        <a href="#15-7" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+    <a href="../.." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Головна
+              15. (П7) Виконання завдань зі списками та кортежами
             
           </span>
         </div>
@@ -197,7 +197,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+    <a href="../.." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -224,30 +224,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Головна
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -256,95 +236,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Про курс
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Передумови
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Структура курсу
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Структура курсу">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Модуль 1: Основи програмування на Python
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Модуль 2: Структури даних, робота з файлами та обробка винятків
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      Здача практичних
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      Формат занять
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -398,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/01-intro-lecture/" class="md-nav__link">
+      <a href="../../module1/01-intro-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,7 +310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/02-tools-lecture/" class="md-nav__link">
+      <a href="../../module1/02-tools-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/03-tools-practice/" class="md-nav__link">
+      <a href="../../module1/03-tools-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/04-variables-lecture/" class="md-nav__link">
+      <a href="../../module1/04-variables-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/05-variables-practice/" class="md-nav__link">
+      <a href="../../module1/05-variables-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -503,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/06-conditions-lecture/" class="md-nav__link">
+      <a href="../../module1/06-conditions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -524,7 +415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/07-conditions-practice/" class="md-nav__link">
+      <a href="../../module1/07-conditions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -545,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/08-loops-lecture/" class="md-nav__link">
+      <a href="../../module1/08-loops-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -566,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/09-loops-practice/" class="md-nav__link">
+      <a href="../../module1/09-loops-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -587,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/10-functions-lecture/" class="md-nav__link">
+      <a href="../../module1/10-functions-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -608,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/11-functions-practice/" class="md-nav__link">
+      <a href="../../module1/11-functions-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -629,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/12-git-lecture/" class="md-nav__link">
+      <a href="../../module1/12-git-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -650,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module1/13-git-practice/" class="md-nav__link">
+      <a href="../../module1/13-git-practice/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -675,8 +566,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -686,13 +579,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -706,7 +597,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Модуль 2
@@ -720,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="module2/14-lists-tuples-lecture/" class="md-nav__link">
+      <a href="../14-lists-tuples-lecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -738,10 +629,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="module2/15-lists-tuples-practice/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15. (П7) Виконання завдань зі списками та кортежами
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -750,6 +661,101 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Мета роботи
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підготовка
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Підготовка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ваші персональні дані
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Хід роботи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Хід роботи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання 1. Список власних оцінок
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання 2. Прізвище як список літер
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завдання 3. Предмети семестру
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -781,30 +787,162 @@
   
 
 
-<h1 id="python-1">Програмування Python - 1 семестр<a class="headerlink" href="#python-1" title="Permanent link">&para;</a></h1>
-<p>Ласкаво прошу на курс "Програмування Python - 1 семестр"</p>
-<h2 id="_1">Про курс<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Курс присвячений основам програмування на Python.
-Для кращого засвоєння матеріалу наполегливо рекомендую тестувати та досліджувати код (представлений на лекційних матеріалах) локально.</p>
-<h2 id="_2">Передумови<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Спеціальних передумов немає — курс починається з основ.</p>
-<h2 id="_3">Структура курсу<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1-python"><a href="module1/01-intro-lecture/">Модуль 1: Основи програмування на Python</a><a class="headerlink" href="#1-python" title="Permanent link">&para;</a></h3>
-<p>Алгоритми та блок-схеми, змінні й типи даних, розгалуження, цикли, функції, основи Git та GitHub.</p>
-<h3 id="2"><a href="module2/14-lists-tuples-lecture/">Модуль 2: Структури даних, робота з файлами та обробка винятків</a><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>Списки, кортежі, словники та множини, робота з рядками, типізація, файловий ввід/вивід, обробка винятків.</p>
-<p>Матеріали курсу в процесі наповнення.</p>
-<h2 id="_4">Здача практичних<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>Звіти з практичних робіт здавати за адресою kurotych.anatolii@ktbp.net.ua в форматі PDF.
-В темі повідомлення вказати: Прізвище, Група, Предмет, Номер практичної.
-До практичної обов'язково прикріпити код або посилання на публічний репозиторій.</p>
-<h2 id="_5">Формат занять<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Кожен модуль містить:</p>
+<h1 id="15-7">15. (П7) Виконання завдань зі списками та кортежами<a class="headerlink" href="#15-7" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Мета роботи<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Навчитися створювати та змінювати списки, звертатися до їх елементів і частин, шукати, рахувати й сортувати дані, описувати фіксовані записи кортежами, а також розрізняти копію списку та друге ім'я того самого об'єкта.</p>
+<div class="admonition danger">
+<p class="admonition-title">Персоналізація обов'язкова</p>
+<p>Кожне завдання має працювати з <strong>вашими справжніми даними</strong>: прізвищем, групою, датою народження, оцінками, предметами цього семестру. Роботи з абстрактними <code>[1, 2, 3]</code>, <code>("a", "b")</code> або з даними іншого студента не приймаються.</p>
+</div>
+<h2 id="_2">Підготовка<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Кожне завдання виконуйте в <strong>окремому файлі</strong>: <code>task1.py</code> … <code>task3.py</code>. Теоретичний матеріал — <a href="../14-lists-tuples-lecture/">лекція 14</a>.</p>
+<h3 id="_3">Ваші персональні дані<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Перш ніж почати, випишіть ці значення — вони знадобляться в усіх завданнях.</p>
+<table>
+<thead>
+<tr>
+<th>Позначення</th>
+<th>Звідки береться</th>
+<th>Приклад</th>
+<th>Завдання</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>ваше ім'я латиницею</td>
+<td><code>Ivan</code></td>
+<td>усі</td>
+</tr>
+<tr>
+<td><code>surname</code></td>
+<td>ваше прізвище латиницею</td>
+<td><code>Petrenko</code></td>
+<td>усі</td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td>ваша група</td>
+<td><code>PZ-11</code></td>
+<td>усі</td>
+</tr>
+<tr>
+<td><code>year</code></td>
+<td>рік вашого народження</td>
+<td><code>2007</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>birthday</code></td>
+<td>дата народження рядком <code>DDMMYYYY</code></td>
+<td><code>"14032007"</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>кількість літер у вашому прізвищі латиницею</td>
+<td><code>8</code></td>
+<td>1, 2</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>кількість літер у вашому імені латиницею (мінімум 4, максимум 8)</td>
+<td><code>4</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td>оцінки</td>
+<td>ваші реальні оцінки (1–12) за останні <code>c</code> контрольних, тестів або практичних</td>
+<td><code>10, 7, 9, …</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>предмети</td>
+<td><code>n</code> ваших предметів цього семестру з кількістю пар на тиждень (за розкладом) і оцінкою</td>
+<td><code>Programming, 3, 11</code></td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">Хід роботи<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1">Завдання 1. Список власних оцінок<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>Файл <code>task1.py</code>.</p>
+<ol>
+<li>Створіть список <code>grades</code> із <code>c</code> ваших оцінок.</li>
+<li>Виведіть список, кількість оцінок, їх суму, найкращу й найгіршу оцінку та середнє з двома знаками після коми.</li>
+<li>Виведіть оцінки, впорядковані від найкращої до найгіршої, а одразу після цього — оригінальний список <code>grades</code>, який має лишитися <strong>незмінним</strong>.</li>
+<li>Виведіть три найкращі та три найгірші оцінки.</li>
+<li>Виведіть, якою за порядком (рахуючи з одиниці) була ваша найгірша оцінка.</li>
+<li>Виведіть список оцінок, <strong>вищих</strong> за середнє, та їх кількість.</li>
+<li>Виведіть, чи є серед ваших оцінок <code>12</code> і чи є <code>1</code>.</li>
+<li>
+<p>Змініть список, виводячи його після кожної зміни:</p>
 <ul>
-<li><strong>Лекції</strong> (Л) - теоретичний матеріал</li>
-<li><strong>Практичні заняття</strong> - завдання для самостійного виконання</li>
+<li>додайте в кінець оцінку <code>c % 12 + 1</code>;</li>
+<li>вставте на початок оцінку <code>12</code>;</li>
+<li>вилучіть найгіршу оцінку;</li>
+<li>вилучіть останню оцінку й виведіть, яку саме.</li>
 </ul>
-<p>Успіхів у навчанні!</p>
+</li>
+<li>
+<p>Виведіть, скільки разів у списку трапляється <code>12</code>.</p>
+</li>
+<li>Відсортуйте сам список <code>grades</code>, не створюючи нового, і виведіть значення, яке повернула операція сортування. </li>
+</ol>
+<h3 id="2">Завдання 2. Прізвище як список літер<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>Файл <code>task2.py</code>.</p>
+<ol>
+<li>Створіть список <code>letters</code> з літер вашого прізвища в нижньому регістрі. Виведіть його та його довжину <code>c</code>.</li>
+<li>Виведіть першу, середню та останню літеру. Останню отримайте <strong>двома різними</strong> способами.</li>
+<li>
+<p>Виведіть:</p>
+<ul>
+<li>перші три літери;</li>
+<li>усі літери, крім перших трьох;</li>
+<li>кожну другу літеру;</li>
+<li>усі літери у зворотному порядку;</li>
+<li>останні дві літери;</li>
+<li>частину списку довжиною 5, що починається з позиції <code>c</code>.</li>
+</ul>
+</li>
+<li>
+<p>Отримайте список <code>unique</code> — літери прізвища <strong>без повторів</strong> у порядку першої появи. Для кожної літери, яка трапляється більше одного разу, виведіть кількість повторів. Якщо повторів немає — виведіть <code>No repeated letters</code>.</p>
+</li>
+<li>Виведіть літери прізвища в алфавітному порядку.</li>
+</ol>
+<h3 id="3">Завдання 3. Предмети семестру<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>Файл <code>task3.py</code>.</p>
+<p>Програма складається лише з функцій і одного виклику <code>main()</code> наприкінці файлу.</p>
+<ol>
+<li>Створіть список <code>subjects</code> із <code>n</code> ваших предметів цього семестру. Кожен предмет — кортеж <code>(title, pairs, grade)</code>: назва латиницею, кількість пар на тиждень за вашим розкладом і ваша оцінка (реальна або очікувана).</li>
+<li>Виведіть таблицю предметів з нумерацією від <code>1</code>.</li>
+<li>Виведіть, скільки всього пар на тиждень у вас із цих предметів.</li>
+<li>Виведіть предмет із <strong>найбільшою</strong> кількістю пар на тиждень і предмет із <strong>найнижчою</strong> оцінкою.</li>
+<li>Виведіть окремо список назв предметів, список оцінок і середню оцінку.</li>
+<li>Виведіть назви предметів з оцінкою <code>10</code> і вище.</li>
+<li>Для кожного предмета виведіть «гістограму» — стільки символів <code>#</code>, яка оцінка.</li>
+<li>Уявіть, що ви перездали предмет із найнижчою оцінкою і отримали на <code>2</code> бали більше (але не більше за <code>12</code>). Оновіть <code>subjects</code> так, щоб кожен предмет і далі був кортежем, і виведіть результат.</li>
+</ol>
+<p>Приклад роботи програми:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>#  Subject        Pairs  Grade
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>1  Programming        3     11
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>2  Math               2      8
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>3  English            2     10
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>4  Physics            1      6
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Pairs per week: 8
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Most pairs: Programming (3)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Weakest subject: Physics (6)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Titles: ['Programming', 'Math', 'English', 'Physics']
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Grades: [11, 8, 10, 6], average: 8.75
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>Grade 10+: ['Programming', 'English']
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>Programming: ###########
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>Math: ########
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>English: ##########
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>Physics: ######
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>Retake: Physics 6 -&gt; 8
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>Subjects: [('Programming', 3, 11), ('Math', 2, 8), ('English', 2, 10), ('Physics', 1, 8)]
+</span></code></pre></div>
 
 
 
@@ -875,10 +1013,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.60a45f97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
       
     
   </body>
