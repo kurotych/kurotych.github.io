@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module2/22-files-practice/">
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module2/24-exceptions-practice/">
       
       
-        <link rel="prev" href="../21-files-lecture/">
+        <link rel="prev" href="../23-exceptions-lecture/">
       
-      
-        <link rel="next" href="../23-exceptions-lecture/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>22. (П10) Робота з файлами: збереження і аналіз даних - Python (1 семестр)</title>
+        <title>24. (П11) Обробка винятків: програми, які не падають на поганих файлах - Python (1 семестр)</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#22-10" class="md-skip">
+        <a href="#24-11" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              22. (П10) Робота з файлами: збереження і аналіз даних
+              24. (П11) Обробка винятків: програми, які не падають на поганих файлах
             
           </span>
         </div>
@@ -778,6 +776,48 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../22-files-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. (П10) Робота з файлами: збереження і аналіз даних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23-exceptions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. (Л) Обробка винятків (Exceptions)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -794,7 +834,7 @@
           
   
   <span class="md-ellipsis">
-    22. (П10) Робота з файлами: збереження і аналіз даних
+    24. (П11) Обробка винятків: програми, які не падають на поганих файлах
   </span>
   
 
@@ -805,7 +845,7 @@
         
   
   <span class="md-ellipsis">
-    22. (П10) Робота з файлами: збереження і аналіз даних
+    24. (П11) Обробка винятків: програми, які не падають на поганих файлах
   </span>
   
 
@@ -854,13 +894,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вимоги до всіх завдань
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       Хід роботи
     </span>
@@ -872,7 +921,7 @@
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      Завдання 1. Робоче місце програми
+      Завдання 1. Чому файл не читається
     </span>
   </a>
   
@@ -881,7 +930,7 @@
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      Завдання 2. Памʼять між запусками
+      Завдання 2. Копіювання файлів
     </span>
   </a>
   
@@ -890,7 +939,7 @@
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      Завдання 3. Трекер витрат
+      Завдання 3. Трекер витрат, який не боїться поганих даних
     </span>
   </a>
   
@@ -905,48 +954,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../23-exceptions-lecture/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    23. (Л) Обробка винятків (Exceptions)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../24-exceptions-practice/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    24. (П11) Обробка винятків: програми, які не падають на поганих файлах
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -978,15 +985,15 @@
   
 
 
-<h1 id="22-10">22. (П10) Робота з файлами: збереження і аналіз даних<a class="headerlink" href="#22-10" title="Permanent link">&para;</a></h1>
+<h1 id="24-11">24. (П11) Обробка винятків: програми, які не падають на поганих файлах<a class="headerlink" href="#24-11" title="Permanent link">&para;</a></h1>
 <h2 id="_1">Мета роботи<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Навчитися будувати шляхи незалежно від місця запуску програми, створювати каталоги й файли, зберігати дані між запусками, розбирати текстовий файл на структуровані записи, формувати звіт з вирівняними колонками та працювати з файлами у двійковому режимі.</p>
+<p>Навчитися перехоплювати винятки, що виникають під час роботи з файлами, обирати правильний тип і порядок гілок <code>except</code>, застосовувати <code>else</code> і <code>finally</code>, обробляти виняток на тому рівні програми, де є достатньо контексту, та завершувати програму зрозумілим повідомленням і кодом завершення замість traceback.</p>
 <div class="admonition danger">
 <p class="admonition-title">Персоналізація обовʼязкова</p>
-<p>Кожне завдання має працювати з <strong>вашими справжніми даними</strong>: іменем, групою, вашими витратами за минулий тиждень, вашим каталогом на диску. Роботи з вигаданими <code>test.txt</code>, <code>aaa;bbb;111</code> або з даними іншого студента не приймаються.</p>
+<p>Кожне завдання має працювати з <strong>вашими справжніми даними</strong>: іменем, групою, днем народження, вашим файлом витрат із попередньої роботи, вашим зображенням. Роботи з вигаданими <code>test.txt</code>, <code>aaa;bbb;111</code> або з даними іншого студента не приймаються.</p>
 </div>
 <h2 id="_2">Підготовка<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Створіть каталог <code>lab22</code> — це корінь вашого проєкту. Кожне завдання виконуйте в <strong>окремому файлі</strong> всередині нього: <code>task1.py</code> … <code>task4.py</code>. Теоретичний матеріал — <a href="../21-files-lecture/">лекція 21</a>.</p>
+<p>Створіть каталог <code>lab24</code>. Кожне завдання виконуйте в окремому файлі: <code>task1.py</code> … <code>task3.py</code>. Теоретичний матеріал — <a href="../23-exceptions-lecture/">лекція 23</a> та <a href="../21-files-lecture/">лекція 21</a>.</p>
 <h3 id="_3">Ваші персональні дані<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -999,15 +1006,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>name</code></td>
-<td>ваше імʼя латиницею</td>
-<td><code>Ivan</code></td>
-<td>усі</td>
-</tr>
-<tr>
-<td><code>surname</code></td>
-<td>ваше прізвище латиницею</td>
-<td><code>Petrenko</code></td>
+<td><code>name</code>, <code>surname</code></td>
+<td>ваше імʼя та прізвище латиницею</td>
+<td><code>Ivan Petrenko</code></td>
 <td>усі</td>
 </tr>
 <tr>
@@ -1017,190 +1018,197 @@
 <td>усі</td>
 </tr>
 <tr>
-<td><code>year</code></td>
-<td>рік вашого народження</td>
-<td><code>2007</code></td>
-<td>1</td>
-</tr>
-<tr>
-<td><code>language</code></td>
-<td>ваша улюблена мова програмування</td>
-<td><code>Python</code></td>
-<td>1</td>
-</tr>
-<tr>
-<td>витрати</td>
-<td>ваші <strong>реальні</strong> витрати за останні 7 днів, щонайменше 12 записів: дата, категорія латиницею, сума, короткий опис</td>
-<td><code>2026-09-21;food;85.50;lunch</code></td>
+<td><code>day</code></td>
+<td>день вашого народження</td>
+<td><code>14</code></td>
 <td>3</td>
 </tr>
 <tr>
-<td>каталог</td>
-<td>реальний каталог на вашому компʼютері, у якому щонайменше 10 файлів (наприклад, каталог з навчальними матеріалами)</td>
-<td><code>~/Downloads</code></td>
-<td>4</td>
+<td>профіль</td>
+<td>файл <code>data/profile.txt</code> з роботи 22</td>
+<td><code>name: Ivan</code></td>
+<td>1, 2</td>
+</tr>
+<tr>
+<td>зображення</td>
+<td>будь-яке <strong>ваше</strong> фото або малюнок (<code>.jpg</code> чи <code>.png</code>)</td>
+<td><code>photo.jpg</code></td>
+<td>1, 3</td>
+</tr>
+<tr>
+<td>витрати</td>
+<td>ваш файл <code>data/expenses.csv</code> з роботи 22</td>
+<td><code>2026-09-21;food;85.50;lunch</code></td>
+<td>3</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">Хід роботи<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="1">Завдання 1. Робоче місце програми<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>Файл <code>task1.py</code>. Програма готує структуру проєкту і доводить, що вміє знаходити свої файли з будь-якого місця запуску.</p>
-<ol>
-<li>Виведіть чотири шляхи з підписами: поточний робочий каталог, абсолютний шлях до файлу самої програми, каталог скрипта, домашній каталог.</li>
-<li>Створіть усередині каталогу скрипта три каталоги: <code>data</code>, <code>reports</code>, <code>backups</code>. Повторний запуск програми не повинен викликати помилку.</li>
-<li>Запишіть у <code>data/profile.txt</code> пʼять рядків у форматі <code>key: value</code> зі <strong>своїми</strong> даними: <code>name</code>, <code>surname</code>, <code>group</code>, <code>year</code>, <code>language</code>.</li>
-<li>Для цього файлу виведіть: абсолютний шлях, шлях відносно каталогу скрипта (<code>relative_to</code>), <code>name</code>, <code>stem</code>, <code>suffix</code>, імʼя батьківського каталогу та розмір у байтах.</li>
-<li>Виведіть дерево проєкту: кожен каталог із відступом і список файлів у ньому.</li>
-</ol>
-<p>Приклад роботи програми:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cwd:         /home/student/projects/lab22
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>script:      /home/student/projects/lab22/task1.py
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>script dir:  /home/student/projects/lab22
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>home:        /home/student
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>profile path: /home/student/projects/lab22/data/profile.txt
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>relative:    data/profile.txt
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>name:        profile.txt
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>stem:        profile
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>suffix:      .txt
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>parent:      data
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>size:        70 bytes
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>project tree:
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  backups/
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  data/
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    profile.txt
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  reports/
-</span></code></pre></div>
-<h3 id="2">Завдання 2. Памʼять між запусками<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<p>Файл <code>task2.py</code>. Програма памʼятає, скільки разів її запускали.</p>
-<p>Програма складається лише з функцій і одного виклику <code>main()</code> наприкінці файлу.</p>
-<ol>
-<li>Напишіть функцію <code>count_runs(path)</code>, яка повертає кількість непорожніх рядків у файлі <code>data/runs.log</code>, а якщо файлу ще немає — <code>0</code>.</li>
-<li>
-<p>Напишіть функцію <code>add_run(path, number)</code>, яка <strong>дописує в кінець того самого файлу</strong> <code>data/runs.log</code> один рядок <code>номер;дата і час;ваше імʼя</code>, нічого не стираючи.Час беріть так:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">stamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">)</span>
-</span></code></pre></div>
-</li>
-<li>
-<p>Напишіть функцію <code>show_history(path, last=3)</code>, яка виводить загальну кількість запусків, три останні записи у вигляді таблиці та час найпершого запуску.</p>
-</li>
-<li>У <code>main()</code>: обчисліть номер поточного запуску, додайте запис, привітайтеся на імʼя і покажіть історію. При першому запуску додатково повідомте, що файл щойно створено.</li>
-<li><strong>Запустіть програму щонайменше пʼять разів.</strong> У звіт вставте вивід першого, другого і пʼятого запуску, а також вміст файлу <code>data/runs.log</code> після них.</li>
-</ol>
-<p>Приклад третього запуску:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Hello, Ivan Petrenko! This is run number 3.
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>runs so far: 3
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>last runs:
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  # 1  2026-09-21 09:14:02  Ivan Petrenko
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  # 2  2026-09-21 09:15:37  Ivan Petrenko
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  # 3  2026-09-23 18:02:11  Ivan Petrenko
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>first run was at 2026-09-21 09:14:02
-</span></code></pre></div>
-<h3 id="3">Завдання 3. Трекер витрат<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>Файл <code>task3.py</code>. Головне завдання роботи: справжня маленька програма, яка зберігає ваші витрати у файлі та будує з них звіт.</p>
-<p><strong>Дані беріть свої реальні</strong> — за останні сім днів, щонайменше 12 записів. Якщо точних сум не памʼятаєте, відновіть їх приблизно, але правдоподібно.</p>
-<p>Формат файлу <code>data/expenses.csv</code> — по одному запису в рядку, поля через <code>;</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># date;category;amount;note
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2026-09-21;food;85.50;lunch at canteen
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2026-09-21;transport;32.00;bus to college
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2026-09-22;coffee;65.00;before the lecture
-</span></code></pre></div>
-<p>Витрати програма отримує <strong>з командного рядка</strong> — вона працює як маленька консольна утиліта з трьома командами (<a href="../21-files-lecture/">лекція 21</a>, розділ «Аргументи командного рядка»):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ python3 task3.py add 2026-09-21 food 85.50 lunch at canteen
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$ python3 task3.py list
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>$ python3 task3.py report
-</span></code></pre></div>
-<p>Що має вміти готова програма:</p>
-<ol>
-<li><strong><code>add &lt;date&gt; &lt;category&gt; &lt;amount&gt; &lt;note&gt;</code></strong> — дописує одну витрату в кінець <code>data/expenses.csv</code>, не перечитуючи і не переписуючи файл. Каталог <code>data</code> і рядок-заголовок <code># date;category;amount;note</code> програма створює сама при першому запуску. Опис витрати може складатися з кількох слів — зберіть його з усіх аргументів, що лишилися після суми.</li>
-<li><strong><code>list</code></strong> — читає файл і показує всі витрати таблицею з вирівняними колонками, а наприкінці — кількість записів і загальну суму.</li>
-<li>
-<p><strong><code>report</code></strong> — будує звіт, записує його у <code>reports/expenses_report.txt</code> і показує на екрані. Звіт містить:</p>
+<h3 id="_4">Вимоги до всіх завдань<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li>шапку з вашим імʼям, групою, періодом (перша і остання дата) та кількістю записів;</li>
-<li>таблицю по категоріях, відсортовану за сумою за спаданням: назва, кількість покупок, сума, частка у відсотках і «гістограма» із символів <code>#</code> (один символ на кожні 5 %);</li>
-<li>підсумковий рядок;</li>
-<li>день з найбільшими витратами, найдорожчу покупку та середні витрати на день.</li>
+<li>Першим рядком програма виводить ваше імʼя, прізвище та групу.</li>
+<li>Лише вбудовані винятки; голий <code>except:</code> та <code>except Exception: pass</code> заборонені.</li>
+<li>Повідомлення про помилки — у <code>sys.stderr</code>, результат — у звичайний вивід.</li>
+<li>Очікувана помилка (немає файлу, зіпсований рядок, не той аргумент) не завершується traceback.</li>
+<li>Після кожного запуску показуйте код завершення (<code>echo $?</code>).</li>
 </ul>
-</li>
-<li>
-<p><strong>Підказка замість помилки.</strong> Якщо аргументів немає, команда невідома або для <code>add</code> їх замало — програма виводить <code>usage</code> з переліком команд і завершується, а не падає з <code>IndexError</code>.</p>
-</li>
-<li><strong>Не ламатися на «брудному» файлі.</strong> Читання має пропускати порожні рядки і рядки, що починаються з <code>#</code>.</li>
-</ol>
-<p>Порядок виконання:</p>
-<ol>
-<li>Наповніть файл <strong>своїми</strong> витратами, викликавши команду <code>add</code> щонайменше 12 разів. У звіт вставте кілька таких викликів і отриманий вміст <code>data/expenses.csv</code>.</li>
-<li>Покажіть вивід команд <code>list</code> і <code>report</code>.</li>
-</ol>
-<p>Приклади запуску.</p>
-<p>Без аргументів програма показує підказку, а <code>add</code> дописує один запис:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ python3 task3.py
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>usage: python3 task3.py add &lt;date&gt; &lt;category&gt; &lt;amount&gt; &lt;note&gt;
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>       python3 task3.py list
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>       python3 task3.py report
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>$ python3 task3.py add 2026-09-21 food 85.50 lunch at canteen
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>added: 2026-09-21 food 85.50 (lunch at canteen)
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>$ python3 task3.py add 2026-09-23 books 220.00 python handbook
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>added: 2026-09-23 books 220.00 (python handbook)
+<h2 id="_5">Хід роботи<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1">Завдання 1. Чому файл не читається<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>Напишіть утиліту, яка отримує з командного рядка один або кілька шляхів і для кожного або показує кількість рядків і перший рядок файлу, або пояснює, чому прочитати його не вдалося (разом з назвою типу винятку). Порожній файл теж вважається помилкою. Наприкінці — підсумок: скільки перевірено і скільки не вдалося.</p>
+<p>Коди завершення: <code>0</code> — усі файли прочитано, <code>1</code> — хоча б один не прочитано, <code>2</code> — шляхів не передано.</p>
+<p>Перевірте програму на: вашому профілі, неіснуючому файлі з вашим прізвищем у назві, каталозі, вашому зображенні, порожньому файлі.</p>
+<p>Приклад:<br />
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ python3 task1.py data/profile.txt data/petrenko.txt data data/photo.jpg data/empty.txt
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ok:    data/profile.txt: 5 lines, first: name: Ivan
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>error: data/petrenko.txt: file not found (FileNotFoundError)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>error: data: is a directory (IsADirectoryError)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>error: data/photo.jpg: not a UTF-8 text file (UnicodeDecodeError)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>error: data/empty.txt: file is empty (ValueError)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>checked 5, failed 4
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>$ echo $?
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>1
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>$ python3 task1.py
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>usage: python3 task1.py &lt;path&gt; [&lt;path&gt; ...]
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>$ echo $?
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>2
+</span></code></pre></div></p>
+<h3 id="2">Завдання 2. Копіювання файлів<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>Напишіть утиліту копіювання файлу — спрощений аналог команди <code>cp</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python3 task2.py [--force] &lt;source&gt; &lt;destination&gt;
 </span></code></pre></div>
-<p>Команда <code>list</code> показує все, що вже накопичилося у файлі:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$ python3 task3.py list
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>date        category       amount  note
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>2026-09-21  food            85.50  lunch at canteen
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>2026-09-21  transport       32.00  bus to college
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>2026-09-22  food           120.00  groceries
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>2026-09-22  coffee          65.00  before the lecture
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>2026-09-23  books          220.00  python handbook
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>2026-09-23  food            45.00  snack
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>2026-09-24  transport       32.00  bus to college
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>2026-09-24  food            96.50  dinner with friends
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>2026-09-25  coffee          65.00  before the lecture
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>2026-09-25  internet       250.00  monthly plan
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>2026-09-26  transport       32.00  bus to college
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>2026-09-26  food            65.00  pizza slice
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>2026-09-27  food           140.00  weekend market
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>13 records, total 1248.00
-</span></code></pre></div>
-<p>Команда <code>report</code> рахує підсумки, показує звіт на екрані й зберігає його у файл:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ python3 task3.py report
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Expenses report for Ivan Petrenko (PZ-11)
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Period: 2026-09-21 .. 2026-09-27
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Records: 13
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>category     count     total   share  chart
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>----------------------------------------------------
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>food             6    552.00   44.2%  #########
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>internet         1    250.00   20.0%  ####
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>books            1    220.00   17.6%  ####
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>coffee           2    130.00   10.4%  ##
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>transport        3     96.00    7.7%  ##
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>----------------------------------------------------
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>total           13   1248.00  100.0%
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>Top day: 2026-09-25 (315.00)
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>Most expensive: internet 250.00 (monthly plan)
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>Average per day: 178.29
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>report saved to: reports/expenses_report.txt
-</span></code></pre></div>
-<p>Помилкові виклики не повинні завершувати програму аварійно:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$ python3 task3.py add 2026-09-21 food
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>error: add needs date, category, amount and note
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>usage: python3 task3.py add &lt;date&gt; &lt;category&gt; &lt;amount&gt; &lt;note&gt;
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>       python3 task3.py list
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>       python3 task3.py report
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>$ python3 task3.py summary
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>error: unknown command summary
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>usage: python3 task3.py add &lt;date&gt; &lt;category&gt; &lt;amount&gt; &lt;note&gt;
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>       python3 task3.py list
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>       python3 task3.py report
+<p>Програма копіює текстові файли і після успішного копіювання повідомляє про це.</p>
+<p>Програма має зрозуміло повідомляти про кожну з цих ситуацій:</p>
+<table>
+<thead>
+<tr>
+<th>Ситуація</th>
+<th>Що відбувається</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>джерела не існує</td>
+<td>помилка</td>
+</tr>
+<tr>
+<td>джерело — каталог</td>
+<td>помилка</td>
+</tr>
+<tr>
+<td>каталогу призначення не існує</td>
+<td>помилка</td>
+</tr>
+<tr>
+<td>файл призначення вже існує</td>
+<td>помилка; з <code>--force</code> файл перезаписується</td>
+</tr>
+<tr>
+<td>призначення — каталог</td>
+<td>помилка</td>
+</tr>
+<tr>
+<td>джерело і призначення — той самий файл</td>
+<td>помилка, файл лишається неушкодженим</td>
+</tr>
+</tbody>
+</table>
+<p>Коди завершення: <code>0</code> — файл скопійовано, <code>1</code> — помилка копіювання, <code>2</code> — неправильний виклик.</p>
+<p>Приклад:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ python3 task2.py data/profile.txt backup_petrenko/profile.txt
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>copied: data/profile.txt -&gt; backup_petrenko/profile.txt
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>$ echo $?
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>0
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>$ python3 task2.py data/profile.txt backup_petrenko/profile.txt
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>error: backup_petrenko/profile.txt already exists, use --force to overwrite
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>$ echo $?
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>1
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>$ python3 task2.py --force data/profile.txt backup_petrenko/profile.txt
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>copied: data/profile.txt -&gt; backup_petrenko/profile.txt
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>$ python3 task2.py data/petrenko.txt backup_petrenko/profile.txt
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>error: source data/petrenko.txt not found
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>$ python3 task2.py data backup_petrenko/data
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>error: source data is a directory, not a file
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>$ python3 task2.py data/profile.txt nowhere/profile.txt
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>error: destination folder nowhere not found
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>$ python3 task2.py --force data/profile.txt backup_petrenko
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>error: destination backup_petrenko is a directory, not a file
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>$ python3 task2.py --force data/profile.txt data/profile.txt
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>error: source and destination are the same file
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>$ echo $?
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>1
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>$ python3 task2.py data/profile.txt
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>Ivan Petrenko, PZ-11
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>usage: python3 task2.py [--force] &lt;source&gt; &lt;destination&gt;
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>$ echo $?
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>2
+</span></code></pre></div></p>
+<h3 id="3">Завдання 3. Трекер витрат, який не боїться поганих даних<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>Головне завдання роботи. Візьміть свій трекер витрат з роботи 22 (команди <code>add</code>, <code>list</code>, <code>report</code>) і зробіть його стійким до поганих даних.</p>
+<p>Зіпсуйте копію свого <code>expenses.csv</code>: у чотирьох різних рядках зробіть суму текстом, приберіть одне поле, поставте неіснуючу дату (місяць <code>13</code>, день — ваш <code>day</code>) і відʼємну суму.</p>
+<p>Що має вміти програма:</p>
+<ul>
+<li><strong><code>list</code> і <code>report</code></strong> пропускають погані рядки, працюють з рештою і наприкінці виводять у <code>sys.stderr</code> перелік пропущених рядків з номером і причиною. Код завершення — <code>0</code>.</li>
+<li><strong><code>add</code></strong> не записує некоректні дані: повідомлення про помилку, код <code>1</code>, файл без змін. Правила перевірки — ті самі, що й під час читання файлу (без дублювання коду).</li>
+<li><strong>Проблеми самого файлу</strong> (його немає, це каталог, він не в UTF-8) обробляються в одному місці програми, кожна зі своїм повідомленням, код <code>1</code>.</li>
+<li><strong>Порожній файл</strong> (лише заголовок): <code>report</code> повідомляє, що звітувати нічого, і повертає <code>1</code>.</li>
+<li><strong>Неправильний виклик</strong> (немає команди, невідома команда, замало аргументів) — підказка і код <code>2</code>.</li>
+</ul>
+<p>Перевірте програму на: зіпсованому файлі, невдалих і вдалому виклику <code>add</code>, відсутньому файлі, каталозі замість файлу, вашому зображенні під іменем <code>expenses.csv</code>, файлі лише із заголовком.</p>
+<p><strong>Питання до звіту:</strong> чому після <code>python3 task3.py list &gt; list.txt</code> перелік пропущених рядків зʼявляється на екрані, а не у файлі?</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ python3 task3.py list
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>date        category       amount  note
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2026-09-21  food            85.50  lunch at canteen
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2026-09-21  transport       32.00  bus to college
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>...
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>9 records, total 1041.00
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>skipped 4 bad line(s):
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  line 5: bad amount 'sixty five'
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  line 7: expected 4 fields, got 3
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  line 10: bad date '2026-13-14'
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  line 12: amount must be positive, got -32.00
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>$ echo $?
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>0
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>$ python3 task3.py add 2026-09-28 food ninety pizza
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>error: bad amount 'ninety'
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>nothing was added
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>$ echo $?
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>1
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>$ python3 task3.py list
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>error: data/expenses.csv is a directory, not a file
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>$ echo $?
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>1
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>$ python3 task3.py report
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>error: nothing to report, no valid records
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>$ echo $?
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>1
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>$ python3 task3.py summary
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>error: unknown command summary
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>usage: python3 task3.py add &lt;date&gt; &lt;category&gt; &lt;amount&gt; &lt;note&gt;
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>       python3 task3.py list
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>       python3 task3.py report
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>$ echo $?
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>2
 </span></code></pre></div>
 
 
