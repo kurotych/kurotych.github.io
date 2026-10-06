@@ -1,0 +1,2574 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module3/27-modules-packages-lecture/">
+      
+      
+        <link rel="prev" href="../26-logging-lecture/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>27. (Л) Модулі та пакети у Python. Імпорт, структура проєкту - Python (1 семестр)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#27-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python (1 семестр)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              27. (Л) Модулі та пакети у Python. Імпорт, структура проєкту
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python (1 семестр)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/01-intro-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Вступ. Предмет і завдання курсу. Алгоритм, блок-схеми, програма, компіляція, інтерпретація
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/02-tools-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/03-tools-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (П1) Налаштування середовища розробки. Запуск Python коду локально та онлайн
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/04-variables-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. (Л) Змінні та типи даних. Вирази та оператори
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/05-variables-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (П2) Змінні, типи даних та вирази
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/06-conditions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (Л) Умовні оператори: if, elif, else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/07-conditions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (П3) Умовні оператори та введення даних з консолі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/08-loops-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. (Л) Цикли for і while та їх застосування
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/09-loops-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. (П4) Розв'язування задач із використанням циклів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/10-functions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. (Л) Функції. Параметри та область видимості змінних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/11-functions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. (П5) Написання та використання функцій у Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/12-git-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Основи роботи з Git та GitHub. Система контролю версій, репозиторії, коміти, запит на злиття, віддалена співпраця
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/13-git-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/14-lists-tuples-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. (Л) Списки та кортежі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/15-lists-tuples-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. (П7) Виконання завдань зі списками та кортежами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/16-dicts-sets-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. (Л) Словники та множини
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/17-dicts-sets-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. (П8) Виконання завдань зі словниками та множинами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/18-strings-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. (Л) Робота з рядками
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/19-strings-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. (П9) Розвʼязування задач на опрацювання рядків
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/20-typing-mutability-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. (Л) Типізація. Змінювані та незмінювані обʼєкти
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/21-files-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. (Л) Файловий ввід/вивід
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/22-files-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. (П10) Робота з файлами: збереження і аналіз даних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/23-exceptions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. (Л) Обробка винятків (Exceptions)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/24-exceptions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. (П11) Обробка винятків: програми, які не падають на поганих файлах
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/25-data-structures-internals-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. (Л) Внутрішня організація структур даних. Алгоритмічна складність
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-logging-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. (Л) Логування у Python. Модуль logging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    27. (Л) Модулі та пакети у Python. Імпорт, структура проєкту
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    27. (Л) Модулі та пакети у Python. Імпорт, структура проєкту
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Зміст лекції
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Навіщо ділити програму на файли
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#py" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модуль — це файл .py
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      Форми інструкції import
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Форми інструкції import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      import module
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-module-as-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      import module as alias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-module-import-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      from module import name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-module-import-name-as-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      from module import name as alias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-module-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      from module import *
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Порівняння
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модуль — це обʼєкт
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що відбувається під час імпорту
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__name__-if-__name__-__main__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __name__ і if __name__ == "__main__":
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="__name__ і if __name__ == "__main__":">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Навіщо це потрібно
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      from ... import створює нове імʼя, а не посилання на змінну модуля
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-syspath" class="md-nav__link">
+    <span class="md-ellipsis">
+      Де Python шукає модулі: sys.path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Затінення стандартних модулів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Стандартна бібліотека
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пакети: каталог з __init__.py
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Пакети: каталог з __init__.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__py_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Що таке __init__.py
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Абсолютний і відносний імпорт
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Абсолютний і відносний імпорт">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Головна пастка відносних імпортів
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python3-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запуск модуля з пакета: python3 -m
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Запуск модуля з пакета: python3 -m">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__main__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      __main__.py — пакет, який можна запустити
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Циклічні імпорти
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Порядок і стиль імпортів
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура проєкту
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Приклад: проєкт «журнал оцінок»
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Типові помилки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підсумок
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні посилання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Домашнє завдання
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+<h1 id="27-python">27. (Л) Модулі та пакети у Python. Імпорт, структура проєкту<a class="headerlink" href="#27-python" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Навіщо ділити програму на файли</li>
+<li>Модуль — це файл <code>.py</code></li>
+<li>Форми інструкції <code>import</code></li>
+<li>Модуль — це обʼєкт</li>
+<li>Що відбувається під час імпорту</li>
+<li><code>__name__</code> і <code>if __name__ == "__main__":</code></li>
+<li><code>from ... import</code> створює нове імʼя, а не посилання на змінну модуля</li>
+<li>Де Python шукає модулі: <code>sys.path</code></li>
+<li>Затінення стандартних модулів</li>
+<li>Стандартна бібліотека</li>
+<li>Пакети: каталог з <code>__init__.py</code></li>
+<li>Абсолютний і відносний імпорт</li>
+<li>Запуск модуля з пакета: <code>python3 -m</code></li>
+<li>Циклічні імпорти</li>
+<li>Порядок і стиль імпортів</li>
+<li>Структура проєкту</li>
+<li>Приклад: проєкт «журнал оцінок»</li>
+<li>Типові помилки</li>
+</ol>
+<h2 id="_2">Навіщо ділити програму на файли<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Досі кожна наша програма жила в одному файлі. Поки програма займає 50–100 рядків, так і має бути. Але програми ростуть: у домашніх завданнях лекцій 21–26 вже були функції для читання файлу, для обчислень, для виводу звіту, для налаштування логування. Коли все це лежить в одному файлі на 500 рядків, зʼявляються проблеми:</p>
+<ul>
+<li><strong>Важко знайти потрібне.</strong> Щоб виправити формат звіту, доводиться гортати повз читання файлів і обчислення.</li>
+<li><strong>Неможливо використати повторно.</strong> Функцію <code>average()</code> з одного завдання хочеться взяти в інше. Копіювання означає, що помилку доведеться виправляти в кількох місцях.</li>
+<li><strong>Важко працювати вдвох.</strong> Двоє людей, які одночасно редагують один великий файл, постійно отримують конфлікти в git (лекція 12).</li>
+<li><strong>Усе бачить усе.</strong> Будь-яка функція може випадково використати чи змінити будь-яку глобальну змінну.</li>
+</ul>
+<p>Розвʼязок — розбити програму на <strong>модулі</strong>: окремі файли, кожен з яких відповідає за одну частину роботи. Модулі, повʼязані за змістом, обʼєднують у <strong>пакети</strong>.</p>
+<p>Ви вже користувалися чужими модулями: <code>import sys</code>, <code>import logging</code>, <code>from pathlib import Path</code>. Сьогодні розберемо, як це працює, і навчимося писати власні.</p>
+<h2 id="py">Модуль — це файл <code>.py</code><a class="headerlink" href="#py" title="Permanent link">&para;</a></h2>
+<p><strong>Модуль</strong> (module) — це будь-який файл з кодом на Python. Імʼя модуля — це імʼя файлу без <code>.py</code>: файл <code>grades.py</code> — це модуль <code>grades</code>.</p>
+<p>Створіть у порожньому каталозі два файли.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># File: grades.py</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">PASS_SCORE</span> <span class="o">=</span> <span class="mi">60</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_passed</span><span class="p">(</span><span class="n">score</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">return</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="n">PASS_SCORE</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">grades</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">avg</span> <span class="o">=</span> <span class="n">grades</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"average: </span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"passed:"</span><span class="p">,</span> <span class="n">grades</span><span class="o">.</span><span class="n">is_passed</span><span class="p">(</span><span class="n">avg</span><span class="p">))</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"pass score:"</span><span class="p">,</span> <span class="n">grades</span><span class="o">.</span><span class="n">PASS_SCORE</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Запустіть <code>main.py</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python3<span class="w"> </span>main.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>average: 75.0
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>passed: True
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>pass score: 60
+</span></code></pre></div>
+<p>Інструкція <code>import grades</code> знаходить файл <code>grades.py</code> <strong>у тому ж каталозі</strong>, де лежить <code>main.py</code>, виконує його і дає доступ до всього, що в ньому визначено, через крапку: <code>grades.average</code>, <code>grades.PASS_SCORE</code>.</p>
+<p>Тепер <code>grades.py</code> можна підключити до будь-якої іншої програми — функції написано один раз.</p>
+<div class="admonition warning">
+<p class="admonition-title">Імʼя файлу має бути правильним ідентифікатором</p>
+<p>Імʼя модуля використовується в коді, тому воно підпорядковується тим самим правилам, що й імена змінних (лекція 04): латинські літери, цифри, <code>_</code>, не починається з цифри.</p>
+<table>
+<thead>
+<tr>
+<th>Файл</th>
+<th>Чи можна імпортувати</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>grades.py</code>, <code>student_report.py</code></td>
+<td>так</td>
+</tr>
+<tr>
+<td><code>student-report.py</code></td>
+<td>ні — <code>import student-report</code> означає «<code>student</code> мінус <code>report</code>»</td>
+</tr>
+<tr>
+<td><code>01_grades.py</code></td>
+<td>ні — імʼя починається з цифри</td>
+</tr>
+<tr>
+<td><code>Grades.py</code></td>
+<td>так, але PEP 8 радить імена модулів <strong>малими літерами</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Скрипти, які лише запускають, можна називати як завгодно. Але файли, які імпортуватимуть, — тільки <code>lowercase_with_underscores</code>.</p>
+</div>
+<h2 id="import">Форми інструкції <code>import</code><a class="headerlink" href="#import" title="Permanent link">&para;</a></h2>
+<h3 id="import-module"><code>import module</code><a class="headerlink" href="#import-module" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">grades</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span></code></pre></div>
+<p>Імпортується модуль цілком, до вмісту звертаються через <code>grades.</code>. Це <strong>рекомендована форма за замовчуванням</strong>: з коду одразу видно, звідки взялася функція. <code>grades.average(...)</code> читається однозначно, а просто <code>average(...)</code> змушує шукати, де її визначено.</p>
+<h3 id="import-module-as-alias"><code>import module as alias</code><a class="headerlink" href="#import-module-as-alias" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">grades</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">gr</span><span class="o">.</span><span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span></code></pre></div>
+<p>Модулю дається коротше імʼя (псевдонім). Використовують для довгих назв або коли є загальноприйнята домовленість, наприклад <code>import numpy as np</code>. Не варто вигадувати власні загадкові скорочення.</p>
+<h3 id="from-module-import-name"><code>from module import name</code><a class="headerlink" href="#from-module-import-name" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span><span class="p">,</span> <span class="n">is_passed</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">avg</span> <span class="o">=</span> <span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">])</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">avg</span><span class="p">,</span> <span class="n">is_passed</span><span class="p">(</span><span class="n">avg</span><span class="p">))</span>
+</span></code></pre></div>
+<p>Імпортуються конкретні імена — їх можна використовувати без префікса. Зручно, коли імʼя часто використовується і його походження очевидне: <code>from pathlib import Path</code>, <code>from datetime import datetime</code>.</p>
+<h3 id="from-module-import-name-as-alias"><code>from module import name as alias</code><a class="headerlink" href="#from-module-import-name-as-alias" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span> <span class="k">as</span> <span class="n">grades_average</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">grades_average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span></code></pre></div>
+<p>Допомагає, коли імена з різних модулів збігаються.</p>
+<h3 id="from-module-import"><code>from module import *</code><a class="headerlink" href="#from-module-import" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># File: shapes.py</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"circle_area"</span><span class="p">]</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"radius must be non-negative"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">shapes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">circle_area</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">PI</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>12.56636
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Traceback (most recent call last):
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>  File "/home/student/project/main.py", line 5, in &lt;module&gt;
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    print(PI)
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>          ^^
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>NameError: name 'PI' is not defined
+</span></code></pre></div>
+<p><code>*</code> імпортує всі «публічні» імена модуля. Що саме вважається публічним:</p>
+<ul>
+<li>якщо в модулі є список <code>__all__</code> — тільки імена з нього (тому <code>PI</code> не імпортувався);</li>
+<li>якщо <code>__all__</code> немає — усі імена, що <strong>не починаються з <code>_</code></strong>.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Не використовуйте <code>import *</code> у своєму коді</p>
+<p>Після <code>from shapes import *</code> неможливо зрозуміти, звідки взялося імʼя, редактор і mypy гірше підказують, а нове імʼя в модулі може непомітно <strong>перезаписати</strong> вашу змінну з такою самою назвою. <code>import *</code> іноді доречний в інтерактивному сеансі <code>python3</code>, але не в програмах.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Підкреслення на початку імені</p>
+<p>Імʼя <code>_check</code> означає «внутрішня деталь модуля, ззовні не використовуйте». Python не забороняє <code>shapes._check(...)</code>, це домовленість між програмістами. Але <code>import *</code> такі імена пропускає, а редактор зазвичай не пропонує їх у підказках.</p>
+</div>
+<h3 id="_3">Порівняння<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Форма</th>
+<th>Як викликати</th>
+<th>Коли використовувати</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>import grades</code></td>
+<td><code>grades.average(...)</code></td>
+<td>за замовчуванням</td>
+</tr>
+<tr>
+<td><code>import grades as gr</code></td>
+<td><code>gr.average(...)</code></td>
+<td>довга назва або загальноприйнятий псевдонім</td>
+</tr>
+<tr>
+<td><code>from grades import average</code></td>
+<td><code>average(...)</code></td>
+<td>імʼя часто використовується і його походження очевидне</td>
+</tr>
+<tr>
+<td><code>from grades import average as avg_of</code></td>
+<td><code>avg_of(...)</code></td>
+<td>конфлікт імен</td>
+</tr>
+<tr>
+<td><code>from grades import *</code></td>
+<td><code>average(...)</code></td>
+<td>не використовувати</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">Модуль — це обʼєкт<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Після <code>import grades</code> змінна <code>grades</code> посилається на <strong>обʼєкт модуля</strong> — такий самий обʼєкт, як список чи функція. У нього є атрибути: усе, що визначено у файлі, плюс кілька службових.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># File: main.py  (grades.py from the previous section is next to it)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">grades</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">grades</span><span class="p">))</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">print</span><span class="p">([</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"__"</span><span class="p">)])</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>&lt;class 'module'&gt;
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>grades
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>/home/student/project/grades.py
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>['PASS_SCORE', 'average', 'is_passed']
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Що містить</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__name__</code></td>
+<td>імʼя модуля</td>
+</tr>
+<tr>
+<td><code>__file__</code></td>
+<td>повний шлях до файлу модуля</td>
+</tr>
+<tr>
+<td><code>__doc__</code></td>
+<td>рядок документації модуля (перший рядок-літерал у файлі)</td>
+</tr>
+<tr>
+<td><code>dir(module)</code></td>
+<td>список усіх імен у модулі</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Кожен модуль має власний простір імен</strong> (namespace). Змінна <code>PASS_SCORE</code> у <code>grades.py</code> і змінна <code>PASS_SCORE</code> у <code>main.py</code> — це дві різні змінні, які не заважають одна одній. Саме тому модулі розвʼязують проблему «усе бачить усе»: те, що визначено в модулі, видно ззовні лише через <code>grades.</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Документуйте модуль</p>
+<p>Першим рядком файлу пишіть рядок документації — він потрапить у <code>__doc__</code> і в <code>help(grades)</code>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="sd">"""Calculations with student scores. No input/output here."""</span>
+</span></code></pre></div></p>
+</div>
+<h2 id="_5">Що відбувається під час імпорту<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Коли Python виконує <code>import grades</code>, відбувається таке:</p>
+<pre class="mermaid"><code>flowchart TD
+    A["import grades"] --&gt; B{"grades in sys.modules?"}
+    B -- yes --&gt; F["bind name grades&lt;br/&gt;to the existing module"]
+    B -- no --&gt; C["search grades.py&lt;br/&gt;in sys.path"]
+    C -- not found --&gt; E["ModuleNotFoundError"]
+    C -- found --&gt; D["create empty module object,&lt;br/&gt;put it into sys.modules"]
+    D --&gt; G["execute grades.py&lt;br/&gt;top to bottom"]
+    G --&gt; F</code></pre>
+<p>Головне з цієї схеми:</p>
+<ol>
+<li><strong>Код модуля виконується повністю</strong>, згори донизу. Інструкції <code>def</code> створюють функції, присвоєння — змінні. Але й <code>print()</code>, <code>input()</code>, цикли, читання файлів на верхньому рівні модуля теж <strong>виконуються</strong>.</li>
+<li><strong>Модуль виконується лише один раз</strong> за запуск програми. Готовий модуль зберігається у словнику <code>sys.modules</code>, і повторний <code>import</code> просто бере його звідти.</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># File: config.py</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"config: loading"</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">APP_NAME</span> <span class="o">=</span> <span class="s2">"gradebook"</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"main: start"</span><span class="p">)</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">config</span><span class="w"> </span><span class="kn">import</span> <span class="n">APP_NAME</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"main:"</span><span class="p">,</span> <span class="n">APP_NAME</span><span class="p">)</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"config"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>main: start
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>config: loading
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>main: gradebook
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>True
+</span></code></pre></div>
+<p>Три імпорти — одне повідомлення <code>config: loading</code>. Тому модуль може безпечно імпортуватися з десяти різних файлів: усі вони отримають <strong>той самий обʼєкт</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Байткод у <code>__pycache__</code></p>
+<p>Після першого імпорту поруч із вашими модулями зʼявиться каталог <code>__pycache__</code> з файлами <code>grades.cpython-313.pyc</code> — це скомпільований байткод (лекція 01). Він пришвидшує наступні запуски і створюється тільки для <strong>імпортованих</strong> модулів, а не для файлу, який ви запускаєте. Каталог має бути в <code>.gitignore</code> (лекція 12).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Зміни в модулі не підхоплюються «на льоту»</p>
+<p>Якщо ви в інтерактивному <code>python3</code> зробили <code>import grades</code>, а потім змінили <code>grades.py</code>, повторний <code>import grades</code> нічого не змінить — модуль уже в <code>sys.modules</code>. Перезапустіть інтерпретатор.</p>
+</div>
+<h2 id="__name__-if-__name__-__main__"><code>__name__</code> і <code>if __name__ == "__main__":</code><a class="headerlink" href="#__name__-if-__name__-__main__" title="Permanent link">&para;</a></h2>
+<p>Кожен модуль має змінну <code>__name__</code>. Її значення залежить від того, <strong>як</strong> використовується файл:</p>
+<ul>
+<li>файл <strong>запустили</strong> командою <code>python3 grades.py</code> — <code>__name__ == "__main__"</code>;</li>
+<li>файл <strong>імпортували</strong> (<code>import grades</code>) — <code>__name__ == "grades"</code>.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># File: grades.py</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"grades: __name__ ="</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">grades</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"main: __name__ ="</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>python3<span class="w"> </span>grades.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>grades: __name__ = __main__
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>python3<span class="w"> </span>main.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>grades: __name__ = grades
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>main: __name__ = __main__
+</span></code></pre></div>
+<h3 id="_6">Навіщо це потрібно<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Типова ситуація: ви написали <code>grades.py</code> і внизу додали кілька рядків, щоб перевірити функції.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># File: grades.py</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">PASS_SCORE</span> <span class="o">=</span> <span class="mi">60</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"self-check:"</span><span class="p">,</span> <span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span></code></pre></div>
+<p>Тепер <strong>кожна</strong> програма, яка робить <code>import grades</code>, першим рядком виведе <code>self-check: 75.0</code>. Перевірка, яка мала виконуватися лише під час розробки, просочилася в чужий вивід. Ще гірше, якщо там був <code>input()</code> — імпорт «зависне» в очікуванні введення.</p>
+<p>Розвʼязок — виконувати такий код лише тоді, коли файл запущено напряму:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># File: grades.py</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">PASS_SCORE</span> <span class="o">=</span> <span class="mi">60</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"self-check:"</span><span class="p">,</span> <span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<ul>
+<li><code>python3 grades.py</code> — виводить <code>self-check: 75.0</code>;</li>
+<li><code>import grades</code> — нічого не виводить, лише визначає <code>PASS_SCORE</code>, <code>average</code> і <code>main</code>.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Шаблон для кожної програми</p>
+<p>Відтепер оформлюйте <strong>кожну</strong> програму, яку запускають, так:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Program: template of a runnable module</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+Уся логіка — у функціях, на верхньому рівні — лише імпорти, константи, визначення і цей блок. Такий файл можна і запустити, і безпечно імпортувати (наприклад, щоб протестувати його функції).</p>
+</div>
+<h2 id="from-import"><code>from ... import</code> створює нове імʼя, а не посилання на змінну модуля<a class="headerlink" href="#from-import" title="Permanent link">&para;</a></h2>
+<p>Згадаймо лекцію 20: змінна — це імʼя, привʼязане до обʼєкта. <code>from grades import PASS_SCORE</code> створює в <strong>поточному</strong> модулі нове імʼя <code>PASS_SCORE</code>, яке посилається на той самий обʼєкт <code>60</code>. Але це два різні імені в різних просторах імен.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># File: grades.py</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">PASS_SCORE</span> <span class="o">=</span> <span class="mi">60</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_passed</span><span class="p">(</span><span class="n">score</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>    <span class="k">return</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="n">PASS_SCORE</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">grades</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">PASS_SCORE</span><span class="p">,</span> <span class="n">is_passed</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="n">PASS_SCORE</span> <span class="o">=</span> <span class="mi">50</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"local PASS_SCORE:"</span><span class="p">,</span> <span class="n">PASS_SCORE</span><span class="p">)</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"grades.PASS_SCORE:"</span><span class="p">,</span> <span class="n">grades</span><span class="o">.</span><span class="n">PASS_SCORE</span><span class="p">)</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"is_passed(55):"</span><span class="p">,</span> <span class="n">is_passed</span><span class="p">(</span><span class="mi">55</span><span class="p">))</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="n">grades</span><span class="o">.</span><span class="n">PASS_SCORE</span> <span class="o">=</span> <span class="mi">50</span>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"is_passed(55):"</span><span class="p">,</span> <span class="n">is_passed</span><span class="p">(</span><span class="mi">55</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>local PASS_SCORE: 50
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>grades.PASS_SCORE: 60
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>is_passed(55): False
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>is_passed(55): True
+</span></code></pre></div>
+<ul>
+<li><code>PASS_SCORE = 50</code> у <code>main.py</code> змінило лише <strong>локальне</strong> імʼя. Функція <code>is_passed</code> бере <code>PASS_SCORE</code> зі <strong>свого</strong> модуля, де досі <code>60</code>.</li>
+<li><code>grades.PASS_SCORE = 50</code> змінило змінну в самому модулі, і <code>is_passed</code> це побачила.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Не змінюйте змінні чужих модулів</p>
+<p>Те, що <code>grades.PASS_SCORE = 50</code> працює, не означає, що так варто робити: будь-який модуль може непомітно змінити поведінку іншого, і помилку буде дуже важко знайти. Якщо значення має налаштовуватися — передайте його <strong>параметром</strong> функції: <code>is_passed(score, pass_score=50)</code>. Константи модуля (імена ВЕЛИКИМИ літерами) — тільки для читання.</p>
+</div>
+<h2 id="python-syspath">Де Python шукає модулі: <code>sys.path</code><a class="headerlink" href="#python-syspath" title="Permanent link">&para;</a></h2>
+<p>Коли модуля ще немає в <code>sys.modules</code>, Python шукає його:</p>
+<ol>
+<li>серед <strong>вбудованих</strong> модулів, скомпільованих усередину інтерпретатора (<code>sys</code>, <code>builtins</code> та деякі інші);</li>
+<li>у каталогах зі списку <strong><code>sys.path</code></strong> — по черзі, до першого збігу.</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># Program: print module search path</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>'/home/student/project'
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>'/usr/lib/python313.zip'
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>'/usr/lib/python3.13'
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>'/usr/lib/python3.13/lib-dynload'
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>'/usr/local/lib/python3.13/dist-packages'
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>'/usr/lib/python3/dist-packages'
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Елемент <code>sys.path</code></th>
+<th>Що там</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>перший елемент</td>
+<td>каталог <strong>запущеного скрипта</strong> (для <code>python3 -m ...</code> — поточний каталог)</td>
+</tr>
+<tr>
+<td>вміст змінної оточення <code>PYTHONPATH</code></td>
+<td>додаткові каталоги, якщо змінну задано</td>
+</tr>
+<tr>
+<td><code>/usr/lib/python3.13</code></td>
+<td><strong>стандартна бібліотека</strong></td>
+</tr>
+<tr>
+<td><code>.../site-packages</code> або <code>.../dist-packages</code></td>
+<td><strong>сторонні пакети</strong>, встановлені через <code>pip</code> або <code>apt</code></td>
+</tr>
+</tbody>
+</table>
+<p>Вивід на вашому компʼютері відрізнятиметься.</p>
+<p>Звідси важливі наслідки:</p>
+<ul>
+<li><strong>Модуль знаходиться відносно запущеного скрипта</strong>, а не відносно поточного каталогу терміналу. <code>python3 project/main.py</code> знайде <code>project/grades.py</code>.</li>
+<li>Якщо модуль не знайдено в жодному каталозі — <code>ModuleNotFoundError</code>:</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Traceback (most recent call last):
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>  File "&lt;string&gt;", line 1, in &lt;module&gt;
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>    import nosuchmodule
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>ModuleNotFoundError: No module named 'nosuchmodule'
+</span></code></pre></div>
+<ul>
+<li>Якщо модуль знайдено, але в ньому немає потрібного імені — <code>ImportError</code>:</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Traceback (most recent call last):
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>  File "&lt;string&gt;", line 1, in &lt;module&gt;
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    from math import squareroot
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>ImportError: cannot import name 'squareroot' from 'math' (unknown location)
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Не змінюйте <code>sys.path</code> вручну</p>
+<p>В інтернеті часто радять <code>sys.path.append("..")</code>, щоб «побачити» модуль з іншого каталогу. Це крихкий прийом: він залежить від того, звідки запускають програму, і ламається на чужому компʼютері. Правильний розвʼязок — нормальна структура проєкту і запуск через <code>python3 -m</code> (розділи нижче).</p>
+</div>
+<h2 id="_7">Затінення стандартних модулів<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Каталог скрипта стоїть у <code>sys.path</code> <strong>першим</strong>, раніше за стандартну бібліотеку. Тож якщо назвати свій файл так само, як стандартний модуль, Python імпортує <strong>ваш</strong> файл.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># File: random.py  (bad name!)</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"my random.py"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>my random.py
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Traceback (most recent call last):
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>  File "/home/student/project/main.py", line 3, in &lt;module&gt;
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    print(random.randint(1, 6))
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>          ^^^^^^^^^^^^^^
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>AttributeError: module 'random' has no attribute 'randint' (consider renaming '/home/student/project/random.py' since it has the same name as the standard library module named 'random' and prevents importing that standard library module)
+</span></code></pre></div>
+<p>Python 3.13 вже підказує причину, у старіших версіях буде лише <code>AttributeError: module 'random' has no attribute 'randint'</code>. Найчастіші «жертви»: <code>random.py</code>, <code>math.py</code>, <code>string.py</code>, <code>logging.py</code>, <code>json.py</code>, <code>csv.py</code>, <code>test.py</code>, <code>statistics.py</code> — студенти люблять називати файли за темою заняття.</p>
+<div class="admonition tip">
+<p class="admonition-title">Як виправити</p>
+<ol>
+<li>Перейменуйте свій файл (<code>random_practice.py</code>).</li>
+<li>Видаліть каталог <code>__pycache__</code> поруч із ним, щоб не лишилося старого байткоду.</li>
+<li>Перевірити, який файл насправді імпортується, можна так: <code>print(random.__file__)</code>.</li>
+</ol>
+</div>
+<h2 id="_8">Стандартна бібліотека<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>Разом з Python встановлюються сотні модулів — <strong>стандартна бібліотека</strong>. Перш ніж писати щось своє чи встановлювати сторонній пакет, перевірте, чи немає готового розвʼязку в ній.</p>
+<table>
+<thead>
+<tr>
+<th>Модуль</th>
+<th>Для чого</th>
+<th>Приклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>math</code></td>
+<td>математичні функції</td>
+<td><code>math.sqrt(2)</code>, <code>math.pi</code></td>
+</tr>
+<tr>
+<td><code>random</code></td>
+<td>випадкові числа</td>
+<td><code>random.randint(1, 6)</code>, <code>random.choice(names)</code></td>
+</tr>
+<tr>
+<td><code>statistics</code></td>
+<td>середнє, медіана, відхилення</td>
+<td><code>statistics.median(scores)</code></td>
+</tr>
+<tr>
+<td><code>datetime</code></td>
+<td>дати і час</td>
+<td><code>datetime.now()</code>, <code>date(2026, 10, 6)</code></td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td>пауза, вимірювання часу</td>
+<td><code>time.sleep(1)</code>, <code>time.perf_counter()</code></td>
+</tr>
+<tr>
+<td><code>pathlib</code></td>
+<td>шляхи до файлів (лекція 21)</td>
+<td><code>Path("data") / "grades.txt"</code></td>
+</tr>
+<tr>
+<td><code>os</code></td>
+<td>взаємодія з ОС, змінні оточення</td>
+<td><code>os.environ.get("HOME")</code></td>
+</tr>
+<tr>
+<td><code>sys</code></td>
+<td>аргументи, вихід, інтерпретатор</td>
+<td><code>sys.argv</code>, <code>sys.exit(1)</code></td>
+</tr>
+<tr>
+<td><code>json</code>, <code>csv</code></td>
+<td>читання і запис форматів даних</td>
+<td><code>json.load(file)</code></td>
+</tr>
+<tr>
+<td><code>collections</code></td>
+<td><code>Counter</code>, <code>defaultdict</code>, <code>deque</code> (лекція 25)</td>
+<td><code>Counter(words)</code></td>
+</tr>
+<tr>
+<td><code>itertools</code></td>
+<td>комбінації і перестановки, зручні цикли</td>
+<td><code>itertools.combinations(names, 2)</code></td>
+</tr>
+<tr>
+<td><code>re</code></td>
+<td>регулярні вирази</td>
+<td><code>re.fullmatch(r"[A-Z]{2}-\d{2}", group)</code></td>
+</tr>
+<tr>
+<td><code>argparse</code></td>
+<td>розбір аргументів командного рядка</td>
+<td><code>parser.add_argument("--debug")</code></td>
+</tr>
+<tr>
+<td><code>logging</code></td>
+<td>логування (лекція 26)</td>
+<td><code>logging.getLogger(__name__)</code></td>
+</tr>
+<tr>
+<td><code>typing</code></td>
+<td>типи для анотацій (лекція 20)</td>
+<td><code>from typing import Final</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># Program: a few standard library modules together</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"today:"</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"scores:"</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"mean:"</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"median:"</span><span class="p">,</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+</span></code></pre></div>
+<p>Повний перелік — у <a href="https://docs.python.org/3/library/index.html">документації стандартної бібліотеки</a>.</p>
+<h2 id="__init__py">Пакети: каталог з <code>__init__.py</code><a class="headerlink" href="#__init__py" title="Permanent link">&para;</a></h2>
+<p>Коли модулів стає багато, їх групують у <strong>пакети</strong> (packages). <strong>Пакет</strong> — це каталог з модулями та файлом <code>__init__.py</code>. Пакети можуть містити інші пакети (<strong>підпакети</strong>).</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>project/
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>├── main.py
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>└── school/
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>    ├── __init__.py
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>    ├── grades.py
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>    └── students.py
+</span></code></pre></div>
+<p><code>school</code> — це пакет, <code>school.grades</code> і <code>school.students</code> — модулі в ньому. Імʼя модуля з пакета пишеться через крапку, як шлях: <code>school.grades</code> відповідає файлу <code>school/grades.py</code>.</p>
+<p>Усі форми імпорту працюють і з пакетами:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">school.grades</span>                 <span class="c1"># use: school.grades.average(...)</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">school</span><span class="w"> </span><span class="kn">import</span> <span class="n">grades</span>            <span class="c1"># use: grades.average(...)</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">school.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>    <span class="c1"># use: average(...)</span>
+</span></code></pre></div>
+<p>Створімо пакет і перевіримо:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># File: school/__init__.py</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="sd">"""School: utilities for working with student grades."""</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># File: school/grades.py</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">school</span><span class="w"> </span><span class="kn">import</span> <span class="n">grades</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>python3<span class="w"> </span>main.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>75.0
+</span></code></pre></div>
+<h3 id="__init__py_1">Що таке <code>__init__.py</code><a class="headerlink" href="#__init__py_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Його наявність позначає каталог як <strong>звичайний пакет</strong>.</li>
+<li>Він <strong>виконується</strong> під час першого імпорту пакета (або будь-якого модуля з нього) — так само, як звичайний модуль.</li>
+<li>Усе, що в ньому визначено, стає атрибутами пакета: <code>import school</code> дає доступ до імен з <code>school/__init__.py</code>.</li>
+</ul>
+<p>Найчастіше <code>__init__.py</code> залишають <strong>порожнім</strong> або з рядком документації. Іноді в ньому «піднімають» найважливіші імена нагору, щоб користувачам пакета не треба було знати, в якому модулі вони лежать:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># File: school/__init__.py</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="sd">"""School: utilities for working with student grades."""</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"average"</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Тепер працює і коротша форма: <code>from school import average</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">А без <code>__init__.py</code>?</p>
+<p>З Python 3.3 каталог без <code>__init__.py</code> теж можна імпортувати — це так званий <strong>namespace package</strong>, механізм для складних випадків, коли один пакет розкидано по кількох каталогах. Для власних проєктів <strong>завжди створюйте <code>__init__.py</code></strong>, навіть порожній: так поведінка передбачувана, і інструменти (mypy, редактор, тести) працюють без сюрпризів.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Не тримайте важкий код у <code>__init__.py</code></p>
+<p><code>__init__.py</code> виконується при <strong>будь-якому</strong> імпорті з пакета. Читання файлів, мережеві запити чи <code>print()</code> у ньому сповільнюють і засмічують кожен імпорт.</p>
+</div>
+<h2 id="_9">Абсолютний і відносний імпорт<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>Усередині пакета модулі часто імпортують один одного. Є два способи вказати, що саме імпортувати.</p>
+<p><strong>Абсолютний імпорт</strong> — повний шлях від кореня проєкту:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># File: school/students.py</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">school.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>
+</span></code></pre></div>
+<p><strong>Відносний імпорт</strong> — шлях відносно <strong>поточного пакета</strong>, починається з крапки:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="c1"># File: school/students.py</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>      <span class="c1"># module grades from the same package</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">grades</span>             <span class="c1"># the same package itself</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Запис</th>
+<th>Означає</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>from .grades import average</code></td>
+<td>модуль <code>grades</code> з <strong>того ж</strong> пакета</td>
+</tr>
+<tr>
+<td><code>from . import grades</code></td>
+<td>модуль <code>grades</code> з того ж пакета (як обʼєкт)</td>
+</tr>
+<tr>
+<td><code>from ..config import APP_NAME</code></td>
+<td>модуль <code>config</code> з <strong>батьківського</strong> пакета</td>
+</tr>
+</tbody>
+</table>
+<p>Обидва способи правильні. PEP 8 рекомендує <strong>абсолютний</strong> як очевидніший, а відносний доречний для імпортів <strong>усередині одного пакета</strong>: якщо пакет перейменують, відносні імпорти не доведеться змінювати.</p>
+<div class="admonition note">
+<p class="admonition-title">Форма <code>import .grades</code> не існує</p>
+<p>Відносний імпорт можливий тільки у формі <code>from . import ...</code> або <code>from .module import ...</code>.</p>
+</div>
+<h3 id="_10">Головна пастка відносних імпортів<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Відносний імпорт працює <strong>лише в модулі, який є частиною пакета</strong>. Файл, запущений напряму, пакета «не знає»:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="c1"># File: school/students.py</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>python3<span class="w"> </span>school/students.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>Traceback (most recent call last):
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>  File "/home/student/project/school/students.py", line 1, in &lt;module&gt;
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>    from .grades import average
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>ImportError: attempted relative import with no known parent package
+</span></code></pre></div>
+<p>Під час запуску <code>python3 school/students.py</code> Python бачить просто файл, його <code>__name__</code> — <code>"__main__"</code>, і він не входить у жоден пакет. Тому «крапка» ні на що не вказує. Розвʼязок — наступний розділ.</p>
+<h2 id="python3-m">Запуск модуля з пакета: <code>python3 -m</code><a class="headerlink" href="#python3-m" title="Permanent link">&para;</a></h2>
+<p>Ключ <code>-m</code> запускає <strong>модуль за його іменем</strong>, а не файл за шляхом:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nb">cd</span><span class="w"> </span>project
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>school.students
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>75.0
+</span></code></pre></div>
+<p>Що змінюється порівняно з <code>python3 school/students.py</code>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>python3 school/students.py</code></th>
+<th><code>python3 -m school.students</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Що вказуємо</td>
+<td>шлях до файлу</td>
+<td>імʼя модуля через крапки</td>
+</tr>
+<tr>
+<td><code>sys.path[0]</code></td>
+<td>каталог <code>school/</code></td>
+<td><strong>поточний</strong> каталог (<code>project/</code>)</td>
+</tr>
+<tr>
+<td>Модуль знає свій пакет</td>
+<td>ні</td>
+<td>так</td>
+</tr>
+<tr>
+<td>Відносні імпорти</td>
+<td><code>ImportError</code></td>
+<td>працюють</td>
+</tr>
+<tr>
+<td>Абсолютні <code>from school...</code></td>
+<td><code>ModuleNotFoundError</code></td>
+<td>працюють</td>
+</tr>
+</tbody>
+</table>
+<p>Отже, <code>python3 -m</code> треба запускати <strong>з кореневого каталогу проєкту</strong> — того, де лежить каталог пакета.</p>
+<p>Ви вже бачили <code>-m</code>: <code>python3 -m venv env</code>, <code>python3 -m pip install ...</code> — це запуск модулів <code>venv</code> і <code>pip</code> зі стандартної бібліотеки та site-packages.</p>
+<h3 id="__main__py"><code>__main__.py</code> — пакет, який можна запустити<a class="headerlink" href="#__main__py" title="Permanent link">&para;</a></h3>
+<p>Якщо в пакеті є файл <code>__main__.py</code>, пакет можна запустити за іменем:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>project/
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>└── school/
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>    ├── __init__.py
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>    ├── __main__.py
+</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>    └── grades.py
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># File: school/__main__.py</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-53-6"><a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"average:"</span><span class="p">,</span> <span class="n">average</span><span class="p">([</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]))</span>
+</span><span id="__span-53-7"><a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>
+</span><span id="__span-53-8"><a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>
+</span><span id="__span-53-9"><a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-53-10"><a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>school
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>average: 75.0
+</span></code></pre></div>
+<p>Так зазвичай оформлюють <strong>точку входу</strong> програми, що складається з пакета: <code>python3 -m gradebook</code>.</p>
+<h2 id="_11">Циклічні імпорти<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p><strong>Циклічний імпорт</strong> виникає, коли модуль <code>A</code> імпортує модуль <code>B</code>, а <code>B</code> — модуль <code>A</code> (напряму або через ланцюжок).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="c1"># File: students.py</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="n">STUDENTS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Shevchenko"</span><span class="p">:</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">55</span><span class="p">]}</span>
+</span><span id="__span-56-5"><a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>
+</span><span id="__span-56-6"><a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>
+</span><span id="__span-56-7"><a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-56-8"><a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">scores</span> <span class="ow">in</span> <span class="n">STUDENTS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-56-9"><a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">average</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="c1"># File: grades.py</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">students</span><span class="w"> </span><span class="kn">import</span> <span class="n">STUDENTS</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>
+</span><span id="__span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-57-6"><a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-57-7"><a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>
+</span><span id="__span-57-8"><a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>
+</span><span id="__span-57-9"><a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">best_student</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-57-10"><a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a>    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">STUDENTS</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="n">average</span><span class="p">(</span><span class="n">STUDENTS</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="c1"># File: main.py</span>
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">students</span>
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>
+</span><span id="__span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="n">students</span><span class="o">.</span><span class="n">report</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>Traceback (most recent call last):
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>  File "/home/student/project/main.py", line 1, in &lt;module&gt;
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>    import students
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>  File "/home/student/project/students.py", line 1, in &lt;module&gt;
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>    from grades import average
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>  File "/home/student/project/grades.py", line 1, in &lt;module&gt;
+</span><span id="__span-59-7"><a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>    from students import STUDENTS
+</span><span id="__span-59-8"><a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>ImportError: cannot import name 'STUDENTS' from 'students' (consider renaming '/home/student/project/students.py' if it has the same name as a library you intended to import)
+</span></code></pre></div>
+<p>Що сталося (згадайте схему імпорту):</p>
+<ol>
+<li><code>main.py</code> імпортує <code>students</code>. Python створює <strong>порожній</strong> модуль <code>students</code>, кладе його в <code>sys.modules</code> і починає виконувати <code>students.py</code>.</li>
+<li>Перший рядок <code>students.py</code> імпортує <code>grades</code>. Починається виконання <code>grades.py</code>.</li>
+<li>Перший рядок <code>grades.py</code> імпортує <code>STUDENTS</code> з <code>students</code>. Модуль <code>students</code> уже є в <code>sys.modules</code>, але він <strong>виконаний лише до першого рядка</strong> — <code>STUDENTS</code> ще не визначено.</li>
+</ol>
+<p>У старіших версіях Python повідомлення прямо називає причину: <code>cannot import name 'STUDENTS' from partially initialized module 'students' (most likely due to a circular import)</code>. У Python 3.13 підказка про перейменування тут вводить в оману — дивіться на traceback: ланцюжок <code>students → grades → students</code> і є ознакою циклу.</p>
+<h2 id="_12">Порядок і стиль імпортів<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>PEP 8 і загальна практика встановлюють такі правила:</p>
+<ol>
+<li>Усі імпорти — <strong>на початку файлу</strong>, після рядка документації модуля.</li>
+<li>Імпорти групують у три блоки, розділені порожнім рядком:<ol>
+<li>стандартна бібліотека;</li>
+<li>сторонні пакети (встановлені окремо, про них — у наступних лекціях);</li>
+<li>власні модулі проєкту.</li>
+</ol>
+</li>
+<li>Усередині блоку — за алфавітом.</li>
+<li>Один модуль — один рядок <code>import</code>: <code>import os</code> і <code>import sys</code> окремо, а не <code>import os, sys</code>. Для <code>from ... import a, b</code> кілька імен в одному рядку — нормально.</li>
+<li>Жодного <code>import *</code>.</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="sd">"""Entry point of the gradebook application."""</span>
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-60-4"><a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-60-5"><a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-60-6"><a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>
+</span><span id="__span-60-7"><a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">gradebook.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span>
+</span><span id="__span-60-8"><a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">gradebook.storage</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_scores</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Автоматичне сортування</p>
+<p>Редактор VS Code з розширенням Python вміє впорядковувати імпорти командою <strong>Organize Imports</strong> (<code>Shift+Alt+O</code>). Інструменти <code>isort</code> або <code>ruff</code> роблять це з командного рядка.</p>
+</div>
+<h2 id="_13">Структура проєкту<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>Немає єдиного «правильного» способу організувати проєкт, але є загальноприйняті домовленості. Для невеликого застосунку, який ви пишете в курсі, рекомендуємо таку структуру:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>gradebook-project/           &lt;- project root, git repository, run commands from here
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>├── .gitignore
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>├── README.md                &lt;- what the program does and how to run it
+</span><span id="__span-61-4"><a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>├── data/                    &lt;- input files
+</span><span id="__span-61-5"><a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>│   └── grades.txt
+</span><span id="__span-61-6"><a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a>└── gradebook/               &lt;- the package: all the code
+</span><span id="__span-61-7"><a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a>    ├── __init__.py
+</span><span id="__span-61-8"><a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a>    ├── __main__.py          &lt;- entry point: python3 -m gradebook
+</span><span id="__span-61-9"><a id="__codelineno-61-9" name="__codelineno-61-9" href="#__codelineno-61-9"></a>    ├── grades.py            &lt;- calculations
+</span><span id="__span-61-10"><a id="__codelineno-61-10" name="__codelineno-61-10" href="#__codelineno-61-10"></a>    ├── storage.py           &lt;- reading and writing files
+</span><span id="__span-61-11"><a id="__codelineno-61-11" name="__codelineno-61-11" href="#__codelineno-61-11"></a>    └── report.py            &lt;- building output
+</span></code></pre></div>
+<p>Принципи, на яких вона побудована:</p>
+<ul>
+<li><strong>Один модуль — одна відповідальність.</strong> <code>grades.py</code> лише обчислює, <code>storage.py</code> лише читає файли, <code>report.py</code> лише формує текст. Щоб змінити формат звіту, відкриваємо тільки <code>report.py</code>.</li>
+<li><strong>Обчислення без вводу/виводу.</strong> Функції в <code>grades.py</code> отримують дані параметрами і повертають результат — жодних <code>print()</code>, <code>input()</code>, <code>open()</code>. Такі функції легко перевіряти і використовувати повторно.</li>
+<li><strong>Тонка точка входу.</strong> <code>__main__.py</code> лише налаштовує логування, викликає інші модулі і повертає код завершення. Логіки в ньому мінімум.</li>
+<li><strong>Залежності йдуть в один бік:</strong> <code>__main__</code> → <code>report</code>, <code>storage</code> → <code>grades</code>. Нижчі модулі нічого не знають про вищі — тож модулі не імпортують один одного по колу.</li>
+<li><strong>Код — у пакеті, дані — окремо.</strong> Шлях до даних обчислюється від розташування коду (<code>Path(__file__)</code>), а не від поточного каталогу терміналу.</li>
+<li><strong>Команди запускаються з кореня проєкту:</strong> <code>python3 -m gradebook</code>.</li>
+</ul>
+<p><code>.gitignore</code> для такого проєкту (див. лекцію 12):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>__pycache__/
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>*.pyc
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>*.log
+</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>.vscode/
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Більші проєкти: <code>pyproject.toml</code> і src-layout</p>
+<p>Бібліотеки, які публікують на PyPI, зазвичай мають файл <code>pyproject.toml</code> (назва, версія, залежності, налаштування інструментів) і кладуть пакет у підкаталог <code>src/</code> (<code>src/gradebook/</code>). Крім того, поруч із пакетом зазвичай є каталог <code>tests/</code> з автоматичними тестами. Для навчальних проєктів у цьому курсі достатньо структури вище.</p>
+</div>
+<h2 id="_14">Приклад: проєкт «журнал оцінок»<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<p>Зберемо все разом: прочитаємо оцінки студентів з файлу, обчислимо середні бали і виведемо звіт, з логуванням з лекції 26. Створіть структуру з попереднього розділу.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a># File: data/grades.txt
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>Shevchenko;78,92,55
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>Kovalenko;95,88,100
+</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>Bondarenko;40,52,61
+</span><span id="__span-63-5"><a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>Melnyk;90,abc,70
+</span><span id="__span-63-6"><a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>Tkachenko
+</span></code></pre></div>
+<p>Останні два рядки зіпсовано навмисно.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="c1"># File: gradebook/__init__.py</span>
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="sd">"""Gradebook: read student scores from a file and print a report."""</span>
+</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>
+</span><span id="__span-64-4"><a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span><span class="p">,</span> <span class="n">is_passed</span>
+</span><span id="__span-64-5"><a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>
+</span><span id="__span-64-6"><a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"average"</span><span class="p">,</span> <span class="s2">"is_passed"</span><span class="p">]</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="c1"># File: gradebook/grades.py</span>
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="sd">"""Calculations with scores. No input/output here."""</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>
+</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="n">PASS_SCORE</span> <span class="o">=</span> <span class="mi">60</span>
+</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>
+</span><span id="__span-65-6"><a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>
+</span><span id="__span-65-7"><a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">scores</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-65-8"><a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a>    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-65-9"><a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a>
+</span><span id="__span-65-10"><a id="__codelineno-65-10" name="__codelineno-65-10" href="#__codelineno-65-10"></a>
+</span><span id="__span-65-11"><a id="__codelineno-65-11" name="__codelineno-65-11" href="#__codelineno-65-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_passed</span><span class="p">(</span><span class="n">score</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-65-12"><a id="__codelineno-65-12" name="__codelineno-65-12" href="#__codelineno-65-12"></a>    <span class="k">return</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="n">PASS_SCORE</span>
+</span><span id="__span-65-13"><a id="__codelineno-65-13" name="__codelineno-65-13" href="#__codelineno-65-13"></a>
+</span><span id="__span-65-14"><a id="__codelineno-65-14" name="__codelineno-65-14" href="#__codelineno-65-14"></a>
+</span><span id="__span-65-15"><a id="__codelineno-65-15" name="__codelineno-65-15" href="#__codelineno-65-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">letter</span><span class="p">(</span><span class="n">score</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-65-16"><a id="__codelineno-65-16" name="__codelineno-65-16" href="#__codelineno-65-16"></a>    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+</span><span id="__span-65-17"><a id="__codelineno-65-17" name="__codelineno-65-17" href="#__codelineno-65-17"></a>        <span class="k">return</span> <span class="s2">"A"</span>
+</span><span id="__span-65-18"><a id="__codelineno-65-18" name="__codelineno-65-18" href="#__codelineno-65-18"></a>    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span>
+</span><span id="__span-65-19"><a id="__codelineno-65-19" name="__codelineno-65-19" href="#__codelineno-65-19"></a>        <span class="k">return</span> <span class="s2">"B"</span>
+</span><span id="__span-65-20"><a id="__codelineno-65-20" name="__codelineno-65-20" href="#__codelineno-65-20"></a>    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="n">PASS_SCORE</span><span class="p">:</span>
+</span><span id="__span-65-21"><a id="__codelineno-65-21" name="__codelineno-65-21" href="#__codelineno-65-21"></a>        <span class="k">return</span> <span class="s2">"C"</span>
+</span><span id="__span-65-22"><a id="__codelineno-65-22" name="__codelineno-65-22" href="#__codelineno-65-22"></a>    <span class="k">return</span> <span class="s2">"F"</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="c1"># File: gradebook/storage.py</span>
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a><span class="sd">"""Reading scores from a text file."""</span>
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a>
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a>
+</span><span id="__span-66-7"><a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-66-8"><a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a>
+</span><span id="__span-66-9"><a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a>
+</span><span id="__span-66-10"><a id="__codelineno-66-10" name="__codelineno-66-10" href="#__codelineno-66-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">load_scores</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+</span><span id="__span-66-11"><a id="__codelineno-66-11" name="__codelineno-66-11" href="#__codelineno-66-11"></a>    <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-66-12"><a id="__codelineno-66-12" name="__codelineno-66-12" href="#__codelineno-66-12"></a>    <span class="k">with</span> <span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-66-13"><a id="__codelineno-66-13" name="__codelineno-66-13" href="#__codelineno-66-13"></a>        <span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+</span><span id="__span-66-14"><a id="__codelineno-66-14" name="__codelineno-66-14" href="#__codelineno-66-14"></a>            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-66-15"><a id="__codelineno-66-15" name="__codelineno-66-15" href="#__codelineno-66-15"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
+</span><span id="__span-66-16"><a id="__codelineno-66-16" name="__codelineno-66-16" href="#__codelineno-66-16"></a>                <span class="k">continue</span>
+</span><span id="__span-66-17"><a id="__codelineno-66-17" name="__codelineno-66-17" href="#__codelineno-66-17"></a>            <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-66-18"><a id="__codelineno-66-18" name="__codelineno-66-18" href="#__codelineno-66-18"></a>                <span class="n">name</span><span class="p">,</span> <span class="n">raw_scores</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span>
+</span><span id="__span-66-19"><a id="__codelineno-66-19" name="__codelineno-66-19" href="#__codelineno-66-19"></a>                <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">raw_scores</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)]</span>
+</span><span id="__span-66-20"><a id="__codelineno-66-20" name="__codelineno-66-20" href="#__codelineno-66-20"></a>            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span><span id="__span-66-21"><a id="__codelineno-66-21" name="__codelineno-66-21" href="#__codelineno-66-21"></a>                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"line </span><span class="si">%d</span><span class="s2"> skipped: </span><span class="si">%r</span><span class="s2">"</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</span><span id="__span-66-22"><a id="__codelineno-66-22" name="__codelineno-66-22" href="#__codelineno-66-22"></a>                <span class="k">continue</span>
+</span><span id="__span-66-23"><a id="__codelineno-66-23" name="__codelineno-66-23" href="#__codelineno-66-23"></a>            <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scores</span>
+</span><span id="__span-66-24"><a id="__codelineno-66-24" name="__codelineno-66-24" href="#__codelineno-66-24"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"loaded </span><span class="si">%d</span><span class="s2"> students from </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-66-25"><a id="__codelineno-66-25" name="__codelineno-66-25" href="#__codelineno-66-25"></a>    <span class="k">return</span> <span class="n">result</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="c1"># File: gradebook/report.py</span>
+</span><span id="__span-67-2"><a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="sd">"""Building a text report."""</span>
+</span><span id="__span-67-3"><a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a>
+</span><span id="__span-67-4"><a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.grades</span><span class="w"> </span><span class="kn">import</span> <span class="n">average</span><span class="p">,</span> <span class="n">is_passed</span><span class="p">,</span> <span class="n">letter</span>
+</span><span id="__span-67-5"><a id="__codelineno-67-5" name="__codelineno-67-5" href="#__codelineno-67-5"></a>
+</span><span id="__span-67-6"><a id="__codelineno-67-6" name="__codelineno-67-6" href="#__codelineno-67-6"></a>
+</span><span id="__span-67-7"><a id="__codelineno-67-7" name="__codelineno-67-7" href="#__codelineno-67-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_report</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+</span><span id="__span-67-8"><a id="__codelineno-67-8" name="__codelineno-67-8" href="#__codelineno-67-8"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-67-9"><a id="__codelineno-67-9" name="__codelineno-67-9" href="#__codelineno-67-9"></a>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">scores</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+</span><span id="__span-67-10"><a id="__codelineno-67-10" name="__codelineno-67-10" href="#__codelineno-67-10"></a>        <span class="n">avg</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</span><span id="__span-67-11"><a id="__codelineno-67-11" name="__codelineno-67-11" href="#__codelineno-67-11"></a>        <span class="n">status</span> <span class="o">=</span> <span class="s2">"passed"</span> <span class="k">if</span> <span class="n">is_passed</span><span class="p">(</span><span class="n">avg</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"failed"</span>
+</span><span id="__span-67-12"><a id="__codelineno-67-12" name="__codelineno-67-12" href="#__codelineno-67-12"></a>        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;12</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">6.1f</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">letter</span><span class="p">(</span><span class="n">avg</span><span class="p">)</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-67-13"><a id="__codelineno-67-13" name="__codelineno-67-13" href="#__codelineno-67-13"></a>    <span class="k">return</span> <span class="n">lines</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="c1"># File: gradebook/__main__.py</span>
+</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a><span class="sd">"""Entry point: python3 -m gradebook"""</span>
+</span><span id="__span-68-3"><a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a>
+</span><span id="__span-68-4"><a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-68-5"><a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-68-6"><a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-68-7"><a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a>
+</span><span id="__span-68-8"><a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.report</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_report</span>
+</span><span id="__span-68-9"><a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.storage</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_scores</span>
+</span><span id="__span-68-10"><a id="__codelineno-68-10" name="__codelineno-68-10" href="#__codelineno-68-10"></a>
+</span><span id="__span-68-11"><a id="__codelineno-68-11" name="__codelineno-68-11" href="#__codelineno-68-11"></a><span class="n">DATA_FILE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"data"</span> <span class="o">/</span> <span class="s2">"grades.txt"</span>
+</span><span id="__span-68-12"><a id="__codelineno-68-12" name="__codelineno-68-12" href="#__codelineno-68-12"></a>
+</span><span id="__span-68-13"><a id="__codelineno-68-13" name="__codelineno-68-13" href="#__codelineno-68-13"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-68-14"><a id="__codelineno-68-14" name="__codelineno-68-14" href="#__codelineno-68-14"></a>
+</span><span id="__span-68-15"><a id="__codelineno-68-15" name="__codelineno-68-15" href="#__codelineno-68-15"></a>
+</span><span id="__span-68-16"><a id="__codelineno-68-16" name="__codelineno-68-16" href="#__codelineno-68-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-68-17"><a id="__codelineno-68-17" name="__codelineno-68-17" href="#__codelineno-68-17"></a>    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-68-18"><a id="__codelineno-68-18" name="__codelineno-68-18" href="#__codelineno-68-18"></a>        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+</span><span id="__span-68-19"><a id="__codelineno-68-19" name="__codelineno-68-19" href="#__codelineno-68-19"></a>        <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(levelname)-7s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-68-20"><a id="__codelineno-68-20" name="__codelineno-68-20" href="#__codelineno-68-20"></a>    <span class="p">)</span>
+</span><span id="__span-68-21"><a id="__codelineno-68-21" name="__codelineno-68-21" href="#__codelineno-68-21"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-68-22"><a id="__codelineno-68-22" name="__codelineno-68-22" href="#__codelineno-68-22"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">load_scores</span><span class="p">(</span><span class="n">DATA_FILE</span><span class="p">)</span>
+</span><span id="__span-68-23"><a id="__codelineno-68-23" name="__codelineno-68-23" href="#__codelineno-68-23"></a>    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+</span><span id="__span-68-24"><a id="__codelineno-68-24" name="__codelineno-68-24" href="#__codelineno-68-24"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"data file not found: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">DATA_FILE</span><span class="p">)</span>
+</span><span id="__span-68-25"><a id="__codelineno-68-25" name="__codelineno-68-25" href="#__codelineno-68-25"></a>        <span class="k">return</span> <span class="mi">1</span>
+</span><span id="__span-68-26"><a id="__codelineno-68-26" name="__codelineno-68-26" href="#__codelineno-68-26"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">build_report</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+</span><span id="__span-68-27"><a id="__codelineno-68-27" name="__codelineno-68-27" href="#__codelineno-68-27"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</span><span id="__span-68-28"><a id="__codelineno-68-28" name="__codelineno-68-28" href="#__codelineno-68-28"></a>    <span class="k">return</span> <span class="mi">0</span>
+</span><span id="__span-68-29"><a id="__codelineno-68-29" name="__codelineno-68-29" href="#__codelineno-68-29"></a>
+</span><span id="__span-68-30"><a id="__codelineno-68-30" name="__codelineno-68-30" href="#__codelineno-68-30"></a>
+</span><span id="__span-68-31"><a id="__codelineno-68-31" name="__codelineno-68-31" href="#__codelineno-68-31"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-68-32"><a id="__codelineno-68-32" name="__codelineno-68-32" href="#__codelineno-68-32"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span></code></pre></div>
+<p>Запуск з кореня проєкту:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="nb">cd</span><span class="w"> </span>gradebook-project
+</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>gradebook
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>WARNING gradebook.storage: line 4 skipped: 'Melnyk;90,abc,70'
+</span><span id="__span-70-2"><a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a>WARNING gradebook.storage: line 5 skipped: 'Tkachenko'
+</span><span id="__span-70-3"><a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a>INFO    gradebook.storage: loaded 3 students from grades.txt
+</span><span id="__span-70-4"><a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a>Bondarenko     51.0  F  failed
+</span><span id="__span-70-5"><a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a>Kovalenko      94.3  A  passed
+</span><span id="__span-70-6"><a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a>Shevchenko     75.0  B  passed
+</span></code></pre></div>
+<p>Зверніть увагу:</p>
+<ul>
+<li><strong><code>%(name)s</code> у лозі — це <code>__name__</code> модуля.</strong> Одразу видно, що попередження прийшли з <code>gradebook.storage</code>, — саме для цього в лекції 26 ми писали <code>getLogger(__name__)</code>.</li>
+<li><strong><code>Path(__file__).parent.parent</code></strong> — <code>__file__</code> у <code>__main__.py</code> дорівнює <code>.../gradebook-project/gradebook/__main__.py</code>; перший <code>.parent</code> — каталог пакета, другий — корінь проєкту. Програма знайде дані незалежно від того, з якого каталогу запущено термінал, якщо пакет видно в <code>sys.path</code>.</li>
+<li><strong><code>sys.exit(main())</code></strong> — код завершення <code>0</code> або <code>1</code> (лекція 23) повертається операційній системі.</li>
+<li>Пакет можна використовувати як бібліотеку: <code>from gradebook import average</code> працює завдяки <code>__init__.py</code>.</li>
+</ul>
+<p>Що буде, якщо запускати неправильно:</p>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>python3 -m gradebook</code> з кореня проєкту</td>
+<td>працює</td>
+</tr>
+<tr>
+<td><code>python3 -m gradebook</code> з іншого каталогу</td>
+<td><code>No module named gradebook</code> — пакета немає в <code>sys.path</code></td>
+</tr>
+<tr>
+<td><code>python3 gradebook/__main__.py</code></td>
+<td><code>ImportError: attempted relative import with no known parent package</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_15">Типові помилки<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Помилка</th>
+<th>Чому погано</th>
+<th>Як правильно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Файл названо <code>random.py</code>, <code>math.py</code>, <code>logging.py</code>…</td>
+<td>затінює стандартний модуль: <code>AttributeError</code> у неочікуваному місці</td>
+<td>унікальні імена; перевірка через <code>module.__file__</code></td>
+</tr>
+<tr>
+<td>Імʼя модуля з дефісом або з цифри на початку</td>
+<td>такий файл неможливо імпортувати</td>
+<td><code>lowercase_with_underscores</code></td>
+</tr>
+<tr>
+<td><code>print()</code>, <code>input()</code> або тестовий код на верхньому рівні модуля</td>
+<td>виконується при кожному імпорті</td>
+<td>код — у функціях; запуск — під <code>if __name__ == "__main__":</code></td>
+</tr>
+<tr>
+<td><code>from module import *</code></td>
+<td>незрозуміло, звідки імʼя; тихе перезаписування змінних</td>
+<td><code>import module</code> або явний перелік імен</td>
+</tr>
+<tr>
+<td>Змінено <code>PASS_SCORE</code> після <code>from grades import PASS_SCORE</code> і очікується зміна в модулі</td>
+<td>змінено лише локальне імʼя</td>
+<td>передавати значення параметром</td>
+</tr>
+<tr>
+<td>Змінні чужого модуля змінюються ззовні</td>
+<td>неочевидні побічні ефекти</td>
+<td>константи — тільки для читання</td>
+</tr>
+<tr>
+<td><code>sys.path.append("..")</code></td>
+<td>працює лише з певного каталогу</td>
+<td>правильна структура + <code>python3 -m</code></td>
+</tr>
+<tr>
+<td>Відносний імпорт у файлі, який запускають напряму</td>
+<td><code>ImportError: ... no known parent package</code></td>
+<td><code>python3 -m package.module</code> з кореня проєкту</td>
+</tr>
+<tr>
+<td><code>python3 -m</code> з неправильного каталогу</td>
+<td><code>ModuleNotFoundError</code></td>
+<td>запускати з каталогу, де лежить пакет</td>
+</tr>
+<tr>
+<td>Модулі імпортують один одного</td>
+<td><code>ImportError</code> через частково ініціалізований модуль</td>
+<td>залежності між модулями мають іти в один бік</td>
+</tr>
+<tr>
+<td>Шлях до даних відносно поточного каталогу терміналу</td>
+<td>програма працює лише з одного місця</td>
+<td><code>Path(__file__).parent / ...</code></td>
+</tr>
+<tr>
+<td>Зміни в модулі не видно в інтерактивному <code>python3</code></td>
+<td>модуль уже в <code>sys.modules</code></td>
+<td>перезапустити інтерпретатор</td>
+</tr>
+<tr>
+<td><code>__pycache__/</code> у git</td>
+<td>зайві файли, привʼязані до версії Python</td>
+<td><code>.gitignore</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_16">Підсумок<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Модуль</strong> — файл <code>.py</code>; його імʼя — імʼя файлу без розширення. Модуль має власний простір імен.</li>
+<li>Форми імпорту: <code>import m</code>, <code>import m as x</code>, <code>from m import name</code>, <code>from m import name as x</code>. За замовчуванням — <code>import m</code>; <code>import *</code> не використовуємо.</li>
+<li>Під час першого імпорту код модуля <strong>виконується повністю, один раз</strong>; результат зберігається в <code>sys.modules</code>.</li>
+<li><code>__name__</code> дорівнює <code>"__main__"</code> для запущеного файлу та імені модуля для імпортованого. Код запуску — під <code>if __name__ == "__main__":</code>.</li>
+<li><code>from m import name</code> створює нове імʼя в поточному модулі; присвоєння йому не змінює <code>m.name</code>.</li>
+<li>Модулі шукаються у <code>sys.path</code>: каталог скрипта, стандартна бібліотека, site-packages. Свій файл з іменем стандартного модуля його <strong>затінює</strong>.</li>
+<li><strong>Пакет</strong> — каталог з <code>__init__.py</code>; модулі в ньому — <code>package.module</code>. <code>__init__.py</code> виконується при імпорті пакета.</li>
+<li><strong>Абсолютний</strong> імпорт — <code>from package.module import name</code>; <strong>відносний</strong> — <code>from .module import name</code>, працює лише всередині пакета.</li>
+<li><code>python3 -m package.module</code> запускає модуль як частину пакета; <code>__main__.py</code> дозволяє запускати <code>python3 -m package</code>.</li>
+<li><strong>Циклічний імпорт</strong> (модулі імпортують один одного) призводить до <code>ImportError</code>: один із модулів виконаний лише частково.</li>
+<li>Імпорти — на початку файлу, групами: стандартна бібліотека, сторонні, власні.</li>
+<li>Структура проєкту: пакет з модулями за відповідальностями, тонка точка входу, дані окремо від коду, запуск з кореня проєкту.</li>
+</ul>
+<h2 id="_17">Корисні посилання<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/modules.html">Tutorial: Modules — офіційний посібник</a></li>
+<li><a href="https://docs.python.org/3/reference/import.html">The import system — як працює імпорт</a></li>
+<li><a href="https://docs.python.org/3/library/__main__.html"><code>__main__</code> — модуль верхнього рівня і <code>__main__.py</code></a></li>
+<li><a href="https://docs.python.org/3/library/sys_path_init.html"><code>sys.path</code> — шлях пошуку модулів</a></li>
+<li><a href="https://docs.python.org/3/library/index.html">The Python Standard Library — перелік модулів</a></li>
+<li><a href="https://peps.python.org/pep-0008/#imports">PEP 8: Imports — стиль імпортів</a></li>
+</ul>
+<h2 id="_18">Домашнє завдання<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>Мета — навчитися розбивати програму на модулі й пакети, правильно імпортувати і запускати їх. Усі дані — <strong>ваші власні</strong>, латиницею. Для кожного завдання покажіть дерево файлів (<code>find . -name "*.py" | sort</code> або <code>tree</code>), вміст файлів і вивід запуску.</p>
+<ol>
+<li>
+<p>Створіть модуль <code>about_me.py</code> з константами <code>FIRST_NAME</code>, <code>LAST_NAME</code>, <code>GROUP</code>, <code>BIRTH_YEAR</code> (ваші дані) і функціями <code>full_name() -&gt; str</code> та <code>age(current_year: int) -&gt; int</code>. У <code>main.py</code> використайте модуль трьома способами: <code>import about_me</code>, <code>import about_me as me</code>, <code>from about_me import full_name, age</code>. Виведіть <code>dir(about_me)</code> без службових імен і <code>about_me.__file__</code>.</p>
+</li>
+<li>
+<p>Додайте в <code>about_me.py</code> рядок <code>print("about_me loaded")</code> на верхньому рівні. Імпортуйте модуль у <code>main.py</code> тричі різними формами і покажіть, скільки разів зʼявилося повідомлення. Поясніть результат через <code>sys.modules</code>. Потім приберіть <code>print</code>, оформіть самоперевірку модуля через <code>main()</code> і <code>if __name__ == "__main__":</code> і покажіть вивід <code>python3 about_me.py</code> та <code>python3 main.py</code>.</p>
+</li>
+<li>
+<p>Створіть у каталозі файл <code>random.py</code> (або <code>statistics.py</code>) з однією функцією. Напишіть поруч <code>main.py</code>, який використовує відповідний стандартний модуль, наприклад, обирає випадкове число від 1 до кількості літер у вашому прізвищі. Покажіть помилку, поясніть її, виведіть <code>__file__</code> імпортованого модуля, виправте і покажіть правильний вивід.</p>
+</li>
+<li>
+<p>Продемонструйте різницю між <code>import grades</code> + <code>grades.X = ...</code> і <code>from grades import X</code> + <code>X = ...</code>. У модулі <code>limits.py</code> задайте <code>MAX_ABSENCES</code> рівним номеру вашого дня народження і функцію <code>is_allowed(absences: int) -&gt; bool</code>. Покажіть вивід, поясніть, чому результати різні, і перепишіть функцію так, щоб межа передавалася параметром.</p>
+</li>
+<li>
+<p>Створіть пакет <code>myschool</code> з модулями <code>grades.py</code> (обчислення) і <code>schedule.py</code> (ваш розклад на тиждень у вигляді словника та функція, що повертає пари на заданий день). У <code>schedule.py</code> використайте <strong>відносний</strong> імпорт з <code>grades.py</code>. Покажіть: (а) запуск <code>python3 myschool/schedule.py</code> і помилку; (б) запуск <code>python3 -m myschool.schedule</code> з кореня проєкту; (в) запуск <code>python3 -m myschool.schedule</code> з каталогу <code>myschool/</code>. Поясніть кожен результат через <code>sys.path[0]</code>.</p>
+</li>
+<li>
+<p>Додайте до пакета <code>myschool</code> файл <code>__main__.py</code>, щоб <code>python3 -m myschool</code> виводив ваше імʼя, групу і розклад на сьогоднішній день тижня (<code>datetime.date.today().weekday()</code>). У <code>__init__.py</code> «підніміть» дві найважливіші функції і задайте <code>__all__</code>. Покажіть, що <code>from myschool import &lt;function&gt;</code> працює з окремого скрипта в корені проєкту.</p>
+</li>
+<li>
+<p>Створіть два модулі, які імпортують один одного (наприклад, <code>students.py</code> з вашими даними та даними 3–4 одногрупників і <code>stats.py</code> з обчисленнями). Отримайте помилку циклічного імпорту, збережіть traceback і поясніть по кроках, що сталося. Намалюйте схему імпортів між модулями (можна mermaid) і позначте на ній, де виникає цикл.</p>
+</li>
+<li>
+<p>Розбийте програму з домашнього завдання лекції 26 (або 23), яка читала файл і логувала пропущені рядки, на пакет за структурою з розділу «Структура проєкту»: окремі модулі для обчислень, читання файлу і виводу; точка входу — <code>__main__.py</code>; дані — у каталозі <code>data/</code>; логер у кожному модулі — <code>getLogger(__name__)</code>. Покажіть дерево проєкту, вивід <code>python3 -m &lt;your_package&gt;</code> (в лозі мають бути видні імена різних модулів), <code>.gitignore</code> і <code>README.md</code> з інструкцією запуску. Закомітьте проєкт у git і покажіть <code>git status</code> — у ньому не має бути <code>__pycache__</code>.</p>
+</li>
+<li>
+<p>Знайдіть у своєму коді з попередніх лабораторних щонайменше три функції, які ви копіювали з однієї програми в іншу. Винесіть їх в окремий модуль (або пакет) <code>utils</code> і перепишіть дві старі програми так, щоб вони імпортували функції звідти. Покажіть <code>git diff</code> до і після та поясніть, які проблеми з розділу «Навіщо ділити програму на файли» це вирішує.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-1sem/issues">Створіть issue на GitHub</a></em></p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Куротич Анатолій. Всі права захищені.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kurotych" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
