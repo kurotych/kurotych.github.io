@@ -1,0 +1,2204 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module3/26-logging-lecture/">
+      
+      
+        <link rel="prev" href="../../module2/25-data-structures-internals-lecture/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>26. (Л) Логування у Python. Модуль logging - Python (1 семестр)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#26-python-logging" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python (1 семестр)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              26. (Л) Логування у Python. Модуль logging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python (1 семестр)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/01-intro-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Вступ. Предмет і завдання курсу. Алгоритм, блок-схеми, програма, компіляція, інтерпретація
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/02-tools-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/03-tools-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (П1) Налаштування середовища розробки. Запуск Python коду локально та онлайн
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/04-variables-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. (Л) Змінні та типи даних. Вирази та оператори
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/05-variables-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (П2) Змінні, типи даних та вирази
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/06-conditions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (Л) Умовні оператори: if, elif, else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/07-conditions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (П3) Умовні оператори та введення даних з консолі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/08-loops-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. (Л) Цикли for і while та їх застосування
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/09-loops-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. (П4) Розв'язування задач із використанням циклів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/10-functions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. (Л) Функції. Параметри та область видимості змінних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/11-functions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. (П5) Написання та використання функцій у Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/12-git-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Основи роботи з Git та GitHub. Система контролю версій, репозиторії, коміти, запит на злиття, віддалена співпраця
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/13-git-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/14-lists-tuples-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. (Л) Списки та кортежі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/15-lists-tuples-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. (П7) Виконання завдань зі списками та кортежами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/16-dicts-sets-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. (Л) Словники та множини
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/17-dicts-sets-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. (П8) Виконання завдань зі словниками та множинами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/18-strings-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. (Л) Робота з рядками
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/19-strings-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. (П9) Розвʼязування задач на опрацювання рядків
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/20-typing-mutability-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. (Л) Типізація. Змінювані та незмінювані обʼєкти
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/21-files-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. (Л) Файловий ввід/вивід
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/22-files-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. (П10) Робота з файлами: збереження і аналіз даних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/23-exceptions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. (Л) Обробка винятків (Exceptions)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/24-exceptions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. (П11) Обробка винятків: програми, які не падають на поганих файлах
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/25-data-structures-internals-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. (Л) Внутрішня організація структур даних. Алгоритмічна складність
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    26. (Л) Логування у Python. Модуль logging
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    26. (Л) Логування у Python. Модуль logging
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Зміст лекції
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    <span class="md-ellipsis">
+      Навіщо логування, якщо є print()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Перший лог
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рівні повідомлень
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поріг рівня: що потрапляє в лог
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loggingbasicconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Базова конфігурація: logging.basicConfig()
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Базова конфігурація: logging.basicConfig()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basicconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      basicConfig спрацьовує лише один раз
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Формат повідомлення
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Передача даних у повідомлення
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getlogger__name__" class="md-nav__link">
+    <span class="md-ellipsis">
+      Іменовані логери: getLogger(__name__)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запис у файл
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Кілька обробників: консоль і файл одночасно
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ротація лог-файлів
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ротація лог-файлів">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotatingfilehandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      За розміром: RotatingFileHandler
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timedrotatingfilehandler" class="md-nav__link">
+    <span class="md-ellipsis">
+      За часом: TimedRotatingFileHandler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Конфігурація словником: dictConfig
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Рівень логування з командного рядка
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Типові помилки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підсумок
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні посилання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Домашнє завдання
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+<h1 id="26-python-logging">26. (Л) Логування у Python. Модуль <code>logging</code><a class="headerlink" href="#26-python-logging" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Навіщо логування, якщо є <code>print()</code></li>
+<li>Перший лог</li>
+<li>Рівні повідомлень</li>
+<li>Поріг рівня: що потрапляє в лог</li>
+<li>Базова конфігурація: <code>logging.basicConfig()</code></li>
+<li>Формат повідомлення</li>
+<li>Передача даних у повідомлення</li>
+<li>Іменовані логери: <code>getLogger(__name__)</code></li>
+<li>Запис у файл</li>
+<li>Кілька обробників: консоль і файл одночасно</li>
+<li>Ротація лог-файлів</li>
+<li>Конфігурація словником: <code>dictConfig</code></li>
+<li>Рівень логування з командного рядка</li>
+<li>Типові помилки</li>
+</ol>
+<h2 id="print">Навіщо логування, якщо є <code>print()</code><a class="headerlink" href="#print" title="Permanent link">&para;</a></h2>
+<p>Досі, щоб зрозуміти, що відбувається в програмі, ми додавали <code>print()</code>: вивести значення змінної, позначити, що функція викликалася, повідомити про пропущений рядок файлу. Для програми на 30 рядків цього достатньо. Але щойно програма росте, <code>print()</code> починає заважати:</p>
+<ul>
+<li><strong>Його не можна вимкнути.</strong> Налагоджувальні <code>print("DEBUG: x =", x)</code> доводиться видаляти руками перед здачею, а потім додавати знову, коли зʼявляється новий баг.</li>
+<li><strong>Усі повідомлення рівноцінні.</strong> Рядок <code>loaded 120 records</code> і рядок <code>database is unavailable</code> виглядають однаково — серед сотні рядків важливе губиться.</li>
+<li><strong>Немає контексту.</strong> Невідомо, <em>коли</em> сталася подія, <em>в якому</em> файлі та функції, <em>яка</em> частина програми її повідомила.</li>
+<li><strong>Усе йде в одне місце.</strong> Діагностика змішується з корисним виводом програми, а зберегти її у файл для подальшого аналізу незручно.</li>
+<li><strong>Після завершення програми нічого не лишається.</strong> Якщо сервер упав уночі, <code>print()</code> у вікні терміналу ніхто не бачив.</li>
+</ul>
+<p><strong>Логування</strong> (logging) — це запис подій, що відбуваються під час роботи програми, у вигляді структурованих повідомлень з <strong>рівнем важливості</strong>, <strong>часом</strong> і <strong>джерелом</strong>. Записи можна фільтрувати за важливістю, вмикати і вимикати без зміни коду, спрямовувати на екран, у файл чи кілька місць одразу.</p>
+<p>У Python для цього є стандартний модуль <code>logging</code> — встановлювати нічого не треба.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>print()</code></th>
+<th><code>logging</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Призначення</td>
+<td>вивід результату для користувача</td>
+<td>діагностика для розробника та адміністратора</td>
+</tr>
+<tr>
+<td>Рівень важливості</td>
+<td>немає</td>
+<td><code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code></td>
+</tr>
+<tr>
+<td>Вимкнути частину повідомлень</td>
+<td>лише видаливши код</td>
+<td>змінивши один рівень у конфігурації</td>
+</tr>
+<tr>
+<td>Час, файл, рядок, функція</td>
+<td>вручну</td>
+<td>автоматично, через формат</td>
+</tr>
+<tr>
+<td>Куди пише</td>
+<td><code>stdout</code></td>
+<td><code>stderr</code>, файл, кілька місць одночасно</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title"><code>print()</code> не зникає</p>
+<p>Логування не замінює <code>print()</code> повністю. <code>print()</code> — для <strong>результату</strong>, заради якого програму запустили (таблиця оцінок, відповідь на запит). Логи — для <strong>розповіді про те, як програма працювала</strong>.</p>
+</div>
+<h2 id="_2">Перший лог<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Program: the very first log messages</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"disk space is low"</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"cannot open config file"</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"this message is not shown"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>WARNING:root:disk space is low
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ERROR:root:cannot open config file
+</span></code></pre></div>
+<p>Що тут видно:</p>
+<ul>
+<li>Кожне повідомлення має формат <code>LEVEL:logger_name:message</code>. <code>root</code> — імʼя <strong>кореневого логера</strong>, до якого звертаються функції <code>logging.warning()</code>, <code>logging.error()</code> тощо.</li>
+<li>Повідомлення рівня <code>INFO</code> <strong>не зʼявилося</strong>. За замовчуванням <code>logging</code> показує лише повідомлення рівня <code>WARNING</code> і вище — щоб не засмічувати вивід.</li>
+<li>Повідомлення надруковано в потік <strong><code>stderr</code></strong>, а не <code>stdout</code>, куди пише <code>print()</code>.</li>
+</ul>
+<h2 id="_3">Рівні повідомлень<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Кожне повідомлення має <strong>рівень</strong> — наскільки воно важливе. У модулі <code>logging</code> є пʼять стандартних рівнів, кожному відповідає число і функція:</p>
+<table>
+<thead>
+<tr>
+<th>Рівень</th>
+<th>Число</th>
+<th>Функція</th>
+<th>Коли використовувати</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DEBUG</code></td>
+<td>10</td>
+<td><code>logging.debug()</code></td>
+<td>детальна інформація для налагодження: значення змінних, проміжні результати, вхід у функцію</td>
+</tr>
+<tr>
+<td><code>INFO</code></td>
+<td>20</td>
+<td><code>logging.info()</code></td>
+<td>підтвердження, що все йде за планом: програма стартувала, файл завантажено, оброблено N записів</td>
+</tr>
+<tr>
+<td><code>WARNING</code></td>
+<td>30</td>
+<td><code>logging.warning()</code></td>
+<td>сталося щось несподіване або скоро може статися проблема, але програма працює далі: пропущено поганий рядок, мало місця на диску</td>
+</tr>
+<tr>
+<td><code>ERROR</code></td>
+<td>40</td>
+<td><code>logging.error()</code></td>
+<td>через серйозну проблему програма не змогла виконати якусь дію: не вдалося зберегти файл, запит завершився помилкою</td>
+</tr>
+<tr>
+<td><code>CRITICAL</code></td>
+<td>50</td>
+<td><code>logging.critical()</code></td>
+<td>дуже серйозна помилка, після якої програма, найімовірніше, не зможе продовжувати роботу</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Program: all five levels and their numeric values</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"grades list: [90, 85, 77]"</span><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"journal loaded: 3 students"</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"line 4 skipped: not a number"</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"cannot save report.txt"</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">"journal file is corrupted, stopping"</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>DEBUG:root:grades list: [90, 85, 77]
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>INFO:root:journal loaded: 3 students
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>WARNING:root:line 4 skipped: not a number
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ERROR:root:cannot save report.txt
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>CRITICAL:root:journal file is corrupted, stopping
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>10 20 30 40 50
+</span></code></pre></div>
+<p>Рядок <code>logging.basicConfig(level=logging.DEBUG)</code> знизив поріг до <code>DEBUG</code>, тому тепер видно всі пʼять повідомлень. Як працює <code>basicConfig</code>, розберемо трохи далі.</p>
+<div class="admonition tip">
+<p class="admonition-title">Як обрати рівень</p>
+<p>Поставте собі запитання: «Хто і коли має це побачити?»</p>
+<ul>
+<li>Лише я, коли шукаю баг → <code>DEBUG</code>.</li>
+<li>Адміністратор, який хоче знати, що програма робить → <code>INFO</code>.</li>
+<li>Варто звернути увагу, але все працює → <code>WARNING</code>.</li>
+<li>Щось не вдалося, потрібне втручання → <code>ERROR</code>.</li>
+<li>Програма далі працювати не може → <code>CRITICAL</code>.</li>
+</ul>
+<p>Найчастіша помилка початківців — писати все в <code>INFO</code> або все в <code>ERROR</code>. Тоді рівні втрачають сенс.</p>
+</div>
+<h2 id="_4">Поріг рівня: що потрапляє в лог<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Рівні — це числа, тому їх можна порівнювати. Логер має <strong>поріг</strong> (level): повідомлення, рівень якого <strong>менший</strong> за поріг, відкидається; рівний або більший — записується.</p>
+<pre class="mermaid"><code>graph LR
+    D["DEBUG 10"] --&gt; I["INFO 20"] --&gt; W["WARNING 30"] --&gt; E["ERROR 40"] --&gt; C["CRITICAL 50"]
+    style D fill:#ddd,stroke:#999
+    style I fill:#ddd,stroke:#999
+    style W fill:#ffd966,stroke:#b8860b
+    style E fill:#f4a460,stroke:#b8860b
+    style C fill:#e06666,stroke:#900</code></pre>
+<p>На схемі поріг <code>WARNING</code> (за замовчуванням): сірі рівні відкидаються, кольорові записуються.</p>
+<table>
+<thead>
+<tr>
+<th>Поріг</th>
+<th>Що видно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DEBUG</code></td>
+<td>усе</td>
+</tr>
+<tr>
+<td><code>INFO</code></td>
+<td><code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code></td>
+</tr>
+<tr>
+<td><code>WARNING</code> (за замовчуванням)</td>
+<td><code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code></td>
+</tr>
+<tr>
+<td><code>ERROR</code></td>
+<td><code>ERROR</code>, <code>CRITICAL</code></td>
+</tr>
+<tr>
+<td><code>CRITICAL</code></td>
+<td>лише <code>CRITICAL</code></td>
+</tr>
+</tbody>
+</table>
+<p>Саме в цьому головна перевага над <code>print()</code>: повідомлення <code>DEBUG</code> можна <strong>залишити в коді назавжди</strong>. Під час розробки поріг ставлять <code>DEBUG</code> і бачать усе, у робочій версії — <code>INFO</code> або <code>WARNING</code>, і налагоджувальні повідомлення просто не виводяться. Код при цьому не змінюється.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Program: the same code with different thresholds</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">average</span><span class="p">(</span><span class="n">grades</span><span class="p">):</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"average() called with </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">grades</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"average() result: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">return</span> <span class="n">result</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"start"</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"avg:"</span><span class="p">,</span> <span class="n">average</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">77</span><span class="p">]))</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"finish"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>INFO:root:start
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>avg: 84.0
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>INFO:root:finish
+</span></code></pre></div>
+<p>Змініть <code>level=logging.INFO</code> на <code>level=logging.DEBUG</code> — і без жодних інших змін зʼявляться два налагоджувальні рядки:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>INFO:root:start
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>DEBUG:root:average() called with [90, 85, 77]
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>DEBUG:root:average() result: 84.0
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>avg: 84.0
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>INFO:root:finish
+</span></code></pre></div>
+<h2 id="loggingbasicconfig">Базова конфігурація: <code>logging.basicConfig()</code><a class="headerlink" href="#loggingbasicconfig" title="Permanent link">&para;</a></h2>
+<p><code>logging.basicConfig()</code> — найпростіший спосіб налаштувати логування для невеликої програми. Він налаштовує <strong>кореневий логер</strong>: встановлює поріг, формат і місце, куди писати.</p>
+<p>Найуживаніші параметри:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Що задає</th>
+<th>Приклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>level</code></td>
+<td>поріг кореневого логера</td>
+<td><code>level=logging.DEBUG</code></td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>шаблон рядка повідомлення</td>
+<td><code>format="%(levelname)s %(message)s"</code></td>
+</tr>
+<tr>
+<td><code>datefmt</code></td>
+<td>формат дати й часу для <code>%(asctime)s</code></td>
+<td><code>datefmt="%Y-%m-%d %H:%M:%S"</code></td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>писати у файл замість <code>stderr</code></td>
+<td><code>filename="app.log"</code></td>
+</tr>
+<tr>
+<td><code>filemode</code></td>
+<td>режим відкриття файлу (<code>"a"</code> за замовчуванням, <code>"w"</code> — перезаписати)</td>
+<td><code>filemode="w"</code></td>
+</tr>
+<tr>
+<td><code>encoding</code></td>
+<td>кодування лог-файлу</td>
+<td><code>encoding="utf-8"</code></td>
+</tr>
+<tr>
+<td><code>handlers</code></td>
+<td>список готових обробників (розберемо далі)</td>
+<td><code>handlers=[...]</code></td>
+</tr>
+<tr>
+<td><code>force</code></td>
+<td>перезаписати попередню конфігурацію</td>
+<td><code>force=True</code></td>
+</tr>
+</tbody>
+</table>
+<p>Рівень можна задавати константою або рядком — <code>level=logging.DEBUG</code> і <code>level="DEBUG"</code> рівнозначні.</p>
+<h3 id="basicconfig"><code>basicConfig</code> спрацьовує лише один раз<a class="headerlink" href="#basicconfig" title="Permanent link">&para;</a></h3>
+<p>Важлива пастка: <code>basicConfig()</code> <strong>нічого не робить</strong>, якщо кореневий логер уже налаштований. А налаштовується він автоматично, щойно ви викликали будь-яку з функцій <code>logging.debug()</code>, <code>logging.info()</code>, <code>logging.warning()</code>… до <code>basicConfig()</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Program: basicConfig after the first log call is ignored</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"first message"</span><span class="p">)</span>          <span class="c1"># implicit basicConfig() happens here</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>  <span class="c1"># ignored: root logger already configured</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"you will not see this"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>WARNING:root:first message
+</span></code></pre></div>
+<p>Правило: <strong>викликайте <code>basicConfig()</code> один раз, на самому початку програми</strong>, до будь-яких повідомлень. Якщо конфігурацію справді треба замінити (наприклад, у інтерактивному інтерпретаторі), передайте <code>force=True</code>.</p>
+<h2 id="_5">Формат повідомлення<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Формат за замовчуванням <code>LEVEL:name:message</code> надто бідний: у ньому немає навіть часу. Формат задається рядком з <strong>атрибутами запису</strong> у вигляді <code>%(name)s</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Program: a more informative log format</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">datefmt</span><span class="o">=</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">,</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">)</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"journal loaded"</span><span class="p">)</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"line 4 skipped"</span><span class="p">)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">"cannot save report"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>2026-10-06 14:03:27 INFO     journal loaded
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>2026-10-06 14:03:27 WARNING  line 4 skipped
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>2026-10-06 14:03:27 ERROR    cannot save report
+</span></code></pre></div>
+<p><code>%(levelname)-8s</code> — ширина 8 символів з вирівнюванням ліворуч, як у f-рядку <code>{level:&lt;8}</code>. Завдяки цьому повідомлення стоять рівною колонкою.</p>
+<p>Найкорисніші атрибути:</p>
+<table>
+<thead>
+<tr>
+<th>Атрибут</th>
+<th>Що підставляється</th>
+<th>Приклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%(asctime)s</code></td>
+<td>дата й час створення запису</td>
+<td><code>2026-10-06 14:03:27,512</code></td>
+</tr>
+<tr>
+<td><code>%(levelname)s</code></td>
+<td>назва рівня</td>
+<td><code>WARNING</code></td>
+</tr>
+<tr>
+<td><code>%(levelno)d</code></td>
+<td>числове значення рівня</td>
+<td><code>30</code></td>
+</tr>
+<tr>
+<td><code>%(name)s</code></td>
+<td>імʼя логера</td>
+<td><code>root</code>, <code>journal</code></td>
+</tr>
+<tr>
+<td><code>%(message)s</code></td>
+<td>саме повідомлення</td>
+<td><code>line 4 skipped</code></td>
+</tr>
+<tr>
+<td><code>%(filename)s</code></td>
+<td>імʼя файлу з кодом</td>
+<td><code>main.py</code></td>
+</tr>
+<tr>
+<td><code>%(funcName)s</code></td>
+<td>імʼя функції, звідки логували</td>
+<td><code>load_journal</code></td>
+</tr>
+<tr>
+<td><code>%(lineno)d</code></td>
+<td>номер рядка</td>
+<td><code>42</code></td>
+</tr>
+<tr>
+<td><code>%(module)s</code></td>
+<td>імʼя модуля (файл без <code>.py</code>)</td>
+<td><code>main</code></td>
+</tr>
+<tr>
+<td><code>%(process)d</code>, <code>%(thread)d</code></td>
+<td>ідентифікатори процесу і потоку</td>
+<td><code>48213</code></td>
+</tr>
+</tbody>
+</table>
+<p>Повний перелік — у <a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">документації</a>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Program: where did this message come from?</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(levelname)s</span><span class="s2"> [</span><span class="si">%(filename)s</span><span class="s2">:</span><span class="si">%(lineno)d</span><span class="s2"> </span><span class="si">%(funcName)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_grade</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"parsing </span><span class="si">%r</span><span class="s2">"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="n">parse_grade</span><span class="p">(</span><span class="s2">"90"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>DEBUG [main.py:11 parse_grade] parsing '90'
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title"><code>datefmt</code> — ті самі коди, що й у <code>strftime</code></p>
+<p><code>%Y</code> — рік, <code>%m</code> — місяць, <code>%d</code> — день, <code>%H</code> — години, <code>%M</code> — хвилини, <code>%S</code> — секунди. Без <code>datefmt</code> час виводиться у форматі <code>2026-10-06 14:03:27,512</code> — з мілісекундами після коми.</p>
+</div>
+<h2 id="_6">Передача даних у повідомлення<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Майже завжди в повідомлення треба підставити значення змінних. Зробити це можна двома способами:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Program: two ways to put data into a log message</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">name</span> <span class="o">=</span> <span class="s2">"Shevchenko"</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="n">grade</span> <span class="o">=</span> <span class="mi">95</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"student </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> got </span><span class="si">{</span><span class="n">grade</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>         <span class="c1"># f-string</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"student </span><span class="si">%s</span><span class="s2"> got </span><span class="si">%d</span><span class="s2">"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">)</span>      <span class="c1"># lazy %-formatting</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>INFO:root:student Shevchenko got 95
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>INFO:root:student Shevchenko got 95
+</span></code></pre></div>
+<p>Результат однаковий, але <strong>рекомендований другий спосіб</strong> — шаблон із <code>%s</code> і аргументи окремо. Причина: f-рядок обчислюється <strong>завжди</strong>, ще до виклику <code>logging.info()</code>, навіть якщо повідомлення буде відкинуте порогом. А з <code>%s</code> форматування відбувається <strong>лише тоді, коли запис справді виводиться</strong>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Program: f-string is evaluated even when the message is dropped</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">Expensive</span><span class="p">:</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"  (expensive repr computed)"</span><span class="p">)</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="k">return</span> <span class="s2">"&lt;Expensive&gt;"</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="n">obj</span> <span class="o">=</span> <span class="n">Expensive</span><span class="p">()</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"f-string:"</span><span class="p">)</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"value: </span><span class="si">{</span><span class="n">obj</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"lazy:"</span><span class="p">)</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"value: </span><span class="si">%r</span><span class="s2">"</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>f-string:
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  (expensive repr computed)
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>lazy:
+</span></code></pre></div>
+<p>Повідомлення <code>DEBUG</code> в обох випадках не виведено, але у варіанті з f-рядком обчислення відбулося даремно. У циклі на мільйон ітерацій різниця відчутна. Крім того, інструменти аналізу логів можуть групувати повідомлення за шаблоном <code>"student %s got %d"</code> — з f-рядками кожне повідомлення унікальне.</p>
+<p>Плейсхолдери ті самі, що й у старому <code>%</code>-форматуванні рядків:</p>
+<table>
+<thead>
+<tr>
+<th>Плейсхолдер</th>
+<th>Що робить</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%s</code></td>
+<td><code>str(value)</code> — підходить для будь-якого значення</td>
+</tr>
+<tr>
+<td><code>%r</code></td>
+<td><code>repr(value)</code> — рядки в лапках, видно пробіли і порожні рядки</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>ціле число</td>
+</tr>
+<tr>
+<td><code>%.2f</code></td>
+<td>дробове число з двома знаками після коми</td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>сам символ <code>%</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Аргументи — окремо, не через <code>%</code></p>
+<p><code>logging.info("got %d", grade)</code> — правильно.
+<code>logging.info("got %d" % grade)</code> — працює, але форматування знову відбувається завжди. Кількість <code>%s</code> у шаблоні має збігатися з кількістю аргументів, інакше замість повідомлення ви отримаєте <code>--- Logging error ---</code> з traceback у <code>stderr</code>.</p>
+</div>
+<h2 id="getlogger__name__">Іменовані логери: <code>getLogger(__name__)</code><a class="headerlink" href="#getlogger__name__" title="Permanent link">&para;</a></h2>
+<p>Функції <code>logging.info()</code>, <code>logging.warning()</code> пишуть у <strong>кореневий</strong> логер. Для маленького скрипта це нормально, але в програмі з кількох модулів хочеться знати, <em>яка частина</em> повідомила подію. Для цього створюють <strong>іменовані логери</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Program: a named logger instead of the root one</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">)</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"journal"</span><span class="p">)</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"loading journal"</span><span class="p">)</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"3 lines read"</span><span class="p">)</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"line 2 skipped"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>INFO     journal: loading journal
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>DEBUG    journal: 3 lines read
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>WARNING  journal: line 2 skipped
+</span></code></pre></div>
+<p><code>logging.getLogger("journal")</code> повертає логер з іменем <code>journal</code>. Повторний виклик з тим самим іменем повертає <strong>той самий обʼєкт</strong> — логер не треба передавати між функціями, його можна отримати за іменем у будь-якому місці програми.</p>
+<p>У кожному модулі (файлі) прийнято створювати логер так:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span></code></pre></div>
+<p><code>__name__</code> — це імʼя поточного модуля: для файлу <code>grades.py</code>, імпортованого з іншого файлу, це <code>"grades"</code>; для файлу, який запустили напряму, — <code>"__main__"</code>. Отже, в лозі одразу видно, з якого файлу прийшло повідомлення, без жодних зусиль.</p>
+<h2 id="_7">Запис у файл<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>Повідомлення в терміналі зникають, щойно ви закрили вікно. Щоб зберегти їх, достатньо передати <code>basicConfig</code> імʼя файлу:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Program: write log records to a file</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">log_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"app.log"</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>    <span class="n">filename</span><span class="o">=</span><span class="n">log_path</span><span class="p">,</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>    <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>    <span class="n">datefmt</span><span class="o">=</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">,</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="p">)</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"program started"</span><span class="p">)</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"reading grades"</span><span class="p">)</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"line 4 skipped: not a number"</span><span class="p">)</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"program finished"</span><span class="p">)</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"log written to"</span><span class="p">,</span> <span class="n">log_path</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">log_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>log written to app.log
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>2026-10-06 14:10:02 INFO     program started
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>2026-10-06 14:10:02 DEBUG    reading grades
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>2026-10-06 14:10:02 WARNING  line 4 skipped: not a number
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>2026-10-06 14:10:02 INFO     program finished
+</span></code></pre></div>
+<p>Тепер у терміналі логів немає — вони у файлі <code>app.log</code>. Що варто знати:</p>
+<ul>
+<li>За замовчуванням файл відкривається в режимі <strong>дописування</strong> (<code>filemode="a"</code>): кожен запуск додає записи в кінець, нічого не стираючи. Саме так зазвичай і треба — історія попередніх запусків зберігається. Для навчальних експериментів зручно <code>filemode="w"</code> — файл очищується при кожному запуску.</li>
+<li>Завжди вказуйте <strong><code>encoding="utf-8"</code></strong>, як і для звичайних файлів (лекція 21).</li>
+<li>Шлях <code>Path(__file__).resolve().parent / "app.log"</code> кладе лог поруч зі скриптом незалежно від того, з якого каталогу програму запустили.</li>
+</ul>
+<p>Під час роботи програми лог-файл зручно спостерігати в окремому терміналі командою <code>tail</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>tail<span class="w"> </span>-f<span class="w"> </span>app.log
+</span></code></pre></div>
+<p>Ключ <code>-f</code> (follow) змушує <code>tail</code> чекати нових рядків і показувати їх одразу, як вони дописуються. Зупинити — Ctrl+C.</p>
+<div class="admonition tip">
+<p class="admonition-title">Додайте <code>*.log</code> у <code>.gitignore</code></p>
+<p>Лог-файли — результат роботи програми, а не її код. Їм не місце в репозиторії: вони постійно змінюються і можуть містити дані користувачів.</p>
+</div>
+<h2 id="_8">Кілька обробників: консоль і файл одночасно<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>За те, <strong>куди</strong> потрапляє запис, відповідає <strong>обробник</strong> (handler): <code>StreamHandler</code> пише в потік (термінал), <code>FileHandler</code> — у файл. Логер може мати кілька обробників, і в кожного — <strong>власний поріг</strong> і <strong>власний форматувальник</strong> (<code>Formatter</code>), який перетворює запис на рядок тексту. <code>basicConfig()</code> просто створює один такий обробник за нас.</p>
+<p>Типова потреба: на екрані бачити лише важливе (<code>INFO</code> і вище), а у файл писати все до <code>DEBUG</code> — на випадок, якщо доведеться розбиратися в проблемі. Зберемо таку конфігурацію вручну:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Program: console shows INFO+, file keeps everything</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="n">log_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"debug.log"</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"journal"</span><span class="p">)</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>  <span class="c1"># the logger lets everything through</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="n">console</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="n">console</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="n">console</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">"</span><span class="si">%(levelname)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">))</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="n">file_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="n">file_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>    <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>        <span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(funcName)s</span><span class="s2">:</span><span class="si">%(lineno)d</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>        <span class="n">datefmt</span><span class="o">=</span><span class="s2">"%H:%M:%S"</span><span class="p">,</span>
+</span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>    <span class="p">)</span>
+</span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="p">)</span>
+</span><span id="__span-23-22"><a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a>
+</span><span id="__span-23-23"><a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console</span><span class="p">)</span>
+</span><span id="__span-23-24"><a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+</span><span id="__span-23-25"><a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a>
+</span><span id="__span-23-26"><a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a>
+</span><span id="__span-23-27"><a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">():</span>
+</span><span id="__span-23-28"><a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"opening file"</span><span class="p">)</span>
+</span><span id="__span-23-29"><a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"journal loaded: </span><span class="si">%d</span><span class="s2"> students"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-23-30"><a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"line </span><span class="si">%d</span><span class="s2"> skipped"</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span><span id="__span-23-31"><a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a>
+</span><span id="__span-23-32"><a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a>
+</span><span id="__span-23-33"><a id="__codelineno-23-33" name="__codelineno-23-33" href="#__codelineno-23-33"></a><span class="n">load</span><span class="p">()</span>
+</span><span id="__span-23-34"><a id="__codelineno-23-34" name="__codelineno-23-34" href="#__codelineno-23-34"></a>
+</span><span id="__span-23-35"><a id="__codelineno-23-35" name="__codelineno-23-35" href="#__codelineno-23-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"---- debug.log ----"</span><span class="p">)</span>
+</span><span id="__span-23-36"><a id="__codelineno-23-36" name="__codelineno-23-36" href="#__codelineno-23-36"></a><span class="nb">print</span><span class="p">(</span><span class="n">log_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>INFO: journal loaded: 3 students
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>WARNING: line 4 skipped
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>---- debug.log ----
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>14:12:45 DEBUG    load:28 opening file
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>14:12:45 INFO     load:29 journal loaded: 3 students
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>14:12:45 WARNING  load:30 line 4 skipped
+</span></code></pre></div>
+<p>Розберемо:</p>
+<ul>
+<li><code>logger.setLevel(logging.DEBUG)</code> — поріг <strong>логера</strong> має бути не вищим за найнижчий поріг його обробників. Якщо залишити логер на <code>WARNING</code>, файловий обробник ніколи не отримає повідомлення <code>DEBUG</code>, хоч би який поріг у нього був.</li>
+<li><code>StreamHandler()</code> без аргументів пише в <code>sys.stderr</code>. Можна передати інший потік: <code>StreamHandler(sys.stdout)</code>.</li>
+<li><code>FileHandler(path, mode="w", encoding="utf-8")</code> — аналог <code>open()</code>: режим <code>"a"</code> за замовчуванням, <code>"w"</code> — перезапис.</li>
+<li>У кожного обробника <strong>свій формат</strong>: на екрані коротко, у файлі — з часом, функцією і номером рядка.</li>
+</ul>
+<p>Те саме можна зробити й через <code>basicConfig</code>, передавши готові обробники:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># Program: basicConfig with explicit handlers</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="n">log_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"app.log"</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="n">console</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="n">console</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">log_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="n">file_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>    <span class="n">datefmt</span><span class="o">=</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">,</span>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span><span class="n">console</span><span class="p">,</span> <span class="n">file_handler</span><span class="p">],</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="p">)</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"goes to file only"</span><span class="p">)</span>
+</span><span id="__span-25-23"><a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"goes to console and file"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>2026-10-06 14:14:03 INFO     __main__: goes to console and file
+</span></code></pre></div>
+<p>Коли в <code>basicConfig</code> передано <code>handlers</code>, параметр <code>format</code> застосовується до <strong>всіх</strong> обробників, у яких формат ще не задано.</p>
+<div class="admonition warning">
+<p class="admonition-title">Повторне додавання обробника</p>
+<p>Кожен виклик <code>logger.addHandler(...)</code> додає <strong>ще один</strong> обробник. Якщо код налаштування виконується двічі (наприклад, функція <code>setup_logging()</code> викликається у двох місцях), кожне повідомлення зʼявиться двічі. Налаштовуйте логування <strong>рівно один раз</strong>, на старті програми.</p>
+</div>
+<h2 id="-">Ротація лог-файлів<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>Програма, що працює місяцями (сервер, бот), з часом створить лог-файл на гігабайти. Відкривати його незручно, а диск не безрозмірний. Рішення — <strong>ротація</strong>: коли файл досягає певного розміру або минає певний час, він перейменовується на архівний, а запис починається в новий порожній файл. Найстаріші архіви видаляються.</p>
+<p>Відповідні обробники лежать у підмодулі <code>logging.handlers</code>.</p>
+<h3 id="rotatingfilehandler">За розміром: <code>RotatingFileHandler</code><a class="headerlink" href="#rotatingfilehandler" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># Program: rotate the log when it grows beyond a limit</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">logging.handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">RotatingFileHandler</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="n">log_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"logs"</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="n">log_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="n">handler</span> <span class="o">=</span> <span class="n">RotatingFileHandler</span><span class="p">(</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>    <span class="n">log_dir</span> <span class="o">/</span> <span class="s2">"app.log"</span><span class="p">,</span>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>    <span class="n">maxBytes</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>      <span class="c1"># tiny limit to see rotation; use ~1-10 MB in real life</span>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>    <span class="n">backupCount</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>     <span class="c1"># keep app.log.1 .. app.log.3</span>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>    <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="p">)</span>
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span><span class="n">handler</span><span class="p">],</span>
+</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a><span class="p">)</span>
+</span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>
+</span><span id="__span-27-21"><a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">41</span><span class="p">):</span>
+</span><span id="__span-27-22"><a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"processing record </span><span class="si">%02d</span><span class="s2">"</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+</span><span id="__span-27-23"><a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>
+</span><span id="__span-27-24"><a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a>
+</span><span id="__span-27-25"><a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">log_dir</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()):</span>
+</span><span id="__span-27-26"><a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2"> bytes"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>app.log     130 bytes
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>app.log.1   182 bytes
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>app.log.2   182 bytes
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>app.log.3   182 bytes
+</span></code></pre></div>
+<p>Як це працює:</p>
+<ul>
+<li>Поки <code>app.log</code> менший за <code>maxBytes</code>, записи дописуються в нього.</li>
+<li>Коли черговий запис перевищив би ліміт: <code>app.log.2</code> → <code>app.log.3</code>, <code>app.log.1</code> → <code>app.log.2</code>, <code>app.log</code> → <code>app.log.1</code>, і створюється новий порожній <code>app.log</code>.</li>
+<li>Файлів більше ніж <code>backupCount</code> не буває: найстаріший (<code>app.log.3</code>) при наступній ротації видаляється.</li>
+<li>Найсвіжіші записи — завжди в <code>app.log</code>, найстаріші — у файлі з найбільшим номером.</li>
+</ul>
+<p>Отже, на диску ніколи не буде більше ніж приблизно <code>maxBytes × (backupCount + 1)</code> байт логів.</p>
+<h3 id="timedrotatingfilehandler">За часом: <code>TimedRotatingFileHandler</code><a class="headerlink" href="#timedrotatingfilehandler" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># Program: start a new log file every midnight</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">logging.handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimedRotatingFileHandler</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="n">handler</span> <span class="o">=</span> <span class="n">TimedRotatingFileHandler</span><span class="p">(</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"server.log"</span><span class="p">,</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>    <span class="n">when</span><span class="o">=</span><span class="s2">"midnight"</span><span class="p">,</span>   <span class="c1"># also: "S", "M", "H", "D", "W0".."W6"</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>    <span class="n">backupCount</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>     <span class="c1"># keep one week of daily logs</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>    <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="p">)</span>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span><span class="n">handler</span><span class="p">],</span>
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a><span class="p">)</span>
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>
+</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"server started"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Після опівночі поточний <code>server.log</code> перейменовується на <code>server.log.2026-10-06</code>, і запис продовжується в новий <code>server.log</code>. Зберігаються логи за останні 7 днів.</p>
+<div class="admonition info">
+<p class="admonition-title"><code>logrotate</code> у Linux</p>
+<p>На серверах ротацію часто виконує не сама програма, а системна утиліта <code>logrotate</code>, яка за розкладом обробляє логи всіх сервісів. Тоді програма пише у звичайний <code>FileHandler</code>. Обидва підходи нормальні; головне — щоб ротація була хоч якась.</p>
+</div>
+<h2 id="dictconfig">Конфігурація словником: <code>dictConfig</code><a class="headerlink" href="#dictconfig" title="Permanent link">&para;</a></h2>
+<p>Коли обробників і логерів кілька, код налаштування з <code>addHandler</code>, <code>setLevel</code>, <code>setFormatter</code> стає довгим і заплутаним. Ту саму конфігурацію можна описати <strong>словником</strong> і передати у <code>logging.config.dictConfig()</code>. Структура словника повторює архітектуру: окремо форматувальники, обробники й логери, які посилаються одне на одного за іменами.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Program: the whole logging setup as one dictionary</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging.config</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="n">LOG_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"app.log"</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>    <span class="s2">"version"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>    <span class="s2">"disable_existing_loggers"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>    <span class="s2">"formatters"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>        <span class="s2">"short"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"format"</span><span class="p">:</span> <span class="s2">"</span><span class="si">%(levelname)s</span><span class="s2">: </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">},</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>        <span class="s2">"detailed"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>            <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2">:</span><span class="si">%(lineno)d</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>            <span class="s2">"datefmt"</span><span class="p">:</span> <span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">,</span>
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>        <span class="p">},</span>
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>    <span class="p">},</span>
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>    <span class="s2">"handlers"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a>        <span class="s2">"console"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a>            <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"logging.StreamHandler"</span><span class="p">,</span>
+</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a>            <span class="s2">"level"</span><span class="p">:</span> <span class="s2">"INFO"</span><span class="p">,</span>
+</span><span id="__span-30-22"><a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>            <span class="s2">"formatter"</span><span class="p">:</span> <span class="s2">"short"</span><span class="p">,</span>
+</span><span id="__span-30-23"><a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a>        <span class="p">},</span>
+</span><span id="__span-30-24"><a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>        <span class="s2">"file"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-30-25"><a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>            <span class="s2">"class"</span><span class="p">:</span> <span class="s2">"logging.handlers.RotatingFileHandler"</span><span class="p">,</span>
+</span><span id="__span-30-26"><a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>            <span class="s2">"level"</span><span class="p">:</span> <span class="s2">"DEBUG"</span><span class="p">,</span>
+</span><span id="__span-30-27"><a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a>            <span class="s2">"formatter"</span><span class="p">:</span> <span class="s2">"detailed"</span><span class="p">,</span>
+</span><span id="__span-30-28"><a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a>            <span class="s2">"filename"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">LOG_PATH</span><span class="p">),</span>
+</span><span id="__span-30-29"><a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a>            <span class="s2">"maxBytes"</span><span class="p">:</span> <span class="mi">1_000_000</span><span class="p">,</span>
+</span><span id="__span-30-30"><a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a>            <span class="s2">"backupCount"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-30-31"><a id="__codelineno-30-31" name="__codelineno-30-31" href="#__codelineno-30-31"></a>            <span class="s2">"encoding"</span><span class="p">:</span> <span class="s2">"utf-8"</span><span class="p">,</span>
+</span><span id="__span-30-32"><a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a>        <span class="p">},</span>
+</span><span id="__span-30-33"><a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a>    <span class="p">},</span>
+</span><span id="__span-30-34"><a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a>    <span class="s2">"root"</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-30-35"><a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a>        <span class="s2">"level"</span><span class="p">:</span> <span class="s2">"DEBUG"</span><span class="p">,</span>
+</span><span id="__span-30-36"><a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a>        <span class="s2">"handlers"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"console"</span><span class="p">,</span> <span class="s2">"file"</span><span class="p">],</span>
+</span><span id="__span-30-37"><a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a>    <span class="p">},</span>
+</span><span id="__span-30-38"><a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a><span class="p">}</span>
+</span><span id="__span-30-39"><a id="__codelineno-30-39" name="__codelineno-30-39" href="#__codelineno-30-39"></a>
+</span><span id="__span-30-40"><a id="__codelineno-30-40" name="__codelineno-30-40" href="#__codelineno-30-40"></a><span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">LOGGING</span><span class="p">)</span>
+</span><span id="__span-30-41"><a id="__codelineno-30-41" name="__codelineno-30-41" href="#__codelineno-30-41"></a>
+</span><span id="__span-30-42"><a id="__codelineno-30-42" name="__codelineno-30-42" href="#__codelineno-30-42"></a><span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"app"</span><span class="p">)</span>
+</span><span id="__span-30-43"><a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a>
+</span><span id="__span-30-44"><a id="__codelineno-30-44" name="__codelineno-30-44" href="#__codelineno-30-44"></a><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"config loaded"</span><span class="p">)</span>      <span class="c1"># file only</span>
+</span><span id="__span-30-45"><a id="__codelineno-30-45" name="__codelineno-30-45" href="#__codelineno-30-45"></a><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"app started"</span><span class="p">)</span>         <span class="c1"># console + file</span>
+</span><span id="__span-30-46"><a id="__codelineno-30-46" name="__codelineno-30-46" href="#__codelineno-30-46"></a><span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"slow request"</span><span class="p">)</span>     <span class="c1"># console + file</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>INFO: app started
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>WARNING: slow request
+</span></code></pre></div>
+<p>Що означають ключі:</p>
+<ul>
+<li><code>"version": 1</code> — обовʼязковий ключ, інших версій поки немає.</li>
+<li><code>"disable_existing_loggers": False</code> — не вимикати логери, створені до виклику <code>dictConfig</code> (наприклад, логери імпортованих модулів). Значення за замовчуванням <code>True</code> — часте джерело загадки «чому логи з мого модуля зникли».</li>
+<li><code>"formatters"</code>, <code>"handlers"</code> — іменовані форматувальники та обробники. Обробник посилається на форматувальник за іменем (<code>"formatter": "short"</code>), а <code>"class"</code> — повне імʼя класу рядком.</li>
+<li><code>"root"</code> — налаштування кореневого логера: поріг і список обробників за іменами.</li>
+</ul>
+<p>Перевага такого підходу в тому, що конфігурація — це <strong>дані</strong>, а не код. Її легко прочитати цілком, а пізніше — винести в окремий файл (JSON, YAML, TOML) і змінювати без правки програми.</p>
+<h2 id="_9">Рівень логування з командного рядка<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>Логування цінне тим, що рівень можна змінити <strong>без зміни коду</strong>. Найпростіше — передавати його аргументом командного рядка або через змінну оточення:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># Program: choose the log level at launch time</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="n">DEFAULT_LEVEL</span> <span class="o">=</span> <span class="s2">"WARNING"</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="n">level_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"LOG_LEVEL"</span><span class="p">,</span> <span class="n">DEFAULT_LEVEL</span><span class="p">)</span>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="k">if</span> <span class="s2">"--debug"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>    <span class="n">level_name</span> <span class="o">=</span> <span class="s2">"DEBUG"</span>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="k">elif</span> <span class="s2">"--verbose"</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>    <span class="n">level_name</span> <span class="o">=</span> <span class="s2">"INFO"</span>
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>    <span class="n">level</span><span class="o">=</span><span class="n">level_name</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
+</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>    <span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(levelname)-8s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a><span class="p">)</span>
+</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>
+</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"argv: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"starting with level </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">level_name</span><span class="p">)</span>
+</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a><span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"this is always visible"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>python3<span class="w"> </span>main.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>WARNING  this is always visible
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>python3<span class="w"> </span>main.py<span class="w"> </span>--verbose
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>INFO     starting with level INFO
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>WARNING  this is always visible
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nv">LOG_LEVEL</span><span class="o">=</span>debug<span class="w"> </span>python3<span class="w"> </span>main.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>DEBUG    argv: ['main.py']
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>INFO     starting with level debug
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>WARNING  this is always visible
+</span></code></pre></div>
+<p>Конструкція <code>LOG_LEVEL=debug python3 main.py</code> у Linux встановлює змінну оточення лише для однієї команди. <code>os.environ.get("LOG_LEVEL", DEFAULT_LEVEL)</code> читає її значення або повертає значення за замовчуванням, якщо змінну не задано. <code>.upper()</code> дозволяє писати рівень будь-яким регістром. Якщо рівень невідомий (<code>LOG_LEVEL=loud</code>), <code>basicConfig</code> підніме <code>ValueError: Unknown level: 'LOUD'</code>.</p>
+<h2 id="_10">Типові помилки<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Помилка</th>
+<th>Чому погано</th>
+<th>Як правильно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>logging.info(...)</code> нічого не виводить</td>
+<td>поріг за замовчуванням — <code>WARNING</code></td>
+<td><code>logging.basicConfig(level=logging.INFO)</code> на початку програми</td>
+</tr>
+<tr>
+<td><code>basicConfig()</code> після першого <code>logging.info()</code></td>
+<td>конфігурацію вже створено автоматично, виклик ігнорується</td>
+<td><code>basicConfig()</code> — першим, до будь-яких повідомлень; або <code>force=True</code></td>
+</tr>
+<tr>
+<td>Обробник <code>DEBUG</code> на логері з порогом <code>WARNING</code></td>
+<td>логер відкидає запис раніше, ніж той дійде до обробника</td>
+<td>поріг логера ≤ найнижчого порогу обробників</td>
+</tr>
+<tr>
+<td>Кожне повідомлення виводиться двічі</td>
+<td>обробник додано двічі (налаштування виконалося повторно)</td>
+<td>налаштовувати логування рівно один раз, на старті</td>
+</tr>
+<tr>
+<td><code>logging.info(f"x={x}")</code> у гарячому циклі</td>
+<td>f-рядок обчислюється навіть для відкинутих повідомлень</td>
+<td><code>logging.info("x=%s", x)</code></td>
+</tr>
+<tr>
+<td>Кількість <code>%s</code> не збігається з аргументами</td>
+<td>замість повідомлення — <code>--- Logging error ---</code></td>
+<td>перевірити шаблон і аргументи</td>
+</tr>
+<tr>
+<td>Усі повідомлення одного рівня</td>
+<td>неможливо відфільтрувати важливе</td>
+<td>обирати рівень за таблицею з цієї лекції</td>
+</tr>
+<tr>
+<td>Лог-файл без <code>encoding="utf-8"</code></td>
+<td>кодування залежить від системи</td>
+<td>завжди вказувати <code>encoding</code></td>
+</tr>
+<tr>
+<td>Лог-файл росте без обмежень</td>
+<td>заповнює диск</td>
+<td><code>RotatingFileHandler</code> / <code>TimedRotatingFileHandler</code> або <code>logrotate</code></td>
+</tr>
+<tr>
+<td>Паролі, токени, номери карток у лозі</td>
+<td>лог-файли читає більше людей, ніж код; вони копіюються і зберігаються роками</td>
+<td>ніколи не логувати секрети; за потреби маскувати: <code>card=****1234</code></td>
+</tr>
+<tr>
+<td>Лог-файли в git</td>
+<td>постійні зміни, витік даних</td>
+<td><code>*.log</code> у <code>.gitignore</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">Підсумок<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Логування</strong> — запис подій роботи програми з рівнем, часом і джерелом. <code>print()</code> — для результату, <code>logging</code> — для діагностики.</li>
+<li>Пʼять рівнів: <code>DEBUG</code> (10) &lt; <code>INFO</code> (20) &lt; <code>WARNING</code> (30) &lt; <code>ERROR</code> (40) &lt; <code>CRITICAL</code> (50). Повідомлення нижче <strong>порогу</strong> відкидаються; поріг за замовчуванням — <code>WARNING</code>.</li>
+<li><code>logging.basicConfig(level=..., format=..., datefmt=..., filename=..., encoding=...)</code> налаштовує кореневий логер. Викликається <strong>один раз, на початку</strong>.</li>
+<li>Формат задається атрибутами <code>%(asctime)s</code>, <code>%(levelname)s</code>, <code>%(name)s</code>, <code>%(message)s</code>, <code>%(funcName)s</code>, <code>%(lineno)d</code> тощо.</li>
+<li>Дані в повідомлення передають окремими аргументами: <code>logger.info("got %d", grade)</code> — форматування відбувається лише для записів, що виводяться.</li>
+<li>У кожному модулі — <code>logger = logging.getLogger(__name__)</code>: в лозі видно, з якого файлу прийшло повідомлення.</li>
+<li>Запис у файл: <code>basicConfig(filename=...)</code> або <code>FileHandler</code>. Режим <code>"a"</code> за замовчуванням дописує в кінець.</li>
+<li><strong>Обробник</strong> вирішує, куди писати, і має власний поріг та формат. Кілька обробників дозволяють, наприклад, <code>INFO</code> на екран і <code>DEBUG</code> у файл.</li>
+<li><code>RotatingFileHandler</code> (за розміром) і <code>TimedRotatingFileHandler</code> (за часом) обмежують розмір логів на диску.</li>
+<li><code>logging.config.dictConfig()</code> описує всю конфігурацію словником.</li>
+<li>Рівень логування вибирають під час запуску (аргумент, змінна оточення), а не змінюючи код.</li>
+</ul>
+<h2 id="_12">Корисні посилання<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.python.org/3/howto/logging.html">Logging HOWTO — офіційний посібник</a></li>
+<li><a href="https://docs.python.org/3/library/logging.html">Модуль <code>logging</code> — довідник</a></li>
+<li><a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">Атрибути <code>LogRecord</code> для формату</a></li>
+<li><a href="https://docs.python.org/3/library/logging.handlers.html"><code>logging.handlers</code> — обробники, включно з ротацією</a></li>
+<li><a href="https://docs.python.org/3/library/logging.config.html"><code>logging.config</code> — <code>dictConfig</code> і схема словника</a></li>
+<li><a href="https://docs.python.org/3/howto/logging-cookbook.html">Logging Cookbook — готові рецепти</a></li>
+</ul>
+<h2 id="_13">Домашнє завдання<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>Мета — навчитися обирати рівень повідомлень, налаштовувати формат і місце запису логів. Усі дані — <strong>ваші власні</strong>, латиницею. Кожне завдання — окрема програма.</p>
+<ol>
+<li>
+<p>Напишіть програму, яка виводить пʼять повідомлень різних рівнів про ваш навчальний день (наприклад, <code>DEBUG</code> — скільки хвилин ви йшли до університету, <code>INFO</code> — яку пару відвідали, <code>WARNING</code> — що забули зошит, …). Запустіть її з порогами <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code> і для кожного запуску покажіть вивід. Поясніть, чому для кожної події обрано саме такий рівень.</p>
+</li>
+<li>
+<p>Налаштуйте формат так, щоб кожен рядок мав вигляд <code>2026-10-06 14:03:27 | WARNING  | main.py:12 | check_age | age is suspicious: 150</code>. Напишіть функцію <code>check_student(name: str, age: int, group: str)</code>, яка логує <code>DEBUG</code> при вході з усіма аргументами, <code>WARNING</code> для підозрілих значень (вік поза межами 15..100, група не за шаблоном <code>XX-NN</code>) та <code>INFO</code>, якщо все гаразд. Перевірте на своїх даних і щонайменше на трьох некоректних наборах.</p>
+</li>
+<li>
+<p>Візьміть функцію <code>safe_average</code> з домашнього завдання лекції 23 і замініть усі <code>print()</code> про пропущені значення на <code>logger.warning(...)</code> з ледачим форматуванням (<code>%r</code>). Сам результат обчислення залишіть через <code>print()</code>. Покажіть вивід з порогом <code>WARNING</code> і з порогом <code>ERROR</code> та поясніть різницю.</p>
+</li>
+<li>
+<p>Напишіть програму, яка записує у файл <code>diary.log</code> три повідомлення <code>INFO</code> про ваші справи за день (латиницею). Запустіть її тричі з <code>filemode="a"</code>, покажіть вміст файлу, потім тричі з <code>filemode="w"</code> — і знову покажіть вміст. Поясніть, коли доречний кожен режим.</p>
+</li>
+<li>
+<p>Налаштуйте два обробники вручну (без <code>basicConfig</code>): на екран — <code>WARNING</code> і вище у короткому форматі, у файл <code>study.log</code> — усе від <code>DEBUG</code> у детальному форматі з часом і функцією. Напишіть програму, яка читає файл із вашим розкладом на тиждень (щонайменше 10 рядків формату <code>day;time;subject;room</code>, 2–3 рядки навмисно зіпсовані) і логує кожен крок. Покажіть вивід на екрані і вміст <code>study.log</code>.</p>
+</li>
+<li>
+<p>Напишіть функцію <code>setup_logging()</code>, яка додає до кореневого логера обробник консолі. Навмисно викличте її двічі й покажіть, що кожне повідомлення зʼявляється двічі. Виправте програму так, щоб налаштування виконувалося рівно один раз, і покажіть вивід після виправлення.</p>
+</li>
+<li>
+<p>Напишіть програму-«генератор подій», яка в циклі пише 500 повідомлень <code>INFO</code> із вашим прізвищем і номером ітерації у файл через <code>RotatingFileHandler</code> з <code>maxBytes=2000</code> і <code>backupCount=4</code>. Виведіть перелік файлів у каталозі логів з їхніми розмірами. Поясніть, у якому файлі знаходиться перше збережене повідомлення і чому повідомлень з номерами 1, 2, 3 вже немає.</p>
+</li>
+<li>
+<p>Перепишіть конфігурацію із завдання 5 у вигляді словника для <code>logging.config.dictConfig</code>. Додайте можливість обирати рівень консолі ключем <code>--debug</code> і змінною оточення <code>LOG_LEVEL</code>. Покажіть запуски <code>python3 main.py</code>, <code>python3 main.py --debug</code> та <code>LOG_LEVEL=error python3 main.py</code>.</p>
+</li>
+<li>
+<p>Візьміть утиліту командного рядка із завдання 8 лекції 23 і додайте до неї логування: <code>INFO</code> на старті й у кінці (скільки оброблено записів), <code>WARNING</code> на кожен пропущений рядок, <code>ERROR</code> для очікуваних помилок (файл не знайдено тощо). Лог також має зберігатися у файл поруч зі скриптом. Покажіть, що коди завершення (<code>echo $?</code>) не змінилися.</p>
+</li>
+<li>
+<p>Знайдіть у своєму коді з попередніх лабораторних щонайменше пʼять місць, де ви використовували <code>print()</code> для діагностики. Для кожного вкажіть: чи це діагностика, чи результат; якщо діагностика — який рівень логування доречний і чому. Покажіть виправлений код.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-1sem/issues">Створіть issue на GitHub</a></em></p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Куротич Анатолій. Всі права захищені.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kurotych" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
