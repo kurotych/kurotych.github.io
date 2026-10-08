@@ -14,6 +14,8 @@
         <link rel="prev" href="../26-logging-lecture/">
       
       
+        <link rel="next" href="../28-modules-practice/">
+      
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
@@ -1341,6 +1343,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-modules-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. (П12) Створення власних модулів: модуль для роботи з файлами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1616,20 +1639,6 @@
 </span></code></pre></div></p>
 </div>
 <h2 id="_5">Що відбувається під час імпорту<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>Коли Python виконує <code>import grades</code>, відбувається таке:</p>
-<pre class="mermaid"><code>flowchart TD
-    A["import grades"] --&gt; B{"grades in sys.modules?"}
-    B -- yes --&gt; F["bind name grades&lt;br/&gt;to the existing module"]
-    B -- no --&gt; C["search grades.py&lt;br/&gt;in sys.path"]
-    C -- not found --&gt; E["ModuleNotFoundError"]
-    C -- found --&gt; D["create empty module object,&lt;br/&gt;put it into sys.modules"]
-    D --&gt; G["execute grades.py&lt;br/&gt;top to bottom"]
-    G --&gt; F</code></pre>
-<p>Головне з цієї схеми:</p>
-<ol>
-<li><strong>Код модуля виконується повністю</strong>, згори донизу. Інструкції <code>def</code> створюють функції, присвоєння — змінні. Але й <code>print()</code>, <code>input()</code>, цикли, читання файлів на верхньому рівні модуля теж <strong>виконуються</strong>.</li>
-<li><strong>Модуль виконується лише один раз</strong> за запуск програми. Готовий модуль зберігається у словнику <code>sys.modules</code>, і повторний <code>import</code> просто бере його звідти.</li>
-</ol>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># File: config.py</span>
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"config: loading"</span><span class="p">)</span>
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
