@@ -1,0 +1,2457 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kurotych.com/ua/courses/programming-1sem/module3/29-stdlib-lecture/">
+      
+      
+        <link rel="prev" href="../28-modules-practice/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>29. (Л) Огляд стандартних бібліотек: math, random, datetime, os, sys - Python (1 семестр)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-HKDH744EMY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-HKDH744EMY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-HKDH744EMY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#29-math-random-datetime-os-sys" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Python (1 семестр)" class="md-header__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python (1 семестр)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              29. (Л) Огляд стандартних бібліотек: math, random, datetime, os, sys
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Перемкнути на темну тему"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Перемкнути на темну тему" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Перемкнути на світлу тему"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Перемкнути на світлу тему" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Python (1 семестр)" class="md-nav__button md-logo" aria-label="Python (1 семестр)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python (1 семестр)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kurotych/programming-python-1sem" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    kurotych/programming-python-1sem
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Головна
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/01-intro-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. (Л) Вступ. Предмет і завдання курсу. Алгоритм, блок-схеми, програма, компіляція, інтерпретація
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/02-tools-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. (Л) Огляд інструментів програмування (Python, VS Code, онлайн інтерпретатори)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/03-tools-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. (П1) Налаштування середовища розробки. Запуск Python коду локально та онлайн
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/04-variables-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. (Л) Змінні та типи даних. Вирази та оператори
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/05-variables-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. (П2) Змінні, типи даних та вирази
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/06-conditions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. (Л) Умовні оператори: if, elif, else
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/07-conditions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. (П3) Умовні оператори та введення даних з консолі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/08-loops-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. (Л) Цикли for і while та їх застосування
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/09-loops-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. (П4) Розв'язування задач із використанням циклів
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/10-functions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10. (Л) Функції. Параметри та область видимості змінних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/11-functions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. (П5) Написання та використання функцій у Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/12-git-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. (Л) Основи роботи з Git та GitHub. Система контролю версій, репозиторії, коміти, запит на злиття, віддалена співпраця
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module1/13-git-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. (П6) Робота з локальним та віддаленим репозиторіями у GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/14-lists-tuples-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. (Л) Списки та кортежі
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/15-lists-tuples-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. (П7) Виконання завдань зі списками та кортежами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/16-dicts-sets-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. (Л) Словники та множини
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/17-dicts-sets-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. (П8) Виконання завдань зі словниками та множинами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/18-strings-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. (Л) Робота з рядками
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/19-strings-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. (П9) Розвʼязування задач на опрацювання рядків
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/20-typing-mutability-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. (Л) Типізація. Змінювані та незмінювані обʼєкти
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/21-files-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. (Л) Файловий ввід/вивід
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/22-files-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. (П10) Робота з файлами: збереження і аналіз даних
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/23-exceptions-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. (Л) Обробка винятків (Exceptions)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/24-exceptions-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. (П11) Обробка винятків: програми, які не падають на поганих файлах
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module2/25-data-structures-internals-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    25. (Л) Внутрішня організація структур даних. Алгоритмічна складність
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Модуль 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Модуль 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26-logging-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. (Л) Логування у Python. Модуль logging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27-modules-packages-lecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. (Л) Модулі та пакети у Python. Імпорт, структура проєкту
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28-modules-practice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. (П12) Створення власних модулів: модуль для роботи з файлами
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    29. (Л) Огляд стандартних бібліотек: math, random, datetime, os, sys
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    29. (Л) Огляд стандартних бібліотек: math, random, datetime, os, sys
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Зміст лекції
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Стандартна бібліотека: навіщо і як шукати
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math" class="md-nav__link">
+    <span class="md-ellipsis">
+      math — математичні функції
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="math — математичні функції">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Константи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корені, степені, логарифми
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Округлення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Тригонометрія
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Цілочисельні функції
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Порівняння дробових чисел
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    <span class="md-ellipsis">
+      random — випадкові числа
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="random — випадкові числа">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Випадкові числа
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вибір з послідовності
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#randomseed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Відтворюваність: random.seed()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Приклад: гра «Вгадай число»
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datetime" class="md-nav__link">
+    <span class="md-ellipsis">
+      datetime — дати і час
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="datetime — дати і час">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поточна дата і час
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Створення конкретної дати
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timedelta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Арифметика дат: timedelta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strftime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Форматування: дата → рядок (strftime)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strptime" class="md-nav__link">
+    <span class="md-ellipsis">
+      Розбір: рядок → дата (strptime)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Приклад: вік у днях і роках
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os" class="md-nav__link">
+    <span class="md-ellipsis">
+      os — взаємодія з операційною системою
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="os — взаємодія з операційною системою">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#os-pathlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      os і pathlib: шляхи, файли, каталоги
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Змінні оточення
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Інформація про систему
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sys" class="md-nav__link">
+    <span class="md-ellipsis">
+      sys — інтерпретатор і запуск програми
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sys — інтерпретатор і запуск програми">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sysargv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Аргументи командного рядка: sys.argv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sysexit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Завершення програми: sys.exit()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdout-stderr-stdin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Стандартні потоки: stdout, stderr, stdin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      Інформація про інтерпретатор
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Приклад: усе разом
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Типові помилки
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Підсумок
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Корисні посилання
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      Домашнє завдання
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+  
+  
+
+
+<h1 id="29-math-random-datetime-os-sys">29. (Л) Огляд стандартних бібліотек: math, random, datetime, os, sys<a class="headerlink" href="#29-math-random-datetime-os-sys" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Зміст лекції<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Стандартна бібліотека: навіщо і як шукати</li>
+<li><code>math</code> — математичні функції</li>
+<li><code>random</code> — випадкові числа</li>
+<li><code>datetime</code> — дати і час</li>
+<li><code>os</code> — взаємодія з операційною системою</li>
+<li><code>sys</code> — інтерпретатор і запуск програми</li>
+<li>Приклад: усе разом</li>
+<li>Типові помилки</li>
+</ol>
+<h2 id="_2">Стандартна бібліотека: навіщо і як шукати<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>У лекції 27 ми побачили, що разом з Python встановлюються сотні готових модулів — <strong>стандартна бібліотека</strong> (standard library). Їх не треба встановлювати через <code>pip</code>: достатньо <code>import</code>.</p>
+<p>Сьогодні розглянемо пʼять модулів, які трапляються майже в кожній програмі. Мета — не вивчити все напамʼять, а знати, <strong>що існує</strong>, і вміти швидко знайти потрібне.</p>
+<p>Два способи подивитися, що є в модулі, прямо з інтерпретатора:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Імена, визначені в модулі (без службових)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">([</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)])</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Документація до конкретної функції</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>['acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'cbrt', 'ceil', 'comb', ...]
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Help on built-in function sqrt in module math:
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sqrt(x, /)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    Return the square root of x.
+</span></code></pre></div>
+<p>Повна документація кожного модуля — на <a href="https://docs.python.org/3/library/index.html">docs.python.org/3/library</a>.</p>
+<h2 id="math"><code>math</code> — математичні функції<a class="headerlink" href="#math" title="Permanent link">&para;</a></h2>
+<p>Модуль <code>math</code> містить математичні константи і функції для роботи з числами <code>int</code> і <code>float</code>.</p>
+<h3 id="_3">Константи<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>   <span class="c1"># число пі</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>    <span class="c1"># основа натурального логарифма</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>  <span class="c1"># нескінченність</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>3.141592653589793
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2.718281828459045
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>inf
+</span></code></pre></div>
+<p><code>math.inf</code> зручно використовувати як початкове значення при пошуку мінімуму: будь-яке число буде менше за нього.</p>
+<h3 id="_4">Корені, степені, логарифми<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>       <span class="c1"># квадратний корінь, завжди float</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">isqrt</span><span class="p">(</span><span class="mi">17</span><span class="p">))</span>      <span class="c1"># цілий квадратний корінь (округлення вниз)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>     <span class="c1"># степінь, завжди float</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">10</span><span class="p">)</span>             <span class="c1"># те саме оператором, для int дає int</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="p">))</span>    <span class="c1"># натуральний логарифм</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>    <span class="c1"># десятковий логарифм</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>     <span class="c1"># двійковий логарифм</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>     <span class="c1"># логарифм за довільною основою</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>4.0
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>4
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>1024.0
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>1024
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>1.0
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>3.0
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>10.0
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>4.0
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title"><code>math.sqrt</code> vs <code>** 0.5</code></p>
+<p><code>x ** 0.5</code> теж обчислює корінь, але <code>math.sqrt(x)</code> читається однозначніше. Для відʼємного аргументу <code>math.sqrt(-1)</code> кидає <code>ValueError: math domain error</code>, тоді як <code>(-1) ** 0.5</code> мовчки повертає комплексне число.</p>
+</div>
+<h3 id="_5">Округлення<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Python має вбудовану функцію <code>round()</code>, а <code>math</code> додає ще три способи:</p>
+<table>
+<thead>
+<tr>
+<th>Функція</th>
+<th>Що робить</th>
+<th><code>2.7</code></th>
+<th><code>-2.7</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>math.floor(x)</code></td>
+<td>вниз, до меншого цілого</td>
+<td><code>2</code></td>
+<td><code>-3</code></td>
+</tr>
+<tr>
+<td><code>math.ceil(x)</code></td>
+<td>вгору, до більшого цілого</td>
+<td><code>3</code></td>
+<td><code>-2</code></td>
+</tr>
+<tr>
+<td><code>math.trunc(x)</code></td>
+<td>відкидає дробову частину (до нуля)</td>
+<td><code>2</code></td>
+<td><code>-2</code></td>
+</tr>
+<tr>
+<td><code>round(x)</code></td>
+<td>до найближчого цілого</td>
+<td><code>3</code></td>
+<td><code>-3</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">students</span> <span class="o">=</span> <span class="mi">47</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">group_size</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Скільки груп потрібно, щоб помістилися всі студенти</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">groups</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">students</span> <span class="o">/</span> <span class="n">group_size</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"groups needed:"</span><span class="p">,</span> <span class="n">groups</span><span class="p">)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Скільки повних груп вийде</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">full_groups</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">students</span> <span class="o">/</span> <span class="n">group_size</span><span class="p">)</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"full groups:"</span><span class="p">,</span> <span class="n">full_groups</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>groups needed: 5
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>full groups: 4
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title"><code>round()</code> округлює «до парного»</p>
+<p><code>round(2.5)</code> дає <code>2</code>, а <code>round(3.5)</code> — <code>4</code>. Це «банківське округлення»: половинки округлюються до найближчого <strong>парного</strong> числа, щоб при багатьох округленнях похибка не накопичувалася в один бік. Якщо потрібно «шкільне» округлення вгору, використовуйте <code>math.floor(x + 0.5)</code> для додатних чисел.</p>
+</div>
+<h3 id="_6">Тригонометрія<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Тригонометричні функції приймають кут у <strong>радіанах</strong>. Для переходу між градусами і радіанами є <code>math.radians()</code> і <code>math.degrees()</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">angle</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># у градусах</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sin(30) = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"cos(60) = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">60</span><span class="p">))</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"pi rad = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="si">}</span><span class="s2"> deg"</span><span class="p">)</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># Довжина гіпотенузи за катетами 3 і 4</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"hypot:"</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sin(30) = 0.50
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cos(60) = 0.50
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>pi rad = 180.0 deg
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>hypot: 5.0
+</span></code></pre></div>
+<h3 id="_7">Цілочисельні функції<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>   <span class="c1"># 5! = 1 * 2 * 3 * 4 * 5</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">36</span><span class="p">))</span>    <span class="c1"># найбільший спільний дільник</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">lcm</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>      <span class="c1"># найменше спільне кратне</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>     <span class="c1"># кількість способів вибрати 2 з 5</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>  <span class="c1"># добуток елементів (як sum, але множення)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>120
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>12
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>12
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>10
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>24
+</span></code></pre></div>
+<h3 id="_8">Порівняння дробових чисел<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Через особливості зберігання <code>float</code> (лекція 04) звичайне <code>==</code> для дробових чисел ненадійне:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>0.30000000000000004
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>False
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>True
+</span></code></pre></div>
+<p><code>math.isclose(a, b)</code> перевіряє, що числа «достатньо близькі». Завжди використовуйте його замість <code>==</code>, коли порівнюєте результати обчислень з <code>float</code>.</p>
+<h2 id="random"><code>random</code> — випадкові числа<a class="headerlink" href="#random" title="Permanent link">&para;</a></h2>
+<p>Модуль <code>random</code> генерує <strong>псевдовипадкові</strong> числа: їх обчислює детермінований алгоритм, але для людини вони виглядають випадковими. Цього достатньо для ігор, симуляцій, перемішування тестових даних.</p>
+<p>Вивід прикладів у цьому розділі у вас буде <strong>інший</strong> — на те він і випадковий.</p>
+<h3 id="_9">Випадкові числа<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>          <span class="c1"># float у діапазоні [0.0, 1.0)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">))</span> <span class="c1"># float у діапазоні [1.5, 3.5]</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>     <span class="c1"># int від 1 до 6 ВКЛЮЧНО</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># int з range(0, 10, 2): 0, 2, 4, 6 або 8</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>0.6394267984578837
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>2.0500114085310283
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>3
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>6
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title"><code>randint</code> включає обидві межі</p>
+<p><code>random.randint(1, 6)</code> може повернути і <code>1</code>, і <code>6</code> — як гральний кубик. Це відрізняється від <code>range(1, 6)</code>, де <code>6</code> не входить. <code>random.randrange(1, 6)</code> поводиться як <code>range</code> — повертає від <code>1</code> до <code>5</code>.</p>
+</div>
+<h3 id="_10">Вибір з послідовності<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Olena"</span><span class="p">,</span> <span class="s2">"Taras"</span><span class="p">,</span> <span class="s2">"Iryna"</span><span class="p">,</span> <span class="s2">"Andrii"</span><span class="p">,</span> <span class="s2">"Marta"</span><span class="p">]</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1"># Один випадковий елемент</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"on duty:"</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="c1"># k елементів БЕЗ повторів</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"team:"</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1"># k елементів З повторами</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"with repeats:"</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="c1"># Перемішування списку на місці: змінює сам список і повертає None</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"shuffled:"</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>on duty: Iryna
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>team: ['Marta', 'Olena', 'Andrii']
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>with repeats: ['Taras', 'Taras', 'Olena']
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>shuffled: ['Andrii', 'Marta', 'Taras', 'Olena', 'Iryna']
+</span></code></pre></div>
+<p><code>random.choices</code> вміє враховувати <strong>ваги</strong> — наскільки часто має випадати кожен варіант:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">prizes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"sticker"</span><span class="p">,</span> <span class="s2">"pen"</span><span class="p">,</span> <span class="s2">"book"</span><span class="p">]</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="c1"># sticker випадатиме в 7 разів частіше, ніж book</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">result</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">prizes</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>['sticker', 'sticker', 'pen', 'sticker', 'sticker', 'book', 'sticker', 'sticker', 'pen', 'sticker']
+</span></code></pre></div>
+<h3 id="randomseed">Відтворюваність: <code>random.seed()</code><a class="headerlink" href="#randomseed" title="Permanent link">&para;</a></h3>
+<p>Генератор починає з певного початкового значення — <strong>зерна</strong> (seed). Якщо задати зерно явно, послідовність «випадкових» чисел буде <strong>однаковою</strong> при кожному запуску. Це потрібно для тестів і для відтворення помилок.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nb">print</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="nb">print</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>[82, 15, 4, 95, 36]
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>[82, 15, 4, 95, 36]
+</span></code></pre></div>
+<p>Обидва рядки однакові. Запустіть програму ще раз — і отримаєте ті самі числа.</p>
+<p>Саме тому, щоб при кожному запуску числа були різними, зерном часто роблять <strong>поточний час</strong> (timestamp): він ніколи не повторюється. У Python це не обовʼязково робити вручну — при імпорті <code>random</code> генератор сам ініціалізується випадковими даними від операційної системи (або поточним часом, якщо ОС їх не надає). Але явний timestamp корисний, коли треба поєднати обидва підходи: числа щоразу різні, а зерно виводиться на екран, тож будь-який запуск можна точно повторити.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># Поточний час у секундах від 1 січня 1970 року — щоразу інше значення</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="n">seed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"seed:"</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="nb">print</span><span class="p">([</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>seed: 1791729012
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>[32, 24, 15, 23, 41]
+</span></code></pre></div>
+<p>Якщо в такому запуску знайшлася помилка, достатньо підставити виведене зерно — <code>random.seed(1791729012)</code> — і отримати ту саму послідовність.</p>
+<div class="admonition danger">
+<p class="admonition-title"><code>random</code> — не для паролів і токенів</p>
+<p>Знаючи кілька згенерованих чисел, можна передбачити наступні. Для паролів, токенів, кодів підтвердження використовуйте модуль <code>secrets</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">token_hex</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>       <span class="c1"># випадковий токен</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">secrets</span><span class="o">.</span><span class="n">randbelow</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>  <span class="c1"># випадкове число для коду підтвердження</span>
+</span></code></pre></div>
+</div>
+<h3 id="_11">Приклад: гра «Вгадай число»<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">secret</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"I am thinking of a number from 1 to 20."</span><span class="p">)</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Your guess: "</span><span class="p">))</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    <span class="n">attempts</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    <span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">secret</span><span class="p">:</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Too small"</span><span class="p">)</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>    <span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">secret</span><span class="p">:</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Too big"</span><span class="p">)</span>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Correct! Attempts: </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>        <span class="k">break</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>I am thinking of a number from 1 to 20.
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Your guess: 10
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Too big
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>Your guess: 5
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>Too small
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>Your guess: 7
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>Correct! Attempts: 3
+</span></code></pre></div>
+<h2 id="datetime"><code>datetime</code> — дати і час<a class="headerlink" href="#datetime" title="Permanent link">&para;</a></h2>
+<p>Модуль <code>datetime</code> містить кілька класів. Найуживаніші:</p>
+<table>
+<thead>
+<tr>
+<th>Клас</th>
+<th>Що зберігає</th>
+<th>Приклад значення</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td>дату: рік, місяць, день</td>
+<td><code>2026-10-11</code></td>
+</tr>
+<tr>
+<td><code>datetime</code></td>
+<td>дату і час</td>
+<td><code>2026-10-11 14:30:00</code></td>
+</tr>
+<tr>
+<td><code>timedelta</code></td>
+<td>проміжок часу</td>
+<td><code>3 days, 2:00:00</code></td>
+</tr>
+</tbody>
+</table>
+<p>Зверніть увагу: модуль називається <code>datetime</code>, і клас у ньому — теж <code>datetime</code>. Тому зазвичай імпортують класи напряму:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+</span></code></pre></div>
+<p>Після цього <code>datetime.now()</code> — це метод класу. Якщо ж написати <code>import datetime</code>, той самий виклик буде <code>datetime.datetime.now()</code>.</p>
+<h3 id="_12">Поточна дата і час<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"today:"</span><span class="p">,</span> <span class="n">today</span><span class="p">)</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"now:"</span><span class="p">,</span> <span class="n">now</span><span class="p">)</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"year:"</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="s2">"month:"</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="s2">"day:"</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"time:"</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="c1"># Понеділок = 0, неділя = 6</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"weekday:"</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>today: 2026-10-11
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>now: 2026-10-11 14:30:12.345678
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>year: 2026 month: 10 day: 11
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>time: 14 30 12
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>weekday: 6
+</span></code></pre></div>
+<h3 id="_13">Створення конкретної дати<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">birthday</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="n">exam</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>  <span class="c1"># 20 грудня 2026, 09:30</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">birthday</span><span class="p">)</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">exam</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>2008-03-15
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>2026-12-20 09:30:00
+</span></code></pre></div>
+<p>Неіснуюча дата одразу дає помилку:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>ValueError: day is out of range for month
+</span></code></pre></div>
+<h3 id="timedelta">Арифметика дат: <code>timedelta</code><a class="headerlink" href="#timedelta" title="Permanent link">&para;</a></h3>
+<p>Різниця двох дат — це обʼєкт <code>timedelta</code>. І навпаки: додавши <code>timedelta</code> до дати, отримаємо нову дату.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="n">exam</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="n">left</span> <span class="o">=</span> <span class="n">exam</span> <span class="o">-</span> <span class="n">today</span>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"days until exam:"</span><span class="p">,</span> <span class="n">left</span><span class="o">.</span><span class="n">days</span><span class="p">)</span>
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="n">deadline</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"deadline:"</span><span class="p">,</span> <span class="n">deadline</span><span class="p">)</span>
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="n">week_ago</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">weeks</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"week ago:"</span><span class="p">,</span> <span class="n">week_ago</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>days until exam: 70
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>deadline: 2026-10-25
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>week ago: 2026-10-04
+</span></code></pre></div>
+<p><code>timedelta</code> приймає <code>days</code>, <code>weeks</code>, <code>hours</code>, <code>minutes</code>, <code>seconds</code> і вміє переходити через межі місяців і років — не треба вручну рахувати, скільки днів у лютому.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="n">duration</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">duration</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"end:"</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="c1"># Загальна кількість секунд у проміжку</span>
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"seconds:"</span><span class="p">,</span> <span class="n">duration</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>end: 2026-10-12 00:15:00
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>seconds: 5400.0
+</span></code></pre></div>
+<p>Дати можна порівнювати звичайними операторами:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="n">deadline</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="n">submitted</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="k">if</span> <span class="n">submitted</span> <span class="o">&gt;</span> <span class="n">deadline</span><span class="p">:</span>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"late by"</span><span class="p">,</span> <span class="p">(</span><span class="n">submitted</span> <span class="o">-</span> <span class="n">deadline</span><span class="p">)</span><span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="s2">"days"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>late by 2 days
+</span></code></pre></div>
+<h3 id="strftime">Форматування: дата → рядок (<code>strftime</code>)<a class="headerlink" href="#strftime" title="Permanent link">&para;</a></h3>
+<p>Метод <code>strftime</code> (string <strong>f</strong>ormat time) перетворює дату на рядок за шаблоном. У шаблоні коди з <code>%</code> замінюються частинами дати:</p>
+<table>
+<thead>
+<tr>
+<th>Код</th>
+<th>Значення</th>
+<th>Приклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%Y</code></td>
+<td>рік, 4 цифри</td>
+<td><code>2026</code></td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>місяць, 2 цифри</td>
+<td><code>03</code></td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>день, 2 цифри</td>
+<td><code>05</code></td>
+</tr>
+<tr>
+<td><code>%H</code></td>
+<td>години (00–23)</td>
+<td><code>09</code></td>
+</tr>
+<tr>
+<td><code>%M</code></td>
+<td>хвилини</td>
+<td><code>07</code></td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>секунди</td>
+<td><code>00</code></td>
+</tr>
+<tr>
+<td><code>%A</code></td>
+<td>назва дня тижня</td>
+<td><code>Sunday</code></td>
+</tr>
+<tr>
+<td><code>%B</code></td>
+<td>назва місяця</td>
+<td><code>October</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="n">moment</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">moment</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2">.%m.%Y"</span><span class="p">))</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">moment</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M"</span><span class="p">))</span>
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">moment</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%A, </span><span class="si">%d</span><span class="s2"> %B %Y"</span><span class="p">))</span>
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="c1"># ISO 8601 — стандартний формат для файлів, логів, обміну даними</span>
+</span><span id="__span-40-10"><a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">moment</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>11.10.2026
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>2026-10-11 09:07
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>Sunday, 11 October 2026
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>2026-10-11T09:07:00
+</span></code></pre></div>
+<h3 id="strptime">Розбір: рядок → дата (<code>strptime</code>)<a class="headerlink" href="#strptime" title="Permanent link">&para;</a></h3>
+<p><code>strptime</code> (string <strong>p</strong>arse time) робить зворотне: розбирає рядок за тим самим шаблоном.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="n">text</span> <span class="o">=</span> <span class="s2">"15.03.2008"</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="n">birthday</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">.%m.%Y"</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">birthday</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">birthday</span><span class="p">))</span>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="c1"># Для ISO-формату є окремий метод</span>
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s2">"2026-12-20"</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>2008-03-15 &lt;class 'datetime.date'&gt;
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>2026-12-20
+</span></code></pre></div>
+<p>Якщо рядок не відповідає шаблону, буде <code>ValueError</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>    <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">"2008/03/15"</span><span class="p">,</span> <span class="s2">"</span><span class="si">%d</span><span class="s2">.%m.%Y"</span><span class="p">)</span>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"error:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>error: time data '2008/03/15' does not match format '%d.%m.%Y'
+</span></code></pre></div>
+<h3 id="_14">Приклад: вік у днях і роках<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">age_in_years</span><span class="p">(</span><span class="n">birthday</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="n">today</span><span class="p">:</span> <span class="n">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>    <span class="n">years</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">birthday</span><span class="o">.</span><span class="n">year</span>
+</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>    <span class="c1"># Якщо день народження цього року ще не настав — віднімаємо рік</span>
+</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">birthday</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">birthday</span><span class="o">.</span><span class="n">day</span><span class="p">):</span>
+</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>        <span class="n">years</span> <span class="o">-=</span> <span class="mi">1</span>
+</span><span id="__span-46-9"><a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a>    <span class="k">return</span> <span class="n">years</span>
+</span><span id="__span-46-10"><a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a>
+</span><span id="__span-46-11"><a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a>
+</span><span id="__span-46-12"><a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a><span class="n">birthday</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+</span><span id="__span-46-13"><a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a><span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</span><span id="__span-46-14"><a id="__codelineno-46-14" name="__codelineno-46-14" href="#__codelineno-46-14"></a>
+</span><span id="__span-46-15"><a id="__codelineno-46-15" name="__codelineno-46-15" href="#__codelineno-46-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"age:"</span><span class="p">,</span> <span class="n">age_in_years</span><span class="p">(</span><span class="n">birthday</span><span class="p">,</span> <span class="n">today</span><span class="p">),</span> <span class="s2">"years"</span><span class="p">)</span>
+</span><span id="__span-46-16"><a id="__codelineno-46-16" name="__codelineno-46-16" href="#__codelineno-46-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"lived:"</span><span class="p">,</span> <span class="p">(</span><span class="n">today</span> <span class="o">-</span> <span class="n">birthday</span><span class="p">)</span><span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="s2">"days"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>age: 18 years
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>lived: 6784 days
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Часові пояси</p>
+<p><code>datetime.now()</code> повертає <strong>локальний</strong> час без інформації про часовий пояс. Для програм, які працюють з користувачами з різних країн або зберігають час на сервері, використовують час з поясом: <code>datetime.now(timezone.utc)</code> (<code>from datetime import timezone</code>). У межах цього курсу достатньо локального часу.</p>
+</div>
+<h2 id="os"><code>os</code> — взаємодія з операційною системою<a class="headerlink" href="#os" title="Permanent link">&para;</a></h2>
+<p>Модуль <code>os</code> дає доступ до можливостей операційної системи: змінних оточення, інформації про систему, процесів, а також до файлів і каталогів.</p>
+<h3 id="os-pathlib"><code>os</code> і <code>pathlib</code>: шляхи, файли, каталоги<a class="headerlink" href="#os-pathlib" title="Permanent link">&para;</a></h3>
+<p>Раніше для роботи зі шляхами, файлами і каталогами використовували тільки <code>os</code> і <code>os.path</code>: <code>os.path.join</code>, <code>os.path.exists</code>, <code>os.listdir</code>, <code>os.makedirs</code>, <code>os.remove</code>, <code>os.rename</code>, <code>os.walk</code>. Ви часто бачитимете їх у старому коді, прикладах з інтернету і відповідях на Stack Overflow.</p>
+<p>Тепер для цього використовують <code>pathlib</code> (лекція 21). У <code>pathlib</code> є аналог кожної з цих функцій, тож у цій лекції ми їх не розглядаємо. Причини, чому від <code>os.path</code> відходять:</p>
+<ul>
+<li><strong>Шлях — обʼєкт, а не рядок.</strong> У <code>os.path</code> шлях — звичайний <code>str</code>, і будь-який рядок можна випадково передати туди, де очікується шлях. <code>Path</code> знає, що він шлях, і має власні методи: <code>.name</code>, <code>.suffix</code>, <code>.parent</code>, <code>.exists()</code>, <code>.read_text()</code>.</li>
+<li><strong>Усе в одному місці.</strong> Зі старим підходом функції розкидані між <code>os</code>, <code>os.path</code>, <code>glob</code> і <code>shutil</code>. У <code>pathlib</code> вони зібрані в одному класі.</li>
+<li><strong>Код читається легше.</strong> Порівняйте:</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="c1"># Старий підхід: os.path</span>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"2026"</span><span class="p">,</span> <span class="s2">"grades.txt"</span><span class="p">)</span>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="c1"># Сучасний підхід: pathlib</span>
+</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"2026"</span> <span class="o">/</span> <span class="s2">"grades.txt"</span>
+</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>grades.txt .txt data/2026
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>grades.txt .txt data/2026
+</span></code></pre></div>
+<ul>
+<li><strong>Менше кроків для типових задач.</strong> Прочитати файл — <code>Path("a.txt").read_text()</code> замість <code>open</code> + <code>read</code>; знайти всі <code>.py</code> в дереві каталогів — <code>Path(".").rglob("*.py")</code> замість циклу з <code>os.walk</code> і перевіркою розширення.</li>
+</ul>
+<p>Функції <code>os</code>, які приймають шлях, розуміють і <code>Path</code>, тож старий і новий код можна поєднувати. Але у <strong>новому</strong> коді для шляхів обирайте <code>pathlib</code>. А от для того, що описано нижче, у <code>pathlib</code> аналогів немає — тут потрібен <code>os</code>.</p>
+<h3 id="_15">Змінні оточення<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><strong>Змінні оточення</strong> (environment variables) — це пари «імʼя = значення», які операційна система передає кожній програмі. Через них зазвичай передають налаштування: режим роботи, адреси серверів, ключі доступу. Так їх не треба записувати в код.</p>
+<p>У терміналі змінні можна подивитися і задати:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HOME</span>
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="nv">APP_MODE</span><span class="o">=</span>debug<span class="w"> </span>python3<span class="w"> </span>main.py
+</span></code></pre></div>
+<p>У Python вони доступні через <code>os.environ</code> (поводиться як словник) або <code>os.getenv()</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"home:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"HOME"</span><span class="p">])</span>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="c1"># getenv повертає None (або значення за замовчуванням), якщо змінної немає</span>
+</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="n">mode</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"APP_MODE"</span><span class="p">,</span> <span class="s2">"production"</span><span class="p">)</span>
+</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"mode:"</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>
+</span><span id="__span-51-9"><a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="c1"># environ["..."] для відсутньої змінної кидає KeyError</span>
+</span><span id="__span-51-10"><a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-51-11"><a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"NO_SUCH_VARIABLE"</span><span class="p">])</span>
+</span><span id="__span-51-12"><a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a><span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+</span><span id="__span-51-13"><a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"variable is not set"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="nv">APP_MODE</span><span class="o">=</span>debug<span class="w"> </span>python3<span class="w"> </span>main.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>home: /home/student
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>mode: debug
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>variable is not set
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Значення змінних оточення — завжди рядки</p>
+<p><code>os.getenv("WORKERS", "4")</code> поверне <code>"4"</code>, а не <code>4</code>. Якщо потрібне число, перетворюйте явно: <code>int(os.getenv("WORKERS", "4"))</code>.</p>
+</div>
+<h3 id="_16">Інформація про систему<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"os name:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>        <span class="c1"># 'posix' для Linux/macOS</span>
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"cpu count:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"separator:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"pid:"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">())</span>        <span class="c1"># номер процесу цієї програми</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>os name: posix
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>cpu count: 8
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>separator: /
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>pid: 48213
+</span></code></pre></div>
+<h2 id="sys"><code>sys</code> — інтерпретатор і запуск програми<a class="headerlink" href="#sys" title="Permanent link">&para;</a></h2>
+<p>Модуль <code>sys</code> дає доступ до самого інтерпретатора Python: як запущено програму, з якими аргументами, куди писати вивід, як завершитися.</p>
+<h3 id="sysargv">Аргументи командного рядка: <code>sys.argv</code><a class="headerlink" href="#sysargv" title="Permanent link">&para;</a></h3>
+<p>З лекції 21 ви вже знаєте: усе, що написано після імені скрипта, потрапляє у список <code>sys.argv</code>. Елемент <code>sys.argv[0]</code> — імʼя самого скрипта, далі — аргументи, <strong>завжди рядки</strong>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="c1"># File: greet.py</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>
+</span><span id="__span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"argv:"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span><span id="__span-56-5"><a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>
+</span><span id="__span-56-6"><a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+</span><span id="__span-56-7"><a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"usage: python3 greet.py &lt;name&gt; [times]"</span><span class="p">)</span>
+</span><span id="__span-56-8"><a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-56-9"><a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>
+</span><span id="__span-56-10"><a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a><span class="n">name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-56-11"><a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a><span class="n">times</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">1</span>
+</span><span id="__span-56-12"><a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a>
+</span><span id="__span-56-13"><a id="__codelineno-56-13" name="__codelineno-56-13" href="#__codelineno-56-13"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">times</span><span class="p">):</span>
+</span><span id="__span-56-14"><a id="__codelineno-56-14" name="__codelineno-56-14" href="#__codelineno-56-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>python3<span class="w"> </span>greet.py<span class="w"> </span>Olena<span class="w"> </span><span class="m">2</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>argv: ['greet.py', 'Olena', '2']
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>Hello, Olena!
+</span><span id="__span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>Hello, Olena!
+</span></code></pre></div>
+<p>Для програм з багатьма параметрами (<code>--debug</code>, <code>--output file.txt</code>) замість ручного розбору <code>sys.argv</code> використовують модуль <code>argparse</code>.</p>
+<h3 id="sysexit">Завершення програми: <code>sys.exit()</code><a class="headerlink" href="#sysexit" title="Permanent link">&para;</a></h3>
+<p><code>sys.exit(code)</code> негайно завершує програму. <strong>Код виходу</strong> (exit code) повідомляє системі, чи успішно відпрацювала програма:</p>
+<ul>
+<li><code>0</code> — успіх (за замовчуванням, якщо програма дійшла до кінця);</li>
+<li>будь-яке інше число — помилка.</li>
+</ul>
+<p>Якщо передати рядок, він виводиться в stderr, а код виходу буде <code>1</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>
+</span><span id="__span-59-4"><a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="n">filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"config.txt"</span><span class="p">)</span>
+</span><span id="__span-59-5"><a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>
+</span><span id="__span-59-6"><a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span><span id="__span-59-7"><a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">"error: file </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> not found"</span><span class="p">)</span>
+</span><span id="__span-59-8"><a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>
+</span><span id="__span-59-9"><a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"config found"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>python3<span class="w"> </span>main.py
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"exit code: </span><span class="nv">$?</span><span class="s2">"</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>error: file config.txt not found
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>exit code: 1
+</span></code></pre></div>
+<p>У терміналі <code>$?</code> показує код виходу останньої команди. Інші програми і скрипти (наприклад, CI на GitHub) перевіряють саме його, щоб зрозуміти, чи все пройшло добре.</p>
+<h3 id="stdout-stderr-stdin">Стандартні потоки: <code>stdout</code>, <code>stderr</code>, <code>stdin</code><a class="headerlink" href="#stdout-stderr-stdin" title="Permanent link">&para;</a></h3>
+<p>Кожна програма має три стандартні потоки:</p>
+<table>
+<thead>
+<tr>
+<th>Потік</th>
+<th>Для чого</th>
+<th>У Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stdin</td>
+<td>ввід (клавіатура)</td>
+<td><code>sys.stdin</code>, <code>input()</code></td>
+</tr>
+<tr>
+<td>stdout</td>
+<td>звичайний вивід</td>
+<td><code>sys.stdout</code>, <code>print()</code></td>
+</tr>
+<tr>
+<td>stderr</td>
+<td>повідомлення про помилки</td>
+<td><code>sys.stderr</code></td>
+</tr>
+</tbody>
+</table>
+<p>Помилки варто писати в stderr: тоді, якщо вивід програми перенаправлено у файл, повідомлення про помилки все одно зʼявляться в терміналі.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"result: 42"</span><span class="p">)</span>
+</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"warning: input file is empty"</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>python3<span class="w"> </span>main.py<span class="w"> </span>&gt;<span class="w"> </span>out.txt
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>cat<span class="w"> </span>out.txt
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>warning: input file is empty
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>result: 42
+</span></code></pre></div>
+<p>Перший рядок зʼявився в терміналі (це stderr), а <code>result: 42</code> потрапив у файл <code>out.txt</code>.</p>
+<p><code>sys.stdin</code> дозволяє читати весь ввід, наприклад з конвеєра (pipe):</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="c1"># File: count_lines.py</span>
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>
+</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="n">lines</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"lines:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>ls<span class="w"> </span>/etc<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>count_lines.py
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>lines: 214
+</span></code></pre></div>
+<h3 id="_17">Інформація про інтерпретатор<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>
+</span><span id="__span-68-3"><a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"version:"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</span><span id="__span-68-4"><a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"version info:"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">major</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">minor</span><span class="p">)</span>
+</span><span id="__span-68-5"><a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"platform:"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="p">)</span>
+</span><span id="__span-68-6"><a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"executable:"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+</span><span id="__span-68-7"><a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a>
+</span><span id="__span-68-8"><a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a><span class="c1"># Де Python шукає модулі (лекція 27)</span>
+</span><span id="__span-68-9"><a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+</span><span id="__span-68-10"><a id="__codelineno-68-10" name="__codelineno-68-10" href="#__codelineno-68-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>version: 3.13.5 (main, Jun 25 2025, 18:55:22) [GCC 14.2.0]
+</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>version info: 3 13
+</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>platform: linux
+</span><span id="__span-69-4"><a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>executable: /home/student/projects/env/bin/python3
+</span><span id="__span-69-5"><a id="__codelineno-69-5" name="__codelineno-69-5" href="#__codelineno-69-5"></a>   /home/student/projects
+</span><span id="__span-69-6"><a id="__codelineno-69-6" name="__codelineno-69-6" href="#__codelineno-69-6"></a>   /usr/lib/python313.zip
+</span><span id="__span-69-7"><a id="__codelineno-69-7" name="__codelineno-69-7" href="#__codelineno-69-7"></a>   /usr/lib/python3.13
+</span><span id="__span-69-8"><a id="__codelineno-69-8" name="__codelineno-69-8" href="#__codelineno-69-8"></a>   ...
+</span></code></pre></div>
+<p><code>sys.executable</code> корисний, щоб перевірити, чи активоване віртуальне оточення (лекція 02): шлях має вести всередину <code>env/</code>.</p>
+<p>Перевірка мінімальної версії Python:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-70-2"><a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a>
+</span><span id="__span-70-3"><a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a><span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+</span><span id="__span-70-4"><a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">"error: Python 3.10 or newer is required"</span><span class="p">)</span>
+</span><span id="__span-70-5"><a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a>
+</span><span id="__span-70-6"><a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Python version is OK"</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>Python version is OK
+</span></code></pre></div>
+<h2 id="_18">Приклад: усе разом<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>Програма генерує журнал оцінок для групи студентів: випадкові оцінки за кожен навчальний день (пн–пт), зберігає звіт у файл і виводить статистику. Кількість днів передається аргументом, каталог для звітів — змінною оточення.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="c1"># File: journal.py</span>
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+</span><span id="__span-72-7"><a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-72-8"><a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a>
+</span><span id="__span-72-9"><a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a><span class="n">STUDENTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Olena"</span><span class="p">,</span> <span class="s2">"Taras"</span><span class="p">,</span> <span class="s2">"Iryna"</span><span class="p">,</span> <span class="s2">"Andrii"</span><span class="p">,</span> <span class="s2">"Marta"</span><span class="p">]</span>
+</span><span id="__span-72-10"><a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a>
+</span><span id="__span-72-11"><a id="__codelineno-72-11" name="__codelineno-72-11" href="#__codelineno-72-11"></a>
+</span><span id="__span-72-12"><a id="__codelineno-72-12" name="__codelineno-72-12" href="#__codelineno-72-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_days</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span><span id="__span-72-13"><a id="__codelineno-72-13" name="__codelineno-72-13" href="#__codelineno-72-13"></a><span class="w">    </span><span class="sd">"""Read number of days from command line, default 5."""</span>
+</span><span id="__span-72-14"><a id="__codelineno-72-14" name="__codelineno-72-14" href="#__codelineno-72-14"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+</span><span id="__span-72-15"><a id="__codelineno-72-15" name="__codelineno-72-15" href="#__codelineno-72-15"></a>        <span class="k">return</span> <span class="mi">5</span>
+</span><span id="__span-72-16"><a id="__codelineno-72-16" name="__codelineno-72-16" href="#__codelineno-72-16"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-72-17"><a id="__codelineno-72-17" name="__codelineno-72-17" href="#__codelineno-72-17"></a>        <span class="n">days</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="__span-72-18"><a id="__codelineno-72-18" name="__codelineno-72-18" href="#__codelineno-72-18"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span><span id="__span-72-19"><a id="__codelineno-72-19" name="__codelineno-72-19" href="#__codelineno-72-19"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">"error: days must be a number, got </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-72-20"><a id="__codelineno-72-20" name="__codelineno-72-20" href="#__codelineno-72-20"></a>    <span class="k">if</span> <span class="n">days</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-72-21"><a id="__codelineno-72-21" name="__codelineno-72-21" href="#__codelineno-72-21"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">"error: days must be positive"</span><span class="p">)</span>
+</span><span id="__span-72-22"><a id="__codelineno-72-22" name="__codelineno-72-22" href="#__codelineno-72-22"></a>    <span class="k">return</span> <span class="n">days</span>
+</span><span id="__span-72-23"><a id="__codelineno-72-23" name="__codelineno-72-23" href="#__codelineno-72-23"></a>
+</span><span id="__span-72-24"><a id="__codelineno-72-24" name="__codelineno-72-24" href="#__codelineno-72-24"></a>
+</span><span id="__span-72-25"><a id="__codelineno-72-25" name="__codelineno-72-25" href="#__codelineno-72-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">school_days</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="n">date</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">date</span><span class="p">]:</span>
+</span><span id="__span-72-26"><a id="__codelineno-72-26" name="__codelineno-72-26" href="#__codelineno-72-26"></a><span class="w">    </span><span class="sd">"""Return count working days (Mon-Fri) starting from start."""</span>
+</span><span id="__span-72-27"><a id="__codelineno-72-27" name="__codelineno-72-27" href="#__codelineno-72-27"></a>    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-72-28"><a id="__codelineno-72-28" name="__codelineno-72-28" href="#__codelineno-72-28"></a>    <span class="n">current</span> <span class="o">=</span> <span class="n">start</span>
+</span><span id="__span-72-29"><a id="__codelineno-72-29" name="__codelineno-72-29" href="#__codelineno-72-29"></a>    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">:</span>
+</span><span id="__span-72-30"><a id="__codelineno-72-30" name="__codelineno-72-30" href="#__codelineno-72-30"></a>        <span class="k">if</span> <span class="n">current</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span><span id="__span-72-31"><a id="__codelineno-72-31" name="__codelineno-72-31" href="#__codelineno-72-31"></a>            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+</span><span id="__span-72-32"><a id="__codelineno-72-32" name="__codelineno-72-32" href="#__codelineno-72-32"></a>        <span class="n">current</span> <span class="o">+=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-72-33"><a id="__codelineno-72-33" name="__codelineno-72-33" href="#__codelineno-72-33"></a>    <span class="k">return</span> <span class="n">result</span>
+</span><span id="__span-72-34"><a id="__codelineno-72-34" name="__codelineno-72-34" href="#__codelineno-72-34"></a>
+</span><span id="__span-72-35"><a id="__codelineno-72-35" name="__codelineno-72-35" href="#__codelineno-72-35"></a>
+</span><span id="__span-72-36"><a id="__codelineno-72-36" name="__codelineno-72-36" href="#__codelineno-72-36"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-72-37"><a id="__codelineno-72-37" name="__codelineno-72-37" href="#__codelineno-72-37"></a>    <span class="n">days</span> <span class="o">=</span> <span class="n">parse_days</span><span class="p">()</span>
+</span><span id="__span-72-38"><a id="__codelineno-72-38" name="__codelineno-72-38" href="#__codelineno-72-38"></a>    <span class="n">report_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"REPORT_DIR"</span><span class="p">,</span> <span class="s2">"reports"</span><span class="p">))</span>
+</span><span id="__span-72-39"><a id="__codelineno-72-39" name="__codelineno-72-39" href="#__codelineno-72-39"></a>    <span class="n">report_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-72-40"><a id="__codelineno-72-40" name="__codelineno-72-40" href="#__codelineno-72-40"></a>
+</span><span id="__span-72-41"><a id="__codelineno-72-41" name="__codelineno-72-41" href="#__codelineno-72-41"></a>    <span class="c1"># Фіксоване зерно: однаковий журнал при кожному запуску</span>
+</span><span id="__span-72-42"><a id="__codelineno-72-42" name="__codelineno-72-42" href="#__codelineno-72-42"></a>    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2026</span><span class="p">)</span>
+</span><span id="__span-72-43"><a id="__codelineno-72-43" name="__codelineno-72-43" href="#__codelineno-72-43"></a>
+</span><span id="__span-72-44"><a id="__codelineno-72-44" name="__codelineno-72-44" href="#__codelineno-72-44"></a>    <span class="n">dates</span> <span class="o">=</span> <span class="n">school_days</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">(),</span> <span class="n">days</span><span class="p">)</span>
+</span><span id="__span-72-45"><a id="__codelineno-72-45" name="__codelineno-72-45" href="#__codelineno-72-45"></a>    <span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">STUDENTS</span><span class="p">}</span>
+</span><span id="__span-72-46"><a id="__codelineno-72-46" name="__codelineno-72-46" href="#__codelineno-72-46"></a>
+</span><span id="__span-72-47"><a id="__codelineno-72-47" name="__codelineno-72-47" href="#__codelineno-72-47"></a>    <span class="n">filename</span> <span class="o">=</span> <span class="n">report_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"journal_</span><span class="si">{</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="si">:</span><span class="s2">%Y%m%d</span><span class="si">}</span><span class="s2">.txt"</span>
+</span><span id="__span-72-48"><a id="__codelineno-72-48" name="__codelineno-72-48" href="#__codelineno-72-48"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-72-49"><a id="__codelineno-72-49" name="__codelineno-72-49" href="#__codelineno-72-49"></a>        <span class="n">header</span> <span class="o">=</span> <span class="s2">"name"</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"</span><span class="si">%d</span><span class="s2">.%m"</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">)</span>
+</span><span id="__span-72-50"><a id="__codelineno-72-50" name="__codelineno-72-50" href="#__codelineno-72-50"></a>        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">header</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-72-51"><a id="__codelineno-72-51" name="__codelineno-72-51" href="#__codelineno-72-51"></a>        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">scores</span> <span class="ow">in</span> <span class="n">grades</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-72-52"><a id="__codelineno-72-52" name="__codelineno-72-52" href="#__codelineno-72-52"></a>            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-72-53"><a id="__codelineno-72-53" name="__codelineno-72-53" href="#__codelineno-72-53"></a>
+</span><span id="__span-72-54"><a id="__codelineno-72-54" name="__codelineno-72-54" href="#__codelineno-72-54"></a>    <span class="n">all_scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">scores</span> <span class="ow">in</span> <span class="n">grades</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">]</span>
+</span><span id="__span-72-55"><a id="__codelineno-72-55" name="__codelineno-72-55" href="#__codelineno-72-55"></a>    <span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">all_scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_scores</span><span class="p">)</span>
+</span><span id="__span-72-56"><a id="__codelineno-72-56" name="__codelineno-72-56" href="#__codelineno-72-56"></a>    <span class="n">spread</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">s</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">all_scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_scores</span><span class="p">))</span>
+</span><span id="__span-72-57"><a id="__codelineno-72-57" name="__codelineno-72-57" href="#__codelineno-72-57"></a>
+</span><span id="__span-72-58"><a id="__codelineno-72-58" name="__codelineno-72-58" href="#__codelineno-72-58"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"period: </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">%d.%m.%Y</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">%d.%m.%Y</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-72-59"><a id="__codelineno-72-59" name="__codelineno-72-59" href="#__codelineno-72-59"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"saved: </span><span class="si">{</span><span class="n">filename</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-72-60"><a id="__codelineno-72-60" name="__codelineno-72-60" href="#__codelineno-72-60"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"mean: </span><span class="si">{</span><span class="n">mean</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, std dev: </span><span class="si">{</span><span class="n">spread</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-72-61"><a id="__codelineno-72-61" name="__codelineno-72-61" href="#__codelineno-72-61"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"best student: </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">grades</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span><span class="w"> </span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="nb">sum</span><span class="p">(</span><span class="n">grades</span><span class="p">[</span><span class="n">n</span><span class="p">]))</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-72-62"><a id="__codelineno-72-62" name="__codelineno-72-62" href="#__codelineno-72-62"></a>
+</span><span id="__span-72-63"><a id="__codelineno-72-63" name="__codelineno-72-63" href="#__codelineno-72-63"></a>
+</span><span id="__span-72-64"><a id="__codelineno-72-64" name="__codelineno-72-64" href="#__codelineno-72-64"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+</span><span id="__span-72-65"><a id="__codelineno-72-65" name="__codelineno-72-65" href="#__codelineno-72-65"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a><span class="nv">REPORT_DIR</span><span class="o">=</span>out<span class="w"> </span>python3<span class="w"> </span>journal.py<span class="w"> </span><span class="m">3</span>
+</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>cat<span class="w"> </span>out/journal_*.txt
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>period: 12.10.2026 - 14.10.2026
+</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>saved: /home/student/projects/out/journal_20261011.txt
+</span><span id="__span-74-3"><a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a>mean: 87.7, std dev: 10.6
+</span><span id="__span-74-4"><a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a>best student: Iryna
+</span><span id="__span-74-5"><a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a>name    12.10 13.10 14.10
+</span><span id="__span-74-6"><a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a>Olena      67    80    92
+</span><span id="__span-74-7"><a id="__codelineno-74-7" name="__codelineno-74-7" href="#__codelineno-74-7"></a>Taras      92    66    74
+</span><span id="__span-74-8"><a id="__codelineno-74-8" name="__codelineno-74-8" href="#__codelineno-74-8"></a>Iryna      98    99    95
+</span><span id="__span-74-9"><a id="__codelineno-74-9" name="__codelineno-74-9" href="#__codelineno-74-9"></a>Andrii     86    96    95
+</span><span id="__span-74-10"><a id="__codelineno-74-10" name="__codelineno-74-10" href="#__codelineno-74-10"></a>Marta      91    97    88
+</span></code></pre></div>
+<p>Кожен модуль робить свою частину: <code>sys</code> — аргументи і вихід з помилкою, <code>os</code> — змінна оточення, <code>pathlib</code> — каталог і шлях до файлу, <code>datetime</code> — дні тижня та форматування, <code>random</code> — дані, <code>math</code> — обчислення.</p>
+<h2 id="_19">Типові помилки<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Помилка</th>
+<th>Що відбувається</th>
+<th>Як правильно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>import datetime</code>, потім <code>datetime.now()</code></td>
+<td><code>AttributeError: module 'datetime' has no attribute 'now'</code></td>
+<td><code>from datetime import datetime</code> або <code>datetime.datetime.now()</code></td>
+</tr>
+<tr>
+<td><code>names = random.shuffle(names)</code></td>
+<td><code>names</code> стає <code>None</code> — <code>shuffle</code> змінює список на місці</td>
+<td><code>random.shuffle(names)</code> без присвоєння</td>
+</tr>
+<tr>
+<td><code>random.randint(0, len(names))</code> як індекс</td>
+<td>інколи <code>IndexError</code>: верхня межа включна</td>
+<td><code>random.choice(names)</code> або <code>randrange(len(names))</code></td>
+</tr>
+<tr>
+<td><code>random</code> для паролів</td>
+<td>значення можна передбачити</td>
+<td>модуль <code>secrets</code></td>
+</tr>
+<tr>
+<td><code>0.1 + 0.2 == 0.3</code></td>
+<td><code>False</code></td>
+<td><code>math.isclose(0.1 + 0.2, 0.3)</code></td>
+</tr>
+<tr>
+<td><code>math.sin(30)</code> для 30 градусів</td>
+<td>результат для 30 <strong>радіан</strong></td>
+<td><code>math.sin(math.radians(30))</code></td>
+</tr>
+<tr>
+<td><code>"data" + "/" + name</code></td>
+<td>ручна склейка шляхів</td>
+<td><code>Path("data") / name</code></td>
+</tr>
+<tr>
+<td><code>os.path</code> у новому коді</td>
+<td>шлях — рядок, функції розкидані по модулях</td>
+<td><code>pathlib.Path</code></td>
+</tr>
+<tr>
+<td><code>int(os.environ["PORT"])</code> без перевірки</td>
+<td><code>KeyError</code>, якщо змінну не задано</td>
+<td><code>int(os.getenv("PORT", "8000"))</code></td>
+</tr>
+<tr>
+<td><code>sys.argv[1]</code> без перевірки довжини</td>
+<td><code>IndexError</code>, якщо аргументів немає</td>
+<td>перевірити <code>len(sys.argv)</code></td>
+</tr>
+<tr>
+<td><code>sys.argv[1] + 1</code></td>
+<td><code>TypeError</code>: аргументи — рядки</td>
+<td><code>int(sys.argv[1]) + 1</code></td>
+</tr>
+<tr>
+<td>Файл <code>random.py</code> у каталозі проєкту</td>
+<td>затінює стандартний модуль (лекція 27)</td>
+<td>інше імʼя файлу</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_20">Підсумок<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><code>math</code></strong>: <code>pi</code>, <code>e</code>, <code>inf</code>; <code>sqrt</code>, <code>log</code>; округлення <code>floor</code>/<code>ceil</code>/<code>trunc</code>; <code>factorial</code>, <code>gcd</code>, <code>comb</code>; кути в радіанах (<code>radians</code>); порівняння <code>float</code> через <code>isclose</code>.</li>
+<li><strong><code>random</code></strong>: <code>random()</code>, <code>randint(a, b)</code> (обидві межі включно), <code>uniform</code>, <code>choice</code>, <code>sample</code> (без повторів), <code>choices</code> (з повторами і вагами), <code>shuffle</code> (на місці); <code>seed</code> для відтворюваності. Для паролів — <code>secrets</code>.</li>
+<li><strong><code>datetime</code></strong>: <code>date</code>, <code>datetime</code>, <code>timedelta</code>; <code>today()</code>/<code>now()</code>; арифметика і порівняння дат; <code>strftime</code> — дата в рядок, <code>strptime</code> — рядок у дату; <code>isoformat</code>/<code>fromisoformat</code>.</li>
+<li><strong><code>os</code></strong>: змінні оточення (<code>os.environ</code>, <code>os.getenv</code>), інформація про систему (<code>os.name</code>, <code>os.cpu_count</code>, <code>os.getpid</code>). Шляхи, файли і каталоги раніше обробляли через <code>os</code>/<code>os.path</code>, тепер — через <code>pathlib</code>: шлях є обʼєктом, усе зібрано в одному класі, код коротший.</li>
+<li><strong><code>sys</code></strong>: <code>sys.argv</code> — аргументи (рядки); <code>sys.exit(code)</code> — завершення з кодом виходу; <code>sys.stdout</code>/<code>sys.stderr</code>/<code>sys.stdin</code>; <code>sys.version_info</code>, <code>sys.executable</code>, <code>sys.path</code>.</li>
+</ul>
+<h2 id="_21">Корисні посилання<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/math.html"><code>math</code> — Mathematical functions</a></li>
+<li><a href="https://docs.python.org/3/library/random.html"><code>random</code> — Generate pseudo-random numbers</a></li>
+<li><a href="https://docs.python.org/3/library/secrets.html"><code>secrets</code> — Generate secure random numbers</a></li>
+<li><a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code> — Basic date and time types</a></li>
+<li><a href="https://docs.python.org/3/library/datetime.html#format-codes"><code>strftime()</code> and <code>strptime()</code> format codes</a></li>
+<li><a href="https://docs.python.org/3/library/os.html"><code>os</code> — Miscellaneous operating system interfaces</a></li>
+<li><a href="https://docs.python.org/3/library/sys.html"><code>sys</code> — System-specific parameters and functions</a></li>
+</ul>
+<h2 id="_22">Домашнє завдання<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>Усі дані — <strong>ваші власні</strong>, латиницею. Для кожного завдання покажіть код, команду запуску і вивід.</p>
+<ol>
+<li>
+<p><strong><code>math</code>.</strong> Напишіть функцію <code>circle_info(radius: float) -&gt; dict</code>, яка повертає довжину кола, площу кола і площу вписаного квадрата. Радіус — номер вашого дня народження. Округліть результати трьома способами (<code>floor</code>, <code>ceil</code>, <code>round</code>) і поясніть різницю. Окремо покажіть, що <code>0.1 * 3 == 0.3</code> дає <code>False</code>, і виправте порівняння.</p>
+</li>
+<li>
+<p><strong><code>math</code>.</strong> Скільки способів вибрати старосту і заступника з вашої групи (порядок важливий) і скільки способів вибрати команду з 3 людей (порядок не важливий)? Обчисліть через <code>math.perm</code> і <code>math.comb</code>, перевірте результат через <code>math.factorial</code>.</p>
+</li>
+<li>
+<p><strong><code>random</code>.</strong> Напишіть програму «Розподіл тем доповідей»: список з 5–8 прізвищ одногрупників (включно з вашим) і список тем. Кожен студент отримує унікальну тему (<code>random.sample</code>), черговість виступів — <code>random.shuffle</code>. Задайте <code>seed</code> рівним вашому року народження і покажіть, що два запуски дають однаковий результат, а без <code>seed</code> — різний.</p>
+</li>
+<li>
+<p><strong><code>random</code>.</strong> Змоделюйте 10 000 кидків двох кубиків і порахуйте, як часто випадає кожна сума від 2 до 12. Виведіть таблицю з відсотками. Яка сума найчастіша і чому?</p>
+</li>
+<li>
+<p><strong><code>datetime</code>.</strong> Програма приймає вашу дату народження рядком у форматі <code>DD.MM.YYYY</code> і виводить: вік у роках, кількість прожитих днів, день тижня, у який ви народилися (<code>%A</code>), скільки днів до наступного дня народження і на який день тижня він припаде. Неправильний формат дати має оброблятися через <code>try</code>/<code>except</code>.</p>
+</li>
+<li>
+<p><strong><code>datetime</code>.</strong> Згенеруйте розклад занять: перша пара — у найближчий понеділок о 08:30, тривалість пари — 1 год 20 хв, перерва — 10 хв. Виведіть час початку і кінця чотирьох пар у форматі <code>HH:MM - HH:MM</code>.</p>
+</li>
+<li>
+<p><strong><code>os</code>.</strong> Напишіть програму <code>env_info.py</code>, яка виводить: імʼя користувача (<code>USER</code>), домашній каталог (<code>HOME</code>), кількість ядер процесора, <code>os.name</code> і PID процесу. Додайте власне налаштування через змінну оточення <code>GREETING_NAME</code> (за замовчуванням — ваше імʼя) та <code>GREETING_TIMES</code> (число, за замовчуванням <code>1</code>): програма вітається вказану кількість разів. Покажіть запуск без змінних, з обома змінними і з <code>GREETING_TIMES=abc</code> (оброблена помилка).</p>
+</li>
+<li>
+<p><strong><code>os</code> + <code>sys</code>.</strong> Напишіть скрипт <code>backup.py &lt;file&gt;</code>, який створює копію файлу з датою в назві в каталозі, заданому змінною оточення <code>BACKUP_DIR</code> (за замовчуванням <code>backups</code>), наприклад <code>notes_20261011_1430.txt</code>. Якщо аргумент не передано або файлу не існує — повідомлення в stderr і <code>sys.exit</code> з кодом <code>1</code> або <code>2</code> відповідно. Покажіть <code>echo $?</code> після кожного з трьох випадків.</p>
+</li>
+<li>
+<p><strong><code>sys</code>.</strong> Напишіть фільтр <code>stats.py</code>, який читає числа з <code>sys.stdin</code> (по одному в рядку) і виводить кількість, мінімум, максимум, середнє і медіану. Нечислові рядки пропускайте з попередженням у stderr. Покажіть запуск з конвеєром: <code>printf "5\n3\nabc\n10\n" | python3 stats.py</code> і з перенаправленням stderr у файл: <code>... 2&gt; errors.txt</code>.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+  <hr>
+  <p><em>Знайшли помилку чи бажаєте додати інформацію, щоб покращити курс? <a href="https://github.com/kurotych/programming-python-1sem/issues">Створіть issue на GitHub</a></em></p>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Куротич Анатолій. Всі права захищені.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/kurotych" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>
